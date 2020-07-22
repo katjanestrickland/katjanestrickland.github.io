@@ -1,6 +1,9 @@
 name: "Kat Wilson"
 navbar:
   title: "Kat Wilson"
-left:
-  - text: "Home"
-href: index.html
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Stuff"
+      href: new.html
+output_dir: "."
