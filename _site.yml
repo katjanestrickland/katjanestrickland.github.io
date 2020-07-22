@@ -2,8 +2,8 @@ name: "Kat Wilson"
 navbar:
   title: "Kat Wilson"
   left:
-    - text: "Home"
-      href: index.html
     - text: "CV"
+      href: new.html
+    - text: ""
       href: new.html
 output_dir: "."
