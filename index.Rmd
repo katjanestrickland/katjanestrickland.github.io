@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-Hi there. My name is Kat and I am a PhD student at the University of Pennsylvania studying Quantitative Methods. I am interested in how applied statistics and data science can inform business processes and policy research.
+Hi there. My name is Kat and I am a PhD student at the University of Pennsylvania studying Quantitative Methods. My work focuses on how applied statistics and data science can inform business processes and policy research.
 
 I also like to play guitar.
 

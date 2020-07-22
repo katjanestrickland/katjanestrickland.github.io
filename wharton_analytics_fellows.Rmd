@@ -42,7 +42,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 
 
 
-Using a popular <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> Kaggle dataset </a> on trending videos from YouTube, I use an unsupervised learning algorithm to find trends on over 9,000 trending videos. Clustering results may inform sales team on pricing strategies for ads, or the product team to better understand content creation. 
+Using a popular <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> Kaggle dataset </a> on trending videos from YouTube, I build an unsupervised learning algorithm to find trends on over 6,000 trending videos. Clustering results inform sales team on pricing strategies for ads, or the product team to better understand content creation. 
 
 
 ### Technical
@@ -111,7 +111,7 @@ Using psychometric and performance data from an MLB team, we analyzed how a play
 
 ### Technical
 
-Data cleaning: tidyverse
+Data cleaning: tidyverse </br>
 Text Mining: tm package, tidytext
 Clustering: hclust, PCA
 
