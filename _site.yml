@@ -3,5 +3,13 @@ navbar:
   title: "Kat Wilson"
   left:
     - text: "CV"
-      href: new.html
+      href: cv.html
+    - text: "Wharton Analytics Fellows"
+      href: wharton_analytics_fellows.html
+    - text: "Data Vis"
+      href: data_vis.html
+    - text: "Machine Learning"
+      href: machine_learning.html
+    - text: "Causal Inference"
+      href: causal_inference.html
 output_dir: "."

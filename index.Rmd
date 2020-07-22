@@ -7,4 +7,32 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Here is my website
+<style type="text/css">
+.title {
+  display: none;
+}
+
+#getting-started img {
+  margin-right: 1px;
+}
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
+
+
+
+Hi there. My name is Kat and I am a PhD student at the University of Pennsylvania studying Quantitative Methods. I am interested in how applied statistics and data science can inform business processes and policy research.
+
+I also like to play guitar.
+
+
+This site is a working portfolio. You can also read my writing on [Towards Data Science](https://towardsdatascience.com/@katjanewilson), see some code on [GitHub](https://github.com/katjanewilson), or check out my [LinkedIn Page](https://www.linkedin.com/in/kat-wilson-920256139/)
+
+Sample projects are featured in the tabs above.
+
+#### Contact
+
+kjanewil at upenn.edu
+

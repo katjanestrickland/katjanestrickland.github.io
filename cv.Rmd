@@ -1,0 +1,57 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<style type="text/css">
+.title {
+  display: none;
+}
+
+#getting-started img {
+  margin-right: 1px;
+}
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
+
+
+#### Education
+
+current PhD Student - Quantitative Methods (Penn)- (full funding via Dean's Fellowship)
+
+Masters Degree- Quantitative Methods (UT Austin)
+
+Bachelors Degree- Business (Notre Dame)
+
+#### Research Interests
+
+My work focuses on the methodological considerations of 
+advanced statistics and analytics, particularly causal inference
+and machine learning. For instance, how do the results of an analysis generalize to a larger
+population of interest? How can sampling and stratification approaches improve the rigor or such
+methods? I am also interested in the application of data science methods and advanced analytics
+for industry use (see Wharton Analytics Fellows).
+
+#### Teaching
+
+Graduate Instructor - (UT Austin)
+
+Programming Instructor (Khan Lab School, Wharton Moneyball Academy)
+
+Teacher (Americorps New York City Teaching Fellows, KIPP)
+
+#### Technical Skills
+
+Back End Data Analysis: R, Python, SQL </br>
+Front End Visualization: JavaScript (D3.js), CSS, HTML
+
+#### Methodological Skills
+
+Statistics, Data Visualization, Machine Learning, Data Mining, Causal Inference, Psychometrics

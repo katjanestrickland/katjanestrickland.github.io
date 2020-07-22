@@ -1,0 +1,30 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<style type="text/css">
+.title {
+  display: none;
+}
+
+#getting-started img {
+  margin-right: 1px;
+}
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
+
+#### Overview
+
+[Wharton Analytics Fellows](https://wca.wharton.upenn.edu/students/analytics-fellows/) is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on analytics solutions for business practice. 
+
+Sample projects are featured below
+
+
