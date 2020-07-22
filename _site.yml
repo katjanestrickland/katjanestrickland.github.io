@@ -1,0 +1,6 @@
+name: "Kat Wilson"
+navbar:
+  title: "Kat Wilson"
+left:
+  - text: "Home"
+href: index.html
