@@ -4,6 +4,4 @@ navbar:
   left:
     - text: "CV"
       href: new.html
-    - text: ""
-      href: new.html
 output_dir: "."
