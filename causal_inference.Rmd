@@ -7,3 +7,25 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+<style type="text/css">
+.title {
+  display: none;
+}
+
+#getting-started img {
+  margin-right: 1px;
+}
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
+
+
+#### Overview
+
+Research with my advisor focuses on the application of causal inference to policy
+research, such as the generalizability of the method in education circles.
+
+Sample projects featured below.

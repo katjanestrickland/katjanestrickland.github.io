@@ -28,7 +28,9 @@ Hi there. My name is Kat and I am a PhD student at the University of Pennsylvani
 I also like to play guitar.
 
 
-This site is a working portfolio. You can also read my writing on [Towards Data Science](https://towardsdatascience.com/@katjanewilson), see some code on [GitHub](https://github.com/katjanewilson), or check out my [LinkedIn Page](https://www.linkedin.com/in/kat-wilson-920256139/)
+This site is a working portfolio. You can also read my writing on<a href = "https://towardsdatascience.com/@katjanewilson" target = "_blank"> Towards Data Science </a>, see some code on
+<a href = "https://github.com/katjanewilson" target = "_blank"> GitHub </a>, or check out my 
+<a href = "https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank"> LinkedIn Page</a>.
 
 Sample projects are featured in the tabs above.
 
