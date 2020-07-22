@@ -65,7 +65,8 @@ df <- data %>%
 df<- scale(df)
 library(factoextra)
 distance <- get_dist(df)
-fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
+plot<- fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
+plot
 
 #to determine the optimal number of clusters
 set.seed(123)

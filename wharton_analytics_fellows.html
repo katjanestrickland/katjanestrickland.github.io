@@ -427,7 +427,8 @@ df &lt;- data %&gt;%
 df&lt;- scale(df)
 library(factoextra)
 distance &lt;- get_dist(df)
-fviz_dist(distance, gradient = list(low = &quot;#00AFBB&quot;, mid = &quot;white&quot;, high = &quot;#FC4E07&quot;))</code></pre>
+plot&lt;- fviz_dist(distance, gradient = list(low = &quot;#00AFBB&quot;, mid = &quot;white&quot;, high = &quot;#FC4E07&quot;))
+plot</code></pre>
 <p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <pre class="r"><code>#to determine the optimal number of clusters
 set.seed(123)
