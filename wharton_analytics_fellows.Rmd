@@ -8,7 +8,7 @@ output:
     collapsed: false
     number_sections: false
     toc_depth: 1
-    #code_folding: hide
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
@@ -38,49 +38,80 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 
 
 
-# YouTube clustering
-
-2018 | 7 | 23 Last compiled: `r Sys.Date()`
-
-Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left. 
-
-##### Second level header
-
-You can add more headers by adding more hashtags. These won't be put into the table of contents
+# YouTube
 
 
-2018 | 7 | 23 Last compiled: `r Sys.Date()`
 
-Sample Code
+Using a popular <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> Kaggle dataset </a> on trending videos from YouTube, I use an unsupervised learning algorithm to find trends on over 9,000 trending videos. Clustering results may inform sales team on pricing strategies for ads, or the product team to better understand content creation. 
 
-```{r}
-samples <- rnorm(100, mean=0, sd=1)
-hist(samples)
+
+### Technical
+
+Data cleaning: tidyverse </br>
+Clustering: factoextra
+
+### Sample
+
+Sample code and charts below. See <a href = "https://github.com/katjanewilson/YouTube" target = "_blank"> GitHub repo </a> for full code and analysis.
+
+```{r echo=TRUE}
+library(tidyverse)
+load(file = "data/data1.Rdata")
+df <- data %>%
+  select(average_comments, average_dislikes,
+         average_likes, average_views)
+
+#scale the data
+df<- scale(df)
+library(factoextra)
+distance <- get_dist(df)
+fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
+
+#to determine the optimal number of clusters
+set.seed(123)
+
+#function to compute total within-cluster sum of square 
+wss <- function(k) {
+  kmeans(df, k, nstart = 10 )$tot.withinss
+}
+k.values <- 1:15
+
+# extract wss
+wss_values <- map_dbl(k.values, wss)
+
+plot(k.values, wss_values,
+     type="b", pch = 19, frame = FALSE, 
+     xlab="Number of clusters",
+     ylab="Total Sum of Squares")
+
+k2 <- kmeans(df[,(1:3)], centers = 3, nstart = 25)
+
+df %>%
+  as_tibble() %>%
+  mutate(cluster = k2$cluster,
+         names = row.names(data)) %>%
+  ggplot(aes(average_views, average_comments, color = factor(cluster), label = names)) +
+  geom_text(alpha = .7) +
+  ggtitle("Clusters") +
+  ylab("Average Comments" )+
+  xlab("Average Views") +
+  theme(legend.position = "none") +
+  theme_minimal()
 ```
 
 
 
-# MLB Text Analysis
 
-2018 | 7 | 23 Last compiled: `r Sys.Date()`
-
-Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left. 
-
-##### Second level header
-
-You can add more headers by adding more hashtags. These won't be put into the table of contents
+# MLB
 
 
-2018 | 7 | 23 Last compiled: `r Sys.Date()`
-
-Sample Code
-
-```{r}
-samples <- rnorm(100, mean=0, sd=1)
-hist(samples)
-```
+Using psychometric and performance data from an MLB team, we analyzed how a player's psych data influences their performance statistics at the major league level.
 
 
+### Technical
 
+Data cleaning: tidyverse
+Text Mining: tm package, tidytext
+Clustering: hclust, PCA
 
-
+### Sample
