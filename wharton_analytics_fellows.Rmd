@@ -1,11 +1,20 @@
+
 ---
 title: ""
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
+
 
 <style type="text/css">
 .title {
@@ -21,10 +30,57 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-#### Overview
+# Overview
 
-[Wharton Analytics Fellows](https://wca.wharton.upenn.edu/students/analytics-fellows/) is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on analytics solutions for business practice. 
 
-Sample projects are featured below
+
+<a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on analytics solutions for business practice. 
+
+
+
+# YouTube clustering
+
+2018 | 7 | 23 Last compiled: `r Sys.Date()`
+
+Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left. 
+
+##### Second level header
+
+You can add more headers by adding more hashtags. These won't be put into the table of contents
+
+
+2018 | 7 | 23 Last compiled: `r Sys.Date()`
+
+Sample Code
+
+```{r}
+samples <- rnorm(100, mean=0, sd=1)
+hist(samples)
+```
+
+
+
+# MLB Text Analysis
+
+2018 | 7 | 23 Last compiled: `r Sys.Date()`
+
+Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left. 
+
+##### Second level header
+
+You can add more headers by adding more hashtags. These won't be put into the table of contents
+
+
+2018 | 7 | 23 Last compiled: `r Sys.Date()`
+
+Sample Code
+
+```{r}
+samples <- rnorm(100, mean=0, sd=1)
+hist(samples)
+```
+
+
+
 
 
