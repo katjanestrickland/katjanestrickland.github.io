@@ -1,6 +1,13 @@
 ---
 title: ""
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +28,47 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
+# Overview
 
-#### Overview
+Using data from the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset Challenge, I investigate how asymmetric loss factors into sample size selection in the supervised machine learning algorithm, random forest. Analysis on cost-ratios can help policy stakeholders to evaluate the costs of mis-classifications in either direction.
 
-Code from projects featuring ML techniques
+
+### Technical
+
+Data cleaning: tidyverse </br>
+Random Forest: randomforest() package
+
+### Sample
+
+Sample code and charts below. See <a href = "https://github.com/katjanewilson/COVID-19-Random-Forest.git" target = "_blank"> GitHub repo </a> for full code and analysis.
+
+```{r echo=TRUE, message=FALSE}
+#install.packages("randomForest")
+#install.packages("kableExtra")
+library(randomForest)
+library(kableExtra)
+load("data/coronavirus_data.Rdata")
+rf <- randomForest(outcome~Sex + Age + Province + Source +
+                    Order, data=coronavirus_data,
+                   importance = TRUE,
+                   sampsize = c(21,12,26))
+dataframe <- as.data.frame(rf$confusion)
+dataframe %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+###variable importance plots
+par(mfrow = c(2,2))
+
+varImpPlot(rf, class = 1, type = 1, scale = FALSE, 
+           main = "Fig 1.1: Forecasting Importance Plot for Deceased")
+varImpPlot(rf, type = 1, scale = FALSE, 
+           main = "Fig 1.2: Forecasting Importance Plot Averaged for All")
+varImpPlot(rf, class = 2, type = 1, scale = FALSE, 
+           main = "Fig 1.3: Forecasting Importance Plot for Released")
+varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
+           main = "Fig 1.4: Forecasting Importance Plot for Isolated")
+
+```
+
+

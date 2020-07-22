@@ -24,8 +24,3 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 #### Overview
-
-Research with my advisor focuses on the application of causal inference to policy
-research, such as the generalizability of the method in education circles.
-
-Sample projects featured below.

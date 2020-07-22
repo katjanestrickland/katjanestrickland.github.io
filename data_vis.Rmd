@@ -24,4 +24,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Overview
 
-Sample projects on data visualization using the JavaScript d3.js library
+
+
+
+```{undefined eval=FALSE, include=FALSE}
+
+library(r2d3)
+library(tidyverse)
+r2d3(data = read.csv("data/small_total_data.csv"), d3_version = 4, script = "script_1.js")
+
+```
+
+
