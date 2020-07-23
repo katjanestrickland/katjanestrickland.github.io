@@ -29,11 +29,7 @@ machine learning for business processes and policy research.
 I also like to play guitar.
 
 
-This site is a working portfolio. You can also read my writing on<a href = "https://towardsdatascience.com/@katjanewilson" target = "_blank"> Towards Data Science </a>, see some code on
-<a href = "https://github.com/katjanewilson" target = "_blank"> GitHub </a>, or check out my 
-<a href = "https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank"> LinkedIn Page</a>.
-
-Sample projects are featured in the tabs above.
+This site is a working portfolio. Sample projects are featured in the tabs above.
 
 #### Contact
 
