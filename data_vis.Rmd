@@ -33,6 +33,8 @@ Data from the <a href = "https://developer.spotify.com/documentation/web-api/" t
 
 ### Technical
 
+Scraping: Python (BeautifulSoup) </br>
+Data Cleaning: tidyverse </br>
 Data visualization: D3.js
 
 ### Sample
