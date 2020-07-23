@@ -1,0 +1,202 @@
+---
+title: "Why Listen to Live Albums"
+output:
+  html_document: default
+  pdf_document: default
+  css: css.css
+---
+
+<h3 id = "updates and motions2"> Studio and Live Applause </h3>
+
+<body id = "updates and motions">
+
+<div class = "container updates">
+ <div class = "row updates">
+ <div id = "chart-area-updates2"></div>
+  </div>
+ <select id="selectButton"></select>
+</div>
+ <p id = "clickingtag"> Choose an artist </p>
+ <svg id = "1"></svg>
+</div>
+
+
+```{r setupupdate00}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(r2d3)
+library(tidyverse)
+
+r2d3(data = read.csv("data/small_total_data.csv"), d3_version = 4, script = "chart_update_4_data.js")
+
+```
+
+<h3 id = "updates and motions2"> Slope Plots recreation </h3>
+
+<body id = "updates and motions">
+
+<div class = "container updates">
+ <div class = "row updates">
+ <div id = "chart-area-updates3"></div>
+</div>
+
+
+```{r heatmap}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(r2d3)
+library(tidyverse)
+
+r2d3(data = read.csv("mm.csv"), d3_version = 4, script = "chart_update_5_data.js")
+
+```
+
+
+<h3 id = "updates On data "> Updates On data svg elements </h3>
+
+<body id = "first first">
+
+<div class = "container000">
+ <div class = "row000">
+ <div id = "chart-area000"></div>
+ <select id = "selectButton"> </select>
+ <svg id = "1"></svg>
+</div>
+
+
+```{r setup000}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(r2d3)
+library(tidyverse)
+
+
+r2d3(d3_version = 4, script = "d3_updates_data.js")
+
+```
+
+
+<h3 id = "first first"> First First svg elements </h3>
+
+<body id = "first first">
+
+<div class = "container00">
+ <div class = "row00">
+ <div id = "chart-area00"></div>
+ <select id = "selectButton"> </select>
+ <svg id = "1"></svg>
+</div>
+
+
+```{r setup00}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(r2d3)
+library(tidyverse)
+
+
+r2d3(data = read.csv("data/cash_small.csv"), d3_version = 4, script = "d3_book_with_data_scatter.js")
+
+```
+
+
+<h3 id = "first"> First svg elements </h3>
+
+<body id = "first">
+
+<div class = "container0">
+ <div class = "row0">
+ <div id = "chart-area0"></div>
+ <select id = "selectButton"> </select>
+ <svg id = "1"></svg>
+</div>
+
+
+```{r setup0}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(r2d3)
+library(tidyverse)
+
+
+r2d3(data = read.csv("data/cash_small.csv"), d3_version = 4, script = "d3_book_with_data.js")
+
+```
+
+
+
+
+
+
+<h3 id = "second"> Second svg elements </h3>
+
+<body id = "second">
+
+<div class = "container1">
+ <div class = "row1">
+ <div id = "chart-area1"></div>
+ <select id = "selectButton"> </select>
+ <svg id = "1"></svg>
+</div>
+
+
+```{r setup}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(r2d3)
+library(tidyverse)
+
+
+r2d3(data = read.csv("data/cash_small.csv"), d3_version = 4, script = "d3_book_with_data_barplot.js")
+
+```
+
+
+
+
+<h3 id = "third"> third svg elements </h3>
+
+<body id = "third">
+
+<div class = "container2">
+ <div class = "row2">
+ <div id = "chart-area"></div>
+ <svg id = "2"></svg>
+</div>
+
+
+```{r setup2}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+library(r2d3)
+library(tidyverse)
+
+r2d3(data = read.csv("data/cash.csv"), d3_version = 4, script = "scatterplot.js")
+
+```
+
+
+
+
+
