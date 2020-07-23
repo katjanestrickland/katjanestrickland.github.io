@@ -30,14 +30,16 @@ Masters Degree- Quantitative Methods (UT Austin)
 
 Bachelors Degree- Business (Notre Dame)
 
-#### Research Interests
+#### Research Area
 
 My work focuses on the methodological considerations of 
 advanced statistics and analytics, particularly those related to causal inference
-and machine learning. For instance, how do the results of an analysis generalize to a larger
-population of interest? How can sampling and stratification approaches improve the rigor and robustness of causal inference? How can causal inference methods improve the reliability of machine learning methods? 
+and machine learning. For instance, how well do the results of an analysis generalize to a larger
+population of interest? What sampling and stratification approaches improve the rigor and robustness of causal inference? In what ways can causal inference methods improve the reliability of machine learning methods? 
 
 </br>I am also interested in the application of data science methods and advanced analytics in industry (see Wharton Analytics Fellows).
+
+</br>
 
 #### Technical
 
