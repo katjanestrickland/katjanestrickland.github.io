@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 </style>
 
-<div class="row" style="padding-top: 30px;">
+<div class="row" style="padding-top: 50px;">
 <div class="col-sm-6">
 
 
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 current PhD Student - Quantitative Methods (Penn)- (full funding via Dean's Fellowship)
 
-Masters Degree- Quantitative Methods (UT Austin)
+Masters Degree- Quantitative Methods (UT Austin)- (full funding)
 
 Bachelors Degree- Business (Notre Dame)
 
@@ -35,20 +35,20 @@ Bachelors Degree- Business (Notre Dame)
 My work focuses on the methodological considerations of 
 advanced statistics and analytics, particularly those related to causal inference
 and machine learning. For instance, how well do the results of an analysis generalize to a larger
-population of interest? What sampling and stratification approaches improve the rigor and robustness of causal inference? In what ways can causal inference methods improve the reliability of machine learning methods? 
+population of interest? How can sampling and stratification approaches improve the robustness of causal inference estimation? What are the applications of causal inference methods for machine learning? 
 
-</br>I am also interested in the application of data science methods and advanced analytics in industry (see Wharton Analytics Fellows).
+</br>I am also interested in the practical application of data science and advanced analytics in industry (see Wharton Analytics Fellows).
 
 </br>
 
 #### Technical
 
-Back End Data Analysis: R, Python, SQL </br>
+Back End Data Analysis: Python, R, SQL </br>
 Front End Visualization: JavaScript (D3.js), CSS, HTML
 
 #### Methodological
 
-Statistics, Data Visualization, Machine Learning, Data Mining, Causal Inference, Psychometrics
+Statistics, Causal Inference, Machine Learning, Data Mining, Data Visualization, Psychometrics
 
 #### Teaching
 

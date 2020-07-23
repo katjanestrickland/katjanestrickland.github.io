@@ -18,12 +18,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 </style>
 
-<div class="row" style="padding-top: 30px;">
+<div class="row" style="padding-top: 50px;">
 <div class="col-sm-6">
 
 
 
-Hi there. My name is Kat and I am a PhD student at the University of Pennsylvania studying Quantitative Methods. My work focuses on how applied statistics and data science can inform business processes and policy research.
+Hi there. My name is Kat and I am a PhD student at the University of Pennsylvania studying Quantitative Methods. My work focuses on the use of statistics, data science, and
+machine learning for business processes and policy research.
 
 I also like to play guitar.
 

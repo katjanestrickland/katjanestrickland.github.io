@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Overview
 
-Using data from the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset Challenge, I investigate how asymmetric loss factors into sample size selection in the supervised machine learning algorithm, random forest. Analysis on cost-ratios can help policy stakeholders to evaluate the costs of mis-classifications in either direction.
+With data from the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset Challenge, I investigate how asymmetric loss factors into sample size selection in the supervised machine learning algorithm, random forest. Analysis on cost-ratios can help policy stakeholders to evaluate the ethical costs of mis-classification.
 
 
 ### Technical

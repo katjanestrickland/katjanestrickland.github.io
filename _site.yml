@@ -12,4 +12,6 @@ navbar:
       href: machine_learning.html
     - text: "Causal Inference"
       href: causal_inference.html
+    - text: "Other Projects"
+      href: other.html
 output_dir: "."
