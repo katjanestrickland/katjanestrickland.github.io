@@ -36,9 +36,9 @@ kjanewil at upenn.edu
 
 <section id="social-pane" class="row text-center social">
 
-<a href="https://github.com/katjanewilson"><i class="fa fa-github" aria-hidden="true"></i> </a>
+<a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i> </a>
 
-<a href="https://www.linkedin.com/in/kat-wilson-920256139/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+<a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 
-<a href="https://towardsdatascience.com/@katjanewilson/"><i class="fa fa-medium" aria-hidden="true"></i></a>
+<a href="https://towardsdatascience.com/@katjanewilson/" target = "_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
 </section>
