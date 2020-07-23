@@ -112,7 +112,9 @@ Looking for any edge above the competitor, MLB teams have now turned to psychome
 ### Technical
 
 Data cleaning: tidyverse </br>
-Text Mining: tm package, tidytext
+Text Mining: tm package, tidytext </br>
 Clustering: hclust, PCA
 
 ### Sample
+
+Project in Process
