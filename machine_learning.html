@@ -367,6 +367,9 @@ div.tocify {
 <li>
   <a href="causal_inference.html">Causal Inference</a>
 </li>
+<li>
+  <a href="other.html">Other Projects</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -404,9 +407,9 @@ div.tocify {
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p>Using data from the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset Challenge, I investigate how asymmetric loss factors into sample size selection in the supervised machine learning algorithm, random forest. Analysis on cost-ratios can help policy stakeholders to evaluate the costs of mis-classifications in either direction.</p>
+<div id="asymmetric-costs-in-random-forest" class="section level1">
+<h1>Asymmetric Costs in Random Forest</h1>
+<p>One topic central to the debate around ethical use of algorithm is that of mis-classification costs. By building in asymmetric costs through sampling, maching learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry in the context of a supervised learning algorithm. This particular random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
 <div id="technical" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> Random Forest: randomforest() package</p>
@@ -461,13 +464,13 @@ class.error
 </tr>
 <tr>
 <td style="text-align:right;">
-71
+78
 </td>
 <td style="text-align:right;">
 236
 </td>
 <td style="text-align:right;">
-1506
+1499
 </td>
 <td style="text-align:right;">
 0.8698290
@@ -478,13 +481,13 @@ class.error
 11
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-261
+260
 </td>
 <td style="text-align:right;">
-0.0404412
+0.0441176
 </td>
 </tr>
 </tbody>

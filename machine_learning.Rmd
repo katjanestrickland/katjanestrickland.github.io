@@ -28,9 +28,9 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-# Overview
+# Asymmetric Costs in Random Forest
 
-With data from the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset Challenge, I investigate how asymmetric loss factors into sample size selection in the supervised machine learning algorithm, random forest. Analysis on cost-ratios can help policy stakeholders to evaluate the ethical costs of mis-classification.
+One topic central to the debate around ethical use of algorithm is that of mis-classification costs. By building in asymmetric costs through sampling, maching learning engineers can take heed of policy makers' desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry in the context of a supervised learning algorithm. This particular random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.
 
 
 ### Technical
