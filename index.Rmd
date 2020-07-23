@@ -28,10 +28,17 @@ machine learning for business processes and policy research.
 
 I also like to play guitar.
 
-
 This site is a working portfolio. Sample projects are featured in the tabs above.
 
 #### Contact
 
 kjanewil at upenn.edu
 
+<section id="social-pane" class="row text-center social">
+
+<a href="https://github.com/katjanewilson"><i class="fa fa-github" aria-hidden="true"></i> </a>
+
+<a href="https://www.linkedin.com/in/kat-wilson-920256139/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+
+<a href="https://towardsdatascience.com/@katjanewilson/"><i class="fa fa-medium" aria-hidden="true"></i></a>
+</section>

@@ -14,13 +14,4 @@ navbar:
       href: causal_inference.html
     - text: "Other Projects"
       href: other.html
-    - text: ""
-      icon: fa-github
-      href: "https://github.com/katjanewilson"
-    - text: ""
-      icon: fa-medium
-      href: "https://towardsdatascience.com/@katjanewilson"
-    - text: ""
-      icon: fa-linkedin
-      href: "https://www.linkedin.com/in/kat-wilson-920256139/"
 output_dir: "."
