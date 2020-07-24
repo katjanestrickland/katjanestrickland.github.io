@@ -23,8 +23,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### About
 
-I am a PhD student at the University of Pennsylvania studying Quantitative Methods. My work focuses on the use of statistics, data science, and
-machine learning for business processes and policy research.
+I am a PhD student at the University of Pennsylvania in Quantitative Methods, focusing on the use of statistics, data science, and
+machine learning for business decision making and policy research.
 
 I also like to play guitar.
 

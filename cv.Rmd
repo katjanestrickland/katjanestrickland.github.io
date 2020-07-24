@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Education
 
-current PhD Student - Quantitative Methods (Penn)- (full funding via Dean's Fellowship)
+current PhD Student - <a href = "https://catalog.upenn.edu/graduate/programs/quantitative-methods-phd/" target = "_blank"> Quantitative Methods</a> (Penn)- (full funding via Dean's Fellowship)
 
 Masters Degree- Quantitative Methods (UT Austin)- (full funding)
 
