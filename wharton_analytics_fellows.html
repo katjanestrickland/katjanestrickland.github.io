@@ -26,6 +26,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -369,6 +371,27 @@ div.tocify {
 <li>
   <a href="other.html">Other Projects</a>
 </li>
+<li>
+  <a href="https://github.com/katjanewilson">
+    <span class="fa fa-github"></span>
+     
+    
+  </a>
+</li>
+<li>
+  <a href="https://towardsdatascience.com/@katjanewilson">
+    <span class="fa fa-medium"></span>
+     
+    
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/kat-wilson-920256139/">
+    <span class="fa fa-linkedin"></span>
+     
+    
+  </a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -408,7 +431,7 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on analytics solutions for business practice.</p>
+<p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on analytics solutions for business practice. Samples from projects where I served as a Technical Lead are below:</p>
 </div>
 <div id="youtube" class="section level1">
 <h1>YouTube</h1>
@@ -421,6 +444,8 @@ div.tocify {
 <h3>Sample</h3>
 <p>Sample code and charts below. See <a href = "https://github.com/katjanewilson/YouTube" target = "_blank"> GitHub repo </a> for full code and analysis.</p>
 <pre class="r"><code>library(tidyverse)
+#install.packages(&quot;plotly&quot;)
+library(plotly)
 load(file = &quot;data/data1.Rdata&quot;)
 df &lt;- data %&gt;%
   select(average_comments, average_dislikes,
