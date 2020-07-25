@@ -21,10 +21,11 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="row" style="padding-top: 90px;">
 <div class="col-sm-6">
 
-*The real voyage of discovery consists not in seeking new landscapes,
-            but in having new eyes*
 
 </br>
+
+*The real voyage of discovery consists not in seeking new landscapes,
+            but in having new eyes*
 
 #### Music
 

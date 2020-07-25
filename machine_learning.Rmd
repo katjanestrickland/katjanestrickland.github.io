@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "this"
 output:
   html_document:
     toc: true
@@ -13,7 +13,11 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
 <style type="text/css">
 .title {
   display: none;
@@ -42,20 +46,50 @@ Random Forest: randomforest() package
 
 Sample code and charts below. See <a href = "https://github.com/katjanewilson/COVID-19-Random-Forest.git" target = "_blank"> GitHub repo </a> for full code and analysis.
 
+
+
 ```{r echo=TRUE, message=FALSE}
 #install.packages("randomForest")
 #install.packages("kableExtra")
 library(randomForest)
 library(kableExtra)
+library(tidyverse)
 load("data/coronavirus_data.Rdata")
 rf <- randomForest(outcome~Sex + Age + Province + Source +
                     Order, data=coronavirus_data,
                    importance = TRUE,
                    sampsize = c(21,12,26))
 dataframe <- as.data.frame(rf$confusion)
-dataframe %>%
-  kable() %>%
-  kable_styling(bootstrap_options = c("striped", "hover"))
+names(dataframe)[1] <- "Outcome1"
+names(dataframe)[2] <- "Outcome2"
+names(dataframe)[3] <- "Outcome3"
+names(dataframe)[4] <- "Classification Error"
+dataframe <- dataframe %>%
+  mutate(`Classification Error` = round(`Classification Error`, 2))
+dataframe <- dataframe %>%
+  mutate(`Classification Error` = cell_spec(`Classification Error`, "html", color = ifelse(`Classification Error`>
+                                                     0.5, "green",
+                                                   "black"))) %>%
+  mutate_if(is.numeric, function(x) {
+    cell_spec(x, bold = T)
+  }) %>%
+  mutate(position = c("top", "top", "top"),
+         text = c("text about the cost ratio", "text about the cost ratio", "text about the cost ratio"),
+         name = c("0.19", "0.87", "0.04"))
+
+dataframe$`Classification Error` <- cell_spec(
+  dataframe$name,
+  popover = spec_popover(
+    content = dataframe$text,
+    title = NULL,  
+    position = dataframe$position
+  ))
+dataframe <- dataframe %>%
+  select(Outcome1, Outcome2, Outcome3, `Classification Error`)
+kable(dataframe, escape = FALSE) %>%
+  kable_styling("striped", full_width = FALSE)
+
+
 
 ###variable importance plots
 par(mfrow = c(2,2))
@@ -70,5 +104,7 @@ varImpPlot(rf, class = 3, type = 1, scale = FALSE,
            main = "Fig 1.4: Forecasting Importance Plot for Isolated")
 
 ```
+
+</script>
 
 

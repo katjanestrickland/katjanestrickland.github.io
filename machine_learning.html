@@ -11,7 +11,7 @@
 
 
 
-<title>machine_learning.utf8</title>
+<title>this</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -413,10 +413,16 @@ div.tocify {
 
 
 
+<h1 class="title toc-ignore">this</h1>
 
 </div>
 
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
 <style type="text/css">
 .title {
   display: none;
@@ -444,73 +450,99 @@ div.tocify {
 #install.packages(&quot;kableExtra&quot;)
 library(randomForest)
 library(kableExtra)
+library(tidyverse)
 load(&quot;data/coronavirus_data.Rdata&quot;)
 rf &lt;- randomForest(outcome~Sex + Age + Province + Source +
                     Order, data=coronavirus_data,
                    importance = TRUE,
                    sampsize = c(21,12,26))
 dataframe &lt;- as.data.frame(rf$confusion)
-dataframe %&gt;%
-  kable() %&gt;%
-  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;))</code></pre>
-<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+names(dataframe)[1] &lt;- &quot;Outcome1&quot;
+names(dataframe)[2] &lt;- &quot;Outcome2&quot;
+names(dataframe)[3] &lt;- &quot;Outcome3&quot;
+names(dataframe)[4] &lt;- &quot;Classification Error&quot;
+dataframe &lt;- dataframe %&gt;%
+  mutate(`Classification Error` = round(`Classification Error`, 2))
+dataframe &lt;- dataframe %&gt;%
+  mutate(`Classification Error` = cell_spec(`Classification Error`, &quot;html&quot;, color = ifelse(`Classification Error`&gt;
+                                                     0.5, &quot;green&quot;,
+                                                   &quot;black&quot;))) %&gt;%
+  mutate_if(is.numeric, function(x) {
+    cell_spec(x, bold = T)
+  }) %&gt;%
+  mutate(position = c(&quot;top&quot;, &quot;top&quot;, &quot;top&quot;),
+         text = c(&quot;text about the cost ratio&quot;, &quot;text about the cost ratio&quot;, &quot;text about the cost ratio&quot;),
+         name = c(&quot;0.19&quot;, &quot;0.87&quot;, &quot;0.04&quot;))
+
+dataframe$`Classification Error` &lt;- cell_spec(
+  dataframe$name,
+  popover = spec_popover(
+    content = dataframe$text,
+    title = NULL,  
+    position = dataframe$position
+  ))
+dataframe &lt;- dataframe %&gt;%
+  select(Outcome1, Outcome2, Outcome3, `Classification Error`)
+kable(dataframe, escape = FALSE) %&gt;%
+  kable_styling(&quot;striped&quot;, full_width = FALSE)</code></pre>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="text-align:right;">
-1
+<th style="text-align:left;">
+Outcome1
 </th>
-<th style="text-align:right;">
-2
+<th style="text-align:left;">
+Outcome2
 </th>
-<th style="text-align:right;">
-3
+<th style="text-align:left;">
+Outcome3
 </th>
-<th style="text-align:right;">
-class.error
+<th style="text-align:left;">
+Classification Error
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-26
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">26</span>
 </td>
-<td style="text-align:right;">
-1
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">1</span>
 </td>
-<td style="text-align:right;">
-5
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">5</span>
 </td>
-<td style="text-align:right;">
-0.1875000
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-84
-</td>
-<td style="text-align:right;">
-236
-</td>
-<td style="text-align:right;">
-1493
-</td>
-<td style="text-align:right;">
-0.8698290
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="text about the cost ratio">0.19</span>
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-12
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">76</span>
 </td>
-<td style="text-align:right;">
-0
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">236</span>
 </td>
-<td style="text-align:right;">
-260
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">1501</span>
 </td>
-<td style="text-align:right;">
-0.0441176
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="text about the cost ratio">0.87</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">13</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">1</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">258</span>
+</td>
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="text about the cost ratio">0.04</span>
 </td>
 </tr>
 </tbody>
@@ -527,6 +559,7 @@ varImpPlot(rf, class = 2, type = 1, scale = FALSE,
 varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
            main = &quot;Fig 1.4: Forecasting Importance Plot for Isolated&quot;)</code></pre>
 <p><img src="machine_learning_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</script>
 </div>
 </div>
 
