@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 # Asymmetric Costs in Random Forest
 
-Central to the debate around the ethical use of algorithms in public policy is the consideration of mis-classification by supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry in the context of a supervised learning algorithm. This particular random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.
+Central to the debate of ethical use of algorithm use is the consideration of mis-classification by supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry in the context of a supervised learning algorithm. This particular random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.
 
 
 ### Technical
