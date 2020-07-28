@@ -370,9 +370,6 @@ div.tocify {
   <a href="causal_inference.html">Causal Inference</a>
 </li>
 <li>
-  <a href="other.html">Other Projects</a>
-</li>
-<li>
   <a href="https://github.com/katjanewilson">
     <span class="fa fa-github"></span>
      
@@ -438,7 +435,7 @@ $(document).ready(function(){
 
 <div id="asymmetric-costs-in-random-forest" class="section level1">
 <h1>Asymmetric Costs in Random Forest</h1>
-<p>Central to the debate of ethical use of algorithm use is the consideration of mis-classification by supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry in the context of a supervised learning algorithm. This particular random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
+<p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. I build a random forest algorithm to predict death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
 <div id="technical" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> Random Forest: randomforest() package</p>
@@ -519,13 +516,13 @@ Classification Error
 </tr>
 <tr>
 <td style="text-align:left;">
-<span style=" font-weight: bold;    ">86</span>
+<span style=" font-weight: bold;    ">74</span>
 </td>
 <td style="text-align:left;">
 <span style=" font-weight: bold;    ">236</span>
 </td>
 <td style="text-align:left;">
-<span style=" font-weight: bold;    ">1491</span>
+<span style=" font-weight: bold;    ">1503</span>
 </td>
 <td style="text-align:left;">
 <span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="text about the cost ratio">0.87</span>
@@ -536,10 +533,10 @@ Classification Error
 <span style=" font-weight: bold;    ">14</span>
 </td>
 <td style="text-align:left;">
-<span style=" font-weight: bold;    ">0</span>
+<span style=" font-weight: bold;    ">1</span>
 </td>
 <td style="text-align:left;">
-<span style=" font-weight: bold;    ">258</span>
+<span style=" font-weight: bold;    ">257</span>
 </td>
 <td style="text-align:left;">
 <span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="text about the cost ratio">0.04</span>
