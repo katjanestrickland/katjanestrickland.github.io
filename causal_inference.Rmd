@@ -46,7 +46,7 @@ Causal Inference: MatchIt() package
 Sample code below.
 
 
-```{r echo=FALSE, message=FALSE}
+```{r echo=TRUE, message=FALSE}
 #install.packages("MatchIt")
 library(MatchIt)
 library(tidyverse)
