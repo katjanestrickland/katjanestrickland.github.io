@@ -54,12 +54,13 @@ Sample code and charts below. See <a href = "https://github.com/katjanewilson/CO
 library(randomForest)
 library(kableExtra)
 library(tidyverse)
-load("data/coronavirus_data.Rdata")
-rf <- randomForest(outcome~Sex + Age + Province + Source +
-                    Order, data=coronavirus_data,
-                   importance = TRUE,
-                   sampsize = c(21,12,26))
-dataframe <- as.data.frame(rf$confusion)
+# load("data/coronavirus_data.Rdata")
+# set.seed(222)
+# rf <- randomForest(outcome~Sex + Age + Province + Source +
+#                     Order, data=coronavirus_data,
+#                    importance = TRUE,
+#                    sampsize = c(21,12,26))
+dataframe <- read.csv('data/COVID_random_forest_table.csv')
 names(dataframe)[1] <- "Outcome1"
 names(dataframe)[2] <- "Outcome2"
 names(dataframe)[3] <- "Outcome3"
@@ -74,9 +75,12 @@ dataframe <- dataframe %>%
     cell_spec(x, bold = T)
   }) %>%
   mutate(position = c("top", "top", "top"),
-         text = c("text about the cost ratio", "text about the cost ratio", "text about the cost ratio"),
-         name = c("0.19", "0.87", "0.04"))
-
+         text = c("84% Classification Accuracy", "54% Classification Accuracy", "87% Classification Accuracy"),
+         name = c("0.16", "0.46", "0.13"))
+dataframe <- dataframe %>%
+  mutate(position2 = c("top", "top", "top"),
+         text2 = c("In response to policy makers' request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the cost ratios of the other categories.", "The cost ratio of a false negative death to a false positive isolation is less severe, at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.", "A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result form sampling was 1.2:1. This tradeoff is the decision with the least repercussions, according the stakeholders"),
+         name2 = c("Deceased", "Released", "Isolated"))
 dataframe$`Classification Error` <- cell_spec(
   dataframe$name,
   popover = spec_popover(
@@ -84,24 +88,18 @@ dataframe$`Classification Error` <- cell_spec(
     title = NULL,  
     position = dataframe$position
   ))
+dataframe$`Confusion Table`<- cell_spec(
+  dataframe$name2,
+  popover = spec_popover(
+    content = dataframe$text2,
+    title = NULL,  
+    position = dataframe$position2
+  ))
 dataframe <- dataframe %>%
-  select(Outcome1, Outcome2, Outcome3, `Classification Error`)
-kable(dataframe, escape = FALSE) %>%
+  select(`Confusion Table`, Outcome1, Outcome2, Outcome3, `Classification Error`)
+kable(dataframe, escape = FALSE, caption = "Table 1 classifies the OOB estimates. The algorithm's forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. <strong>Scroll over the table</strong> to learn more about how sampling affects cost ratios.") %>%
   kable_styling("striped", full_width = FALSE)
 
-
-
-###variable importance plots
-par(mfrow = c(2,2))
-
-varImpPlot(rf, class = 1, type = 1, scale = FALSE, 
-           main = "Fig 1.1: Forecasting Importance Plot for Deceased")
-varImpPlot(rf, type = 1, scale = FALSE, 
-           main = "Fig 1.2: Forecasting Importance Plot Averaged for All")
-varImpPlot(rf, class = 2, type = 1, scale = FALSE, 
-           main = "Fig 1.3: Forecasting Importance Plot for Released")
-varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
-           main = "Fig 1.4: Forecasting Importance Plot for Isolated")
 
 ```
 
