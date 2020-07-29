@@ -34,17 +34,16 @@ $(document).ready(function(){
 
 # Balancing Samples in Survey Data
 
-Propensity score matching is a quasi-experimental design that helps to control for confounded relationships among variables when randomization is not feasible. When using administrative data, such as this project where we analyzed data from the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadealphia School District</a>, sample size representation affects the balance of matched samples.
+Propensity score matching is a quasi-experimental design that helps to control for confounded relationships among variables when randomization is not feasible. When using administrative data, such as this project where we analyzed data from the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, sample size representation affects the balance of matched samples.
 
 ### Technical
 
 Data cleaning: tidyverse </br>
-Causal Inference: MatchIt() package
+Causal Inference: R (MatchIt)
 
 ### Sample
 
 Sample code below.
-
 
 ```{r echo=TRUE, message=FALSE}
 #install.packages("MatchIt")

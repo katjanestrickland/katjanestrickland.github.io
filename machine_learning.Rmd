@@ -40,7 +40,7 @@ Central to the debate of ethical algorithm design is a consideration of mis-clas
 ### Technical
 
 Data cleaning: tidyverse </br>
-Random Forest: randomforest() package
+Random Forest: R (randomforest)
 
 ### Sample
 
