@@ -37,14 +37,15 @@ advanced statistics and analytics, particularly those related to the use of caus
 and machine learning in applied settings. For instance, how well do the results of an analysis on a nonrandom sample generalize to a larger
 population of interest? How can sampling and stratification approaches improve the robustness of causal inference estimation? What are the applications of causal inference methods for machine learning? 
 
-</br>I am also interested in the practical application of data science and advanced analytics in industry (see Wharton Analytics Fellows).
+</br>Additionally, I use applied statistics and advanced analytics to work on business problems in industry settings (see Wharton Analytics Fellows).
 
 </br>
 
 #### Technical
 
 Back End Data Analysis: Python, R, SQL </br>
-Front End Visualization: JavaScript (D3.js), CSS, HTML
+Front End Visualization: JavaScript (D3.js), CSS, HTML </br>
+Version Control: Git/GitHub
 
 #### Methodological
 

@@ -454,7 +454,7 @@ library(factoextra)
 distance &lt;- get_dist(df)
 plot&lt;- fviz_dist(distance, gradient = list(low = &quot;#00AFBB&quot;, mid = &quot;white&quot;, high = &quot;#FC4E07&quot;))
 plot</code></pre>
-<p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-1-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#to determine the optimal number of clusters
 set.seed(123)
 
@@ -471,21 +471,11 @@ plot(k.values, wss_values,
      type=&quot;b&quot;, pch = 19, frame = FALSE, 
      xlab=&quot;Number of clusters&quot;,
      ylab=&quot;Total Sum of Squares&quot;)</code></pre>
-<p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-1-2.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>k2 &lt;- kmeans(df[,(1:3)], centers = 3, nstart = 25)
 
-df %&gt;%
-  as_tibble() %&gt;%
-  mutate(cluster = k2$cluster,
-         names = row.names(data)) %&gt;%
-  ggplot(aes(average_views, average_comments, color = factor(cluster), label = names)) +
-  geom_text(alpha = .7) +
-  ggtitle(&quot;Clusters&quot;) +
-  ylab(&quot;Average Comments&quot; )+
-  xlab(&quot;Average Views&quot;) +
-  theme(legend.position = &quot;none&quot;) +
-  theme_minimal()</code></pre>
-<p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+knitr::include_graphics(&quot;images/image2.jpg&quot;)</code></pre>
+<p><img src="images/image2.jpg" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="mlb" class="section level1">

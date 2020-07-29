@@ -26,8 +26,6 @@ knitr::opts_chunk$set(echo = TRUE)
 I am a PhD student in Quantitative Methods at the University of Pennsylvania, focusing on the use of statistics, data science, and
 machine learning for business decision making and policy research.
 
-I also like to play guitar.
-
 This site is a working portfolio. Sample projects are featured in the tabs above.
 
 #### Contact
