@@ -1,13 +1,23 @@
 ---
 title: ""
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
 <style type="text/css">
 .title {
   display: none;
@@ -22,5 +32,57 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
+# Balancing Samples in Survey Data
 
-#### Overview
+Propensity score matching is a quasi-experimental design that helps to control for confounded relationships among variables when randomization is not feasible. When using administrative data, such as this project where we analyzed data from the Philadelphia Public School District, sample size representation affects the balance of matched samples.
+
+### Technical
+
+Data cleaning: tidyverse </br>
+Causal Inference: MatchIt() package
+
+### Sample
+
+Sample code below.
+
+
+```{r echo=FALSE, message=FALSE}
+#install.packages("MatchIt")
+library(MatchIt)
+library(tidyverse)
+library(kableExtra)
+set.seed(1731)
+# trimming the sample
+analysis_data <- read.csv('data/analysis_data.csv')
+analysis_data_trimmed <- analysis_data %>%
+  filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
+
+nearest <- matchit(Participated ~
+                     Gender+ Ethnicity + Strata + employeeage+ title_status
+                   ,
+                   family = "binomial",
+                   method = "nearest",
+                   caliper = 0.25,
+                   data = analysis_data_trimmed)
+#summary(nearest)
+###plotting these
+#plot(nearest)
+nearest_matched <- match.data(nearest)
+#now perform the statistical analysis
+nearest_matched$Participated <- as.factor(nearest_matched$Participated)
+model <- glm(Retained ~ Participated, data = nearest_matched,
+             family = binomial)
+#summary(model)
+library(readr)
+percent_balance_improvement <- read_csv("data/percent_balance_improvement.csv")
+
+kable(percent_balance_improvement, escape = FALSE, caption = "Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. In trimming the sample, we arrive at a better percent balance improvement for Gender and Ethnicity") %>%
+  kable_styling("striped", full_width = FALSE) %>%
+  row_spec(c(3:4), bold = T, color = "white", background = "#00AFBB") %>%
+  row_spec(c(7), bold = T, color = "white", background = "#Fd8453")
+
+
+```
+
+
+

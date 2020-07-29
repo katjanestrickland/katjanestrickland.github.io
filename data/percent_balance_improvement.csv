@@ -1,0 +1,13 @@
+"Variable","Mean.Difference","Mean.Difference.Balanced"
+"distance",99.203,96.49
+"Gender (F)",-10.09,53.59
+"Gender (M)",-10.09,53.59
+"Ethnicity",66.01,65.43
+"Ethnicity (Cauca.)",96.05,68.91
+"Ethnicity (Lat.)",66.551,83.75
+"Ethnicity (other)",-810.9112,100
+"Strata (5-10)",59.895,87.53
+"Strata (10-15)",71.224,88.85
+"Strata (>15)",96.125,81.85
+"Employee Age",69.834,42.17
+"Teacher Status",85.827,100
