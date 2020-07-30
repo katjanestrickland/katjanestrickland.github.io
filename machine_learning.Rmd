@@ -110,7 +110,7 @@ kable(dataframe, escape = FALSE, caption = "Table 1 classifies the OOB estimates
 
 # Generalized Additive Models
 
-A hard to swallow assumption in linear models is that, at all values an instance has in a particular feature, increasing the value by one unit will have the same effect across the board. General Additive Models, on the other hand, give the analyst an opportunity to analyze fluid changes in variable features. Gam models can suffer from poor interpretability, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, one of these issues comes to light: the loess smoother perform poorly at the upper boundaries of data.
+A hard to swallow assumption in linear models is that changes in a particular feature will increase at the same rate across all values on a variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models help us to identify outlier trends in homeless individuals, yet also reveal limitations of the loess smoother at upper boundaries of data.
 
 
 ### Technical

@@ -40,7 +40,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 # MLB
 
 
-Looking for any edge above the competitor, Major League Baseball teams have now turned to psychometric and biometric data in addition to performance data. In this project, we worked with a team to analyze how players' psychological data collected by scouting reports influence players' performance statistics. 
+Looking for any edge above the competitor, professional sports teams have now turned to psychometric and biometric data in addition to performance statistics. In this project, we worked with a Major League Baseball team to analyze how players' psychological data collected by scouting reports influence players' projected WAR.
 
 
 ### Technical
