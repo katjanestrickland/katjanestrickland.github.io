@@ -480,7 +480,7 @@ html_table_width &lt;- function(kable_output, width){
 kable(percent_balance_improvement, escape = FALSE, caption = &quot;Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. In trimming the sample, we arrive at a better percent balance improvement for Gender and Ethnicity&quot;) %&gt;%
   kable_styling(&quot;striped&quot;, full_width = FALSE, position = &quot;left&quot;,
                 font_size = 10, latex_options = &quot;scale_down&quot;) %&gt;%
-  row_spec(c(3:4), color = &quot;white&quot;, background = &quot;#00AFBB&quot;) %&gt;%
+  row_spec(c(2:3), color = &quot;white&quot;, background = &quot;#00AFBB&quot;) %&gt;%
   row_spec(c(7),color = &quot;white&quot;, background = &quot;#Fd8453&quot;)</code></pre>
 <table class="table table-striped" style="font-size: 10px; width: auto !important; ">
 <caption style="font-size: initial !important;">
@@ -512,13 +512,13 @@ distance
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:left;color: white !important;background-color: #00AFBB !important;">
 Gender (F)
 </td>
-<td style="text-align:right;">
+<td style="text-align:right;color: white !important;background-color: #00AFBB !important;">
 -10.0900
 </td>
-<td style="text-align:right;">
+<td style="text-align:right;color: white !important;background-color: #00AFBB !important;">
 53.59
 </td>
 </tr>
@@ -534,13 +534,13 @@ Gender (M)
 </td>
 </tr>
 <tr>
-<td style="text-align:left;color: white !important;background-color: #00AFBB !important;">
+<td style="text-align:left;">
 Ethnicity
 </td>
-<td style="text-align:right;color: white !important;background-color: #00AFBB !important;">
+<td style="text-align:right;">
 66.0100
 </td>
-<td style="text-align:right;color: white !important;background-color: #00AFBB !important;">
+<td style="text-align:right;">
 65.43
 </td>
 </tr>
