@@ -573,6 +573,193 @@ Classification Error
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div id="generalized-additive-models" class="section level1">
+<h1>Generalized Additive Models</h1>
+<p>A hard to swallow assumption in linear models is that, at all values an instance has in a particular feature, increasing the value by one unit will have the same effect on the predicted outcome for each instance. General Additive Models are a nonparametric way to make use of feature categorization (kind of like stepwise regression) by putting variables into separate features to assess fitting, and giving the analyst an opportunity to analyze fluid changes in variable features. Unfortunately, gam models can suffer from poor interpretability, and strong assumptions will have to be made regarding the data generation process. In a project using data from the census on homeless counts in the city of Los Angeles, we see one of these issues clearly: the loess smoother perform poorly at the upper boundaries of data.</p>
+<div id="technical-1" class="section level3">
+<h3>Technical</h3>
+<p>Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>
+</div>
+<div id="sample-1" class="section level3">
+<h3>Sample</h3>
+<p>Sample code and charts below. See <a href = "https://github.com/katjanewilson/Generalized-Additive-Model/blob/master/Code" target = "_blank"> GitHub repo </a> for full code and analysis.</p>
+<pre class="r"><code>library(tidyverse)
+library(DataExplorer)
+library(gridExtra)
+
+#inspect data
+load(&quot;data/NewHomeless.rdata&quot;)
+homeless &lt;- homeless
+
+#count the missing data values
+# sapply(homeless, function(x) sum(is.na(x)))
+
+# #inspect missing values
+# missing &lt;- homeless %&gt;%
+#   filter(is.na(PropVacant))
+
+#impute the missing data
+homeless[is.na(homeless)] = 0
+
+#cleanign up the mis coded
+# Adjust values of PropMinority mis-coded as &quot;100&quot; instead of &quot;1.0&quot;
+library(dplyr)
+homeless &lt;- mutate_at(homeless, vars(PropMinority), list(~ ifelse( . &gt; 1.0, 1.0, .)))
+
+# Convert values of &quot;Pct&quot; variables to be in decimal scale
+homeless &lt;- mutate_at(homeless, vars(PctResidential:PCTIndustrial), list(~ .*.01))
+
+# Recode four NAs in PropVacant as zero owing to how few residential dwellings exist in
+# those tracts
+homeless &lt;- mutate_at(homeless, vars(PropVacant), list(~ ifelse(is.na(.)==T, 0, .)))
+
+#recode the industrial
+homeless &lt;- homeless %&gt;%
+  mutate(Industrial = ifelse(PCTIndustrial &gt;0, 1, 0))
+
+####################
+#Step 2: Univariate Statistics
+
+library(DataExplorer)
+#pairs
+# pairs(homeless)
+# #correlation
+# plot_correlation(homeless, type = &#39;continuous&#39;,&#39;Review.Date&#39;)
+
+#Street Total
+
+par(mfrow = c(1,2))
+p1 &lt;- ggplot(aes(StreetTotal), data = homeless) +
+  geom_histogram(binwidth = 6) +
+  geom_vline(xintercept = mean(homeless$StreetTotal), size = 0.8)
+p2 &lt;- ggplot(aes(MedianIncome), data = homeless) +
+  geom_histogram(bins = 50) +
+  geom_vline(xintercept = mean(homeless$MedianIncome), colour = &quot;pink&quot;, size = 0.8)
+#Prop Vacant
+p3 &lt;- homeless %&gt;%
+  ggplot(aes(PropVacant)) +
+  geom_histogram(bins = 40) +
+  geom_vline(xintercept = mean(homeless$PropVacant), colour = &quot;pink&quot;)
+#Prop Minority
+p4 &lt;- homeless %&gt;%
+  ggplot(aes(PropMinority)) +
+  geom_histogram(bins = 50) +
+  geom_vline(xintercept = mean(homeless$PropMinority), colour = &quot;pink&quot;)
+#Pct Residential
+p5 &lt;- homeless %&gt;%
+  ggplot(aes(PctResidential)) +
+  geom_histogram(bins = 50) +
+  geom_vline(xintercept = mean(homeless$PctResidential), colour = &quot;pink&quot;)
+#PctCommercial
+p6 &lt;- homeless %&gt;%
+  ggplot(aes(PctCommercial)) +
+  geom_histogram(bins = 50) +
+  geom_vline(xintercept = mean(homeless$PctCommercial), colour = &quot;pink&quot;)
+#PctIndustrial
+p7 &lt;- homeless %&gt;%
+  ggplot(aes(PCTIndustrial)) +
+  geom_histogram(bins = 50) +
+  geom_vline(xintercept = mean(homeless$PCTIndustrial), colour = &quot;pink&quot;)
+library(gridExtra)
+grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)</code></pre>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>#set seed at 4000
+# Bring in data and create initial training and test datasets
+set.seed(4000)
+df &lt;- homeless
+index &lt;- sample(1:nrow(df), (nrow(df))/2, replace = F) 
+Train &lt;- na.omit(df[index,]) # Training data
+Test &lt;- na.omit(df[-index,]) # Test data
+##coming to the right model:
+library(leaps)
+All1 &lt;- regsubsets(StreetTotal ~ MedianIncome + PropMinority +
+                     PropVacant+
+                     PctResidential+
+                     PCTIndustrial +
+                     PctCommercial +
+                     Industrial, data = Train)
+# All1
+# summary(All1)
+
+Model2 &lt;- lm(StreetTotal ~  
+               PropVacant+
+               Industrial +
+               (PropVacant:Industrial), data = Train)
+# summary(Model2)
+
+## Generalization error ##
+# Specify a model on the testing data 
+Model2 &lt;- lm(StreetTotal ~  
+               PropVacant+
+               Industrial +
+               (PropVacant:Industrial), data = Test)
+# summary(Model2)
+#estimate the fitted values on the testing data, and the generalization error
+preds &lt;- predict(Model2, newdata = Test) # New fitted values derived from the test data
+GE &lt;- var(Test$StreetTotal - preds) # Estimate of generalization error (the variance of the residuals when 
+# GE
+# sqrt(GE)
+# Bootstrap a confidence interval for the generalization error 
+bootstrap_genError &lt;-
+  function(x) {
+    bootstrapped_genErrors &lt;- 0
+    for (i in 1:1000) {
+      index &lt;- sample(1:nrow(x), nrow(x), replace = T)
+      sample_Test &lt;- x[index,]
+      sample_Test_preds &lt;- predict(Model2, newdata = sample_Test)
+      bootstrapped_genErrors[i] &lt;- var(sample_Test$StreetTotal - sample_Test_preds)
+    }
+    return(bootstrapped_genErrors)
+  }
+
+bootstrap_results_ge &lt;- bootstrap_genError(Test)
+
+# Check generalization error bootstrap results
+# mean(bootstrap_results_ge, na.rm = T)
+# summary(bootstrap_results_ge)
+# hist(bootstrap_results_ge, breaks = 20) 
+# qqnorm(bootstrap_results_ge)
+# sd(bootstrap_results_ge)
+# quantile(bootstrap_results_ge, probs = c(.025,.975))
+# plot(density(bootstrap_results_ge))
+# qqnorm(bootstrap_results_ge)
+#use robust sandwich standard errors in the sandwich package
+# install.packages(&quot;sandwich&quot;)
+library(sandwich)
+# vcovHC(Model2, type = &quot;HC&quot;)
+# sandwich_se &lt;- diag(vcovHC(Model2, type = &quot;HC1&quot;))
+# sqrt(sandwich_se)
+#then can get the confidence interval limits of these
+# coef(Model2) - 1.96*sandwich_se
+# coef(Model2) + 1.96*sandwich_se
+
+library(gam)
+library(mgcv)
+library(leaps)
+
+homeless2 &lt;- homeless %&gt;%
+  filter(MedianIncome &gt; 60000 &amp; PropVacant &lt; .10)
+
+##MODEL 1
+out3 &lt;- gam(StreetTotal ~
+              s(PCTIndustrial) +
+              s(PctCommercial) +
+              s(PropVacant) +
+              s(MedianIncome), data = homeless, family = gaussian)
+# summary(out3)
+par(mfrow=c(2,2))
+plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = &quot;light blue&quot;,
+     col = &quot;#FAD7A0&quot;)</code></pre>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code>library(mgcViz)
+b&lt;- getViz(out3)
+o &lt;- plot( sm(b, 1) )
+o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
+  l_ciLine(mul = 5, colour = &quot;light blue&quot;, linetype = 2) + 
+  l_points(shape = 19, size = 1, alpha = 0.7, color = &quot;light blue&quot;) + theme_classic()</code></pre>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
 </script>
 </div>
 </div>
