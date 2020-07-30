@@ -24,10 +24,14 @@ knitr::opts_chunk$set(echo = TRUE)
 #### About
 
 Hi there! I am a PhD student in Quantitative Methods at the University of Pennsylvania, focusing on the use of statistics, data science, and
-machine learning for business decision making and policy research. But mostly, I just really love to code.
+machine learning for business decision making and policy research. Mostly, I really like to code.
 
 This site is a working portfolio. Sample projects are featured in the tabs above.
 
 #### Contact
 
 kjanewil at upenn.edu
+
+##### GitHub Repo for this site
+
+  <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
