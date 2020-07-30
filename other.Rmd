@@ -28,7 +28,3 @@ knitr::opts_chunk$set(echo = TRUE)
 
 While I certainly miss the days of playing in a band in Austin, TX, I am lucky to have found some talented musicians to play with in Philadelphia. Check out our songs on <a href = "https://soundcloud.com/user-77041470" target = "_blank"> SoundCloud</a>, or catch us playing most weekends at Rittenhouse Park.
 
-
-#### Art 
-
-<a href = "http://www.skyfruits.org/" target = "_blank">SkyFruits </a> is a tongue-in-cheek, crowdsourced art project that later took on a life of its own.
