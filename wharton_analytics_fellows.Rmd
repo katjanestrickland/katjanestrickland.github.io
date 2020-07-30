@@ -37,6 +37,23 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 <a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on analytics solutions for business practice. Samples from projects where I served as a Technical Lead are below.
 
 
+# MLB
+
+
+Looking for any edge above the competitor, Major League Baseball teams have now turned to psychometric and biometric data in addition to performance data. In this project, we worked with a team to analyze how players' psychological data collected by scouting reports influence players' performance statistics. 
+
+
+### Technical
+
+Data cleaning: tidyverse </br>
+Text Mining: textmining, tidytext </br>
+Topic Modeling: latent dirichlet allocation (LDA) </br>
+Clustering: hierarchical clustering (hclust)
+
+### Sample
+
+Project in Process
+
 
 # YouTube
 
@@ -95,20 +112,3 @@ knitr::include_graphics("images/image2.jpg")
 
 
 
-
-
-# MLB
-
-
-Looking for any edge above the competitor, MLB teams have now turned to psychometric and biometric data in addition to performance data. In this project, we worked with a Major League Baseball team to analyze how players' psychological data influences their performance statistics. 
-
-
-### Technical
-
-Data cleaning: tidyverse </br>
-Text Mining: tm package, tidytext </br>
-Clustering: hclust, PCA
-
-### Sample
-
-Project in Process
