@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 # Balancing Samples in Survey Data
 
-Propensity score matching is a quasi-experimental design that helps to control for confounded relationships among variables when randomization is not feasible. When using administrative data, such as this project where we analyzed data from the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, sample size representation affects the balance of matched samples.
+Propensity score matching is a quasi-experimental design that helps to control for confounded relationships among variables when randomization is not feasible. Especially in observational studies that use administrative data, such as this project involving the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, sample size representation will affect the balance of matched samples.
 
 ### Technical
 
@@ -78,7 +78,7 @@ html_table_width <- function(kable_output, width){
   width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
   sub("<table>", paste0("<table>\n", width_html), kable_output)
 }
-kable(percent_balance_improvement, escape = FALSE, caption = "Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. In trimming the sample, we arrive at a better percent balance improvement for Gender and Ethnicity") %>%
+kable(percent_balance_improvement, escape = FALSE, caption = "Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helps to arrive at a better percent balance improvement for unrepresented variables.") %>%
   kable_styling("striped", full_width = FALSE, position = "left",
                 font_size = 10, latex_options = "scale_down") %>%
   row_spec(c(2:3), color = "white", background = "#00AFBB") %>%

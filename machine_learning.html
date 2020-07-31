@@ -438,7 +438,7 @@ $(document).ready(function(){
 
 <div id="asymmetric-costs-in-random-forest" class="section level1">
 <h1>Asymmetric Costs in Random Forest</h1>
-<p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. I build a random forest algorithm to predict death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
+<p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. This random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
 <div id="technical" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> Random Forest: R (randomforest)</p>
@@ -494,11 +494,11 @@ dataframe$`Confusion Table`&lt;- cell_spec(
   ))
 dataframe &lt;- dataframe %&gt;%
   select(`Confusion Table`, Outcome1, Outcome2, Outcome3, `Classification Error`)
-kable(dataframe, escape = FALSE, caption = &quot;Table 1 classifies the OOB estimates. The algorithm&#39;s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. &lt;strong&gt;Scroll over the table&lt;/strong&gt; to learn more about how sampling affects cost ratios.&quot;) %&gt;%
+kable(dataframe, escape = FALSE, caption = &quot;Table 1 classifies the Out-of-Bag estimates of the random forest. The algorithm&#39;s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. &lt;strong&gt;Hover over the confusion table&lt;/strong&gt; to learn more about how sampling affects cost ratios.&quot;) %&gt;%
   kable_styling(&quot;striped&quot;, full_width = FALSE)</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-Table 1 classifies the OOB estimates. The algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. <strong>Scroll over the table</strong> to learn more about how sampling affects cost ratios.
+Table 1 classifies the Out-of-Bag estimates of the random forest. The algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.
 </caption>
 <thead>
 <tr>
@@ -577,7 +577,7 @@ Classification Error
 </div>
 <div id="generalized-additive-models" class="section level1">
 <h1>Generalized Additive Models</h1>
-<p>A hard to swallow assumption in linear models is that changes in a particular feature will increase at the same rate across all values on a variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models help us to identify outlier trends in homeless individuals, yet also reveal limitations of the loess smoother at upper boundaries of data.</p>
+<p>A hard to swallow assumption in the linear model framework is that a change in a particular feature will change at the same rate across all values on a variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models identify outlier trends in homeless individuals, yet also reveal limitations of the loess smoother at upper boundaries of data.</p>
 <div id="technical-1" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>
