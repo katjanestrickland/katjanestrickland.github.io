@@ -370,6 +370,9 @@ div.tocify {
   <a href="causal_inference.html">Causal Inference</a>
 </li>
 <li>
+  <a href="other.html">Other</a>
+</li>
+<li>
   <a href="https://github.com/katjanewilson">
     <span class="fa fa-github"></span>
      
@@ -443,56 +446,107 @@ $(document).ready(function(){
 <div id="sample" class="section level3">
 <h3>Sample</h3>
 <p>Sample code and charts below. See <a href = "https://github.com/katjanewilson/COVID-19-Random-Forest.git" target = "_blank"> GitHub repo </a> for full code and analysis.</p>
-<pre class="r"><code>#install.packages(&quot;randomForest&quot;)
-#install.packages(&quot;kableExtra&quot;)
-library(randomForest)
-library(kableExtra)
-library(tidyverse)
-# load(&quot;data/coronavirus_data.Rdata&quot;)
-# set.seed(222)
-# rf &lt;- randomForest(outcome~Sex + Age + Province + Source +
-#                     Order, data=coronavirus_data,
-#                    importance = TRUE,
-#                    sampsize = c(21,12,26))
-dataframe &lt;- read.csv(&#39;data/COVID_random_forest_table.csv&#39;)
-names(dataframe)[1] &lt;- &quot;Outcome1&quot;
-names(dataframe)[2] &lt;- &quot;Outcome2&quot;
-names(dataframe)[3] &lt;- &quot;Outcome3&quot;
-names(dataframe)[4] &lt;- &quot;Classification Error&quot;
-dataframe &lt;- dataframe %&gt;%
-  mutate(`Classification Error` = round(`Classification Error`, 2))
-dataframe &lt;- dataframe %&gt;%
-  mutate(`Classification Error` = cell_spec(`Classification Error`, &quot;html&quot;, color = ifelse(`Classification Error`&gt;
-                                                     0.5, &quot;green&quot;,
-                                                   &quot;black&quot;))) %&gt;%
-  mutate_if(is.numeric, function(x) {
-    cell_spec(x, bold = T)
-  }) %&gt;%
-  mutate(position = c(&quot;top&quot;, &quot;top&quot;, &quot;top&quot;),
-         text = c(&quot;84% Classification Accuracy&quot;, &quot;54% Classification Accuracy&quot;, &quot;87% Classification Accuracy&quot;),
-         name = c(&quot;0.16&quot;, &quot;0.46&quot;, &quot;0.13&quot;))
-dataframe &lt;- dataframe %&gt;%
-  mutate(position2 = c(&quot;top&quot;, &quot;top&quot;, &quot;top&quot;),
-         text2 = c(&quot;In response to policy makers&#39; request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the ability to meet desired cost ratios in other categories.&quot;, &quot;The intended cost ratio of a false negative death to a false positive isolation is set at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.&quot;, &quot;A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result, with sampling, was 1.2:1.&quot;),
-         name2 = c(&quot;Deceased&quot;, &quot;Released&quot;, &quot;Isolated&quot;))
-dataframe$`Classification Error` &lt;- cell_spec(
-  dataframe$name,
-  popover = spec_popover(
-    content = dataframe$text,
-    title = NULL,  
-    position = dataframe$position
-  ))
-dataframe$`Confusion Table`&lt;- cell_spec(
-  dataframe$name2,
-  popover = spec_popover(
-    content = dataframe$text2,
-    title = NULL,  
-    position = dataframe$position2
-  ))
-dataframe &lt;- dataframe %&gt;%
-  select(`Confusion Table`, Outcome1, Outcome2, Outcome3, `Classification Error`)
-kable(dataframe, escape = FALSE, caption = &quot;Table 1 classifies Out-of-Bag estimates for the random forest. The algorithm&#39;s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, released, and isolated, respectively. &lt;strong&gt;Hover over the confusion table&lt;/strong&gt; to learn more about how sampling affects cost ratios.&quot;) %&gt;%
-  kable_styling(&quot;striped&quot;, full_width = FALSE)</code></pre>
+<pre class="r"><code>## sample cleaning code
+rm(list = ls())
+Patient &lt;- read.csv(&quot;PatientInfo.csv&quot;, na.strings = c(&quot;&quot;,NA))
+save(Patient, file = &quot;Patient.rdata&quot;)
+Patient$ID &lt;- as.numeric(as.character(Patient$patient_id))
+class(Patient$sex)
+Patient$sex
+Patient$sex[is.na(Patient$sex)]&lt;- &quot;absent&quot;
+Patient$Age &lt;- as.numeric(Patient$age)
+data_new &lt;- Patient %&gt;%
+  mutate(sex = ifelse(is.na(Sex), &quot;absent&quot;, Sex)) %&gt;%
+  mutate(age = ifelse(is.na(age), &quot;20s&quot;, age)) %&gt;%
+  mutate(Age = case_when(age %in% c(1:10) ~ &quot;10s&quot;,
+                         age %in% c(11:20) ~ &quot;20s&quot;,
+                         age %in% c(21:30) ~ &quot;30s&quot;,
+                         age %in% c(31:40) ~ &quot;40s&quot;,
+                         age %in% c(41:50) ~ &quot;50s&quot;,
+                         age %in% c(51:60) ~ &quot;60s&quot;,
+                         age %in% c(61:70) ~ &quot;70s&quot;,
+                         age %in% c(71:80) ~ &quot;80s&quot;,
+                         age %in% c(81:120) ~ &quot;90s&quot;)) %&gt;%
+  mutate(Province = ifelse(is.na(province), &quot;absent&quot;, province)) %&gt;%
+  mutate(Source = ifelse(is.na(infection_case), &quot;absent&quot;, infection_case)) %&gt;%
+  mutate(Order = ifelse(is.na(infection_order), &quot;4&quot;, infection_order)) %&gt;%
+  mutate(confirmed_date = ifelse(is.na(confirmed_date), &#39;2020-02-20&#39;, confirmed_date)) %&gt;%
+  mutate(State3 = ifelse(is.na(state), &#39;deceased&#39;, state)) %&gt;%
+  mutate(State2 = as.factor(ifelse(State3 == &quot;deceased&quot;, &quot;Died&quot;, &quot;Lived&quot;))) %&gt;%
+  mutate(State2 = ifelse(is.na(State2), &quot;Lived&quot;, State2)) %&gt;%
+  mutate(birthyear = ifelse(is.na(birth_year), 1960, birth_year)) %&gt;%
+  mutate(Age = ifelse(is.na(Age), &quot;20s&quot;, Age))
+
+## sample random forest code
+rf &lt;- randomForest(outcome~Sex + Age + Province + Source +
+                    Order, data=coronavirus_data,
+                   importance = TRUE,
+                   sampsize = c(21,12,26))
+print(rf)
+###variable importance plots
+par(mfrow = c(2,2))
+
+varImpPlot(rf, class = 1, type = 1, scale = FALSE, 
+           main = &quot;Fig 1.1: Forecasting Importance Plot for Deceased&quot;)
+varImpPlot(rf, type = 1, scale = FALSE, 
+           main = &quot;Fig 1.2: Forecasting Importance Plot Averaged for All&quot;)
+varImpPlot(rf, class = 2, type = 1, scale = FALSE, 
+           main = &quot;Fig 1.3: Forecasting Importance Plot for Released&quot;)
+varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
+           main = &quot;Fig 1.4: Forecasting Importance Plot for Isolated&quot;)
+
+####Partial plots
+part1&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
+                    rug = T, which.class = 1)
+part2&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
+                    rug = T, which.class = 2)
+part3&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
+                    rug = T, which.class = 3)
+par(mfrow = c(2,2))
+
+#tranform the logs back to probablity
+scatter.smooth(part1$x, part1$y, xlab = &quot;Age&quot;,
+               ylab = &quot;Centered Log Odds of Death&quot;, main = &quot;Fig 2.1: Partial Dependence Plot for Death on Age&quot;)
+##how the other plots change based on outcome
+scatter.smooth(part2$x, part2$y, xlab = &quot;Age&quot;,
+               ylab = &quot;Centered Log Odds of Released&quot;, main = &quot;Fig 2.2: Partial Dependence Plot for Released on Age&quot;)
+scatter.smooth(part3$x, part3$y, xlab = &quot;Age&quot;,
+               ylab = &quot;Centered Log Odds of Isolated&quot;, main = &quot;Fig 2.3: Partial Dependence Plot for Isolated on Age&quot;)
+
+par(mfrow = c(2,2))
+part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
+                     x.var = Sex, reg = T, prob = T,which.class = 1 ,
+                       main = &quot;Fig 3.1: Partial Dependence Plot for Death on Sex&quot;,
+                     xlab = &quot;Sex&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
+part2
+part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
+                     x.var = Order, reg = T, prob = T,which.class = 1 ,
+                     main = &quot;Fig 3.2: Partial Dependence Plot for Death on Order&quot;,
+                     xlab = &quot;Order&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
+part2
+part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
+                     x.var = Province, reg = T, prob = T,which.class = 1 ,
+                     main = &quot;Fig 3.3: Partial Dependence Plot for Death on Province&quot;,
+                     xlab = &quot;Province&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
+part2
+part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
+                     x.var = Source, reg = T, prob = T,which.class = 1 ,
+                     main = &quot;Fig 3.4: Partial Dependence Plot for Death on Source&quot;,
+                     xlab = &quot;Source&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
+part2
+table(coronavirus_data$Source, coronavirus_data$State3)
+par(mfrow = c(2,2))
+m1&lt;- randomForest::margin(rf)
+m1
+hist(m1, breaks = 30, main = &quot;Fig 4.1: Histogram of Votes over Trees&quot;, xlab = &quot;Margin&quot;)
+m2 &lt;- subset(m1, names(m1) == 1)
+m2
+hist(m2, breaks = 30, main = &quot;Fig 4.2: Margin for Death classification&quot;, xlab = &quot;Votes for Deceased&quot;)
+m2
+m3 &lt;- subset(m1, names(m1) == 2)
+hist(m3,breaks = 30, main = &quot;Fig 4.3: Margin for Released classification&quot;, xlab = &quot;Votes for Released&quot;)
+m3 &lt;- subset(m1, names(m1) == 3)
+hist(m3, breaks = 30, main = &quot;Fig 4.4: Margin for Isolated classification&quot;, xlab = &quot;Votes for Isolated&quot;)</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Table 1 classifies Out-of-Bag estimates for the random forest. The algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, released, and isolated, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.
@@ -661,7 +715,7 @@ p7 &lt;- homeless %&gt;%
   geom_vline(xintercept = mean(homeless$PCTIndustrial), colour = &quot;pink&quot;)
 library(gridExtra)
 grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)</code></pre>
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code>#set seed at 4000
 # Bring in data and create initial training and test datasets
 set.seed(4000)
@@ -749,14 +803,14 @@ out3 &lt;- gam(StreetTotal ~
 par(mfrow=c(2,2))
 plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = &quot;light blue&quot;,
      col = &quot;#FAD7A0&quot;)</code></pre>
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
 <pre class="r"><code>library(mgcViz)
 b&lt;- getViz(out3)
 o &lt;- plot( sm(b, 1) )
 o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
   l_ciLine(mul = 5, colour = &quot;light blue&quot;, linetype = 2) + 
   l_points(shape = 19, size = 1, alpha = 0.7, color = &quot;light blue&quot;) + theme_classic()</code></pre>
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
 </script>
 </div>
 </div>

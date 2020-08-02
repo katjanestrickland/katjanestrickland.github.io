@@ -12,6 +12,8 @@ navbar:
       href: machine_learning.html
     - text: "Causal Inference"
       href: causal_inference.html
+    - text: "Other"
+      href: other.html
     - text: ""
       icon: fa-github
       href: "https://github.com/katjanewilson"

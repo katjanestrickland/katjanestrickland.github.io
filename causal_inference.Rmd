@@ -45,7 +45,80 @@ Causal Inference: R (MatchIt)
 
 Sample code below.
 
-```{r echo=TRUE, message=FALSE}
+
+```{r echo=TRUE, message=FALSE, eval=FALSE}
+
+## sample data cleaning code
+merged_participation$`YEARS OF SERVICE` <- as.numeric(merged_participation$`YEARS OF SERVICE`)
+merged_participation <- merged_participation  %>%
+  mutate(strata = case_when(is.na(`YEARS OF SERVICE`) ~"missing",
+                            `YEARS OF SERVICE` <= 5 ~ "less than 5",
+                            `YEARS OF SERVICE` >5 & `YEARS OF SERVICE` < 10 ~ "5 to less than 10 years",
+                            `YEARS OF SERVICE` >=10 & `YEARS OF SERVICE` < 15 ~ "10 to 15 years",
+                            `YEARS OF SERVICE` >= 15 ~ "greater than or equal to 15"))
+
+merged_participation <- merged_participation  %>%
+  rename("quitdate" = `EMPLOYMENT STATUS EFFECTIVE DATE`,
+         "startdate" = `NEW TEACHER HIRE DATE`) %>%
+  mutate(retained = ifelse(is.na(`quitdate`), "1", "0"))
+#pull out the missingvalues
+missing_table <- merged_participation %>%
+  filter(strata == "missing")
+print(missing_table)
+#recode  duplicates
+#ID 214280
+merged_participation$`startdate`[40338] = (origin = "2004-12-01")
+#ID 277504
+merged_participation$`startdate`[63771] = (origin = "2010-01-11")
+merged_participation$`startdate`[63777] = (origin = "2010-01-11")
+merged_participation$`startdate`[63778] = (origin = "2010-01-11")
+merged_participation<- merged_participation %>%
+  filter(!is.na(startdate))
+length(unique(merged_participation$`Deidentified ID`))
+#rename
+merged_participation <- merged_participation %>%
+  rename("Title" = `TITLE`,
+         "Gender" = `GEN`,
+         "Ethnicity" = `ETHNICITY`,
+         "Birth Date" = `BIRTH DATE`,
+         "Employee Age" = `EMPLOYEE AGE`,
+         "Organization" = `ORGANIZATION`,
+         "Retained" = `retained`,
+         "Strata" = `strata`,
+         "Years of Service" = `YEARS OF SERVICE`)
+merged_participation$Strata <- as.factor(merged_participation$Strata)
+merged_participation$Strata <- recode_factor(merged_participation$Strata, `1` = "less than 5", `2` = "5 to less than 10 years", `3` = "10 to 15 years", `4` = "greater than or equal to 15")
+#save
+save(merged_participation, file = "data/merged_participation.Rdata")  
+length(unique(merged_participation$`Deidentified ID`))
+
+## sample causal code
+set.seed(1731)
+# trimming the sample
+analysis_data_trimmed <- analysis_data %>%
+  filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
+nearest <- matchit(Participated ~
+                     Gender+ Ethnicity + Strata + employeeage+ title_status
+                     ,
+                   family = "binomial",
+                   method = "nearest",
+                   caliper = 0.25,
+                   data = analysis_data_trimmed)
+summary(nearest)
+###plotting these
+#plot(nearest)
+nearest_matched <- match.data(nearest)
+#now perform the statistical analysis
+nearest_matched$Participated <- as.factor(nearest_matched$Participated)
+model <- glm(Retained ~ Participated, data = nearest_matched,
+             family = binomial)
+summary(model)
+
+```
+
+```{r echo=FALSE, message=FALSE}
+
+
 #install.packages("MatchIt")
 library(MatchIt)
 library(tidyverse)
