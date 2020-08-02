@@ -435,7 +435,7 @@ $(document).ready(function(){
 
 <div id="asymmetric-costs-in-random-forest" class="section level1">
 <h1>Asymmetric Costs in Random Forest</h1>
-<p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. This random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
+<p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. I build a random forest algorithm to predict death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
 <div id="technical" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> Random Forest: R (randomforest)</p>
@@ -473,7 +473,7 @@ dataframe &lt;- dataframe %&gt;%
          name = c(&quot;0.16&quot;, &quot;0.46&quot;, &quot;0.13&quot;))
 dataframe &lt;- dataframe %&gt;%
   mutate(position2 = c(&quot;top&quot;, &quot;top&quot;, &quot;top&quot;),
-         text2 = c(&quot;In response to policy makers&#39; request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the cost ratios of the other categories.&quot;, &quot;The cost ratio of a false negative death to a false positive isolation is less severe, at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.&quot;, &quot;A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result form sampling was 1.2:1. This tradeoff is the decision with the least repercussions, according the stakeholders&quot;),
+         text2 = c(&quot;In response to policy makers&#39; request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the ability to meet desired cost ratios in other categories.&quot;, &quot;The intended cost ratio of a false negative death to a false positive isolation is set at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.&quot;, &quot;A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result, with sampling, was 1.2:1.&quot;),
          name2 = c(&quot;Deceased&quot;, &quot;Released&quot;, &quot;Isolated&quot;))
 dataframe$`Classification Error` &lt;- cell_spec(
   dataframe$name,
@@ -491,11 +491,11 @@ dataframe$`Confusion Table`&lt;- cell_spec(
   ))
 dataframe &lt;- dataframe %&gt;%
   select(`Confusion Table`, Outcome1, Outcome2, Outcome3, `Classification Error`)
-kable(dataframe, escape = FALSE, caption = &quot;Table 1 classifies the Out-of-Bag estimates of the random forest. The algorithm&#39;s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. &lt;strong&gt;Hover over the confusion table&lt;/strong&gt; to learn more about how sampling affects cost ratios.&quot;) %&gt;%
+kable(dataframe, escape = FALSE, caption = &quot;Table 1 classifies Out-of-Bag estimates for the random forest. The algorithm&#39;s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, released, and isolated, respectively. &lt;strong&gt;Hover over the confusion table&lt;/strong&gt; to learn more about how sampling affects cost ratios.&quot;) %&gt;%
   kable_styling(&quot;striped&quot;, full_width = FALSE)</code></pre>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-Table 1 classifies the Out-of-Bag estimates of the random forest. The algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.
+Table 1 classifies Out-of-Bag estimates for the random forest. The algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, released, and isolated, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.
 </caption>
 <thead>
 <tr>
@@ -519,7 +519,7 @@ Classification Error
 <tbody>
 <tr>
 <td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="In response to policy makers&#39; request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the cost ratios of the other categories.">Deceased</span>
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="In response to policy makers&#39; request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the ability to meet desired cost ratios in other categories.">Deceased</span>
 </td>
 <td style="text-align:left;">
 <span style=" font-weight: bold;    ">26</span>
@@ -536,7 +536,7 @@ Classification Error
 </tr>
 <tr>
 <td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="The cost ratio of a false negative death to a false positive isolation is less severe, at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.">Released</span>
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="The intended cost ratio of a false negative death to a false positive isolation is set at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.">Released</span>
 </td>
 <td style="text-align:left;">
 <span style=" font-weight: bold;    ">10</span>
@@ -553,7 +553,7 @@ Classification Error
 </tr>
 <tr>
 <td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result form sampling was 1.2:1. This tradeoff is the decision with the least repercussions, according the stakeholders">Isolated</span>
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result, with sampling, was 1.2:1.">Isolated</span>
 </td>
 <td style="text-align:left;">
 <span style=" font-weight: bold;    ">105</span>
@@ -574,7 +574,7 @@ Classification Error
 </div>
 <div id="generalized-additive-models" class="section level1">
 <h1>Generalized Additive Models</h1>
-<p>A hard to swallow assumption in the linear model framework is that a change in a particular feature will change at the same rate across all values on a variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models identify outlier trends in homeless individuals, yet also reveal limitations of the loess smoother at upper boundaries of data.</p>
+<p>A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.</p>
 <div id="technical-1" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>

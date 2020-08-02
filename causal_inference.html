@@ -434,7 +434,7 @@ $(document).ready(function(){
 
 <div id="balancing-samples-in-survey-data" class="section level1">
 <h1>Balancing Samples in Survey Data</h1>
-<p>Propensity score matching is a quasi-experimental design that helps to control for confounded relationships among variables when randomization is not feasible. Especially in observational studies that use administrative data, such as this project involving the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, sample size representation will affect the balance of matched samples.</p>
+<p>Propensity score matching helps to control for confounded relationships among variables when randomization is not feasible. Especially in observational studies that use administrative data, such as this project involving the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, sample size representation will affect the balance of matched samples.</p>
 <div id="technical" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
@@ -474,14 +474,14 @@ html_table_width &lt;- function(kable_output, width){
   width_html &lt;- paste0(paste0(&#39;&lt;col width=&quot;&#39;, width, &#39;&quot;&gt;&#39;), collapse = &quot;\n&quot;)
   sub(&quot;&lt;table&gt;&quot;, paste0(&quot;&lt;table&gt;\n&quot;, width_html), kable_output)
 }
-kable(percent_balance_improvement, escape = FALSE, caption = &quot;Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helps to arrive at a better percent balance improvement for unrepresented variables.&quot;) %&gt;%
+kable(percent_balance_improvement, escape = FALSE, caption = &quot;Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helped us to arrive at a better percent balance improvement for unrepresented variables.&quot;) %&gt;%
   kable_styling(&quot;striped&quot;, full_width = FALSE, position = &quot;left&quot;,
                 font_size = 10, latex_options = &quot;scale_down&quot;) %&gt;%
   row_spec(c(2:3), color = &quot;white&quot;, background = &quot;#00AFBB&quot;) %&gt;%
   row_spec(c(7),color = &quot;white&quot;, background = &quot;#Fd8453&quot;)</code></pre>
 <table class="table table-striped" style="font-size: 10px; width: auto !important; ">
 <caption style="font-size: initial !important;">
-Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helps to arrive at a better percent balance improvement for unrepresented variables.
+Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helped us to arrive at a better percent balance improvement for unrepresented variables.
 </caption>
 <thead>
 <tr>

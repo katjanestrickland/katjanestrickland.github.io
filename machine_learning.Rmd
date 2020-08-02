@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 # Asymmetric Costs in Random Forest
 
-Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. This random forest algorithm predicts death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.
+Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. I build a random forest algorithm to predict death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.
 
 
 ### Technical
@@ -79,7 +79,7 @@ dataframe <- dataframe %>%
          name = c("0.16", "0.46", "0.13"))
 dataframe <- dataframe %>%
   mutate(position2 = c("top", "top", "top"),
-         text2 = c("In response to policy makers' request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the cost ratios of the other categories.", "The cost ratio of a false negative death to a false positive isolation is less severe, at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.", "A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result form sampling was 1.2:1. This tradeoff is the decision with the least repercussions, according the stakeholders"),
+         text2 = c("In response to policy makers' request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the ability to meet desired cost ratios in other categories.", "The intended cost ratio of a false negative death to a false positive isolation is set at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.", "A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result, with sampling, was 1.2:1."),
          name2 = c("Deceased", "Released", "Isolated"))
 dataframe$`Classification Error` <- cell_spec(
   dataframe$name,
@@ -97,7 +97,7 @@ dataframe$`Confusion Table`<- cell_spec(
   ))
 dataframe <- dataframe %>%
   select(`Confusion Table`, Outcome1, Outcome2, Outcome3, `Classification Error`)
-kable(dataframe, escape = FALSE, caption = "Table 1 classifies the Out-of-Bag estimates of the random forest. The algorithm's forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93% for the deceased, released, and isolated, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.") %>%
+kable(dataframe, escape = FALSE, caption = "Table 1 classifies Out-of-Bag estimates for the random forest. The algorithm's forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, released, and isolated, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.") %>%
   kable_styling("striped", full_width = FALSE)
 
 
@@ -110,7 +110,7 @@ kable(dataframe, escape = FALSE, caption = "Table 1 classifies the Out-of-Bag es
 
 # Generalized Additive Models
 
-A hard to swallow assumption in the linear model framework is that a change in a particular feature will change at the same rate across all values on a variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models identify outlier trends in homeless individuals, yet also reveal limitations of the loess smoother at upper boundaries of data.
+A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.
 
 
 ### Technical

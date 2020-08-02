@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-# Interactive Scatter Plot
+# Interactive jitter plots in JavaScript
 
 Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> is fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among artists' studio and live recordings. This interactive jitter plot, built using the JavaScript library D3.js, allows a user to evaluate distances between points and visualize the "ceiling effect" of comparison data.
 
