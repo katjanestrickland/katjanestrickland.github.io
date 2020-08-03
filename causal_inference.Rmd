@@ -154,8 +154,8 @@ html_table_width <- function(kable_output, width){
 kable(percent_balance_improvement, escape = FALSE, caption = "Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helped us to arrive at a better percent balance improvement for unrepresented variables.") %>%
   kable_styling("striped", full_width = FALSE, position = "left",
                 font_size = 10, latex_options = "scale_down") %>%
-  row_spec(c(2:3), color = "white", background = "#00AFBB") %>%
-  row_spec(c(7),color = "white", background = "#Fd8453")
+  row_spec(c(2:3), color = "white", background = "#D6EAF8") %>%
+  row_spec(c(7),color = "white", background = "#FAD7A0")
 
 
 ```
