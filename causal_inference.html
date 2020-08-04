@@ -437,7 +437,7 @@ $(document).ready(function(){
 
 <div id="balancing-samples-in-survey-data" class="section level1">
 <h1>Balancing Samples in Survey Data</h1>
-<p>Propensity score matching helps to control for confounded relationships among variables when randomization is not feasible. Especially in observational studies that use administrative data, such as this project involving the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, sample size representation will affect the balance of matched samples.</p>
+<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups.</p>
 <div id="technical" class="section level3">
 <h3>Technical</h3>
 <p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
