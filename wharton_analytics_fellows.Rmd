@@ -65,7 +65,7 @@ unsupervised learning algorithm to identify trends in <a href = "https://www.kag
 ### Technical
 
 Data cleaning: tidyverse </br>
-Clustering: factoextra
+Clustering: kmeans
 
 ### Sample
 
