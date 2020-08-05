@@ -11,6 +11,8 @@ output:
 
 ---
 
+---
+
 ## Wharton Analytics Fellows
 
 ---
