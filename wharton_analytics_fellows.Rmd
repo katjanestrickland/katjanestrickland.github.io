@@ -1,75 +1,112 @@
-
 ---
-title: ""
-output:
+title: "Wharton Analytics Fellows"
+output: 
   html_document:
     toc: true
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 3
     code_folding: hide
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
-```
+<p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on the development and integration of predictive analytics solutions. Below are sample projects where I served as a Technical Lead</p>
+---
+
+## MLB
 
 
-<style type="text/css">
-.title {
-  display: none;
-}
+----
 
-#getting-started img {
-  margin-right: 1px;
-}
-
-</style>
-
-<div class="row" style="padding-top: 30px;">
+<div class="row">
 <div class="col-sm-6">
 
-# Overview
-
-
-
-<a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on the development and integration of predictive analytics solutions. Below are sample projects where I served as a Technical Lead.
-
-
-# MLB
-
+#### Overview
 
 Looking for any edge above the competitor, professional sports teams have turned to psychometric and biometric data, in addition to traditional on-field metrics, to analyze player performance. We worked with a Major League Baseball team to analyze how players' psychological data, collected by scouting reports, influence players' projected WAR.
 
-
-### Technical
-
+#### Technical
 Data cleaning: tidyverse </br>
 Text Mining: textmining, tidytext </br>
 Topic Modeling: latent dirichlet allocation (LDA) </br>
 Clustering: hierarchical clustering (hclust)
 
-### Sample
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc3400/">
+```{r rcourse, out.width=150, echo=F}
+knitr::include_graphics("images/mlb.png")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
 
 Project in Process
+</div>
+<div class="col-sm-6">
 
+<a href="https://crumplab.github.io/psyc3400/">
+```{r statsTextbook, out.width=150, echo=F}
 
-# YouTube
+```
+</a>
 
+</div>
+</div>
 
+-----
+
+## YouTube
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Overview
 Product teams at YouTube analyze previously popular videos to better curate content creation. We build an
 unsupervised learning algorithm to identify trends in <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos. Clustering results inform the sales team on pricing strategies for ads, and guide the product team in content curation.
 
-
-### Technical
-
+#### Technical
 Data cleaning: tidyverse </br>
 Clustering: kmeans
 
-### Sample
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r cogsci, out.width=200, echo=F}
+knitr::include_graphics("images/youtube.png")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
+
 
 Sample code and charts below. See <a href = "https://github.com/katjanewilson/YouTube" target = "_blank"> GitHub repo </a> for full code and analysis.
+
+</div>
+<div class="col-sm-6">
+
 
 ```{r echo=TRUE, message=FALSE, eval=FALSE}
 ## sample cleaning code
@@ -187,6 +224,13 @@ k2 <- kmeans(df[,(1:3)], centers = 3, nstart = 25)
 
 knitr::include_graphics("images/image2.jpg")
 ```
+</a>
+
+</div>
+</div>
+
+----------------
+
 
 
 

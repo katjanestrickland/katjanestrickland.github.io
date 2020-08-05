@@ -11,7 +11,7 @@
 
 
 
-<title>wharton_analytics_fellows.utf8</title>
+<title>Wharton Analytics Fellows</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -412,49 +412,63 @@ div.tocify {
 
 
 
+<h1 class="title toc-ignore">Wharton Analytics Fellows</h1>
 
 </div>
 
 
-<style type="text/css">
-.title {
-  display: none;
-}
-
-#getting-started img {
-  margin-right: 1px;
-}
-
-</style>
-<div class="row" style="padding-top: 30px;">
+<p>
+<a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on the development and integration of predictive analytics solutions. Below are sample projects where I served as a Technical Lead
+</p>
+<hr />
+<div id="mlb" class="section level2">
+<h2>MLB</h2>
+<hr />
+<div class="row">
 <div class="col-sm-6">
-
-<div id="overview" class="section level1">
-<h1>Overview</h1>
-<p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on the development and integration of predictive analytics solutions. Below are sample projects where I served as a Technical Lead.</p>
-</div>
-<div id="mlb" class="section level1">
-<h1>MLB</h1>
+<h4 id="overview">Overview</h4>
 <p>Looking for any edge above the competitor, professional sports teams have turned to psychometric and biometric data, in addition to traditional on-field metrics, to analyze player performance. We worked with a Major League Baseball team to analyze how players’ psychological data, collected by scouting reports, influence players’ projected WAR.</p>
-<div id="technical" class="section level3">
-<h3>Technical</h3>
+<h4 id="technical">Technical</h4>
 <p>Data cleaning: tidyverse </br> Text Mining: textmining, tidytext </br> Topic Modeling: latent dirichlet allocation (LDA) </br> Clustering: hierarchical clustering (hclust)</p>
 </div>
-<div id="sample" class="section level3">
-<h3>Sample</h3>
+<div class="col-sm-6">
+<p><a href="https://crumplab.github.io/psyc3400/"> <img src="images/mlb.png" width="150" /> </a></p>
+</div>
+</div>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="sample">Sample</h4>
 <p>Project in Process</p>
 </div>
+<div class="col-sm-6">
+<p><a href="https://crumplab.github.io/psyc3400/"></p>
+<p></a></p>
 </div>
-<div id="youtube" class="section level1">
-<h1>YouTube</h1>
+</div>
+<hr />
+</div>
+<div id="youtube" class="section level2">
+<h2>YouTube</h2>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="overview-1">Overview</h4>
 <p>Product teams at YouTube analyze previously popular videos to better curate content creation. We build an unsupervised learning algorithm to identify trends in <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos. Clustering results inform the sales team on pricing strategies for ads, and guide the product team in content curation.</p>
-<div id="technical-1" class="section level3">
-<h3>Technical</h3>
+<h4 id="technical-1">Technical</h4>
 <p>Data cleaning: tidyverse </br> Clustering: kmeans</p>
 </div>
-<div id="sample-1" class="section level3">
-<h3>Sample</h3>
+<div class="col-sm-6">
+<p><a href="https://crumplab.github.io/psyc73800/"> <img src="images/youtube.png" width="200" /> </a></p>
+</div>
+</div>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="sample-1">Sample</h4>
 <p>Sample code and charts below. See <a href = "https://github.com/katjanewilson/YouTube" target = "_blank"> GitHub repo </a> for full code and analysis.</p>
+</div>
+<div class="col-sm-6">
 <pre class="r"><code>## sample cleaning code
 #remove cases with missing video names
 usvideos &lt;- usvideos %&gt;%
@@ -527,8 +541,10 @@ df %&gt;%
   ylab(&quot;Average Comments&quot; )+
   xlab(&quot;Average Views&quot;) +
   theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" /><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-2-2.png" width="100%" style="display: block; margin: auto;" /><img src="images/image2.jpg" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" /><img src="wharton_analytics_fellows_files/figure-html/unnamed-chunk-2-2.png" width="100%" style="display: block; margin: auto;" /><img src="images/image2.jpg" width="100%" style="display: block; margin: auto;" /> </a></p>
 </div>
+</div>
+<hr />
 </div>
 
 
@@ -582,7 +598,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1",
+      selectors: "h1,h2,h3",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
