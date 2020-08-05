@@ -31,7 +31,7 @@ output:
 
 #### Overview
 
-Looking for any edge above the competitor, professional sports teams have turned to psychometric and biometric data, in addition to traditional on-field metrics, to analyze player performance. We worked with a Major League Baseball team to analyze how players' psychological data, collected by scouting reports, influence players' projected WAR.
+Looking for any edge above the competitor, professional sports teams have turned to psychometric and biometric data, in addition to traditional on-field metrics, to analyze player performance. We worked with a Major League Baseball team to analyze how players' psychological data, collected by scouting reports, influence projected WAR.
 
 #### Technical
 Data cleaning: tidyverse </br>
