@@ -543,6 +543,11 @@ m3 &lt;- subset(m1, names(m1) == 2)
 hist(m3,breaks = 30, main = &quot;Fig 4.3: Margin for Released classification&quot;, xlab = &quot;Votes for Released&quot;)
 m3 &lt;- subset(m1, names(m1) == 3)
 hist(m3, breaks = 30, main = &quot;Fig 4.4: Margin for Isolated classification&quot;, xlab = &quot;Votes for Isolated&quot;)</code></pre>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 Table 1 classifies Out-of-Bag estimates for the random forest. The algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, released, and isolated, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.

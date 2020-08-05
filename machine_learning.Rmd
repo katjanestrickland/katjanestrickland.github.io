@@ -160,7 +160,11 @@ hist(m3, breaks = 30, main = "Fig 4.4: Margin for Isolated classification", xlab
 
 ```
 
-
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
 
 ```{r echo=FALSE, message=FALSE}
 #install.packages("randomForest")
