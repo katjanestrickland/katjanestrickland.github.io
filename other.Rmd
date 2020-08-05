@@ -30,5 +30,5 @@ knitr::opts_chunk$set(echo = TRUE)
 <p>&nbsp;</p>
 
 
-While I certainly miss the days of playing in a band in Austin, TX, I am lucky to have found some talented musicians to play with in Philadelphia. Check out our songs on <a href = "https://soundcloud.com/user-77041470" target = "_blank"> SoundCloud</a>, or catch us playing most weekends at Rittenhouse Park.
+While I certainly miss the days of playing drums in a band in Austin, TX, I am lucky to have found some like-minded musicians to play guitar with in Philadelphia. Check out our songs on <a href = "https://soundcloud.com/user-77041470" target = "_blank"> SoundCloud</a>, or catch us playing most weekends at Rittenhouse Park.
 
