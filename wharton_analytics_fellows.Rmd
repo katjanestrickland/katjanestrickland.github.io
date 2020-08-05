@@ -1,5 +1,5 @@
 ---
-title: "Wharton Analytics Fellows"
+title: ""
 output: 
   html_document:
     toc: true
@@ -10,6 +10,11 @@ output:
     code_folding: hide
 
 ---
+
+## Wharton Analytics Fellows
+
+---
+
 
 <p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on the development and integration of predictive analytics solutions. Below are sample projects where I served as a Technical Lead</p>
 ---
