@@ -11,9 +11,8 @@ output:
 
 ---
 
----
 
-## Ceiling Effect Visualization
+## Live Music Ceiling Effect
 
 ----
 

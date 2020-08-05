@@ -417,34 +417,28 @@ div.tocify {
 </div>
 
 
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
-</script>
-<style type="text/css">
-.title {
-  display: none;
-}
-
-#getting-started img {
-  margin-right: 1px;
-}
-
-</style>
-<div class="row" style="padding-top: 30px;">
+<div id="administrative-data-matching" class="section level2">
+<h2>Administrative Data Matching</h2>
+<hr />
+<div class="row">
 <div class="col-sm-6">
-
-<div id="balancing-samples-in-survey-data" class="section level1">
-<h1>Balancing Samples in Survey Data</h1>
+<h4 id="overview">Overview</h4>
 <p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups.</p>
-<div id="technical" class="section level3">
-<h3>Technical</h3>
+<h4 id="technical">Technical</h4>
 <p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
 </div>
-<div id="sample" class="section level3">
-<h3>Sample</h3>
-<p>Sample code below.</p>
+<div class="col-sm-6">
+<p><a href="https://crumplab.github.io/psyc3400/"> <img src="images/philly.jpg" width="150" /> </a></p>
+</div>
+</div>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="sample">Sample</h4>
+<p>Sample visualization below. Full project in process.</p>
+</div>
+<div class="col-sm-6">
+
 <pre class="r"><code>## sample data cleaning code
 merged_participation$`YEARS OF SERVICE` &lt;- as.numeric(merged_participation$`YEARS OF SERVICE`)
 merged_participation &lt;- merged_participation  %&gt;%
@@ -511,9 +505,6 @@ model &lt;- glm(Retained ~ Participated, data = nearest_matched,
              family = binomial)
 summary(model)</code></pre>
 <table class="table table-striped" style="font-size: 10px; width: auto !important; ">
-<caption style="font-size: initial !important;">
-Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helped us to arrive at a better percent balance improvement for unrepresented variables.
-</caption>
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -663,7 +654,6 @@ Teacher Status
 </tbody>
 </table>
 </div>
-</div>
 
 
 
@@ -716,7 +706,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1",
+      selectors: "h1,h2,h3",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {

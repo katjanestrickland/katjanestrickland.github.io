@@ -1,51 +1,56 @@
 ---
 title: ""
-output:
+output: 
   html_document:
     toc: true
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 3
     code_folding: hide
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
-</script>
-<style type="text/css">
-.title {
-  display: none;
-}
 
-#getting-started img {
-  margin-right: 1px;
-}
+## Administrative Data Matching
 
-</style>
+----
 
-<div class="row" style="padding-top: 30px;">
+<div class="row">
 <div class="col-sm-6">
 
-# Balancing Samples in Survey Data
+#### Overview
 
 In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups.
 
-### Technical
 
+#### Technical
 Data cleaning: tidyverse </br>
 Causal Inference: R (MatchIt)
 
-### Sample
+</div>
+<div class="col-sm-6">
 
-Sample code below.
+<a href="https://crumplab.github.io/psyc3400/">
+```{r rcourse, out.width=150, echo=F}
+knitr::include_graphics("images/philly.jpg")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
 
 
+Sample visualization below. Full project in process.
+</div>
+<div class="col-sm-6">
 ```{r echo=TRUE, message=FALSE, eval=FALSE}
 
 ## sample data cleaning code
@@ -151,7 +156,7 @@ html_table_width <- function(kable_output, width){
   width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
   sub("<table>", paste0("<table>\n", width_html), kable_output)
 }
-kable(percent_balance_improvement, escape = FALSE, caption = "Balance is a representation of similarity in the distribution of a covariate among the treatment and the control group. Trimming the sample helped us to arrive at a better percent balance improvement for unrepresented variables.") %>%
+kable(percent_balance_improvement, escape = FALSE) %>%
   kable_styling("striped", full_width = FALSE, position = "left",
                 font_size = 10, latex_options = "scale_down") %>%
   row_spec(c(2:3), color = "white", background = "#D6EAF8") %>%
