@@ -1,50 +1,57 @@
 ---
-title: "this"
-output:
+title: ""
+output: 
   html_document:
     toc: true
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 3
     code_folding: hide
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
-</script>
-<style type="text/css">
-.title {
-  display: none;
-}
+---
 
-#getting-started img {
-  margin-right: 1px;
-}
+## Covid-19 Open Research Data Challenge
 
-</style>
+----
 
-<div class="row" style="padding-top: 30px;">
+<div class="row">
 <div class="col-sm-6">
 
-# Asymmetric Costs in Random Forest
+#### Overview
 
 Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. I build a random forest algorithm to predict death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.
 
 
-### Technical
-
+#### Technical
 Data cleaning: tidyverse </br>
 Random Forest: R (randomforest)
 
-### Sample
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc3400/">
+```{r rcourse, out.width=150, echo=F}
+knitr::include_graphics("images/covid.png")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
 
 Sample code and charts below. See <a href = "https://github.com/katjanewilson/COVID-19-Random-Forest.git" target = "_blank"> GitHub repo </a> for full code and analysis.
+</div>
+<div class="col-sm-6">
+
 
 ```{r echo=TRUE, message=FALSE, eval=FALSE}
 ## sample cleaning code
@@ -210,24 +217,52 @@ kable(dataframe, escape = FALSE, caption = "Table 1 classifies Out-of-Bag estima
 
 ```
 
+</div>
+</div>
 
+-----
 
+## Los Angeles County Census Tracts
 
+-----
 
+<div class="row">
+<div class="col-sm-6">
 
-# Generalized Additive Models
-
+#### Overview
 A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.
 
-
-### Technical
-
+#### Technical
 Data cleaning: tidyverse </br>
 General Additive Models: mgc, mgcViz and gam
 
-### Sample
+
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r cogsci, out.width=200, echo=F}
+knitr::include_graphics("images/census.jpg")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
+
+
 
 Sample code and charts below. See <a href = "https://github.com/katjanewilson/Generalized-Additive-Model/blob/master/Code" target = "_blank"> GitHub repo </a> for full code and analysis.
+
+</div>
+<div class="col-sm-6">
 
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
@@ -396,8 +431,8 @@ out3 <- gam(StreetTotal ~
               s(MedianIncome), data = homeless, family = gaussian)
 # summary(out3)
 par(mfrow=c(2,2))
-plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = "light blue",
-     col = "#FAD7A0")
+# plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = "light blue",
+#      col = "#FAD7A0")
 library(mgcViz)
 b<- getViz(out3)
 o <- plot( sm(b, 1) )
@@ -408,6 +443,7 @@ o + l_fitLine(colour = "#FAD7A0") + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) 
 
 ```
 
-</script>
+
+
 
 

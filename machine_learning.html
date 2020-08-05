@@ -11,7 +11,7 @@
 
 
 
-<title>this</title>
+<title>machine_learning.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -413,39 +413,35 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">this</h1>
 
 </div>
 
 
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
-</script>
-<style type="text/css">
-.title {
-  display: none;
-}
-
-#getting-started img {
-  margin-right: 1px;
-}
-
-</style>
-<div class="row" style="padding-top: 30px;">
+<hr />
+<div id="covid-19-open-research-data-challenge" class="section level2">
+<h2>Covid-19 Open Research Data Challenge</h2>
+<hr />
+<div class="row">
 <div class="col-sm-6">
-
-<div id="asymmetric-costs-in-random-forest" class="section level1">
-<h1>Asymmetric Costs in Random Forest</h1>
+<h4 id="overview">Overview</h4>
 <p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. In this project, I investigate how sample size selection affects cost asymmetry. I build a random forest algorithm to predict death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</p>
-<div id="technical" class="section level3">
-<h3>Technical</h3>
+<h4 id="technical">Technical</h4>
 <p>Data cleaning: tidyverse </br> Random Forest: R (randomforest)</p>
 </div>
-<div id="sample" class="section level3">
-<h3>Sample</h3>
+<div class="col-sm-6">
+<p><a href="https://crumplab.github.io/psyc3400/"> <img src="images/covid.png" width="150" /> </a></p>
+</div>
+</div>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="sample">Sample</h4>
 <p>Sample code and charts below. See <a href = "https://github.com/katjanewilson/COVID-19-Random-Forest.git" target = "_blank"> GitHub repo </a> for full code and analysis.</p>
+</div>
+<div class="col-sm-6">
+
+
+
 <pre class="r"><code>## sample cleaning code
 rm(list = ls())
 Patient &lt;- read.csv(&quot;PatientInfo.csv&quot;, na.strings = c(&quot;&quot;,NA))
@@ -626,16 +622,32 @@ Classification Error
 </table>
 </div>
 </div>
-<div id="generalized-additive-models" class="section level1">
-<h1>Generalized Additive Models</h1>
+<hr />
+</div>
+<div id="los-angeles-county-census-tracts" class="section level2">
+<h2>Los Angeles County Census Tracts</h2>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="overview-1">Overview</h4>
 <p>A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, gam models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.</p>
-<div id="technical-1" class="section level3">
-<h3>Technical</h3>
+<h4 id="technical-1">Technical</h4>
 <p>Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>
 </div>
-<div id="sample-1" class="section level3">
-<h3>Sample</h3>
+<div class="col-sm-6">
+<p><a href="https://crumplab.github.io/psyc73800/"> <img src="images/census.jpg" width="200" /> </a></p>
+</div>
+</div>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="sample-1">Sample</h4>
 <p>Sample code and charts below. See <a href = "https://github.com/katjanewilson/Generalized-Additive-Model/blob/master/Code" target = "_blank"> GitHub repo </a> for full code and analysis.</p>
+</div>
+<div class="col-sm-6">
+
+
+
 <pre class="r"><code>library(tidyverse)
 library(DataExplorer)
 library(gridExtra)
@@ -801,18 +813,15 @@ out3 &lt;- gam(StreetTotal ~
               s(MedianIncome), data = homeless, family = gaussian)
 # summary(out3)
 par(mfrow=c(2,2))
-plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = &quot;light blue&quot;,
-     col = &quot;#FAD7A0&quot;)</code></pre>
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
-<pre class="r"><code>library(mgcViz)
+# plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = &quot;light blue&quot;,
+#      col = &quot;#FAD7A0&quot;)
+library(mgcViz)
 b&lt;- getViz(out3)
 o &lt;- plot( sm(b, 1) )
 o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
   l_ciLine(mul = 5, colour = &quot;light blue&quot;, linetype = 2) + 
   l_points(shape = 19, size = 1, alpha = 0.7, color = &quot;light blue&quot;) + theme_classic()</code></pre>
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
-</script>
-</div>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
 </div>
 
 
@@ -866,7 +875,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1",
+      selectors: "h1,h2,h3",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
