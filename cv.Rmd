@@ -19,18 +19,18 @@ knitr::opts_chunk$set(echo = TRUE)
 </style>
 
 <div class="row" style="padding-top: 50px;">
-<div class="col-sm-6">
+<div class="col-sm-9">
+
+| Education | |
+|:--------|-------:|
+|PhD Student- Quantitative Methods (University of Pennsylvania)| |
+|Masters Degree - Quantitative Methods (University of Texas at Austin) |
+|Bachelors Degree - Business (University of Notre Dame) |
 
 
-#### Education
 
-current PhD Student - Quantitative Methods (Penn)- (full funding via Dean's Fellowship)
-
-Masters Degree- Quantitative Methods (UT Austin)- (full funding)
-
-Bachelors Degree- Business (Notre Dame)
-
-#### Research Area
+|Research Area |  |
+|:--------|-------:|
 
 My work focuses on the methodological considerations of 
 advanced statistics and analytics, particularly those related to the use of causal inference
@@ -39,27 +39,29 @@ population of interest? How can sampling and stratification approaches improve t
 
 </br>Additionally, I use applied statistics and advanced analytics to work on business problems in industry settings (see Wharton Analytics Fellows).
 
-</br>
 
-#### Technical
+|Technical |  |
+|:--------|-------:|
 
 Back End Data Analysis: Python, R, SQL </br>
 Front End Visualization: JavaScript (D3.js), CSS, HTML </br>
 Version Control: Git/GitHub
 
-#### Methodological
+|Methodological |  |
+|:--------|-------:|
 
 Statistics, Causal Inference, Machine Learning, Data Mining, Data Visualization, Psychometrics
 
-#### Teaching
-
+| Teaching |  |
+|:--------|-------:|
 Graduate Instructor - (UT Austin)
 
 Programming Instructor (Khan Lab School, Wharton Moneyball Academy)
 
 Teacher (Americorps New York City Teaching Fellows, KIPP)
 
-#### Related Coursework
+|Related Coursework |  |
+|:--------|-------:|
 
 Big Data Analytics - <a href="https://sites.google.com/seas.upenn.edu/cis545" target = "_blank">courselink </a> </br>
 Data Mining - <a href="https://www.upenn.edu/learninganalytics/ryanbaker/EDM2020/course-schedule-CoreMethods-2020-v1.html" target = "_blank">courselink </a>
