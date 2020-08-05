@@ -1,46 +1,59 @@
 ---
 title: ""
-output:
+output: 
   html_document:
     toc: true
     toc_float: true
     collapsed: false
     number_sections: false
-    toc_depth: 1
+    toc_depth: 3
     code_folding: hide
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-<style type="text/css">
-.title {
-  display: none;
-}
+---
 
-#getting-started img {
-  margin-right: 1px;
-}
+## Ceiling Effect Visualization
 
-</style>
+----
 
-<div class="row" style="padding-top: 30px;">
+<div class="row">
 <div class="col-sm-6">
 
-# Interactive jitter plots in JavaScript
+#### Overview
 
-Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> is fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among artists' studio and live recordings. This interactive jitter plot, built using the JavaScript library D3.js, allows a user to evaluate distances between points and visualize the "ceiling effect" of comparison data.
+  Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> is fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among artists' studio and live recordings. This interactive jitter plot, built using the JavaScript library D3.js, allows a user to evaluate distances between points and visualize the "ceiling effect" of comparison data.
 
-### Technical
 
-Scraping: Python (BeautifulSoup) </br>
+#### Technical
+Web scraping: Python (BeautifulSoup) </br>
 Data Cleaning: tidyverse </br>
 Data visualization: D3.js
+</div>
+<div class="col-sm-6">
 
-### Sample
+<a href="https://crumplab.github.io/psyc3400/">
+```{r rcourse, out.width=150, echo=F}
+knitr::include_graphics("images/spotify.png")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
 
 Sample visualization below. Full project in process.
+</div>
+<div class="col-sm-6">
 
+
+```{r echo=TRUE, message=FALSE, eval=FALSE}
 ```{r eval=FALSE, echo=TRUE, message=FALSE}
 # d3.csv("data/small_website.csv"), (function(data){
 #    console.log(data);
@@ -603,6 +616,3 @@ library(tidyverse)
 r2d3(data = read.csv("data/small_website.csv"), d3_version = 4, script = "website_js.js")
 
 ```
-
-
-
