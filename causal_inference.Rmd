@@ -32,11 +32,11 @@ Causal Inference: R (MatchIt)
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc3400/">
+
 ```{r rcourse, out.width=150, echo=F}
 knitr::include_graphics("images/philly.jpg")
 ```
-</a>
+
 
 </div>
 </div>

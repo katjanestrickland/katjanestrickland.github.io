@@ -32,11 +32,10 @@ Random Forest: R (randomforest)
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc3400/">
 ```{r rcourse, out.width=150, echo=F}
 knitr::include_graphics("images/covid.png")
 ```
-</a>
+
 
 </div>
 </div>
@@ -244,11 +243,11 @@ General Additive Models: mgc, mgcViz and gam
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc73800/">
+
 ```{r cogsci, out.width=200, echo=F}
 knitr::include_graphics("images/census.jpg")
 ```
-</a>
+
 
 </div>
 </div>
