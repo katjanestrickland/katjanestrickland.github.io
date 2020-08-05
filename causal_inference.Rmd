@@ -13,7 +13,7 @@ output:
 
 ---
 
-## Administrative data matching
+## Administrative Data in Observational Studies
 
 ----
 
