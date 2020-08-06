@@ -8,12 +8,16 @@ output:
     number_sections: false
     toc_depth: 3
 
+
+---
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval=F)
 ```
-
+<div class="row">
+<div class="col-sm-6">
 frequently used code for personal reference
 
 ## tidyverse
@@ -72,7 +76,7 @@ spread(mtcars, key = 'cyl', value = 'mpg')
 
 ```
 
-## Linear Models
+## linear modeling
 
 linear models
 
@@ -160,5 +164,51 @@ cor(stat500$final,stat500$midterm)
 
 ```
 ## functions and loops
+
+
+### sample for loop
+``` {r}
+data(GSSvocab)
+EGE<-rep(0,500)
+for (i in 1:500)
+{
+  temp0<-na.omit(GSSvocab)
+  index<-sample(1:27360,27360,replace=T) # random index
+  temp1<-temp0[index,] # random sample of all data
+  NewTrain<-temp1[1:13680,] # training data
+  NewTest<-temp1[13681:27360,] # test data
+  out<-lm(vocab~gender+nativeBorn+ageGroup+
+             educGroup+age+educ,data=NewTrain)
+  EGE[i]<-var(NewTest$vocab-predict.lm(out, newdata=NewTest))
+}
+summary(EGE)
+hist(EGE,breaks = 20)
+qqnorm(EGE)
+quantile(EGE,probs=c(.025,.975))
+
+```
+
+### sample function
+``` {r}
+clean_live_frame_function <- function(livedata, albumname)  {
+  artist_live_edits <- livedata %>%
+    mutate(livemarker = ifelse(livedata$album_name == albumname, 1, 0))
+  artist_live_edits2 <- artist_live_edits %>%
+    mutate(omitvariable = case_when(
+      (str_detect(album_name, "Sessions") |
+         str_detect(album_name, "Live") |
+         str_detect(album_name, "Festival") |
+         str_detect(album_name, "Concerts"))& livemarker == 0 ~ "omit"))
+ artist_live_edits2 <- artist_live_edits2 %>%
+    mutate(omitvariable2 = case_when(
+      (str_detect(track_name, "Live") & livemarker == 0 ~"omit")
+    ))
+ artist_live_edits2 <- artist_live_edits2 %>%
+   filter(is.na(omitvariable) & is.na(omitvariable2))
+ artist_live_edits2 <- artist_live_edits2 %>%
+   distinct()
+}
+
+```
 
 

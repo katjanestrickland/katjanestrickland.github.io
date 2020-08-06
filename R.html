@@ -365,7 +365,7 @@ div.tocify {
   <a href="causal_inference.html">Causal Inference</a>
 </li>
 <li>
-  <a href="R.html">R</a>
+  <a href="R.html">code</a>
 </li>
 <li>
   <a href="other.html">Other</a>
@@ -407,6 +407,9 @@ div.tocify {
 </div>
 
 
+<hr />
+<div class="row">
+<div class="col-sm-6">
 <p>frequently used code for personal reference</p>
 <div id="tidyverse" class="section level2">
 <h2>tidyverse</h2>
@@ -449,8 +452,8 @@ mtcars &lt;- rownames_to_column(mtcars, &quot;Model&quot;) %&gt;%
 spread(mtcars, key = &#39;cyl&#39;, value = &#39;mpg&#39;)</code></pre>
 </div>
 </div>
-<div id="linear-models" class="section level2">
-<h2>Linear Models</h2>
+<div id="linear-modeling" class="section level2">
+<h2>linear modeling</h2>
 <p>linear models</p>
 <div id="anova" class="section level3">
 <h3>anova</h3>
@@ -524,6 +527,47 @@ cor(stat500$final,stat500$midterm)</code></pre>
 </div>
 <div id="functions-and-loops" class="section level2">
 <h2>functions and loops</h2>
+<div id="sample-for-loop" class="section level3">
+<h3>sample for loop</h3>
+<pre class="r"><code>data(GSSvocab)
+EGE&lt;-rep(0,500)
+for (i in 1:500)
+{
+  temp0&lt;-na.omit(GSSvocab)
+  index&lt;-sample(1:27360,27360,replace=T) # random index
+  temp1&lt;-temp0[index,] # random sample of all data
+  NewTrain&lt;-temp1[1:13680,] # training data
+  NewTest&lt;-temp1[13681:27360,] # test data
+  out&lt;-lm(vocab~gender+nativeBorn+ageGroup+
+             educGroup+age+educ,data=NewTrain)
+  EGE[i]&lt;-var(NewTest$vocab-predict.lm(out, newdata=NewTest))
+}
+summary(EGE)
+hist(EGE,breaks = 20)
+qqnorm(EGE)
+quantile(EGE,probs=c(.025,.975))</code></pre>
+</div>
+<div id="sample-function" class="section level3">
+<h3>sample function</h3>
+<pre class="r"><code>clean_live_frame_function &lt;- function(livedata, albumname)  {
+  artist_live_edits &lt;- livedata %&gt;%
+    mutate(livemarker = ifelse(livedata$album_name == albumname, 1, 0))
+  artist_live_edits2 &lt;- artist_live_edits %&gt;%
+    mutate(omitvariable = case_when(
+      (str_detect(album_name, &quot;Sessions&quot;) |
+         str_detect(album_name, &quot;Live&quot;) |
+         str_detect(album_name, &quot;Festival&quot;) |
+         str_detect(album_name, &quot;Concerts&quot;))&amp; livemarker == 0 ~ &quot;omit&quot;))
+ artist_live_edits2 &lt;- artist_live_edits2 %&gt;%
+    mutate(omitvariable2 = case_when(
+      (str_detect(track_name, &quot;Live&quot;) &amp; livemarker == 0 ~&quot;omit&quot;)
+    ))
+ artist_live_edits2 &lt;- artist_live_edits2 %&gt;%
+   filter(is.na(omitvariable) &amp; is.na(omitvariable2))
+ artist_live_edits2 &lt;- artist_live_edits2 %&gt;%
+   distinct()
+}</code></pre>
+</div>
 </div>
 
 
