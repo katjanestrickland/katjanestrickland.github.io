@@ -18,7 +18,7 @@ output:
 ---
 
 
-<p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on the development and integration of predictive analytics solutions. Below are sample projects where I served as a Technical Lead</p>
+<p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate and undergraduate students across schools at Penn to consult with companies on the development and integration of predictive analytics solutions. Below are sample projects where I served as a Technical Lead. </p>
 ---
 
 ## Psychometrics for Sabermetrics
