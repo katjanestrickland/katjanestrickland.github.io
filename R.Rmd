@@ -1,0 +1,164 @@
+---
+title: "R"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 3
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval=F)
+```
+
+Forgotten Code
+
+## tidyverse
+
+Using the faraway package in R: <a href = "https://cran.r-project.org/web/packages/faraway/faraway.pdf" target = "_blank"> Documentation </a> 
+
+```{r}
+#install.packages("faraway")
+library(faraway)
+data(seatpos)
+head(seatpos)
+
+
+```
+### dplyr functions
+
+filter, select, mutate, group by, summarise
+
+```{r}
+seatpos %>%
+  filter(Age < 60 & Weight < 200) %>%
+  select(Age, Weight) %>%
+  mutate(decades = case_when(Age <=30 ~ "twenties",
+                             Age <= 40 & Age >30 ~ "thirties",
+                             Age <= 50 & Age >40 ~ "forties",
+                             Age <= 60 & Age > 50 ~ "fifties")) %>%
+  group_by(decades) %>%
+  summarise(mean_Weight = mean(Weight))
+
+         
+```
+
+### gather
+
+gather columns into rows
+```{r}
+data("mtcars")
+head(mtcars)
+mtcars <- rownames_to_column(mtcars, "Model") %>%
+  select(mpg, cyl, Model) %>%
+  filter(cyl == 4)
+
+gather(mtcars, "attribute", "this", 1:2)
+```
+
+### spread
+
+spreads rows into columns
+
+```{r}
+data(mtcars)
+mtcars <- rownames_to_column(mtcars, "Model") %>%
+  select(mpg, cyl, Model)
+
+spread(mtcars, key = 'cyl', value = 'mpg')
+
+```
+
+## Linear Models
+
+linear models
+
+### anova
+
+
+```{r, eval=F}
+### one way anova
+library(faraway)
+data(coagulation)
+head(coagulation)
+
+# boxplot
+plot(coag ~ diet,coagulation,xlab="Diet",ylab="Coagulation Time")
+
+# anova
+anova(lm(coag ~ diet,coagulation))
+
+# pairwise
+tk_coag <- TukeyHSD(aov(coag ~ diet,coagulation))
+tk_coag
+plot(tk_coag)
+```
+
+### linear regression
+
+
+``` {r}
+# multiple regression
+library(faraway)
+data(savings)
+head(savings)
+
+
+## overall test
+m1 <- lm(sr ~ pop15 + pop75 + dpi + ddpi,savings)
+summary(m1)
+
+# f stat for the overall test
+ssy <- sum((savings$sr - mean(savings$sr))^2) # sum square y
+sse <- deviance(m1) # residual sum of squares
+df.residual(m1) # degress of freedom for the sse
+fstat <- ((ssy-sse)/4)/(sse/df.residual(m1)) # F statistic for the overall test
+1 - pf(fstat,4,df.residual(m1)) # p value
+
+## partial f test
+
+m2 <- lm(sr ~ pop75 + dpi + ddpi,savings) # reduced model
+sse2 <- deviance(m2) # SSE for reduced model
+fstat2 <- (deviance(m2)-deviance(m1))/(deviance(m1)/df.residual(m1))
+1-pf(fstat2,1,df.residual(m1))
+
+
+```
+### interactions
+
+``` {r}
+
+library(faraway)
+data(teengamb)
+
+# income and sex on outcome
+m1 <- lm(gamble ~ income + sex,teengamb)
+#income, sex, and interaction between both
+m2 <- lm(gamble ~ income + sex + income*sex,teengamb)
+
+```
+
+### correlation
+
+``` {r}
+
+library(faraway)
+data(stat500)
+
+m1 <- lm(final ~ midterm,stat500)
+summary(m1)
+sum(coef(m1)* c(1,83))
+# confidence interval for beta 1
+confint(m1)
+
+# correlation
+
+cor(stat500$final,stat500$midterm)
+
+```
+## functions and loops
+
+

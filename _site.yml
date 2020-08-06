@@ -12,6 +12,8 @@ navbar:
       href: data_vis.html
     - text: "Causal Inference"
       href: causal_inference.html
+    - text: "R"
+      href: R.html
     - text: "Other"
       href: other.html
     - text: ""
