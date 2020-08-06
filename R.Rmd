@@ -211,4 +211,29 @@ clean_live_frame_function <- function(livedata, albumname)  {
 
 ```
 
+## python code
 
+### pandas
+
+``` {r setup2, include = FALSE}
+#install.packages("reticulate")
+library(reticulate)
+use_python("/home/rstudio-user/.local/share/r-miniconda/envs/r-reticulate/bin/python")
+knitr::knit_engines$set(python = reticulate::eng_python)
+
+```
+
+
+``` {python}
+knitr::knit_engines$set(python = reticulate::eng_python)
+import pandas as pd
+import numpy as np
+from sklearn import linear_model
+from sklearn.model_selection import train_test_split
+
+from sklearn.datasets import load_boston
+
+boston = load_boston()
+boston
+
+```
