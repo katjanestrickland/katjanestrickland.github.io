@@ -22,7 +22,7 @@ output:
 
 #### Overview
 
-  Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> is fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist's studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, the user can evaluate distances between points and visualize the "ceiling effect" of comparison data.
+  Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> is fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist's studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, a user can evaluate distances between points and visualize the "ceiling effect" of comparison data.
 
 
 #### Technical
