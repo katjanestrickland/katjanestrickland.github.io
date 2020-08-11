@@ -58,7 +58,19 @@ knitr::include_graphics("images/mlb.png")
 
 #### Sample
 
-Project in Process
+Sample Code and Charts to the right.
+
+</div>
+<div class="col-sm-6">
+
+```{r echo=FALSE, out.width= "100%", fig.align = "center",  message=FALSE}
+library(tidyverse)
+
+
+knitr::include_graphics("images/baseball.png")
+knitr::include_graphics("images/baseball2.png")
+knitr::include_graphics("images/baseball3.png")
+```
 </div>
 <div class="col-sm-6">
 
