@@ -730,9 +730,9 @@ p7 &lt;- homeless %&gt;%
   geom_histogram(bins = 50) +
   geom_vline(xintercept = mean(homeless$PCTIndustrial), colour = &quot;pink&quot;)
 library(gridExtra)
-grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)</code></pre>
-<p><img src="researchprojects_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<pre class="r"><code>#set seed at 4000
+# grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)
+
+#set seed at 4000
 # Bring in data and create initial training and test datasets
 set.seed(4000)
 df &lt;- homeless
@@ -825,7 +825,7 @@ o &lt;- plot( sm(b, 1) )
 o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
   l_ciLine(mul = 5, colour = &quot;light blue&quot;, linetype = 2) + 
   l_points(shape = 19, size = 1, alpha = 0.7, color = &quot;light blue&quot;) + theme_classic()</code></pre>
-<p><img src="researchprojects_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p><img src="researchprojects_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 </div>
 <hr />

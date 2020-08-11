@@ -347,7 +347,7 @@ p7 <- homeless %>%
   geom_histogram(bins = 50) +
   geom_vline(xintercept = mean(homeless$PCTIndustrial), colour = "pink")
 library(gridExtra)
-grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)
+# grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)
 
 #set seed at 4000
 # Bring in data and create initial training and test datasets
