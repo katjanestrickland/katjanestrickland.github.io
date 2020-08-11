@@ -6,12 +6,8 @@ navbar:
       href: cv.html
     - text: "Wharton Analytics Fellows"
       href: wharton_analytics_fellows.html
-    - text: "Machine Learning"
+    - text: "Research Projectts"
       href: machine_learning.html
-    - text: "Data Visualization"
-      href: data_vis.html
-    - text: "Causal Inference"
-      href: causal_inference.html
     - text: "code"
       href: R.html
     - text: "Other"

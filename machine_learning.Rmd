@@ -13,7 +13,7 @@ output:
 
 ---
 
-## COVID-19 Open Research Data Challenge
+## CORD-19
 
 ----
 
@@ -448,5 +448,773 @@ o + l_fitLine(colour = "#FAD7A0") + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) 
 
 
 
+</div>
+</div>
+
+---
+
+## Philadelphia Public Schools
+
+----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Overview
+
+In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups.
 
 
+#### Technical
+Data cleaning: tidyverse </br>
+Causal Inference: R (MatchIt)
+
+</div>
+<div class="col-sm-6">
+
+
+```{r , out.width=150, echo=F}
+knitr::include_graphics("images/philly.jpg")
+```
+
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
+
+
+Sample visualization below. Full project in process.
+</div>
+<div class="col-sm-6">
+```{r echo=TRUE, message=FALSE, eval=FALSE}
+
+## sample data cleaning code
+merged_participation$`YEARS OF SERVICE` <- as.numeric(merged_participation$`YEARS OF SERVICE`)
+merged_participation <- merged_participation  %>%
+  mutate(strata = case_when(is.na(`YEARS OF SERVICE`) ~"missing",
+                            `YEARS OF SERVICE` <= 5 ~ "less than 5",
+                            `YEARS OF SERVICE` >5 & `YEARS OF SERVICE` < 10 ~ "5 to less than 10 years",
+                            `YEARS OF SERVICE` >=10 & `YEARS OF SERVICE` < 15 ~ "10 to 15 years",
+                            `YEARS OF SERVICE` >= 15 ~ "greater than or equal to 15"))
+
+merged_participation <- merged_participation  %>%
+  rename("quitdate" = `EMPLOYMENT STATUS EFFECTIVE DATE`,
+         "startdate" = `NEW TEACHER HIRE DATE`) %>%
+  mutate(retained = ifelse(is.na(`quitdate`), "1", "0"))
+#pull out the missingvalues
+missing_table <- merged_participation %>%
+  filter(strata == "missing")
+print(missing_table)
+#recode  duplicates
+#ID 214280
+merged_participation$`startdate`[40338] = (origin = "2004-12-01")
+#ID 277504
+merged_participation$`startdate`[63771] = (origin = "2010-01-11")
+merged_participation$`startdate`[63777] = (origin = "2010-01-11")
+merged_participation$`startdate`[63778] = (origin = "2010-01-11")
+merged_participation<- merged_participation %>%
+  filter(!is.na(startdate))
+length(unique(merged_participation$`Deidentified ID`))
+#rename
+merged_participation <- merged_participation %>%
+  rename("Title" = `TITLE`,
+         "Gender" = `GEN`,
+         "Ethnicity" = `ETHNICITY`,
+         "Birth Date" = `BIRTH DATE`,
+         "Employee Age" = `EMPLOYEE AGE`,
+         "Organization" = `ORGANIZATION`,
+         "Retained" = `retained`,
+         "Strata" = `strata`,
+         "Years of Service" = `YEARS OF SERVICE`)
+merged_participation$Strata <- as.factor(merged_participation$Strata)
+merged_participation$Strata <- recode_factor(merged_participation$Strata, `1` = "less than 5", `2` = "5 to less than 10 years", `3` = "10 to 15 years", `4` = "greater than or equal to 15")
+#save
+save(merged_participation, file = "data/merged_participation.Rdata")  
+length(unique(merged_participation$`Deidentified ID`))
+
+## sample causal code
+set.seed(1731)
+# trimming the sample
+analysis_data_trimmed <- analysis_data %>%
+  filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
+nearest <- matchit(Participated ~
+                     Gender+ Ethnicity + Strata + employeeage+ title_status
+                     ,
+                   family = "binomial",
+                   method = "nearest",
+                   caliper = 0.25,
+                   data = analysis_data_trimmed)
+summary(nearest)
+###plotting these
+#plot(nearest)
+nearest_matched <- match.data(nearest)
+#now perform the statistical analysis
+nearest_matched$Participated <- as.factor(nearest_matched$Participated)
+model <- glm(Retained ~ Participated, data = nearest_matched,
+             family = binomial)
+summary(model)
+
+```
+
+```{r echo=FALSE, message=FALSE}
+
+
+#install.packages("MatchIt")
+library(MatchIt)
+library(tidyverse)
+library(kableExtra)
+set.seed(1731)
+# trimming the sample
+analysis_data <- read.csv('data/analysis_data.csv')
+analysis_data_trimmed <- analysis_data %>%
+  filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
+
+nearest <- matchit(Participated ~
+                     Gender+ Ethnicity + Strata + employeeage+ title_status
+                   ,
+                   family = "binomial",
+                   method = "nearest",
+                   caliper = 0.25,
+                   data = analysis_data_trimmed)
+#summary(nearest)
+###plotting these
+#plot(nearest)
+nearest_matched <- match.data(nearest)
+#now perform the statistical analysis
+nearest_matched$Participated <- as.factor(nearest_matched$Participated)
+model <- glm(Retained ~ Participated, data = nearest_matched,
+             family = binomial)
+#summary(model)
+library(readr)
+percent_balance_improvement <- read_csv("data/percent_balance_improvement.csv")
+html_table_width <- function(kable_output, width){
+  width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
+  sub("<table>", paste0("<table>\n", width_html), kable_output)
+}
+kable(percent_balance_improvement, escape = FALSE) %>%
+  kable_styling("striped", full_width = FALSE, position = "left",
+                font_size = 10, latex_options = "scale_down") %>%
+  row_spec(c(2:3), color = "white", background = "#D6EAF8") %>%
+  row_spec(c(7),color = "white", background = "#FAD7A0")
+
+
+```
+
+
+
+
+</div>
+</div>
+
+
+
+---
+
+## Spotify Web API
+
+----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Overview
+
+  Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist's studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, a user can evaluate distances between points and visualize the "ceiling effect" of comparison data.
+
+
+#### Technical
+Web scraping: Python (BeautifulSoup) </br>
+Data Cleaning: tidyverse </br>
+Data visualization: D3.js
+</div>
+<div class="col-sm-6">
+
+```{r, out.width=150, echo=F}
+knitr::include_graphics("images/spotify.png")
+```
+
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Sample
+
+Sample visualization below. Full project in process.
+</div>
+<div class="col-sm-6">
+
+
+```{r echo=TRUE, message=FALSE, eval=FALSE}
+```{r eval=FALSE, echo=TRUE, message=FALSE}
+# d3.csv("data/small_website.csv"), (function(data){
+#    console.log(data);
+# });
+# 
+# 
+# 
+# var w = 400;
+# var h = 400;
+# var barPadding = 1;
+# var padding = 20;
+# 
+# var svg = d3.select("#chart-area-updates2").append("svg")
+#    .attr("width", w)
+#    .attr("height", h);
+# var jitterWidth = 100;
+# 
+# var allGroup = d3.map(data, function(d){
+#   return(d.artist_name)}).keys();
+#   
+# var yScale = d3.scaleLinear()
+#   .domain([0, 1])
+#   .range([300,1]);
+#   
+# var yAxis = d3.axisLeft()
+#   .scale(yScale)
+#   .ticks(5);
+#   
+# 
+# d3.select("#selectButton")
+#   .selectAll('myOptions')
+#   .data(allGroup)
+#   .enter()
+#   .append('option')
+#   .text(function(d) { return d; })
+#   .attr("value", function(d) {return d;});
+#     
+# 
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .enter()
+#   .append("circle")
+#   .style("opacity", '0.7')
+#   .attr("cx", function(d){
+#     return(150 - Math.random() *jitterWidth)})
+#   .attr("cy", function(d) {
+#     return yScale(d.mean_liveness);
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*10;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#  
+# 
+#     
+# 
+# 
+# d3.select("#selectButton")
+# .on("change", function(){
+#   
+#    var selectedOption = d3.select(this).property("value");
+#    
+#   svg.selectAll("circle")
+#   .data(data)
+#   .transition()
+#   .duration(800)
+#   .filter(function(d){
+#     return d.artist_name == selectedOption;
+#   })
+#   .attr("cx", 250)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*20;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#   });  
+# 
+# d3.select("#clickingtag")
+#   .on("click", function(){
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .filter(function(d){
+#     return d.artist_name == "Nirvana";
+#   })
+#   .attr("cx", 150)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*7;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "blue";
+#     } else{
+#       return "black";
+#     }
+#   });
+#   });  
+#   
+#   
+# svg.append("g")
+#   .attr("class", "axis")
+#   .attr("transform", "translate(" + padding + ",0)")
+#   .call(yAxis);
+# 
+# ```
+# 
+# 
+# <h3 id = "updates and motions2"> Studio and Live Applause </h3>
+# 
+# <body id = "updates and motions">
+# 
+# <div class = "container updates">
+#  <div class = "row updates">
+#  <div id = "chart-area-updates2"></div>
+#   </div>
+#  <select id="selectButton"></select>
+# </div>
+#  <p id = "clickingtag"> Choose an artist </p>
+#  <svg id = "1"></svg>
+# </div>
+# 
+# 
+# ```{r setupupdate00}
+# knitr::opts_chunk$set(
+# 	echo = TRUE,
+# 	message = FALSE,
+# 	warning = FALSE
+# )
+# d3.csv("data/small_website.csv"), (function(data){
+#    console.log(data);
+# });
+# 
+# 
+# 
+# var w = 400;
+# var h = 400;
+# var barPadding = 1;
+# var padding = 20;
+# 
+# var svg = d3.select("#chart-area-updates2").append("svg")
+#    .attr("width", w)
+#    .attr("height", h);
+# var jitterWidth = 100;
+# 
+# var allGroup = d3.map(data, function(d){
+#   return(d.artist_name)}).keys();
+#   
+# var yScale = d3.scaleLinear()
+#   .domain([0, 1])
+#   .range([300,1]);
+#   
+# var yAxis = d3.axisLeft()
+#   .scale(yScale)
+#   .ticks(5);
+#   
+# 
+# d3.select("#selectButton")
+#   .selectAll('myOptions')
+#   .data(allGroup)
+#   .enter()
+#   .append('option')
+#   .text(function(d) { return d; })
+#   .attr("value", function(d) {return d;});
+#     
+# 
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .enter()
+#   .append("circle")
+#   .style("opacity", '0.7')
+#   .attr("cx", function(d){
+#     return(150 - Math.random() *jitterWidth)})
+#   .attr("cy", function(d) {
+#     return yScale(d.mean_liveness);
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*10;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#  
+# 
+#     
+# 
+# 
+# d3.select("#selectButton")
+# .on("change", function(){
+#   
+#    var selectedOption = d3.select(this).property("value");
+#    
+#   svg.selectAll("circle")
+#   .data(data)
+#   .transition()
+#   .duration(800)
+#   .filter(function(d){
+#     return d.artist_name == selectedOption;
+#   })
+#   .attr("cx", 250)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*20;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#   });  
+# 
+# d3.select("#clickingtag")
+#   .on("click", function(){
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .filter(function(d){
+#     return d.artist_name == "Nirvana";
+#   })
+#   .attr("cx", 150)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*7;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "blue";
+#     } else{
+#       return "black";
+#     }
+#   });
+#   });  
+#   
+#   
+# svg.append("g")
+#   .attr("class", "axis")
+#   .attr("transform", "translate(" + padding + ",0)")
+#   .call(yAxis);
+
+```
+
+</style>
+
+<div class="row" style="padding-top: 30px;">
+<div class="col-sm-6">
+
+
+<body id = "updates and motions">
+
+<div class = "container updates">
+ <div class = "row updates">
+ <div id = "chart-area-updates2"></div>
+  </div>
+ <select id="selectButton"></select>
+</div>
+ <svg id = "1"></svg>
+</div>
+
+
+
+```{r echo=FALSE, message=FALSE}
+
+# d3.csv("data/small_website.csv"), (function(data){
+#    console.log(data);
+# });
+# 
+# 
+# 
+# var w = 400;
+# var h = 400;
+# var barPadding = 1;
+# var padding = 20;
+# 
+# var svg = d3.select("#chart-area-updates2").append("svg")
+#    .attr("width", w)
+#    .attr("height", h);
+# var jitterWidth = 100;
+# 
+# var allGroup = d3.map(data, function(d){
+#   return(d.artist_name)}).keys();
+#   
+# var yScale = d3.scaleLinear()
+#   .domain([0, 1])
+#   .range([300,1]);
+#   
+# var yAxis = d3.axisLeft()
+#   .scale(yScale)
+#   .ticks(5);
+#   
+# 
+# d3.select("#selectButton")
+#   .selectAll('myOptions')
+#   .data(allGroup)
+#   .enter()
+#   .append('option')
+#   .text(function(d) { return d; })
+#   .attr("value", function(d) {return d;});
+#     
+# 
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .enter()
+#   .append("circle")
+#   .style("opacity", '0.7')
+#   .attr("cx", function(d){
+#     return(150 - Math.random() *jitterWidth)})
+#   .attr("cy", function(d) {
+#     return yScale(d.mean_liveness);
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*10;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#  
+# 
+#     
+# 
+# 
+# d3.select("#selectButton")
+# .on("change", function(){
+#   
+#    var selectedOption = d3.select(this).property("value");
+#    
+#   svg.selectAll("circle")
+#   .data(data)
+#   .transition()
+#   .duration(800)
+#   .filter(function(d){
+#     return d.artist_name == selectedOption;
+#   })
+#   .attr("cx", 250)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*20;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#   });  
+# 
+# d3.select("#clickingtag")
+#   .on("click", function(){
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .filter(function(d){
+#     return d.artist_name == "Nirvana";
+#   })
+#   .attr("cx", 150)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*7;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "blue";
+#     } else{
+#       return "black";
+#     }
+#   });
+#   });  
+#   
+#   
+# svg.append("g")
+#   .attr("class", "axis")
+#   .attr("transform", "translate(" + padding + ",0)")
+#   .call(yAxis);
+# 
+# ```
+# 
+# 
+# <h3 id = "updates and motions2"> Studio and Live Applause </h3>
+# 
+# <body id = "updates and motions">
+# 
+# <div class = "container updates">
+#  <div class = "row updates">
+#  <div id = "chart-area-updates2"></div>
+#   </div>
+#  <select id="selectButton"></select>
+# </div>
+#  <p id = "clickingtag"> Choose an artist </p>
+#  <svg id = "1"></svg>
+# </div>
+# 
+# 
+# ```{r setupupdate00}
+# knitr::opts_chunk$set(
+# 	echo = TRUE,
+# 	message = FALSE,
+# 	warning = FALSE
+# )
+# d3.csv("data/small_website.csv"), (function(data){
+#    console.log(data);
+# });
+# 
+# 
+# 
+# var w = 400;
+# var h = 400;
+# var barPadding = 1;
+# var padding = 20;
+# 
+# var svg = d3.select("#chart-area-updates2").append("svg")
+#    .attr("width", w)
+#    .attr("height", h);
+# var jitterWidth = 100;
+# 
+# var allGroup = d3.map(data, function(d){
+#   return(d.artist_name)}).keys();
+#   
+# var yScale = d3.scaleLinear()
+#   .domain([0, 1])
+#   .range([300,1]);
+#   
+# var yAxis = d3.axisLeft()
+#   .scale(yScale)
+#   .ticks(5);
+#   
+# 
+# d3.select("#selectButton")
+#   .selectAll('myOptions')
+#   .data(allGroup)
+#   .enter()
+#   .append('option')
+#   .text(function(d) { return d; })
+#   .attr("value", function(d) {return d;});
+#     
+# 
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .enter()
+#   .append("circle")
+#   .style("opacity", '0.7')
+#   .attr("cx", function(d){
+#     return(150 - Math.random() *jitterWidth)})
+#   .attr("cy", function(d) {
+#     return yScale(d.mean_liveness);
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*10;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#  
+# 
+#     
+# 
+# 
+# d3.select("#selectButton")
+# .on("change", function(){
+#   
+#    var selectedOption = d3.select(this).property("value");
+#    
+#   svg.selectAll("circle")
+#   .data(data)
+#   .transition()
+#   .duration(800)
+#   .filter(function(d){
+#     return d.artist_name == selectedOption;
+#   })
+#   .attr("cx", 250)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*20;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "#CCE5FF";
+#     } else{
+#       return "#000099";
+#     }
+#   });
+#   });  
+# 
+# d3.select("#clickingtag")
+#   .on("click", function(){
+# 
+# svg.selectAll("circle")
+#   .data(data)
+#   .filter(function(d){
+#     return d.artist_name == "Nirvana";
+#   })
+#   .attr("cx", 150)
+#   .attr("cy", function(d) {
+#     return d.mean_liveness * 450;
+#   })
+#   .attr("r", function(d) {
+#     return d.mean_liveness*7;
+# })
+#   .attr("fill", function(d){
+#     if(d.live_marker2 == "live"){
+#       return "blue";
+#     } else{
+#       return "black";
+#     }
+#   });
+#   });  
+#   
+#   
+# svg.append("g")
+#   .attr("class", "axis")
+#   .attr("transform", "translate(" + padding + ",0)")
+#   .call(yAxis);
+
+library(r2d3)
+library(tidyverse)
+
+r2d3(data = read.csv("data/small_website.csv"), d3_version = 4, script = "website_js.js")
+
+```
