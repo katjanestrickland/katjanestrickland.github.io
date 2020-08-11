@@ -488,11 +488,10 @@ knitr::include_graphics("images/philly.jpg")
 
 #### Sample
 
-
-Sample visualization below. Full project in process.
+See <a href = "https://github.com/katjanewilson" target = "_blank"> GitHub repo </a> for full code and analysis.
 </div>
 <div class="col-sm-6">
-```{r echo=TRUE, message=FALSE, eval=FALSE}
+```{r eval=FALSE, message=FALSE, include=FALSE}
 
 ## sample data cleaning code
 merged_participation$`YEARS OF SERVICE` <- as.numeric(merged_participation$`YEARS OF SERVICE`)
@@ -562,7 +561,7 @@ summary(model)
 
 ```
 
-```{r echo=FALSE, message=FALSE}
+```{r eval=FALSE, message=FALSE, include=FALSE}
 
 
 #install.packages("MatchIt")

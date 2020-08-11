@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### About
 
-Hi there! I am a PhD student in Quantitative Methods at the University of Pennsylvania, focusing on applied statistics, data mining, and machine learning.
+Hi there. I am a PhD student in Quantitative Methods at the University of Pennsylvania, focusing on the use of applied statistics, data science, and machine learning, for policy research and business practices.
 
 This site is a working portfolio. Sample projects are featured in the tabs above.
 
