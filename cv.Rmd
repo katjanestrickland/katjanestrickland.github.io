@@ -23,9 +23,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 | Education | |
 |:--------|-------:|
-|PhD Student- Quantitative Methods (University of Pennsylvania)| |
-|Masters Degree - Quantitative Methods (University of Texas at Austin) |
+|PhD Student*- Quantitative Methods (University of Pennsylvania)|
+|Masters Degree* - Quantitative Methods (University of Texas at Austin) |
 |Bachelors Degree - Business (University of Notre Dame) |
+
+
+*full funding for tuition + living through Fellowships
 
 
 
@@ -39,7 +42,7 @@ population of interest? How can sampling and stratification approaches improve c
 
 Prior to pursuing graduate studies, I taught public school in the Bronx with the <a href="https://nycteachingfellows.org/" target = "_blank">New York City Teaching Fellows</a>. Much of my applied work in education is informed by this experience, along with the work of my doctoral advisor, <a href="https://www.gse.upenn.edu/academics/faculty-directory/chan" target = "_blank">Wendy Chan </a>
 
-Additionally, I work on applied analytics consulting projects in business settings with Wharton Analytics Fellows.
+Additionally, I work on applied analytics consulting projects in business settings closely with the <a href="https://analytics.wharton.upenn.edu/" target = "_blank">Wharton Analytics department</a>.
 
 |Technical |  |
 |:--------|-------:|
