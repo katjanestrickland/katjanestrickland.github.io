@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE)
 |Bachelors Degree - Business (University of Notre Dame) |
 
 
-*full funding for tuition + living through Fellowships
+*full funding for tuition and living expenses
 
 
 
