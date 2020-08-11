@@ -58,7 +58,6 @@ knitr::include_graphics("images/mlb.png")
 
 #### Sample
 
-Sample Code and Charts to the right.
 
 </div>
 <div class="col-sm-6">
@@ -84,7 +83,7 @@ knitr::include_graphics("images/baseball3.png")
 
 -----
 
-## Content Clustering
+## YouTube Content Trends
 
 -----
 
