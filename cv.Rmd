@@ -36,13 +36,12 @@ knitr::opts_chunk$set(echo = TRUE)
 |:--------|-------:|
 
 My work focuses on the methodological considerations of 
-advanced statistics and analytics, particularly those related to the use of causal inference
-and machine learning in applied settings. For instance, how do the results of an analysis on a nonrandom sample generalize to a larger
-population of interest? How can sampling and stratification approaches improve causal inference estimation? What are the applications of causal inference methods for machine learning? 
+advanced statistics and analytics, particular those related to the use of quantitative methods in applied settings. For instance, how do the results of an analysis on a nonrandom sample generalize to a larger
+population of interest? How can sampling and stratification approaches improve inference estimation? Where can applications of causal inference improve machine learning models? 
 
 Prior to pursuing graduate studies, I taught public school in the Bronx with the <a href="https://nycteachingfellows.org/" target = "_blank">New York City Teaching Fellows</a>. The four years I spent in the classroom inform much of the applied work in education I pursue with my doctoral advisor, <a href="https://www.gse.upenn.edu/academics/faculty-directory/chan" target = "_blank">Wendy Chan</a>.
 
-Additionally, I work on applied analytics consulting projects in business settings closely with the <a href="https://analytics.wharton.upenn.edu/" target = "_blank">Wharton Analytics department</a>.
+Additionally, I work on applied analytics consulting projects in business settings closely with the <a href="https://analytics.wharton.upenn.edu/" target = "_blank">Wharton Analytics</a> department.
 
 |Technical |  |
 |:--------|-------:|

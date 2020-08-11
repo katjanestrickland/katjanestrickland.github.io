@@ -13,7 +13,7 @@ output:
 
 ---
 
-## Wharton Analytics Fellows
+## Analytics Fellows
 
 ---
 
