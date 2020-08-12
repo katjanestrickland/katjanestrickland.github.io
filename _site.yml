@@ -10,6 +10,8 @@ navbar:
       href: researchprojects.html
     - text: "code"
       href: R.html
+    - text: "other"
+      href: R.html
     - text: ""
       icon: fa-github
       href: "https://github.com/katjanewilson"
