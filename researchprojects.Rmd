@@ -47,7 +47,7 @@ knitr::include_graphics("images/covid.png")
 
 #### Sample
 
-Sample code and charts below. See <a href = "https://github.com/katjanewilson/COVID-19-Random-Forest.git" target = "_blank"> GitHub repo </a> for full code and analysis.
+  <a href="https://github.com/katjanewilson?tab=repositories" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
@@ -260,10 +260,7 @@ knitr::include_graphics("images/census.jpg")
 
 #### Sample
 
-
-
-Sample code and charts below. See <a href = "https://github.com/katjanewilson/Generalized-Additive-Model/blob/master/Code" target = "_blank"> GitHub repo </a> for full code and analysis.
-
+  <a href="https://github.com/katjanewilson?tab=repositories" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
@@ -486,9 +483,8 @@ knitr::include_graphics("images/philly.jpg")
 <div class="row">
 <div class="col-sm-6">
 
-#### Sample
 
-See <a href = "https://github.com/katjanewilson" target = "_blank"> GitHub repo </a> for full code and analysis.
+
 </div>
 <div class="col-sm-6">
 ```{r eval=FALSE, message=FALSE, include=FALSE}
@@ -649,7 +645,7 @@ knitr::include_graphics("images/spotify.png")
 
 #### Sample
 
-Sample visualization below. Full project in process.
+Sample visualization. Full project in process.
 </div>
 <div class="col-sm-6">
 
