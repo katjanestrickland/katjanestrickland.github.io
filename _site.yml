@@ -11,7 +11,7 @@ navbar:
     - text: "code"
       href: R.html
     - text: "other"
-      href: R.html
+      href: other.html
     - text: ""
       icon: fa-github
       href: "https://github.com/katjanewilson"
