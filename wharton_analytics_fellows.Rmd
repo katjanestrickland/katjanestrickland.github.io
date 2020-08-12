@@ -21,7 +21,7 @@ output:
 <p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate </br> and undergraduate students across schools at Penn to consult with </br>companies on the development and integration  of predictive analytics</br> solutions. Below are sample projects where I served as a Technical Lead. </p>
 ---
 
-## MLB
+## Psychometrics of Sabermetrics
 
 
 ----
@@ -41,7 +41,7 @@ Clustering: hierarchical clustering (hclust)
 
 
 #### Results
-Neuroticism and Openness, of all the Big 5 constructs, differed most for pitchers and hitters. A new survey tool for the team based on the clustering results among the Big 5 Factors shift player recruitment strategies to one based on "team cohesion" rather than individual psych rankings.
+Among the psychological constructs mined from text data, Neuroticism and Openness differed most for pitchers and hitters. A new survey tool for mental skills evaluators shifts the focus of evaluation from the individual mindset to team cohesion.
 
 </div>
 <div class="col-sm-6">
@@ -87,7 +87,7 @@ knitr::include_graphics("images/baseball3.png")
 
 -----
 
-## YouTube
+## YouTube Content Trends
 
 -----
 
@@ -95,14 +95,14 @@ knitr::include_graphics("images/baseball3.png")
 <div class="col-sm-6">
 
 #### Overview
-Trending videos on YouTube do not simply increase viewership, they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to find groups based on features such number of views or likes. Using <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos, we explore trends to guide the marketing team.
+Trending videos on YouTube do not simply increase viewership, they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to find similar features among trending videos. Using <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos, we explore trends to guide the marketing team.
 
 #### Technical
 Data cleaning: tidyverse </br>
 Clustering: kmeans
 
 #### Results
-Our algorithm identified three clusters of categories by views and comments: conversation starts, niche blockbusters, and silent movies. These defined groups guide the product and partnernship teams to support music and gaming influencers, the advertising team to stragicially adjust cost per views for advertisers in more popular categories, and the YouTube pricing team to attract paid users with new, cross-category videos.
+Our algorithm identified three clusters of categories by views and comments: conversation starts, niche blockbusters, and silent movies. These groups guide the product partnernship team to support gaming influencers and encourage the advertising team to attract paid users with new, cross-category videos.
 
 </div>
 <div class="col-sm-6">
