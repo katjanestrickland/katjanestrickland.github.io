@@ -47,7 +47,7 @@ knitr::include_graphics("images/covid.png")
 
 #### Sample
 
-  <a href="https://github.com/katjanewilson?tab=repositories" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/CORD-Random-Forest.git" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
