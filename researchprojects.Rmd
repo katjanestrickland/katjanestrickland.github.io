@@ -45,7 +45,7 @@ knitr::include_graphics("images/covid.png")
 <div class="row">
 <div class="col-sm-6">
 
-#### Sample
+#### GitHub Repo
 
   <a href="https://github.com/katjanewilson/CORD-Random-Forest.git" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
