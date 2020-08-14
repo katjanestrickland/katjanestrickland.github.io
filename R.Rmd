@@ -18,7 +18,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval=F)
 ```
 <div class="row">
 <div class="col-sm-6">
-frequently used code for personal reference
+elephants' graveyard of frequently used code
 
 ## tidyverse
 

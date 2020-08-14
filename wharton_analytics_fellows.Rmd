@@ -73,8 +73,8 @@ library(tidyverse)
 
 
 knitr::include_graphics("images/baseball.png")
-knitr::include_graphics("images/baseball2.png")
-knitr::include_graphics("images/baseball3.png")
+# knitr::include_graphics("images/baseball2.png")
+# knitr::include_graphics("images/baseball3.png")
 ```
 </div>
 <div class="col-sm-6">
@@ -223,7 +223,6 @@ df<- scale(df)
 library(factoextra)
 distance <- get_dist(df)
 plot<- fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FAD7A0"))
-plot
 
 #to determine the optimal number of clusters
 set.seed(123)

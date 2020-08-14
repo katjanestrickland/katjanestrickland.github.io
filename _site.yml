@@ -6,7 +6,7 @@ navbar:
       href: cv.html
     - text: "Wharton Analytics Fellows"
       href: wharton_analytics_fellows.html
-    - text: "Research Projects"
+    - text: "Sample Projects"
       href: researchprojects.html
     - text: "code"
       href: R.html
