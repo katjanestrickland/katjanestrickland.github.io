@@ -22,7 +22,7 @@ output:
 
 #### Overview
 
-Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. This random forest algorithm takes asymmetric sampling into account when predicting death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.
+Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. This random forest algorithm takes asymmetric sampling into account when predicting death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset. (This project was done as a course project for Dr. Richard Berk's Machine Learning course.)
 
 
 #### Technical
@@ -230,7 +230,7 @@ kable(dataframe, escape = FALSE, caption = "Table 1 classifies Out-of-Bag estima
 <div class="col-sm-6">
 
 #### Overview
-A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, GAM models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.
+A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, GAM models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data. (This project was done as a course project for Dr. Richard Berk's Machine Learning course.)
 
 #### Technical
 Data cleaning: tidyverse </br>
@@ -456,7 +456,7 @@ o <- plot( sm(b, 1) )
 
 #### Overview
 
-In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups.
+In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. (Data made private on GitHub as per SDP's requestt)
 
 
 #### Technical
