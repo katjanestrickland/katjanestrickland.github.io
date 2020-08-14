@@ -26,7 +26,6 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="site_libs/r2d3-render-0.1.0/r2d3-render.js"></script>
 <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -441,192 +440,11 @@ div.tocify {
 <p><a href="https://github.com/katjanewilson/CORD-Random-Forest.git" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 </div>
 <div class="col-sm-6">
-
-
-
-<pre class="r"><code>## sample cleaning code
-rm(list = ls())
-Patient &lt;- read.csv(&quot;PatientInfo.csv&quot;, na.strings = c(&quot;&quot;,NA))
-save(Patient, file = &quot;Patient.rdata&quot;)
-Patient$ID &lt;- as.numeric(as.character(Patient$patient_id))
-class(Patient$sex)
-Patient$sex
-Patient$sex[is.na(Patient$sex)]&lt;- &quot;absent&quot;
-Patient$Age &lt;- as.numeric(Patient$age)
-data_new &lt;- Patient %&gt;%
-  mutate(sex = ifelse(is.na(Sex), &quot;absent&quot;, Sex)) %&gt;%
-  mutate(age = ifelse(is.na(age), &quot;20s&quot;, age)) %&gt;%
-  mutate(Age = case_when(age %in% c(1:10) ~ &quot;10s&quot;,
-                         age %in% c(11:20) ~ &quot;20s&quot;,
-                         age %in% c(21:30) ~ &quot;30s&quot;,
-                         age %in% c(31:40) ~ &quot;40s&quot;,
-                         age %in% c(41:50) ~ &quot;50s&quot;,
-                         age %in% c(51:60) ~ &quot;60s&quot;,
-                         age %in% c(61:70) ~ &quot;70s&quot;,
-                         age %in% c(71:80) ~ &quot;80s&quot;,
-                         age %in% c(81:120) ~ &quot;90s&quot;)) %&gt;%
-  mutate(Province = ifelse(is.na(province), &quot;absent&quot;, province)) %&gt;%
-  mutate(Source = ifelse(is.na(infection_case), &quot;absent&quot;, infection_case)) %&gt;%
-  mutate(Order = ifelse(is.na(infection_order), &quot;4&quot;, infection_order)) %&gt;%
-  mutate(confirmed_date = ifelse(is.na(confirmed_date), &#39;2020-02-20&#39;, confirmed_date)) %&gt;%
-  mutate(State3 = ifelse(is.na(state), &#39;deceased&#39;, state)) %&gt;%
-  mutate(State2 = as.factor(ifelse(State3 == &quot;deceased&quot;, &quot;Died&quot;, &quot;Lived&quot;))) %&gt;%
-  mutate(State2 = ifelse(is.na(State2), &quot;Lived&quot;, State2)) %&gt;%
-  mutate(birthyear = ifelse(is.na(birth_year), 1960, birth_year)) %&gt;%
-  mutate(Age = ifelse(is.na(Age), &quot;20s&quot;, Age))
-
-## sample random forest code
-rf &lt;- randomForest(outcome~Sex + Age + Province + Source +
-                    Order, data=coronavirus_data,
-                   importance = TRUE,
-                   sampsize = c(21,12,26))
-print(rf)
-###variable importance plots
-par(mfrow = c(2,2))
-
-varImpPlot(rf, class = 1, type = 1, scale = FALSE, 
-           main = &quot;Fig 1.1: Forecasting Importance Plot for Deceased&quot;)
-varImpPlot(rf, type = 1, scale = FALSE, 
-           main = &quot;Fig 1.2: Forecasting Importance Plot Averaged for All&quot;)
-varImpPlot(rf, class = 2, type = 1, scale = FALSE, 
-           main = &quot;Fig 1.3: Forecasting Importance Plot for Released&quot;)
-varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
-           main = &quot;Fig 1.4: Forecasting Importance Plot for Isolated&quot;)
-
-####Partial plots
-part1&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
-                    rug = T, which.class = 1)
-part2&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
-                    rug = T, which.class = 2)
-part3&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
-                    rug = T, which.class = 3)
-par(mfrow = c(2,2))
-
-#tranform the logs back to probablity
-scatter.smooth(part1$x, part1$y, xlab = &quot;Age&quot;,
-               ylab = &quot;Centered Log Odds of Death&quot;, main = &quot;Fig 2.1: Partial Dependence Plot for Death on Age&quot;)
-##how the other plots change based on outcome
-scatter.smooth(part2$x, part2$y, xlab = &quot;Age&quot;,
-               ylab = &quot;Centered Log Odds of Released&quot;, main = &quot;Fig 2.2: Partial Dependence Plot for Released on Age&quot;)
-scatter.smooth(part3$x, part3$y, xlab = &quot;Age&quot;,
-               ylab = &quot;Centered Log Odds of Isolated&quot;, main = &quot;Fig 2.3: Partial Dependence Plot for Isolated on Age&quot;)
-
-par(mfrow = c(2,2))
-part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Sex, reg = T, prob = T,which.class = 1 ,
-                       main = &quot;Fig 3.1: Partial Dependence Plot for Death on Sex&quot;,
-                     xlab = &quot;Sex&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-part2
-part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Order, reg = T, prob = T,which.class = 1 ,
-                     main = &quot;Fig 3.2: Partial Dependence Plot for Death on Order&quot;,
-                     xlab = &quot;Order&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-part2
-part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Province, reg = T, prob = T,which.class = 1 ,
-                     main = &quot;Fig 3.3: Partial Dependence Plot for Death on Province&quot;,
-                     xlab = &quot;Province&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-part2
-part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Source, reg = T, prob = T,which.class = 1 ,
-                     main = &quot;Fig 3.4: Partial Dependence Plot for Death on Source&quot;,
-                     xlab = &quot;Source&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-part2
-table(coronavirus_data$Source, coronavirus_data$State3)
-par(mfrow = c(2,2))
-m1&lt;- randomForest::margin(rf)
-m1
-hist(m1, breaks = 30, main = &quot;Fig 4.1: Histogram of Votes over Trees&quot;, xlab = &quot;Margin&quot;)
-m2 &lt;- subset(m1, names(m1) == 1)
-m2
-hist(m2, breaks = 30, main = &quot;Fig 4.2: Margin for Death classification&quot;, xlab = &quot;Votes for Deceased&quot;)
-m2
-m3 &lt;- subset(m1, names(m1) == 2)
-hist(m3,breaks = 30, main = &quot;Fig 4.3: Margin for Released classification&quot;, xlab = &quot;Votes for Released&quot;)
-m3 &lt;- subset(m1, names(m1) == 3)
-hist(m3, breaks = 30, main = &quot;Fig 4.4: Margin for Isolated classification&quot;, xlab = &quot;Votes for Isolated&quot;)</code></pre>
 <script>
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
 });
 </script>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-Table 1 classifies Out-of-Bag estimates for the random forest. The algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, isolated, and released, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Confusion Table
-</th>
-<th style="text-align:left;">
-Outcome1
-</th>
-<th style="text-align:left;">
-Outcome2
-</th>
-<th style="text-align:left;">
-Outcome3
-</th>
-<th style="text-align:left;">
-Classification Error
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="In response to policy makers&#39; request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the ability to meet desired cost ratios in other categories.">Deceased</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">26</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">1</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">5</span>
-</td>
-<td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="84% Classification Accuracy">0.16</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="The intended cost ratio of a false negative death to a false positive isolation is set at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.">Released</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">10</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">149</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">115</span>
-</td>
-<td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="54% Classification Accuracy">0.46</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result, with sampling, was 1.2:1.">Isolated</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">105</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">130</span>
-</td>
-<td style="text-align:left;">
-<span style=" font-weight: bold;    ">1578</span>
-</td>
-<td style="text-align:left;">
-<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="87% Classification Accuracy">0.13</span>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <hr />
@@ -642,190 +460,17 @@ Classification Error
 <p>Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/census.jpg" width="200" /></p>
+<p><img src="images/census.jpg" width="150" /></p>
 </div>
 </div>
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="sample">Sample</h4>
+<h4 id="github-repo-1">GitHub Repo</h4>
 <p><a href="https://github.com/katjanewilson?tab=repositories" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 </div>
 <div class="col-sm-6">
-<pre class="r"><code>library(tidyverse)
-library(DataExplorer)
-library(gridExtra)
 
-#inspect data
-load(&quot;data/NewHomeless.rdata&quot;)
-homeless &lt;- homeless
-
-#count the missing data values
-# sapply(homeless, function(x) sum(is.na(x)))
-
-# #inspect missing values
-# missing &lt;- homeless %&gt;%
-#   filter(is.na(PropVacant))
-
-#impute the missing data
-homeless[is.na(homeless)] = 0
-
-#cleanign up the mis coded
-# Adjust values of PropMinority mis-coded as &quot;100&quot; instead of &quot;1.0&quot;
-library(dplyr)
-homeless &lt;- mutate_at(homeless, vars(PropMinority), list(~ ifelse( . &gt; 1.0, 1.0, .)))
-
-# Convert values of &quot;Pct&quot; variables to be in decimal scale
-homeless &lt;- mutate_at(homeless, vars(PctResidential:PCTIndustrial), list(~ .*.01))
-
-# Recode four NAs in PropVacant as zero owing to how few residential dwellings exist in
-# those tracts
-homeless &lt;- mutate_at(homeless, vars(PropVacant), list(~ ifelse(is.na(.)==T, 0, .)))
-
-#recode the industrial
-homeless &lt;- homeless %&gt;%
-  mutate(Industrial = ifelse(PCTIndustrial &gt;0, 1, 0))
-
-####################
-#Step 2: Univariate Statistics
-
-library(DataExplorer)
-#pairs
-# pairs(homeless)
-# #correlation
-# plot_correlation(homeless, type = &#39;continuous&#39;,&#39;Review.Date&#39;)
-
-#Street Total
-
-par(mfrow = c(1,2))
-p1 &lt;- ggplot(aes(StreetTotal), data = homeless) +
-  geom_histogram(binwidth = 6) +
-  geom_vline(xintercept = mean(homeless$StreetTotal), size = 0.8)
-p2 &lt;- ggplot(aes(MedianIncome), data = homeless) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$MedianIncome), colour = &quot;pink&quot;, size = 0.8)
-#Prop Vacant
-p3 &lt;- homeless %&gt;%
-  ggplot(aes(PropVacant)) +
-  geom_histogram(bins = 40) +
-  geom_vline(xintercept = mean(homeless$PropVacant), colour = &quot;pink&quot;)
-#Prop Minority
-p4 &lt;- homeless %&gt;%
-  ggplot(aes(PropMinority)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PropMinority), colour = &quot;pink&quot;)
-#Pct Residential
-p5 &lt;- homeless %&gt;%
-  ggplot(aes(PctResidential)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PctResidential), colour = &quot;pink&quot;)
-#PctCommercial
-p6 &lt;- homeless %&gt;%
-  ggplot(aes(PctCommercial)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PctCommercial), colour = &quot;pink&quot;)
-#PctIndustrial
-p7 &lt;- homeless %&gt;%
-  ggplot(aes(PCTIndustrial)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PCTIndustrial), colour = &quot;pink&quot;)
-library(gridExtra)
-# grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)
-
-#set seed at 4000
-# Bring in data and create initial training and test datasets
-set.seed(4000)
-df &lt;- homeless
-index &lt;- sample(1:nrow(df), (nrow(df))/2, replace = F) 
-Train &lt;- na.omit(df[index,]) # Training data
-Test &lt;- na.omit(df[-index,]) # Test data
-##coming to the right model:
-library(leaps)
-All1 &lt;- regsubsets(StreetTotal ~ MedianIncome + PropMinority +
-                     PropVacant+
-                     PctResidential+
-                     PCTIndustrial +
-                     PctCommercial +
-                     Industrial, data = Train)
-# All1
-# summary(All1)
-
-Model2 &lt;- lm(StreetTotal ~  
-               PropVacant+
-               Industrial +
-               (PropVacant:Industrial), data = Train)
-# summary(Model2)
-
-## Generalization error ##
-# Specify a model on the testing data 
-Model2 &lt;- lm(StreetTotal ~  
-               PropVacant+
-               Industrial +
-               (PropVacant:Industrial), data = Test)
-# summary(Model2)
-#estimate the fitted values on the testing data, and the generalization error
-preds &lt;- predict(Model2, newdata = Test) # New fitted values derived from the test data
-GE &lt;- var(Test$StreetTotal - preds) # Estimate of generalization error (the variance of the residuals when 
-# GE
-# sqrt(GE)
-# Bootstrap a confidence interval for the generalization error 
-bootstrap_genError &lt;-
-  function(x) {
-    bootstrapped_genErrors &lt;- 0
-    for (i in 1:1000) {
-      index &lt;- sample(1:nrow(x), nrow(x), replace = T)
-      sample_Test &lt;- x[index,]
-      sample_Test_preds &lt;- predict(Model2, newdata = sample_Test)
-      bootstrapped_genErrors[i] &lt;- var(sample_Test$StreetTotal - sample_Test_preds)
-    }
-    return(bootstrapped_genErrors)
-  }
-
-bootstrap_results_ge &lt;- bootstrap_genError(Test)
-
-# Check generalization error bootstrap results
-# mean(bootstrap_results_ge, na.rm = T)
-# summary(bootstrap_results_ge)
-# hist(bootstrap_results_ge, breaks = 20) 
-# qqnorm(bootstrap_results_ge)
-# sd(bootstrap_results_ge)
-# quantile(bootstrap_results_ge, probs = c(.025,.975))
-# plot(density(bootstrap_results_ge))
-# qqnorm(bootstrap_results_ge)
-#use robust sandwich standard errors in the sandwich package
-# install.packages(&quot;sandwich&quot;)
-library(sandwich)
-# vcovHC(Model2, type = &quot;HC&quot;)
-# sandwich_se &lt;- diag(vcovHC(Model2, type = &quot;HC1&quot;))
-# sqrt(sandwich_se)
-#then can get the confidence interval limits of these
-# coef(Model2) - 1.96*sandwich_se
-# coef(Model2) + 1.96*sandwich_se
-
-library(gam)
-library(mgcv)
-library(leaps)
-
-homeless2 &lt;- homeless %&gt;%
-  filter(MedianIncome &gt; 60000 &amp; PropVacant &lt; .10)
-
-##MODEL 1
-out3 &lt;- gam(StreetTotal ~
-              s(PCTIndustrial) +
-              s(PctCommercial) +
-              s(PropVacant) +
-              s(MedianIncome), data = homeless, family = gaussian)
-# summary(out3)
-par(mfrow=c(2,2))
-# plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = &quot;light blue&quot;,
-#      col = &quot;#FAD7A0&quot;)
-library(mgcViz)
-b&lt;- getViz(out3)
-o &lt;- plot( sm(b, 1) )
-o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
-  l_ciLine(mul = 5, colour = &quot;light blue&quot;, linetype = 2) + 
-  l_points(shape = 19, size = 1, alpha = 0.7, color = &quot;light blue&quot;) + theme_classic()</code></pre>
-<p><img src="researchprojects_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 </div>
 <hr />
@@ -872,7 +517,7 @@ o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alp
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="sample-1">Sample</h4>
+<h4 id="sample">Sample</h4>
 <p>Sample visualization. Full project in process.</p>
 </div>
 <div class="col-sm-6">
@@ -1161,8 +806,8 @@ o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alp
 </div>
 <svg id = "1"></svg>
 </div>
-<div id="htmlwidget-77fcf5050d84d6e532de" style="width:672px;height:480px;" class="r2d3 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-77fcf5050d84d6e532de">{"x":{"data":{"X":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],"X1":[59,60,493,494,730,731,813,814,1014,1015,1185,1186,1334,1335,1428,1429,1464,1465],"artist_name":["Aretha Franklin","Aretha Franklin","Frank Zappa","Frank Zappa","Johnny Cash","Johnny Cash","Led Zeppelin","Led Zeppelin","Nirvana","Nirvana","Rush","Rush","The Band","The Band","The Who","The Who","U2","U2"],"live_marker2":["live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio"],"mean_energy":[0.524777551020408,0.470408959537572,0.677544444444444,0.563851487179487,0.550876878612717,0.39795328358209,0.672979591836735,0.684203389830508,0.882493975903614,0.77092700729927,0.890840909090909,0.804180448065173,0.77283,0.59446,0.820507727272727,0.699531899038462,0.792666666666667,0.643131739130435],"mean_liveness":[0.551234693877551,0.218260404624277,0.442023361823362,0.377518666666667,0.685739884393064,0.187911492537313,0.677938775510204,0.195216949152542,0.613506024096386,0.203276642335766,0.867143181818182,0.281092260692464,0.732376,0.205328,0.631025,0.251427884615385,0.9414,0.187512173913043],"mean_dance":[0.406775510204082,0.518606936416185,0.436760683760684,0.458955333333333,0.514421965317919,0.595697014925373,0.330285714285714,0.409118644067797,0.319313253012048,0.433138686131387,0.278950757575758,0.45491649694501,0.49324,0.58014,0.399904545454545,0.498599519230769,0.3306,0.468295652173913],"mean_acoust":[0.666857142857143,0.549159075144509,0.360131518518519,0.387351366682051,0.606140462427746,0.71518721641791,0.150758878367347,0.200366928813559,0.0634865775903614,0.171156117591241,0.0483112909469697,0.0792579115682281,0.3046325,0.344648,0.197924595454545,0.295911980769231,0.1152968,0.159579617826087],"mean_speech":[0.110616326530612,0.0608595375722543,0.111066951566952,0.157942974358974,0.203253757225434,0.0946618656716418,0.0836428571428571,0.0643491525423729,0.0886192771084337,0.0699036496350365,0.0733685606060606,0.0666366598778004,0.07242,0.042153,0.0993595454545455,0.0491793269230769,0.05822,0.0452939130434783],"mean_instruments":[0.000844519387755102,0.00581205968208093,0.244231406752137,0.182873727564103,0.0127008956647399,0.0310878458656716,0.186510861020408,0.13484391779661,0.317203468795181,0.195764463868613,0.184913170037879,0.0876788863747454,0.055537139,0.0432361503,0.0616890637727273,0.0827790668509615,0.00878664733333333,0.142594043782609],"mean_valence":[0.45494693877551,0.533043930635838,0.531788034188034,0.507418051282051,0.666751445086705,0.605495597014925,0.453116326530612,0.505033898305085,0.29004578313253,0.436841605839416,0.335808712121212,0.487934623217923,0.60526,0.65155,0.389509545454545,0.520326442307692,0.436466666666667,0.433654347826087]},"type":"data.frame","container":"svg","options":null,"script":"var d3Script = function(d3, r2d3, data, svg, width, height, options, theme, console) {\nthis.d3 = d3;\n\nsvg = d3.select(svg.node());\n/* R2D3 Source File:  website_js.js */\n\n// r2d3: https://rstudio.github.io/r2d3\n//\n\nd3.csv(\"data/small_website.csv\"), (function(data){\n   console.log(data);\n});\n\n\n\nvar w = 400;\nvar h = 350;\nvar barPadding = 1;\nvar padding = 45;\n\nvar svg = d3.select(\"#chart-area-updates2\").append(\"svg\")\n   .attr(\"width\", w)\n   .attr(\"height\", h);\nvar jitterWidth = 100;\n\nvar allGroup = d3.map(data, function(d){\n  return(d.artist_name)}).keys();\n  \nvar yScale = d3.scaleLinear()\n  .domain([0, 1])\n  .range([300,1]);\n  \nvar yAxis = d3.axisLeft()\n  .scale(yScale)\n  .ticks(10);\n  \n\nd3.select(\"#selectButton\")\n  .selectAll('myOptions')\n  .data(allGroup)\n  .enter()\n  .append('option')\n  .text(function(d) { return d; })\n  .attr(\"value\", function(d) {return d;});\n    \n\n\nsvg.selectAll(\"circle\")\n  .data(data)\n  .enter()\n  .append(\"circle\")\n  .style(\"opacity\", '0.7')\n  .attr(\"cx\", function(d){\n    return(150 - Math.random() *jitterWidth)})\n  .attr(\"cy\", function(d) {\n    return yScale(d.mean_liveness);\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*10;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"#CCE5FF\";\n    } else{\n      return \"#000099\";\n    }\n  });\n \n\n    \n\n\nd3.select(\"#selectButton\")\n.on(\"change\", function(){\n  \n   var selectedOption = d3.select(this).property(\"value\");\n   \n  svg.selectAll(\"circle\")\n  .data(data)\n  .transition()\n  .duration(800)\n  .filter(function(d){\n    return d.artist_name == selectedOption;\n  })\n  .attr(\"cx\", 250)\n  .attr(\"cy\", function(d) {\n    return d.mean_liveness * 450;\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*20;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"#CCE5FF\";\n    } else{\n      return \"#000099\";\n    }\n  });\n  });  \n\nd3.select(\"#clickingtag\")\n  .on(\"click\", function(){\n\nsvg.selectAll(\"circle\")\n  .data(data)\n  .filter(function(d){\n    return d.artist_name == \"Nirvana\";\n  })\n  .attr(\"cx\", 150)\n  .attr(\"cy\", function(d) {\n    return d.mean_liveness * 450;\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*7;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"blue\";\n    } else{\n      return \"black\";\n    }\n  });\n  });  \n  \n  \nsvg.append(\"g\")\n  .attr(\"class\", \"axis\")\n  .attr(\"transform\", \"translate(\" + padding + \",0)\")\n  .call(yAxis);\n};","style":null,"version":4,"theme":{"default":{"background":"#FFFFFF","foreground":"#000000"},"runtime":null},"useShadow":true},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b17fef3263566f48abe2" style="width:672px;height:480px;" class="r2d3 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b17fef3263566f48abe2">{"x":{"data":{"X":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],"X1":[59,60,493,494,730,731,813,814,1014,1015,1185,1186,1334,1335,1428,1429,1464,1465],"artist_name":["Aretha Franklin","Aretha Franklin","Frank Zappa","Frank Zappa","Johnny Cash","Johnny Cash","Led Zeppelin","Led Zeppelin","Nirvana","Nirvana","Rush","Rush","The Band","The Band","The Who","The Who","U2","U2"],"live_marker2":["live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio"],"mean_energy":[0.524777551020408,0.470408959537572,0.677544444444444,0.563851487179487,0.550876878612717,0.39795328358209,0.672979591836735,0.684203389830508,0.882493975903614,0.77092700729927,0.890840909090909,0.804180448065173,0.77283,0.59446,0.820507727272727,0.699531899038462,0.792666666666667,0.643131739130435],"mean_liveness":[0.551234693877551,0.218260404624277,0.442023361823362,0.377518666666667,0.685739884393064,0.187911492537313,0.677938775510204,0.195216949152542,0.613506024096386,0.203276642335766,0.867143181818182,0.281092260692464,0.732376,0.205328,0.631025,0.251427884615385,0.9414,0.187512173913043],"mean_dance":[0.406775510204082,0.518606936416185,0.436760683760684,0.458955333333333,0.514421965317919,0.595697014925373,0.330285714285714,0.409118644067797,0.319313253012048,0.433138686131387,0.278950757575758,0.45491649694501,0.49324,0.58014,0.399904545454545,0.498599519230769,0.3306,0.468295652173913],"mean_acoust":[0.666857142857143,0.549159075144509,0.360131518518519,0.387351366682051,0.606140462427746,0.71518721641791,0.150758878367347,0.200366928813559,0.0634865775903614,0.171156117591241,0.0483112909469697,0.0792579115682281,0.3046325,0.344648,0.197924595454545,0.295911980769231,0.1152968,0.159579617826087],"mean_speech":[0.110616326530612,0.0608595375722543,0.111066951566952,0.157942974358974,0.203253757225434,0.0946618656716418,0.0836428571428571,0.0643491525423729,0.0886192771084337,0.0699036496350365,0.0733685606060606,0.0666366598778004,0.07242,0.042153,0.0993595454545455,0.0491793269230769,0.05822,0.0452939130434783],"mean_instruments":[0.000844519387755102,0.00581205968208093,0.244231406752137,0.182873727564103,0.0127008956647399,0.0310878458656716,0.186510861020408,0.13484391779661,0.317203468795181,0.195764463868613,0.184913170037879,0.0876788863747454,0.055537139,0.0432361503,0.0616890637727273,0.0827790668509615,0.00878664733333333,0.142594043782609],"mean_valence":[0.45494693877551,0.533043930635838,0.531788034188034,0.507418051282051,0.666751445086705,0.605495597014925,0.453116326530612,0.505033898305085,0.29004578313253,0.436841605839416,0.335808712121212,0.487934623217923,0.60526,0.65155,0.389509545454545,0.520326442307692,0.436466666666667,0.433654347826087]},"type":"data.frame","container":"svg","options":null,"script":"var d3Script = function(d3, r2d3, data, svg, width, height, options, theme, console) {\nthis.d3 = d3;\n\nsvg = d3.select(svg.node());\n/* R2D3 Source File:  website_js.js */\n\n// r2d3: https://rstudio.github.io/r2d3\n//\n\nd3.csv(\"data/small_website.csv\"), (function(data){\n   console.log(data);\n});\n\n\n\nvar w = 400;\nvar h = 350;\nvar barPadding = 1;\nvar padding = 45;\n\nvar svg = d3.select(\"#chart-area-updates2\").append(\"svg\")\n   .attr(\"width\", w)\n   .attr(\"height\", h);\nvar jitterWidth = 100;\n\nvar allGroup = d3.map(data, function(d){\n  return(d.artist_name)}).keys();\n  \nvar yScale = d3.scaleLinear()\n  .domain([0, 1])\n  .range([300,1]);\n  \nvar yAxis = d3.axisLeft()\n  .scale(yScale)\n  .ticks(10);\n  \n\nd3.select(\"#selectButton\")\n  .selectAll('myOptions')\n  .data(allGroup)\n  .enter()\n  .append('option')\n  .text(function(d) { return d; })\n  .attr(\"value\", function(d) {return d;});\n    \n\n\nsvg.selectAll(\"circle\")\n  .data(data)\n  .enter()\n  .append(\"circle\")\n  .style(\"opacity\", '0.7')\n  .attr(\"cx\", function(d){\n    return(150 - Math.random() *jitterWidth)})\n  .attr(\"cy\", function(d) {\n    return yScale(d.mean_liveness);\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*10;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"#CCE5FF\";\n    } else{\n      return \"#000099\";\n    }\n  });\n \n\n    \n\n\nd3.select(\"#selectButton\")\n.on(\"change\", function(){\n  \n   var selectedOption = d3.select(this).property(\"value\");\n   \n  svg.selectAll(\"circle\")\n  .data(data)\n  .transition()\n  .duration(800)\n  .filter(function(d){\n    return d.artist_name == selectedOption;\n  })\n  .attr(\"cx\", 250)\n  .attr(\"cy\", function(d) {\n    return d.mean_liveness * 450;\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*20;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"#CCE5FF\";\n    } else{\n      return \"#000099\";\n    }\n  });\n  });  \n\nd3.select(\"#clickingtag\")\n  .on(\"click\", function(){\n\nsvg.selectAll(\"circle\")\n  .data(data)\n  .filter(function(d){\n    return d.artist_name == \"Nirvana\";\n  })\n  .attr(\"cx\", 150)\n  .attr(\"cy\", function(d) {\n    return d.mean_liveness * 450;\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*7;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"blue\";\n    } else{\n      return \"black\";\n    }\n  });\n  });  \n  \n  \nsvg.append(\"g\")\n  .attr(\"class\", \"axis\")\n  .attr(\"transform\", \"translate(\" + padding + \",0)\")\n  .call(yAxis);\n};","style":null,"version":4,"theme":{"default":{"background":"#FFFFFF","foreground":"#000000"},"runtime":null},"useShadow":true},"evals":[],"jsHooks":[]}</script>
 </div>
 
 

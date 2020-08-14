@@ -52,7 +52,7 @@ knitr::include_graphics("images/covid.png")
 <div class="col-sm-6">
 
 
-```{r echo=TRUE, message=FALSE, eval=FALSE}
+```{r eval=FALSE, message=FALSE, include=FALSE}
 ## sample cleaning code
 rm(list = ls())
 Patient <- read.csv("PatientInfo.csv", na.strings = c("",NA))
@@ -165,7 +165,7 @@ $(document).ready(function(){
 });
 </script>
 
-```{r echo=FALSE, message=FALSE}
+```{r eval=FALSE, message=FALSE, include=FALSE}
 #install.packages("randomForest")
 #install.packages("kableExtra")
 library(randomForest)
@@ -244,7 +244,7 @@ General Additive Models: mgc, mgcViz and gam
 <div class="col-sm-6">
 
 
-```{r cogsci, out.width=200, echo=F}
+```{r cogsci, out.width=150, echo=F}
 knitr::include_graphics("images/census.jpg")
 ```
 
@@ -258,14 +258,14 @@ knitr::include_graphics("images/census.jpg")
 <div class="row">
 <div class="col-sm-6">
 
-#### Sample
+#### GitHub Repo
 
   <a href="https://github.com/katjanewilson?tab=repositories" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 library(tidyverse)
 library(DataExplorer)
 library(gridExtra)
