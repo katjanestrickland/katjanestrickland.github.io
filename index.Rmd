@@ -33,4 +33,4 @@ kjanewil at upenn.edu
 
 ##### GitHub Repo for this site
 
-  <a href="https://github.com/katjanewilson?tab=repositories" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>

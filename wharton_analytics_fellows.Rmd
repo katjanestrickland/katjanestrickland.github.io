@@ -63,7 +63,7 @@ knitr::include_graphics("images/mlb.png")
 #### GitHub Repo
 
 
-  <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB.git" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 
 </div>
 <div class="col-sm-6">
@@ -125,7 +125,7 @@ knitr::include_graphics("images/youtube.png")
 #### GitHub Repo
 
 
-  <a href="https://github.com/katjanewilson/WhartonAnalytics-YouTube.git" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/WhartonAnalytics-YouTube" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
