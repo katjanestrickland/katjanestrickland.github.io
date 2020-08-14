@@ -12,6 +12,8 @@ navbar:
       href: R.html
     - text: "music"
       href: other.html
+    - text: "art"
+      href: art.html
     - text: ""
       icon: fa-github
       href: "https://github.com/katjanewilson"
