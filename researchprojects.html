@@ -443,6 +443,99 @@ div.tocify {
 </div>
 </div>
 <hr />
+</div>
+<div id="philadelphia-public-schools" class="section level2">
+<h2>Philadelphia Public Schools</h2>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="overview-2">Overview</h4>
+<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. (Data made private on GitHub as per SDP’s requestt)</p>
+<h4 id="technical">Technical</h4>
+<p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
+</div>
+<div class="col-sm-6">
+<p><img src="images/philly.jpg" width="150" /></p>
+</div>
+</div>
+<hr />
+<div class="row">
+<div class="col-sm-6">
+<h4 id="section"></h4>
+<p><a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
+</div>
+<div class="col-sm-6">
+
+</div>
+<div class="col-sm-6">
+<pre class="r"><code># 
+# ## sample data cleaning code
+# merged_participation$`YEARS OF SERVICE` &lt;- as.numeric(merged_participation$`YEARS OF SERVICE`)
+# merged_participation &lt;- merged_participation  %&gt;%
+#   mutate(strata = case_when(is.na(`YEARS OF SERVICE`) ~&quot;missing&quot;,
+#                             `YEARS OF SERVICE` &lt;= 5 ~ &quot;less than 5&quot;,
+#                             `YEARS OF SERVICE` &gt;5 &amp; `YEARS OF SERVICE` &lt; 10 ~ &quot;5 to less than 10 years&quot;,
+#                             `YEARS OF SERVICE` &gt;=10 &amp; `YEARS OF SERVICE` &lt; 15 ~ &quot;10 to 15 years&quot;,
+#                             `YEARS OF SERVICE` &gt;= 15 ~ &quot;greater than or equal to 15&quot;))
+# 
+# merged_participation &lt;- merged_participation  %&gt;%
+#   rename(&quot;quitdate&quot; = `EMPLOYMENT STATUS EFFECTIVE DATE`,
+#          &quot;startdate&quot; = `NEW TEACHER HIRE DATE`) %&gt;%
+#   mutate(retained = ifelse(is.na(`quitdate`), &quot;1&quot;, &quot;0&quot;))
+# #pull out the missingvalues
+# missing_table &lt;- merged_participation %&gt;%
+#   filter(strata == &quot;missing&quot;)
+# print(missing_table)
+# #recode  duplicates
+# #ID 214280
+# merged_participation$`startdate`[40338] = (origin = &quot;2004-12-01&quot;)
+# #ID 277504
+# merged_participation$`startdate`[63771] = (origin = &quot;2010-01-11&quot;)
+# merged_participation$`startdate`[63777] = (origin = &quot;2010-01-11&quot;)
+# merged_participation$`startdate`[63778] = (origin = &quot;2010-01-11&quot;)
+# merged_participation&lt;- merged_participation %&gt;%
+#   filter(!is.na(startdate))
+# length(unique(merged_participation$`Deidentified ID`))
+# #rename
+# merged_participation &lt;- merged_participation %&gt;%
+#   rename(&quot;Title&quot; = `TITLE`,
+#          &quot;Gender&quot; = `GEN`,
+#          &quot;Ethnicity&quot; = `ETHNICITY`,
+#          &quot;Birth Date&quot; = `BIRTH DATE`,
+#          &quot;Employee Age&quot; = `EMPLOYEE AGE`,
+#          &quot;Organization&quot; = `ORGANIZATION`,
+#          &quot;Retained&quot; = `retained`,
+#          &quot;Strata&quot; = `strata`,
+#          &quot;Years of Service&quot; = `YEARS OF SERVICE`)
+# merged_participation$Strata &lt;- as.factor(merged_participation$Strata)
+# merged_participation$Strata &lt;- recode_factor(merged_participation$Strata, `1` = &quot;less than 5&quot;, `2` = &quot;5 to less than 10 years&quot;, `3` = &quot;10 to 15 years&quot;, `4` = &quot;greater than or equal to 15&quot;)
+# #save
+# save(merged_participation, file = &quot;data/merged_participation.Rdata&quot;)  
+# length(unique(merged_participation$`Deidentified ID`))
+# 
+# ## sample causal code
+# set.seed(1731)
+# # trimming the sample
+# analysis_data_trimmed &lt;- analysis_data %&gt;%
+#   filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
+# nearest &lt;- matchit(Participated ~
+#                      Gender+ Ethnicity + Strata + employeeage+ title_status
+#                      ,
+#                    family = &quot;binomial&quot;,
+#                    method = &quot;nearest&quot;,
+#                    caliper = 0.25,
+#                    data = analysis_data_trimmed)
+# summary(nearest)
+# ###plotting these
+# #plot(nearest)
+# nearest_matched &lt;- match.data(nearest)
+# #now perform the statistical analysis
+# nearest_matched$Participated &lt;- as.factor(nearest_matched$Participated)
+# model &lt;- glm(Retained ~ Participated, data = nearest_matched,
+#              family = binomial)
+# summary(model)</code></pre>
+</div>
+</div>
 <hr />
 </div>
 <div id="covid-19-open-research" class="section level2">
@@ -450,9 +543,9 @@ div.tocify {
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-2">Overview</h4>
+<h4 id="overview-3">Overview</h4>
 <p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. This random forest algorithm takes asymmetric sampling into account when predicting death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset. (This project was done as a course project for Dr. Richard Berk’s Machine Learning course.)</p>
-<h4 id="technical">Technical</h4>
+<h4 id="technical-1">Technical</h4>
 <p>Data cleaning: tidyverse </br> Random Forest: R (randomforest)</p>
 </div>
 <div class="col-sm-6">
@@ -462,7 +555,7 @@ div.tocify {
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="section"></h4>
+<h4 id="section-1"></h4>
 <p><a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 </div>
 <div class="col-sm-6">
@@ -579,9 +672,9 @@ $(document).ready(function(){
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-3">Overview</h4>
+<h4 id="overview-4">Overview</h4>
 <p>A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, GAM models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data. (This project was done as a course project for Dr. Richard Berk’s Machine Learning course.)</p>
-<h4 id="technical-1">Technical</h4>
+<h4 id="technical-2">Technical</h4>
 <p>Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>
 </div>
 <div class="col-sm-6">
@@ -591,7 +684,7 @@ $(document).ready(function(){
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="section-1"></h4>
+<h4 id="section-2"></h4>
 <p><a href="https://github.com/katjanewilson/LosAngelesCensusTracts" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 </div>
 <div class="col-sm-6">
@@ -768,100 +861,6 @@ o &lt;- plot( sm(b, 1) )
 # o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
 #   l_ciLine(mul = 5, colour = &quot;light blue&quot;, linetype = 2) + 
 #   l_points(shape = 19, size = 1, alpha = 0.7, color = &quot;light blue&quot;) + theme_classic()</code></pre>
-</div>
-</div>
-<hr />
-</div>
-<div id="philadelphia-public-schools" class="section level2">
-<h2>Philadelphia Public Schools</h2>
-<hr />
-<div class="row">
-<div class="col-sm-6">
-<h4 id="overview-4">Overview</h4>
-<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. (Data made private on GitHub as per SDP’s requestt)</p>
-<h4 id="technical-2">Technical</h4>
-<p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
-</div>
-<div class="col-sm-6">
-<p><img src="images/philly.jpg" width="150" /></p>
-</div>
-</div>
-<hr />
-<div class="row">
-<div class="col-sm-6">
-<h4 id="section-2"></h4>
-<p><a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
-
-</div>
-<div class="col-sm-6">
-<pre class="r"><code># 
-# ## sample data cleaning code
-# merged_participation$`YEARS OF SERVICE` &lt;- as.numeric(merged_participation$`YEARS OF SERVICE`)
-# merged_participation &lt;- merged_participation  %&gt;%
-#   mutate(strata = case_when(is.na(`YEARS OF SERVICE`) ~&quot;missing&quot;,
-#                             `YEARS OF SERVICE` &lt;= 5 ~ &quot;less than 5&quot;,
-#                             `YEARS OF SERVICE` &gt;5 &amp; `YEARS OF SERVICE` &lt; 10 ~ &quot;5 to less than 10 years&quot;,
-#                             `YEARS OF SERVICE` &gt;=10 &amp; `YEARS OF SERVICE` &lt; 15 ~ &quot;10 to 15 years&quot;,
-#                             `YEARS OF SERVICE` &gt;= 15 ~ &quot;greater than or equal to 15&quot;))
-# 
-# merged_participation &lt;- merged_participation  %&gt;%
-#   rename(&quot;quitdate&quot; = `EMPLOYMENT STATUS EFFECTIVE DATE`,
-#          &quot;startdate&quot; = `NEW TEACHER HIRE DATE`) %&gt;%
-#   mutate(retained = ifelse(is.na(`quitdate`), &quot;1&quot;, &quot;0&quot;))
-# #pull out the missingvalues
-# missing_table &lt;- merged_participation %&gt;%
-#   filter(strata == &quot;missing&quot;)
-# print(missing_table)
-# #recode  duplicates
-# #ID 214280
-# merged_participation$`startdate`[40338] = (origin = &quot;2004-12-01&quot;)
-# #ID 277504
-# merged_participation$`startdate`[63771] = (origin = &quot;2010-01-11&quot;)
-# merged_participation$`startdate`[63777] = (origin = &quot;2010-01-11&quot;)
-# merged_participation$`startdate`[63778] = (origin = &quot;2010-01-11&quot;)
-# merged_participation&lt;- merged_participation %&gt;%
-#   filter(!is.na(startdate))
-# length(unique(merged_participation$`Deidentified ID`))
-# #rename
-# merged_participation &lt;- merged_participation %&gt;%
-#   rename(&quot;Title&quot; = `TITLE`,
-#          &quot;Gender&quot; = `GEN`,
-#          &quot;Ethnicity&quot; = `ETHNICITY`,
-#          &quot;Birth Date&quot; = `BIRTH DATE`,
-#          &quot;Employee Age&quot; = `EMPLOYEE AGE`,
-#          &quot;Organization&quot; = `ORGANIZATION`,
-#          &quot;Retained&quot; = `retained`,
-#          &quot;Strata&quot; = `strata`,
-#          &quot;Years of Service&quot; = `YEARS OF SERVICE`)
-# merged_participation$Strata &lt;- as.factor(merged_participation$Strata)
-# merged_participation$Strata &lt;- recode_factor(merged_participation$Strata, `1` = &quot;less than 5&quot;, `2` = &quot;5 to less than 10 years&quot;, `3` = &quot;10 to 15 years&quot;, `4` = &quot;greater than or equal to 15&quot;)
-# #save
-# save(merged_participation, file = &quot;data/merged_participation.Rdata&quot;)  
-# length(unique(merged_participation$`Deidentified ID`))
-# 
-# ## sample causal code
-# set.seed(1731)
-# # trimming the sample
-# analysis_data_trimmed &lt;- analysis_data %&gt;%
-#   filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
-# nearest &lt;- matchit(Participated ~
-#                      Gender+ Ethnicity + Strata + employeeage+ title_status
-#                      ,
-#                    family = &quot;binomial&quot;,
-#                    method = &quot;nearest&quot;,
-#                    caliper = 0.25,
-#                    data = analysis_data_trimmed)
-# summary(nearest)
-# ###plotting these
-# #plot(nearest)
-# nearest_matched &lt;- match.data(nearest)
-# #now perform the statistical analysis
-# nearest_matched$Participated &lt;- as.factor(nearest_matched$Participated)
-# model &lt;- glm(Retained ~ Participated, data = nearest_matched,
-#              family = binomial)
-# summary(model)</code></pre>
 </div>
 </div>
 <hr />
