@@ -45,116 +45,113 @@ knitr::include_graphics("images/covid.png")
 <div class="row">
 <div class="col-sm-6">
 
-#### GitHub Repo
+#### 
 
   <a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
 
-```{r eval=FALSE, message=FALSE, include=FALSE}
-## sample cleaning code
-rm(list = ls())
-Patient <- read.csv("PatientInfo.csv", na.strings = c("",NA))
-save(Patient, file = "Patient.rdata")
-Patient$ID <- as.numeric(as.character(Patient$patient_id))
-class(Patient$sex)
-Patient$sex
-Patient$sex[is.na(Patient$sex)]<- "absent"
-Patient$Age <- as.numeric(Patient$age)
-data_new <- Patient %>%
-  mutate(sex = ifelse(is.na(Sex), "absent", Sex)) %>%
-  mutate(age = ifelse(is.na(age), "20s", age)) %>%
-  mutate(Age = case_when(age %in% c(1:10) ~ "10s",
-                         age %in% c(11:20) ~ "20s",
-                         age %in% c(21:30) ~ "30s",
-                         age %in% c(31:40) ~ "40s",
-                         age %in% c(41:50) ~ "50s",
-                         age %in% c(51:60) ~ "60s",
-                         age %in% c(61:70) ~ "70s",
-                         age %in% c(71:80) ~ "80s",
-                         age %in% c(81:120) ~ "90s")) %>%
-  mutate(Province = ifelse(is.na(province), "absent", province)) %>%
-  mutate(Source = ifelse(is.na(infection_case), "absent", infection_case)) %>%
-  mutate(Order = ifelse(is.na(infection_order), "4", infection_order)) %>%
-  mutate(confirmed_date = ifelse(is.na(confirmed_date), '2020-02-20', confirmed_date)) %>%
-  mutate(State3 = ifelse(is.na(state), 'deceased', state)) %>%
-  mutate(State2 = as.factor(ifelse(State3 == "deceased", "Died", "Lived"))) %>%
-  mutate(State2 = ifelse(is.na(State2), "Lived", State2)) %>%
-  mutate(birthyear = ifelse(is.na(birth_year), 1960, birth_year)) %>%
-  mutate(Age = ifelse(is.na(Age), "20s", Age))
-
-## sample random forest code
-rf <- randomForest(outcome~Sex + Age + Province + Source +
-                    Order, data=coronavirus_data,
-                   importance = TRUE,
-                   sampsize = c(21,12,26))
-print(rf)
-###variable importance plots
-par(mfrow = c(2,2))
-
-varImpPlot(rf, class = 1, type = 1, scale = FALSE, 
-           main = "Fig 1.1: Forecasting Importance Plot for Deceased")
-varImpPlot(rf, type = 1, scale = FALSE, 
-           main = "Fig 1.2: Forecasting Importance Plot Averaged for All")
-varImpPlot(rf, class = 2, type = 1, scale = FALSE, 
-           main = "Fig 1.3: Forecasting Importance Plot for Released")
-varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
-           main = "Fig 1.4: Forecasting Importance Plot for Isolated")
-
-####Partial plots
-part1<- partialPlot(rf, pred.data = coronavirus_data, x.var = "Age",
-                    rug = T, which.class = 1)
-part2<- partialPlot(rf, pred.data = coronavirus_data, x.var = "Age",
-                    rug = T, which.class = 2)
-part3<- partialPlot(rf, pred.data = coronavirus_data, x.var = "Age",
-                    rug = T, which.class = 3)
-par(mfrow = c(2,2))
-
-#tranform the logs back to probablity
-scatter.smooth(part1$x, part1$y, xlab = "Age",
-               ylab = "Centered Log Odds of Death", main = "Fig 2.1: Partial Dependence Plot for Death on Age")
-##how the other plots change based on outcome
-scatter.smooth(part2$x, part2$y, xlab = "Age",
-               ylab = "Centered Log Odds of Released", main = "Fig 2.2: Partial Dependence Plot for Released on Age")
-scatter.smooth(part3$x, part3$y, xlab = "Age",
-               ylab = "Centered Log Odds of Isolated", main = "Fig 2.3: Partial Dependence Plot for Isolated on Age")
-
-par(mfrow = c(2,2))
-part2 <- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Sex, reg = T, prob = T,which.class = 1 ,
-                       main = "Fig 3.1: Partial Dependence Plot for Death on Sex",
-                     xlab = "Sex", ylab = "Centered Log Odds of Death")
-part2
-part2 <- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Order, reg = T, prob = T,which.class = 1 ,
-                     main = "Fig 3.2: Partial Dependence Plot for Death on Order",
-                     xlab = "Order", ylab = "Centered Log Odds of Death")
-part2
-part2 <- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Province, reg = T, prob = T,which.class = 1 ,
-                     main = "Fig 3.3: Partial Dependence Plot for Death on Province",
-                     xlab = "Province", ylab = "Centered Log Odds of Death")
-part2
-part2 <- partialPlot(rf, pred.data = coronavirus_data,
-                     x.var = Source, reg = T, prob = T,which.class = 1 ,
-                     main = "Fig 3.4: Partial Dependence Plot for Death on Source",
-                     xlab = "Source", ylab = "Centered Log Odds of Death")
-part2
-table(coronavirus_data$Source, coronavirus_data$State3)
-par(mfrow = c(2,2))
-m1<- randomForest::margin(rf)
-m1
-hist(m1, breaks = 30, main = "Fig 4.1: Histogram of Votes over Trees", xlab = "Margin")
-m2 <- subset(m1, names(m1) == 1)
-m2
-hist(m2, breaks = 30, main = "Fig 4.2: Margin for Death classification", xlab = "Votes for Deceased")
-m2
-m3 <- subset(m1, names(m1) == 2)
-hist(m3,breaks = 30, main = "Fig 4.3: Margin for Released classification", xlab = "Votes for Released")
-m3 <- subset(m1, names(m1) == 3)
-hist(m3, breaks = 30, main = "Fig 4.4: Margin for Isolated classification", xlab = "Votes for Isolated")
-
+```{r echo=TRUE, message=FALSE}
+# ## sample cleaning code
+# Patient$ID <- as.numeric(as.character(Patient$patient_id))
+# class(Patient$sex)
+# Patient$sex
+# Patient$sex[is.na(Patient$sex)]<- "absent"
+# Patient$Age <- as.numeric(Patient$age)
+# data_new <- Patient %>%
+#   mutate(sex = ifelse(is.na(Sex), "absent", Sex)) %>%
+#   mutate(age = ifelse(is.na(age), "20s", age)) %>%
+#   mutate(Age = case_when(age %in% c(1:10) ~ "10s",
+#                          age %in% c(11:20) ~ "20s",
+#                          age %in% c(21:30) ~ "30s",
+#                          age %in% c(31:40) ~ "40s",
+#                          age %in% c(41:50) ~ "50s",
+#                          age %in% c(51:60) ~ "60s",
+#                          age %in% c(61:70) ~ "70s",
+#                          age %in% c(71:80) ~ "80s",
+#                          age %in% c(81:120) ~ "90s")) %>%
+#   mutate(Province = ifelse(is.na(province), "absent", province)) %>%
+#   mutate(Source = ifelse(is.na(infection_case), "absent", infection_case)) %>%
+#   mutate(Order = ifelse(is.na(infection_order), "4", infection_order)) %>%
+#   mutate(confirmed_date = ifelse(is.na(confirmed_date), '2020-02-20', confirmed_date)) %>%
+#   mutate(State3 = ifelse(is.na(state), 'deceased', state)) %>%
+#   mutate(State2 = as.factor(ifelse(State3 == "deceased", "Died", "Lived"))) %>%
+#   mutate(State2 = ifelse(is.na(State2), "Lived", State2)) %>%
+#   mutate(birthyear = ifelse(is.na(birth_year), 1960, birth_year)) %>%
+#   mutate(Age = ifelse(is.na(Age), "20s", Age))
+# 
+# ## sample random forest code
+# rf <- randomForest(outcome~Sex + Age + Province + Source +
+#                     Order, data=coronavirus_data,
+#                    importance = TRUE,
+#                    sampsize = c(21,12,26))
+# print(rf)
+# ###variable importance plots
+# par(mfrow = c(2,2))
+# 
+# varImpPlot(rf, class = 1, type = 1, scale = FALSE, 
+#            main = "Fig 1.1: Forecasting Importance Plot for Deceased")
+# varImpPlot(rf, type = 1, scale = FALSE, 
+#            main = "Fig 1.2: Forecasting Importance Plot Averaged for All")
+# varImpPlot(rf, class = 2, type = 1, scale = FALSE, 
+#            main = "Fig 1.3: Forecasting Importance Plot for Released")
+# varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
+#            main = "Fig 1.4: Forecasting Importance Plot for Isolated")
+# 
+# ####Partial plots
+# part1<- partialPlot(rf, pred.data = coronavirus_data, x.var = "Age",
+#                     rug = T, which.class = 1)
+# part2<- partialPlot(rf, pred.data = coronavirus_data, x.var = "Age",
+#                     rug = T, which.class = 2)
+# part3<- partialPlot(rf, pred.data = coronavirus_data, x.var = "Age",
+#                     rug = T, which.class = 3)
+# par(mfrow = c(2,2))
+# 
+# #tranform the logs back to probablity
+# scatter.smooth(part1$x, part1$y, xlab = "Age",
+#                ylab = "Centered Log Odds of Death", main = "Fig 2.1: Partial Dependence Plot for Death on Age")
+# ##how the other plots change based on outcome
+# scatter.smooth(part2$x, part2$y, xlab = "Age",
+#                ylab = "Centered Log Odds of Released", main = "Fig 2.2: Partial Dependence Plot for Released on Age")
+# scatter.smooth(part3$x, part3$y, xlab = "Age",
+#                ylab = "Centered Log Odds of Isolated", main = "Fig 2.3: Partial Dependence Plot for Isolated on Age")
+# 
+# par(mfrow = c(2,2))
+# part2 <- partialPlot(rf, pred.data = coronavirus_data,
+#                      x.var = Sex, reg = T, prob = T,which.class = 1 ,
+#                        main = "Fig 3.1: Partial Dependence Plot for Death on Sex",
+#                      xlab = "Sex", ylab = "Centered Log Odds of Death")
+# part2
+# part2 <- partialPlot(rf, pred.data = coronavirus_data,
+#                      x.var = Order, reg = T, prob = T,which.class = 1 ,
+#                      main = "Fig 3.2: Partial Dependence Plot for Death on Order",
+#                      xlab = "Order", ylab = "Centered Log Odds of Death")
+# part2
+# part2 <- partialPlot(rf, pred.data = coronavirus_data,
+#                      x.var = Province, reg = T, prob = T,which.class = 1 ,
+#                      main = "Fig 3.3: Partial Dependence Plot for Death on Province",
+#                      xlab = "Province", ylab = "Centered Log Odds of Death")
+# part2
+# part2 <- partialPlot(rf, pred.data = coronavirus_data,
+#                      x.var = Source, reg = T, prob = T,which.class = 1 ,
+#                      main = "Fig 3.4: Partial Dependence Plot for Death on Source",
+#                      xlab = "Source", ylab = "Centered Log Odds of Death")
+# part2
+# table(coronavirus_data$Source, coronavirus_data$State3)
+# par(mfrow = c(2,2))
+# m1<- randomForest::margin(rf)
+# m1
+# hist(m1, breaks = 30, main = "Fig 4.1: Histogram of Votes over Trees", xlab = "Margin")
+# m2 <- subset(m1, names(m1) == 1)
+# m2
+# hist(m2, breaks = 30, main = "Fig 4.2: Margin for Death classification", xlab = "Votes for Deceased")
+# m2
+# m3 <- subset(m1, names(m1) == 2)
+# hist(m3,breaks = 30, main = "Fig 4.3: Margin for Released classification", xlab = "Votes for Released")
+# m3 <- subset(m1, names(m1) == 3)
+# hist(m3, breaks = 30, main = "Fig 4.4: Margin for Isolated classification", xlab = "Votes for Isolated")
+# 
 
 
 ```
@@ -258,14 +255,14 @@ knitr::include_graphics("images/census.jpg")
 <div class="row">
 <div class="col-sm-6">
 
-#### GitHub Repo
+#### 
 
   <a href="https://github.com/katjanewilson/LosAngelesCensusTracts" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
 
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(DataExplorer)
 library(gridExtra)
@@ -436,9 +433,9 @@ par(mfrow=c(2,2))
 library(mgcViz)
 b<- getViz(out3)
 o <- plot( sm(b, 1) )
-o + l_fitLine(colour = "#FAD7A0") + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
-  l_ciLine(mul = 5, colour = "light blue", linetype = 2) + 
-  l_points(shape = 19, size = 1, alpha = 0.7, color = "light blue") + theme_classic()
+# o + l_fitLine(colour = "#FAD7A0") + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
+#   l_ciLine(mul = 5, colour = "light blue", linetype = 2) + 
+#   l_points(shape = 19, size = 1, alpha = 0.7, color = "light blue") + theme_classic()
 
 
 ```
@@ -483,77 +480,81 @@ knitr::include_graphics("images/philly.jpg")
 <div class="row">
 <div class="col-sm-6">
 
+#### 
 
+  <a href="https://github.com/katjanewilson/CausalInference-PhillySchoolDistrict" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
 
 </div>
 <div class="col-sm-6">
-```{r eval=FALSE, message=FALSE, include=FALSE}
-
-## sample data cleaning code
-merged_participation$`YEARS OF SERVICE` <- as.numeric(merged_participation$`YEARS OF SERVICE`)
-merged_participation <- merged_participation  %>%
-  mutate(strata = case_when(is.na(`YEARS OF SERVICE`) ~"missing",
-                            `YEARS OF SERVICE` <= 5 ~ "less than 5",
-                            `YEARS OF SERVICE` >5 & `YEARS OF SERVICE` < 10 ~ "5 to less than 10 years",
-                            `YEARS OF SERVICE` >=10 & `YEARS OF SERVICE` < 15 ~ "10 to 15 years",
-                            `YEARS OF SERVICE` >= 15 ~ "greater than or equal to 15"))
-
-merged_participation <- merged_participation  %>%
-  rename("quitdate" = `EMPLOYMENT STATUS EFFECTIVE DATE`,
-         "startdate" = `NEW TEACHER HIRE DATE`) %>%
-  mutate(retained = ifelse(is.na(`quitdate`), "1", "0"))
-#pull out the missingvalues
-missing_table <- merged_participation %>%
-  filter(strata == "missing")
-print(missing_table)
-#recode  duplicates
-#ID 214280
-merged_participation$`startdate`[40338] = (origin = "2004-12-01")
-#ID 277504
-merged_participation$`startdate`[63771] = (origin = "2010-01-11")
-merged_participation$`startdate`[63777] = (origin = "2010-01-11")
-merged_participation$`startdate`[63778] = (origin = "2010-01-11")
-merged_participation<- merged_participation %>%
-  filter(!is.na(startdate))
-length(unique(merged_participation$`Deidentified ID`))
-#rename
-merged_participation <- merged_participation %>%
-  rename("Title" = `TITLE`,
-         "Gender" = `GEN`,
-         "Ethnicity" = `ETHNICITY`,
-         "Birth Date" = `BIRTH DATE`,
-         "Employee Age" = `EMPLOYEE AGE`,
-         "Organization" = `ORGANIZATION`,
-         "Retained" = `retained`,
-         "Strata" = `strata`,
-         "Years of Service" = `YEARS OF SERVICE`)
-merged_participation$Strata <- as.factor(merged_participation$Strata)
-merged_participation$Strata <- recode_factor(merged_participation$Strata, `1` = "less than 5", `2` = "5 to less than 10 years", `3` = "10 to 15 years", `4` = "greater than or equal to 15")
-#save
-save(merged_participation, file = "data/merged_participation.Rdata")  
-length(unique(merged_participation$`Deidentified ID`))
-
-## sample causal code
-set.seed(1731)
-# trimming the sample
-analysis_data_trimmed <- analysis_data %>%
-  filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
-nearest <- matchit(Participated ~
-                     Gender+ Ethnicity + Strata + employeeage+ title_status
-                     ,
-                   family = "binomial",
-                   method = "nearest",
-                   caliper = 0.25,
-                   data = analysis_data_trimmed)
-summary(nearest)
-###plotting these
-#plot(nearest)
-nearest_matched <- match.data(nearest)
-#now perform the statistical analysis
-nearest_matched$Participated <- as.factor(nearest_matched$Participated)
-model <- glm(Retained ~ Participated, data = nearest_matched,
-             family = binomial)
-summary(model)
+```{r echo=TRUE, message=FALSE}
+# 
+# ## sample data cleaning code
+# merged_participation$`YEARS OF SERVICE` <- as.numeric(merged_participation$`YEARS OF SERVICE`)
+# merged_participation <- merged_participation  %>%
+#   mutate(strata = case_when(is.na(`YEARS OF SERVICE`) ~"missing",
+#                             `YEARS OF SERVICE` <= 5 ~ "less than 5",
+#                             `YEARS OF SERVICE` >5 & `YEARS OF SERVICE` < 10 ~ "5 to less than 10 years",
+#                             `YEARS OF SERVICE` >=10 & `YEARS OF SERVICE` < 15 ~ "10 to 15 years",
+#                             `YEARS OF SERVICE` >= 15 ~ "greater than or equal to 15"))
+# 
+# merged_participation <- merged_participation  %>%
+#   rename("quitdate" = `EMPLOYMENT STATUS EFFECTIVE DATE`,
+#          "startdate" = `NEW TEACHER HIRE DATE`) %>%
+#   mutate(retained = ifelse(is.na(`quitdate`), "1", "0"))
+# #pull out the missingvalues
+# missing_table <- merged_participation %>%
+#   filter(strata == "missing")
+# print(missing_table)
+# #recode  duplicates
+# #ID 214280
+# merged_participation$`startdate`[40338] = (origin = "2004-12-01")
+# #ID 277504
+# merged_participation$`startdate`[63771] = (origin = "2010-01-11")
+# merged_participation$`startdate`[63777] = (origin = "2010-01-11")
+# merged_participation$`startdate`[63778] = (origin = "2010-01-11")
+# merged_participation<- merged_participation %>%
+#   filter(!is.na(startdate))
+# length(unique(merged_participation$`Deidentified ID`))
+# #rename
+# merged_participation <- merged_participation %>%
+#   rename("Title" = `TITLE`,
+#          "Gender" = `GEN`,
+#          "Ethnicity" = `ETHNICITY`,
+#          "Birth Date" = `BIRTH DATE`,
+#          "Employee Age" = `EMPLOYEE AGE`,
+#          "Organization" = `ORGANIZATION`,
+#          "Retained" = `retained`,
+#          "Strata" = `strata`,
+#          "Years of Service" = `YEARS OF SERVICE`)
+# merged_participation$Strata <- as.factor(merged_participation$Strata)
+# merged_participation$Strata <- recode_factor(merged_participation$Strata, `1` = "less than 5", `2` = "5 to less than 10 years", `3` = "10 to 15 years", `4` = "greater than or equal to 15")
+# #save
+# save(merged_participation, file = "data/merged_participation.Rdata")  
+# length(unique(merged_participation$`Deidentified ID`))
+# 
+# ## sample causal code
+# set.seed(1731)
+# # trimming the sample
+# analysis_data_trimmed <- analysis_data %>%
+#   filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
+# nearest <- matchit(Participated ~
+#                      Gender+ Ethnicity + Strata + employeeage+ title_status
+#                      ,
+#                    family = "binomial",
+#                    method = "nearest",
+#                    caliper = 0.25,
+#                    data = analysis_data_trimmed)
+# summary(nearest)
+# ###plotting these
+# #plot(nearest)
+# nearest_matched <- match.data(nearest)
+# #now perform the statistical analysis
+# nearest_matched$Participated <- as.factor(nearest_matched$Participated)
+# model <- glm(Retained ~ Participated, data = nearest_matched,
+#              family = binomial)
+# summary(model)
 
 ```
 
