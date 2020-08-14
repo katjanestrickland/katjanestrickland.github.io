@@ -482,7 +482,7 @@ knitr::include_graphics("images/philly.jpg")
 
 #### 
 
-  <a href="https://github.com/katjanewilson/CausalInference-PhillySchoolDistrict" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
