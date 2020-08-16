@@ -47,7 +47,7 @@ Among the psychological constructs mined from text data, Neuroticism and Opennes
 <div class="col-sm-6">
 
 
-```{r rcourse, out.width=150, echo=F}
+```{r rcourse, out.width=120, echo=F}
 knitr::include_graphics("images/mlb.png")
 ```
 
@@ -71,8 +71,8 @@ knitr::include_graphics("images/mlb.png")
 ```{r echo=FALSE, fig.align="center", message=FALSE, out.width="100%"}
 library(tidyverse)
 
-
-knitr::include_graphics("images/baseball.png")
+# 
+# knitr::include_graphics("images/baseball.png")
 # knitr::include_graphics("images/baseball2.png")
 # knitr::include_graphics("images/baseball3.png")
 ```
@@ -109,7 +109,7 @@ Our algorithm identified three clusters of categories by views and comments: con
 </div>
 <div class="col-sm-6">
 
-```{r cogsci, out.width=200, echo=F}
+```{r cogsci, out.width=150, echo=F}
 knitr::include_graphics("images/youtube.png")
 ```
 
@@ -243,7 +243,7 @@ wss_values <- map_dbl(k.values, wss)
 
 k2 <- kmeans(df[,(1:3)], centers = 3, nstart = 25)
 
-knitr::include_graphics("images/image2.jpg")
+# knitr::include_graphics("images/image2.jpg")
 ```
 </a>
 
