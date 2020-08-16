@@ -22,7 +22,7 @@ output:
 
 #### Overview
 
-Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. The large number of students participating in these programs per year, over 10,000, provides researchers with the comfort of a large sample size and ease in facilitating randomization. We evaluate how changes in growth mindset due to the intervention influence sense of belonging, course completion, and inclination to pursue STEM fields.
+Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. The large number of students participating in these programs per year, in Texas, over 10,000, provides researchers with the comfort of a large sample size for facilitating randomization. We evaluate how changes in growth mindset due to the intervention influence sense of belonging, course completion, and inclination to pursue STEM fields.
 </div>
 </div>
 
@@ -1273,3 +1273,4 @@ library(tidyverse)
 r2d3(data = read.csv("data/small_website.csv"), d3_version = 4, script = "website_js.js")
 
 ```
+
