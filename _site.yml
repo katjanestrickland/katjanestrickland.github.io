@@ -4,10 +4,10 @@ navbar:
   left:
     - text: "CV"
       href: cv.html
-    - text: "Wharton Analytics Fellows"
-      href: wharton_analytics_fellows.html
     - text: "Sample Projects"
       href: researchprojects.html
+    - text: "Wharton Analytics Fellows"
+      href: wharton_analytics_fellows.html
     - text: "code"
       href: R.html
     - text: "music"

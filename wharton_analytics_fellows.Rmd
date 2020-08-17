@@ -40,7 +40,7 @@ Topic Modeling: latent dirichlet allocation (LDA) </br>
 Clustering: hierarchical clustering (hclust)
 
 
-#### Results
+#### Recommendations
 Among the psychological constructs mined from text data, Neuroticism and Openness differed most for pitchers and hitters. A new survey tool for mental skills evaluators shifts the focus of evaluation from the individual mindset to team cohesion.
 
 </div>
@@ -103,7 +103,7 @@ Trending videos on YouTube do not simply increase viewership, they also inspire 
 Data cleaning: tidyverse </br>
 Clustering: kmeans
 
-#### Results
+#### Recommendations
 Our algorithm identified three clusters of categories by views and comments: conversation starts, niche blockbusters, and silent movies. These groups guide the product partnernship team to support gaming influencers and encourage the advertising team to attract paid users with new, cross-category videos.
 
 </div>
