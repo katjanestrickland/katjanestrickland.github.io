@@ -11,25 +11,30 @@ output:
 
 ---
 
----
+-----
 
-## OnRamps Evaluation
+## Growth Mindset Intervention
 
-----
+-----
 
 <div class="row">
 <div class="col-sm-6">
 
 #### Overview
+Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields for a large cohort (~3,000 students).
 
-Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields for a large cohort (10,000 students).
-</div>
-</div>
+#### Technical
+Data cleaning: tidyverse </br>
+Text Analysis: tidytext
 
-#### 
 
 </div>
 <div class="col-sm-6">
+
+
+```{r cogsci22, out.width=150, echo=F}
+knitr::include_graphics("images/onramps.png")
+```
 
 
 </div>
@@ -37,17 +42,22 @@ Dual Enrollment programs offer high school students the opportunity to explore c
 
 -----
 
+
 <div class="row">
 <div class="col-sm-6">
 
 #### 
 
-  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/OnRamps_Evaluation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 
 
-----
+</div>
+</div>
+
+
+
 
 ---
 
@@ -61,6 +71,10 @@ Dual Enrollment programs offer high school students the opportunity to explore c
 #### Overview
 
 add here </br>
+
+#### Technical
+WebScraping: BeautifulSoup </br>
+[link](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 
 </div>
