@@ -18,7 +18,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval=F)
 ```
 <div class="row">
 <div class="col-sm-6">
-elephants' graveyard of frequently used code
+elephants' graveyard of frequently used (and subsequently forgotten) code
 
 ## tidyverse
 
@@ -219,7 +219,6 @@ clean_live_frame_function <- function(livedata, albumname)  {
 #install.packages("reticulate")
 library(reticulate)
 use_python("/usr/bin/python")
-py_install("fhirclient", pip = TRUE)
 #best way to install pandas may be to use this py_install function when in reticulate mode
 py_install("pandas", pip = TRUE)
 py_install("sklearn", pip = TRUE)
