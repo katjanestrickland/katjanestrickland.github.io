@@ -211,29 +211,126 @@ clean_live_frame_function <- function(livedata, albumname)  {
 
 ```
 
-## python code
+## numpy
 
-### pandas
+### reticulate
 
-``` {r setup2, include = FALSE}
+``` {r setup2, include = TRUE}
 #install.packages("reticulate")
 library(reticulate)
-use_python("/home/rstudio-user/.local/share/r-miniconda/envs/r-reticulate/bin/python")
-knitr::knit_engines$set(python = reticulate::eng_python)
+use_python("/usr/bin/python")
+py_install("fhirclient", pip = TRUE)
+#best way to install pandas may be to use this py_install function when in reticulate mode
+py_install("pandas", pip = TRUE)
+py_install("sklearn", pip = TRUE)
+py_install("matplotlib", pip = TRUE)
+
+```
+
+### arrays
+
+``` {python}
+#basic array
+array_1d = np.array([10, 11, 12, 13])
+print (array_1d)
+#array from a list
+list_1 = [11, 22, 33, 44, 55]
+array_l1 = np.array(list_1)
+print(array_l1)
+#create 1D array
+array_1d = np.array([6,4,4,4,4,5,5,5,5])
+print (array_1d)
+#remember that python starts at 0
+print('element at index1:', array_1d[0])
 
 ```
 
 
+
+## pandas
+
+
+### basic
+
 ``` {python}
-knitr::knit_engines$set(python = reticulate::eng_python)
-import pandas as pd
-import numpy as np
-from sklearn import linear_model
-from sklearn.model_selection import train_test_split
 
-from sklearn.datasets import load_boston
+#summarize mean values
+df.groupby(['sepal width (cm)']).mean()
 
-boston = load_boston()
-boston
+#duplicates
+df.shape
+df.drop_duplicates
+
+#rename columns
+df2 = df.rename({'petal width (cm)': 'Width of Petals'})
+print(df2)
+
+#check null values
+df2.isnull()
+df2.isnull().sum()
+
+#drop missing values
+df2.dropna(axis =1)
+```
+
+### more
+
+``` {python}
+#describe all values
+df2.describe()
+
+#count row totals
+df2['Width of Petals'].value_counts().head(30)
+
+#correlation
+df2.corr()
+
+#conditional selection
+df2[df2['Width of Petals'] >= 2.3]
+
+#complex conditional seection
+df2[(df2['sepal length (cm)'] == 6.3) | (df2['sepal length (cm)'] == 6.4) ]
+
+```
+
+
+
+
+## scikit-learn
+
+
+### train/test
+
+``` {python}
+
+#training and testing
+X = df['sepal length (cm)'].values.reshape(-1,1)
+y = df['sepal width (cm)'].values.reshape(-1,1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+regressor = LinearRegression()  
+regressor.fit(X_train, y_train) #training the algorithm
+#intercept
+print(regressor.intercept_)
+#slope
+print(regressor.coef_)
+```
+
+### evaluation
+
+``` {python}
+
+#testing
+y_pred = regressor.predict(X_test)
+df = pd.DataFrame({'Actual': y_test.flatten(), 'Predicted': y_pred.flatten()})
+df
+
+#evaluation
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))  
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))  
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
+### for multiple regression
+
+X = df[['sepal width (cm)', 'sepal length (cm)']].values
 
 ```

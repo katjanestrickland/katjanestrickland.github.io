@@ -566,20 +566,105 @@ quantile(EGE,probs=c(.025,.975))</code></pre>
 }</code></pre>
 </div>
 </div>
-<div id="python-code" class="section level2">
-<h2>python code</h2>
-<div id="pandas" class="section level3">
-<h3>pandas</h3>
-<pre class="python"><code>knitr::knit_engines$set(python = reticulate::eng_python)
-import pandas as pd
-import numpy as np
-from sklearn import linear_model
-from sklearn.model_selection import train_test_split
+<div id="numpy" class="section level2">
+<h2>numpy</h2>
+<div id="reticulate" class="section level3">
+<h3>reticulate</h3>
+<pre class="r"><code>#install.packages(&quot;reticulate&quot;)
+library(reticulate)
+use_python(&quot;/usr/bin/python&quot;)
+py_install(&quot;fhirclient&quot;, pip = TRUE)
+#best way to install pandas may be to use this py_install function when in reticulate mode
+py_install(&quot;pandas&quot;, pip = TRUE)
+py_install(&quot;sklearn&quot;, pip = TRUE)
+py_install(&quot;matplotlib&quot;, pip = TRUE)</code></pre>
+</div>
+<div id="arrays" class="section level3">
+<h3>arrays</h3>
+<pre class="python"><code>#basic array
+array_1d = np.array([10, 11, 12, 13])
+print (array_1d)
+#array from a list
+list_1 = [11, 22, 33, 44, 55]
+array_l1 = np.array(list_1)
+print(array_l1)
+#create 1D array
+array_1d = np.array([6,4,4,4,4,5,5,5,5])
+print (array_1d)
+#remember that python starts at 0
+print(&#39;element at index1:&#39;, array_1d[0])</code></pre>
+</div>
+</div>
+<div id="pandas" class="section level2">
+<h2>pandas</h2>
+<div id="basic" class="section level3">
+<h3>basic</h3>
+<pre class="python"><code>#summarize mean values
+df.groupby([&#39;sepal width (cm)&#39;]).mean()
 
-from sklearn.datasets import load_boston
+#duplicates
+df.shape
+df.drop_duplicates
 
-boston = load_boston()
-boston</code></pre>
+#rename columns
+df2 = df.rename({&#39;petal width (cm)&#39;: &#39;Width of Petals&#39;})
+print(df2)
+
+#check null values
+df2.isnull()
+df2.isnull().sum()
+
+#drop missing values
+df2.dropna(axis =1)</code></pre>
+</div>
+<div id="more" class="section level3">
+<h3>more</h3>
+<pre class="python"><code>#describe all values
+df2.describe()
+
+#count row totals
+df2[&#39;Width of Petals&#39;].value_counts().head(30)
+
+#correlation
+df2.corr()
+
+#conditional selection
+df2[df2[&#39;Width of Petals&#39;] &gt;= 2.3]
+
+#complex conditional seection
+df2[(df2[&#39;sepal length (cm)&#39;] == 6.3) | (df2[&#39;sepal length (cm)&#39;] == 6.4) ]</code></pre>
+</div>
+</div>
+<div id="scikit-learn" class="section level2">
+<h2>scikit-learn</h2>
+<div id="traintest" class="section level3">
+<h3>train/test</h3>
+<pre class="python"><code>#training and testing
+X = df[&#39;sepal length (cm)&#39;].values.reshape(-1,1)
+y = df[&#39;sepal width (cm)&#39;].values.reshape(-1,1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+regressor = LinearRegression()  
+regressor.fit(X_train, y_train) #training the algorithm
+#intercept
+print(regressor.intercept_)
+#slope
+print(regressor.coef_)</code></pre>
+</div>
+<div id="evaluation" class="section level3">
+<h3>evaluation</h3>
+<pre class="python"><code>#testing
+y_pred = regressor.predict(X_test)
+df = pd.DataFrame({&#39;Actual&#39;: y_test.flatten(), &#39;Predicted&#39;: y_pred.flatten()})
+df
+
+#evaluation
+print(&#39;Mean Absolute Error:&#39;, metrics.mean_absolute_error(y_test, y_pred))  
+print(&#39;Mean Squared Error:&#39;, metrics.mean_squared_error(y_test, y_pred))  
+print(&#39;Root Mean Squared Error:&#39;, np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
+
+### for multiple regression
+
+X = df[[&#39;sepal width (cm)&#39;, &#39;sepal length (cm)&#39;]].values</code></pre>
 </div>
 </div>
 
