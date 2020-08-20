@@ -47,9 +47,9 @@ knitr::include_graphics("images/onramps.png")
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+##### [project page](https://katjanewilson.github.io/OnRamps_Evaluation/)
 
-  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/OnRamps_Evaluation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 </div>
@@ -84,7 +84,7 @@ WebScraping: BeautifulSoup </br>
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+##### [project page](https://katjanewilson.github.io/PhillyTeacherRetention-Causal/)
 
   <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
@@ -120,7 +120,7 @@ knitr::include_graphics("images/philly.jpg")
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+##### [project page](https://katjanewilson.github.io/PhillyTeacherRetention-Causal/)
 
   <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
@@ -214,9 +214,9 @@ kable(dataframe, escape = FALSE, caption = "Algorithm's forecasting accuracy imp
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+##### [project page](https://katjanewilson.github.io/CORD-Random-Forest/)
 
-  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 </div>
@@ -425,9 +425,9 @@ o + l_fitLine(colour = "#FAD7A0") + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) 
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+##### [project page](https://katjanewilson.github.io/LosAngelesCensusTracts//)
 
-  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/LosAngelesCensusTracts" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 </div>
@@ -755,9 +755,9 @@ r2d3(data = read.csv("data/small_website.csv"), d3_version = 4, script = "websit
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+##### [project page](https://github.com/katjanewilson/SpotifyAPI-D3JS)
 
-  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson/SpotifyAPI-D3JS" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">
 </div>
