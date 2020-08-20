@@ -17,7 +17,7 @@ output:
 ---
 
 
-<p>Here are in process projects. </p>
+<p> Sample of past and current projects. Click on the "project page" link </br>for an html guide to analysis, and the github logo for a link </br>to the code repository. </p>
 ---
 
 ## Growth Mindset Intervention
@@ -57,43 +57,6 @@ knitr::include_graphics("images/onramps.png")
 
 ---
 
-## Khan Academy Chat
-
-----
-
-<div class="row">
-<div class="col-sm-6">
-
-#### Overview
-
-Overview
-
-#### Technical
-WebScraping: BeautifulSoup </br>
-[link](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-
-
-</div>
-<div class="col-sm-6">
-```{r, out.width=200, echo=F}
-# knitr::include_graphics("images/onramps.png")
-```
-</div>
-</div>
-
-<div class="row">
-<div class="col-sm-6">
-
-##### [project page](https://katjanewilson.github.io/PhillyTeacherRetention-Causal/)
-
-  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-</div>
-<div class="col-sm-6">
-</div>
-</div>
-
----
-
 ## Philadelphia Public Schools
 
 ----
@@ -104,7 +67,8 @@ WebScraping: BeautifulSoup </br>
 #### Overview
 
 In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. </br> *data private on github
-##### Technical
+
+#### Technical
 Data cleaning: tidyverse </br>
 Causal Inference: R (MatchIt)
 
@@ -143,11 +107,12 @@ knitr::include_graphics("images/philly.jpg")
 Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. This random forest algorithm takes asymmetric sampling into account when predicting death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</br> *course project for <a href = "https://apps.wharton.upenn.edu/syllabi/2020A/STAT474401/" target = "_blank"> Stat 974</a>
 
 #### Technical
+
 Data cleaning: tidyverse </br>
 Random Forest: R (randomforest)
 
 </div>
-<div class="col-sm-6">
+<div class="col-sm-4">
 <script>
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
@@ -203,7 +168,7 @@ dataframe$`Confusion Table`<- cell_spec(
   ))
 dataframe <- dataframe %>%
   select(`Confusion Table`, Outcome1, Outcome2, Outcome3, `Classification Error`)
-kable(dataframe, escape = FALSE, caption = "Algorithm's forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, isolated, and released, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.") %>%
+kable(dataframe, escape = FALSE, caption = "<strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.") %>%
   kable_styling("striped", full_width = FALSE)
 
 
@@ -235,13 +200,14 @@ kable(dataframe, escape = FALSE, caption = "Algorithm's forecasting accuracy imp
 #### Overview
 
 A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, GAM models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.</br> *course project for <a href = "https://apps.wharton.upenn.edu/syllabi/2020A/STAT474401/" target = "_blank"> Stat 974</a>
+
 #### Technical
 Data cleaning: tidyverse </br>
 General Additive Models: mgc, mgcViz and gam
 
 
 </div>
-<div class="col-sm-6">
+<div class="col-sm-4">
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(DataExplorer)
