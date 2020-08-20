@@ -143,7 +143,6 @@ kable(dataframe, escape = FALSE, caption = "<strong>Hover over the confusion tab
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/CORD-Random-Forest/)
 
   <a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
@@ -355,7 +354,6 @@ b<- getViz(out3)
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/LosAngelesCensusTracts//)
 
   <a href="https://github.com/katjanewilson/LosAngelesCensusTracts" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
