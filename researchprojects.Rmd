@@ -12,48 +12,12 @@ output:
     toc_depth: '4'
 ---
 
-## Projects
 
 ---
 
 
-<p> Sample of past and current projects. Click on the "project page" link </br>for an html guide to analysis, and the github logo for a link </br>to the code repository. </p>
----
+<p> Sample of past, current, and future projects. See the "project page" link </br>for an html guide to analysis, and click on the github logo for a link </br>to the code repository. </p>
 
-## Growth Mindset Intervention
-
-----
-
-<div class="row">
-<div class="col-sm-6">
-
-#### Overview
-
-Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields for a large cohort (~3,000 students).
-
-#### Technical
-
-Data cleaning: tidyverse </br>
-Text Analysis: tidytext
-
-</div>
-<div class="col-sm-6">
-```{r, out.width=200, echo=F}
-knitr::include_graphics("images/onramps.png")
-```
-</div>
-</div>
-
-<div class="row">
-<div class="col-sm-6">
-
-##### [project page](https://katjanewilson.github.io/OnRamps_Evaluation/)
-
-  <a href="https://github.com/katjanewilson/OnRamps_Evaluation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-</div>
-<div class="col-sm-6">
-</div>
-</div>
 
 ---
 
@@ -66,7 +30,7 @@ knitr::include_graphics("images/onramps.png")
 
 #### Overview
 
-In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. </br> *data private on github
+In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github
 
 #### Technical
 Data cleaning: tidyverse </br>
@@ -732,4 +696,37 @@ r2d3(data = read.csv("data/small_website.csv"), d3_version = 4, script = "websit
 ---
 
 
+## Growth Mindset Intervention
 
+----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Overview
+
+Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields, for a large cohort (~3,000) of pre-calculus students.
+
+#### Technical
+
+Data cleaning: tidyverse </br>
+Text Analysis: tidytext
+
+</div>
+<div class="col-sm-6">
+```{r, out.width=200, echo=F}
+knitr::include_graphics("images/onramps.png")
+```
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-6">
+
+##### [project page](https://katjanewilson.github.io/OnRamps_Evaluation/)
+
+  <a href="https://github.com/katjanewilson/OnRamps_Evaluation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>

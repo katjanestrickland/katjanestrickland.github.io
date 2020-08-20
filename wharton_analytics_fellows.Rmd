@@ -88,7 +88,7 @@ knitr::include_graphics("images/image2.jpg")
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-YouTube/)
+##### [project page](https://github.com/katjanewilson/WhartonAnalytics-YouTube)
 
   <a href="https://github.com/katjanewilson/WhartonAnalytics-YouTube" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
