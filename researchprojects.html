@@ -23,9 +23,9 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="site_libs/r2d3-render-0.1.0/r2d3-render.js"></script>
 <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -256,9 +256,6 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
 
 
 
@@ -407,43 +404,32 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-</ul>
-</div>
-
 
 
 
 </div>
 
 
+<div id="projects" class="section level2">
+<h2>Projects</h2>
 <hr />
+<p>
+Here are in process projects.
+</p>
+<hr />
+</div>
 <div id="growth-mindset-intervention" class="section level2">
 <h2>Growth Mindset Intervention</h2>
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview">Overview</h4>
+<h4 id="growth-mindset-intervention-1"><a href="https://katjanewilson.github.io/WhartonAnalytics-MLB/">Growth Mindset Intervention</a></h4>
 <p>Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields for a large cohort (~3,000 students).</p>
-<h4 id="technical">Technical</h4>
+<h5 id="technical">Technical</h5>
 <p>Data cleaning: tidyverse </br> Text Analysis: tidytext</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/onramps.png" width="150" /></p>
-</div>
-</div>
-<hr />
-<div class="row">
-<div class="col-sm-6">
-<h4 id="section"></h4>
-<p><a href="https://github.com/katjanewilson/OnRamps_Evaluation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
-
+<p><img src="images/onramps.png" width="600" /></p>
 </div>
 </div>
 <hr />
@@ -453,10 +439,13 @@ div.tocify {
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-1">Overview</h4>
-<p>add here </br></p>
+<h4 id="khan-chat"><a href="https://katjanewilson.github.io/PhillyTeacherRetention-Causal/">Khan Chat</a></h4>
+<p>Overview</p>
 <h4 id="technical-1">Technical</h4>
 <p>WebScraping: BeautifulSoup </br> <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">link</a></p>
+</div>
+<div class="col-sm-6">
+
 </div>
 </div>
 <hr />
@@ -466,91 +455,11 @@ div.tocify {
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-2">Overview</h4>
-<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. </br> *data private on github</p>
-<h4 id="technical-2">Technical</h4>
-<p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
+<h4 id="philadelphia"><a href="https://katjanewilson.github.io/PhillyTeacherRetention-Causal/">Philadelphia</a></h4>
+<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. </br> *data private on github ##### Technical Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/philly.jpg" width="150" /></p>
-</div>
-</div>
-<hr />
-<div class="row">
-<div class="col-sm-6">
-<h4 id="section-1"></h4>
-<p><a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
-
-</div>
-<div class="col-sm-6">
-<pre class="r"><code># 
-# ## sample data cleaning code
-# merged_participation$`YEARS OF SERVICE` &lt;- as.numeric(merged_participation$`YEARS OF SERVICE`)
-# merged_participation &lt;- merged_participation  %&gt;%
-#   mutate(strata = case_when(is.na(`YEARS OF SERVICE`) ~&quot;missing&quot;,
-#                             `YEARS OF SERVICE` &lt;= 5 ~ &quot;less than 5&quot;,
-#                             `YEARS OF SERVICE` &gt;5 &amp; `YEARS OF SERVICE` &lt; 10 ~ &quot;5 to less than 10 years&quot;,
-#                             `YEARS OF SERVICE` &gt;=10 &amp; `YEARS OF SERVICE` &lt; 15 ~ &quot;10 to 15 years&quot;,
-#                             `YEARS OF SERVICE` &gt;= 15 ~ &quot;greater than or equal to 15&quot;))
-# 
-# merged_participation &lt;- merged_participation  %&gt;%
-#   rename(&quot;quitdate&quot; = `EMPLOYMENT STATUS EFFECTIVE DATE`,
-#          &quot;startdate&quot; = `NEW TEACHER HIRE DATE`) %&gt;%
-#   mutate(retained = ifelse(is.na(`quitdate`), &quot;1&quot;, &quot;0&quot;))
-# #pull out the missingvalues
-# missing_table &lt;- merged_participation %&gt;%
-#   filter(strata == &quot;missing&quot;)
-# print(missing_table)
-# #recode  duplicates
-# #ID 214280
-# merged_participation$`startdate`[40338] = (origin = &quot;2004-12-01&quot;)
-# #ID 277504
-# merged_participation$`startdate`[63771] = (origin = &quot;2010-01-11&quot;)
-# merged_participation$`startdate`[63777] = (origin = &quot;2010-01-11&quot;)
-# merged_participation$`startdate`[63778] = (origin = &quot;2010-01-11&quot;)
-# merged_participation&lt;- merged_participation %&gt;%
-#   filter(!is.na(startdate))
-# length(unique(merged_participation$`Deidentified ID`))
-# #rename
-# merged_participation &lt;- merged_participation %&gt;%
-#   rename(&quot;Title&quot; = `TITLE`,
-#          &quot;Gender&quot; = `GEN`,
-#          &quot;Ethnicity&quot; = `ETHNICITY`,
-#          &quot;Birth Date&quot; = `BIRTH DATE`,
-#          &quot;Employee Age&quot; = `EMPLOYEE AGE`,
-#          &quot;Organization&quot; = `ORGANIZATION`,
-#          &quot;Retained&quot; = `retained`,
-#          &quot;Strata&quot; = `strata`,
-#          &quot;Years of Service&quot; = `YEARS OF SERVICE`)
-# merged_participation$Strata &lt;- as.factor(merged_participation$Strata)
-# merged_participation$Strata &lt;- recode_factor(merged_participation$Strata, `1` = &quot;less than 5&quot;, `2` = &quot;5 to less than 10 years&quot;, `3` = &quot;10 to 15 years&quot;, `4` = &quot;greater than or equal to 15&quot;)
-# #save
-# save(merged_participation, file = &quot;data/merged_participation.Rdata&quot;)  
-# length(unique(merged_participation$`Deidentified ID`))
-# 
-# ## sample causal code
-# set.seed(1731)
-# # trimming the sample
-# analysis_data_trimmed &lt;- analysis_data %&gt;%
-#   filter(YearsOfService %in% c(0:31, 33,34,35,36,37,39))
-# nearest &lt;- matchit(Participated ~
-#                      Gender+ Ethnicity + Strata + employeeage+ title_status
-#                      ,
-#                    family = &quot;binomial&quot;,
-#                    method = &quot;nearest&quot;,
-#                    caliper = 0.25,
-#                    data = analysis_data_trimmed)
-# summary(nearest)
-# ###plotting these
-# #plot(nearest)
-# nearest_matched &lt;- match.data(nearest)
-# #now perform the statistical analysis
-# nearest_matched$Participated &lt;- as.factor(nearest_matched$Participated)
-# model &lt;- glm(Retained ~ Participated, data = nearest_matched,
-#              family = binomial)
-# summary(model)</code></pre>
+<p><img src="images/philly.jpg" width="800" /></p>
 </div>
 </div>
 <hr />
@@ -560,126 +469,94 @@ div.tocify {
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-3">Overview</h4>
+<h4 id="covid"><a href="https://katjanewilson.github.io/CORD-Random-Forest/">COVID</a></h4>
 <p>Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers’ desired cost-ratios. This random forest algorithm takes asymmetric sampling into account when predicting death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</br> *course project for <a href = "https://apps.wharton.upenn.edu/syllabi/2020A/STAT474401/" target = "_blank"> Stat 974</a></p>
-<h4 id="technical-3">Technical</h4>
+<h4 id="technical-2">Technical</h4>
 <p>Data cleaning: tidyverse </br> Random Forest: R (randomforest)</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/covid.png" width="150" /></p>
-</div>
-</div>
-<hr />
-<div class="row">
-<div class="col-sm-6">
-<h4 id="section-2"></h4>
-<p><a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
-<pre class="r"><code># ## sample cleaning code
-# Patient$ID &lt;- as.numeric(as.character(Patient$patient_id))
-# class(Patient$sex)
-# Patient$sex
-# Patient$sex[is.na(Patient$sex)]&lt;- &quot;absent&quot;
-# Patient$Age &lt;- as.numeric(Patient$age)
-# data_new &lt;- Patient %&gt;%
-#   mutate(sex = ifelse(is.na(Sex), &quot;absent&quot;, Sex)) %&gt;%
-#   mutate(age = ifelse(is.na(age), &quot;20s&quot;, age)) %&gt;%
-#   mutate(Age = case_when(age %in% c(1:10) ~ &quot;10s&quot;,
-#                          age %in% c(11:20) ~ &quot;20s&quot;,
-#                          age %in% c(21:30) ~ &quot;30s&quot;,
-#                          age %in% c(31:40) ~ &quot;40s&quot;,
-#                          age %in% c(41:50) ~ &quot;50s&quot;,
-#                          age %in% c(51:60) ~ &quot;60s&quot;,
-#                          age %in% c(61:70) ~ &quot;70s&quot;,
-#                          age %in% c(71:80) ~ &quot;80s&quot;,
-#                          age %in% c(81:120) ~ &quot;90s&quot;)) %&gt;%
-#   mutate(Province = ifelse(is.na(province), &quot;absent&quot;, province)) %&gt;%
-#   mutate(Source = ifelse(is.na(infection_case), &quot;absent&quot;, infection_case)) %&gt;%
-#   mutate(Order = ifelse(is.na(infection_order), &quot;4&quot;, infection_order)) %&gt;%
-#   mutate(confirmed_date = ifelse(is.na(confirmed_date), &#39;2020-02-20&#39;, confirmed_date)) %&gt;%
-#   mutate(State3 = ifelse(is.na(state), &#39;deceased&#39;, state)) %&gt;%
-#   mutate(State2 = as.factor(ifelse(State3 == &quot;deceased&quot;, &quot;Died&quot;, &quot;Lived&quot;))) %&gt;%
-#   mutate(State2 = ifelse(is.na(State2), &quot;Lived&quot;, State2)) %&gt;%
-#   mutate(birthyear = ifelse(is.na(birth_year), 1960, birth_year)) %&gt;%
-#   mutate(Age = ifelse(is.na(Age), &quot;20s&quot;, Age))
-# 
-# ## sample random forest code
-# rf &lt;- randomForest(outcome~Sex + Age + Province + Source +
-#                     Order, data=coronavirus_data,
-#                    importance = TRUE,
-#                    sampsize = c(21,12,26))
-# print(rf)
-# ###variable importance plots
-# par(mfrow = c(2,2))
-# 
-# varImpPlot(rf, class = 1, type = 1, scale = FALSE, 
-#            main = &quot;Fig 1.1: Forecasting Importance Plot for Deceased&quot;)
-# varImpPlot(rf, type = 1, scale = FALSE, 
-#            main = &quot;Fig 1.2: Forecasting Importance Plot Averaged for All&quot;)
-# varImpPlot(rf, class = 2, type = 1, scale = FALSE, 
-#            main = &quot;Fig 1.3: Forecasting Importance Plot for Released&quot;)
-# varImpPlot(rf, class = 3, type = 1, scale = FALSE, 
-#            main = &quot;Fig 1.4: Forecasting Importance Plot for Isolated&quot;)
-# 
-# ####Partial plots
-# part1&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
-#                     rug = T, which.class = 1)
-# part2&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
-#                     rug = T, which.class = 2)
-# part3&lt;- partialPlot(rf, pred.data = coronavirus_data, x.var = &quot;Age&quot;,
-#                     rug = T, which.class = 3)
-# par(mfrow = c(2,2))
-# 
-# #tranform the logs back to probablity
-# scatter.smooth(part1$x, part1$y, xlab = &quot;Age&quot;,
-#                ylab = &quot;Centered Log Odds of Death&quot;, main = &quot;Fig 2.1: Partial Dependence Plot for Death on Age&quot;)
-# ##how the other plots change based on outcome
-# scatter.smooth(part2$x, part2$y, xlab = &quot;Age&quot;,
-#                ylab = &quot;Centered Log Odds of Released&quot;, main = &quot;Fig 2.2: Partial Dependence Plot for Released on Age&quot;)
-# scatter.smooth(part3$x, part3$y, xlab = &quot;Age&quot;,
-#                ylab = &quot;Centered Log Odds of Isolated&quot;, main = &quot;Fig 2.3: Partial Dependence Plot for Isolated on Age&quot;)
-# 
-# par(mfrow = c(2,2))
-# part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-#                      x.var = Sex, reg = T, prob = T,which.class = 1 ,
-#                        main = &quot;Fig 3.1: Partial Dependence Plot for Death on Sex&quot;,
-#                      xlab = &quot;Sex&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-# part2
-# part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-#                      x.var = Order, reg = T, prob = T,which.class = 1 ,
-#                      main = &quot;Fig 3.2: Partial Dependence Plot for Death on Order&quot;,
-#                      xlab = &quot;Order&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-# part2
-# part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-#                      x.var = Province, reg = T, prob = T,which.class = 1 ,
-#                      main = &quot;Fig 3.3: Partial Dependence Plot for Death on Province&quot;,
-#                      xlab = &quot;Province&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-# part2
-# part2 &lt;- partialPlot(rf, pred.data = coronavirus_data,
-#                      x.var = Source, reg = T, prob = T,which.class = 1 ,
-#                      main = &quot;Fig 3.4: Partial Dependence Plot for Death on Source&quot;,
-#                      xlab = &quot;Source&quot;, ylab = &quot;Centered Log Odds of Death&quot;)
-# part2
-# table(coronavirus_data$Source, coronavirus_data$State3)
-# par(mfrow = c(2,2))
-# m1&lt;- randomForest::margin(rf)
-# m1
-# hist(m1, breaks = 30, main = &quot;Fig 4.1: Histogram of Votes over Trees&quot;, xlab = &quot;Margin&quot;)
-# m2 &lt;- subset(m1, names(m1) == 1)
-# m2
-# hist(m2, breaks = 30, main = &quot;Fig 4.2: Margin for Death classification&quot;, xlab = &quot;Votes for Deceased&quot;)
-# m2
-# m3 &lt;- subset(m1, names(m1) == 2)
-# hist(m3,breaks = 30, main = &quot;Fig 4.3: Margin for Released classification&quot;, xlab = &quot;Votes for Released&quot;)
-# m3 &lt;- subset(m1, names(m1) == 3)
-# hist(m3, breaks = 30, main = &quot;Fig 4.4: Margin for Isolated classification&quot;, xlab = &quot;Votes for Isolated&quot;)
-# </code></pre>
 <script>
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
 });
 </script>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Algorithm’s forecasting accuracy improves upon all previously stated baseline percentage forecasts, which were 1.51%, 85.6%, and 12.93%, for the deceased, isolated, and released, respectively. <strong>Hover over the confusion table</strong> to learn more about how sampling affects cost ratios.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Confusion Table
+</th>
+<th style="text-align:left;">
+Outcome1
+</th>
+<th style="text-align:left;">
+Outcome2
+</th>
+<th style="text-align:left;">
+Outcome3
+</th>
+<th style="text-align:left;">
+Classification Error
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="In response to policy makers&#39; request that a false negative in death classification be 20 times worse than a false positive release classification, deceased values are oversampled, at 21 out of 32, to avoid false positive releases. Due to a large imbalance in the outcome distribution, however, (less than 2% of patients die from the disease), a strict adherance to this cost ratio affects the ability to meet desired cost ratios in other categories.">Deceased</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">26</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">1</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">5</span>
+</td>
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="84% Classification Accuracy">0.16</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="The intended cost ratio of a false negative death to a false positive isolation is set at 10:1. A larger ratio of 20:1 is achieved due to the high number of people isolated, and under-sampling from this parameter.">Released</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">10</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">149</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">115</span>
+</td>
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="54% Classification Accuracy">0.46</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="A false negative release is about as risky as a false positive isolation, according to policy makers. The ratio intended was 2:1, and the actual result, with sampling, was 1.2:1.">Isolated</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">105</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">130</span>
+</td>
+<td style="text-align:left;">
+<span style=" font-weight: bold;    ">1578</span>
+</td>
+<td style="text-align:left;">
+<span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="87% Classification Accuracy">0.13</span>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <hr />
@@ -689,195 +566,11 @@ $(document).ready(function(){
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-4">Overview</h4>
-<p>A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, GAM models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.</br> *course project for <a href = "https://apps.wharton.upenn.edu/syllabi/2020A/STAT474401/" target = "_blank"> Stat 974</a></p>
-<h4 id="technical-4">Technical</h4>
-<p>Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>
+<h4 id="la"><a href="https://katjanewilson.github.io/LosAngelesCensusTracts/">LA</a></h4>
+<p>A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, GAM models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.</br> *course project for <a href = "https://apps.wharton.upenn.edu/syllabi/2020A/STAT474401/" target = "_blank"> Stat 974</a> #### Technical Data cleaning: tidyverse </br> General Additive Models: mgc, mgcViz and gam</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/census.jpg" width="150" /></p>
-</div>
-</div>
-<hr />
-<div class="row">
-<div class="col-sm-6">
-<h4 id="section-3"></h4>
-<p><a href="https://github.com/katjanewilson/LosAngelesCensusTracts" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
-<pre class="r"><code>library(tidyverse)
-library(DataExplorer)
-library(gridExtra)
-
-#inspect data
-load(&quot;data/NewHomeless.rdata&quot;)
-homeless &lt;- homeless
-
-#count the missing data values
-# sapply(homeless, function(x) sum(is.na(x)))
-
-# #inspect missing values
-# missing &lt;- homeless %&gt;%
-#   filter(is.na(PropVacant))
-
-#impute the missing data
-homeless[is.na(homeless)] = 0
-
-#cleanign up the mis coded
-# Adjust values of PropMinority mis-coded as &quot;100&quot; instead of &quot;1.0&quot;
-library(dplyr)
-homeless &lt;- mutate_at(homeless, vars(PropMinority), list(~ ifelse( . &gt; 1.0, 1.0, .)))
-
-# Convert values of &quot;Pct&quot; variables to be in decimal scale
-homeless &lt;- mutate_at(homeless, vars(PctResidential:PCTIndustrial), list(~ .*.01))
-
-# Recode four NAs in PropVacant as zero owing to how few residential dwellings exist in
-# those tracts
-homeless &lt;- mutate_at(homeless, vars(PropVacant), list(~ ifelse(is.na(.)==T, 0, .)))
-
-#recode the industrial
-homeless &lt;- homeless %&gt;%
-  mutate(Industrial = ifelse(PCTIndustrial &gt;0, 1, 0))
-
-####################
-#Step 2: Univariate Statistics
-
-library(DataExplorer)
-#pairs
-# pairs(homeless)
-# #correlation
-# plot_correlation(homeless, type = &#39;continuous&#39;,&#39;Review.Date&#39;)
-
-#Street Total
-
-par(mfrow = c(1,2))
-p1 &lt;- ggplot(aes(StreetTotal), data = homeless) +
-  geom_histogram(binwidth = 6) +
-  geom_vline(xintercept = mean(homeless$StreetTotal), size = 0.8)
-p2 &lt;- ggplot(aes(MedianIncome), data = homeless) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$MedianIncome), colour = &quot;pink&quot;, size = 0.8)
-#Prop Vacant
-p3 &lt;- homeless %&gt;%
-  ggplot(aes(PropVacant)) +
-  geom_histogram(bins = 40) +
-  geom_vline(xintercept = mean(homeless$PropVacant), colour = &quot;pink&quot;)
-#Prop Minority
-p4 &lt;- homeless %&gt;%
-  ggplot(aes(PropMinority)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PropMinority), colour = &quot;pink&quot;)
-#Pct Residential
-p5 &lt;- homeless %&gt;%
-  ggplot(aes(PctResidential)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PctResidential), colour = &quot;pink&quot;)
-#PctCommercial
-p6 &lt;- homeless %&gt;%
-  ggplot(aes(PctCommercial)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PctCommercial), colour = &quot;pink&quot;)
-#PctIndustrial
-p7 &lt;- homeless %&gt;%
-  ggplot(aes(PCTIndustrial)) +
-  geom_histogram(bins = 50) +
-  geom_vline(xintercept = mean(homeless$PCTIndustrial), colour = &quot;pink&quot;)
-library(gridExtra)
-# grid.arrange(p1, p2, p3, p4, p5, p6, p7, nrow = 3)
-
-#set seed at 4000
-# Bring in data and create initial training and test datasets
-set.seed(4000)
-df &lt;- homeless
-index &lt;- sample(1:nrow(df), (nrow(df))/2, replace = F) 
-Train &lt;- na.omit(df[index,]) # Training data
-Test &lt;- na.omit(df[-index,]) # Test data
-##coming to the right model:
-library(leaps)
-All1 &lt;- regsubsets(StreetTotal ~ MedianIncome + PropMinority +
-                     PropVacant+
-                     PctResidential+
-                     PCTIndustrial +
-                     PctCommercial +
-                     Industrial, data = Train)
-# All1
-# summary(All1)
-
-Model2 &lt;- lm(StreetTotal ~  
-               PropVacant+
-               Industrial +
-               (PropVacant:Industrial), data = Train)
-# summary(Model2)
-
-## Generalization error ##
-# Specify a model on the testing data 
-Model2 &lt;- lm(StreetTotal ~  
-               PropVacant+
-               Industrial +
-               (PropVacant:Industrial), data = Test)
-# summary(Model2)
-#estimate the fitted values on the testing data, and the generalization error
-preds &lt;- predict(Model2, newdata = Test) # New fitted values derived from the test data
-GE &lt;- var(Test$StreetTotal - preds) # Estimate of generalization error (the variance of the residuals when 
-# GE
-# sqrt(GE)
-# Bootstrap a confidence interval for the generalization error 
-bootstrap_genError &lt;-
-  function(x) {
-    bootstrapped_genErrors &lt;- 0
-    for (i in 1:1000) {
-      index &lt;- sample(1:nrow(x), nrow(x), replace = T)
-      sample_Test &lt;- x[index,]
-      sample_Test_preds &lt;- predict(Model2, newdata = sample_Test)
-      bootstrapped_genErrors[i] &lt;- var(sample_Test$StreetTotal - sample_Test_preds)
-    }
-    return(bootstrapped_genErrors)
-  }
-
-bootstrap_results_ge &lt;- bootstrap_genError(Test)
-
-# Check generalization error bootstrap results
-# mean(bootstrap_results_ge, na.rm = T)
-# summary(bootstrap_results_ge)
-# hist(bootstrap_results_ge, breaks = 20) 
-# qqnorm(bootstrap_results_ge)
-# sd(bootstrap_results_ge)
-# quantile(bootstrap_results_ge, probs = c(.025,.975))
-# plot(density(bootstrap_results_ge))
-# qqnorm(bootstrap_results_ge)
-#use robust sandwich standard errors in the sandwich package
-# install.packages(&quot;sandwich&quot;)
-library(sandwich)
-# vcovHC(Model2, type = &quot;HC&quot;)
-# sandwich_se &lt;- diag(vcovHC(Model2, type = &quot;HC1&quot;))
-# sqrt(sandwich_se)
-#then can get the confidence interval limits of these
-# coef(Model2) - 1.96*sandwich_se
-# coef(Model2) + 1.96*sandwich_se
-
-library(gam)
-library(mgcv)
-library(leaps)
-
-homeless2 &lt;- homeless %&gt;%
-  filter(MedianIncome &gt; 60000 &amp; PropVacant &lt; .10)
-
-##MODEL 1
-out3 &lt;- gam(StreetTotal ~
-              s(PCTIndustrial) +
-              s(PctCommercial) +
-              s(PropVacant) +
-              s(MedianIncome), data = homeless, family = gaussian)
-# summary(out3)
-par(mfrow=c(2,2))
-# plot(out3, residual = T, cex = 1, pch = 19, shade = T, shade.col = &quot;light blue&quot;,
-#      col = &quot;#FAD7A0&quot;)
-library(mgcViz)
-b&lt;- getViz(out3)
-o &lt;- plot( sm(b, 1) )
-# o + l_fitLine(colour = &quot;#FAD7A0&quot;) + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) +
-#   l_ciLine(mul = 5, colour = &quot;light blue&quot;, linetype = 2) +
-#   l_points(shape = 19, size = 1, alpha = 0.7, color = &quot;light blue&quot;) + theme_classic()</code></pre>
+<p><img src="researchprojects_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 </div>
 <hr />
@@ -887,291 +580,11 @@ o &lt;- plot( sm(b, 1) )
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-5">Overview</h4>
-<p>Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist’s studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, a user can evaluate distances between points and visualize the “ceiling effect” of comparison data.</p>
-<h4 id="technical-5">Technical</h4>
-<p>Web scraping: Python (BeautifulSoup) </br> Data Cleaning: tidyverse </br> Data visualization: D3.js</p>
-</div>
-<div class="col-sm-6">
-<p><img src="images/spotify.png" width="150" /></p>
-</div>
-</div>
-<hr />
-<div class="row">
-<div class="col-sm-6">
-<h4 id="sample">Sample</h4>
-<p>Sample visualization. Full project in process.</p>
+<h4 id="spotify"><a href="https://github.com/katjanewilson/SpotifyAPI-D3JS">Spotify</a></h4>
+<p>Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist’s studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, a user can evaluate distances between points and visualize the “ceiling effect” of comparison data. #### Technical Web scraping: Python (BeautifulSoup) </br> Data Cleaning: tidyverse </br> Data visualization: D3.js</p>
 </div>
 <div class="col-sm-6">
 
-
-
-
-<pre class="r"><code># d3.csv(&quot;data/small_website.csv&quot;), (function(data){
-#    console.log(data);
-# });
-# 
-# 
-# 
-# var w = 400;
-# var h = 400;
-# var barPadding = 1;
-# var padding = 20;
-# 
-# var svg = d3.select(&quot;#chart-area-updates2&quot;).append(&quot;svg&quot;)
-#    .attr(&quot;width&quot;, w)
-#    .attr(&quot;height&quot;, h);
-# var jitterWidth = 100;
-# 
-# var allGroup = d3.map(data, function(d){
-#   return(d.artist_name)}).keys();
-#   
-# var yScale = d3.scaleLinear()
-#   .domain([0, 1])
-#   .range([300,1]);
-#   
-# var yAxis = d3.axisLeft()
-#   .scale(yScale)
-#   .ticks(5);
-#   
-# 
-# d3.select(&quot;#selectButton&quot;)
-#   .selectAll(&#39;myOptions&#39;)
-#   .data(allGroup)
-#   .enter()
-#   .append(&#39;option&#39;)
-#   .text(function(d) { return d; })
-#   .attr(&quot;value&quot;, function(d) {return d;});
-#     
-# 
-# 
-# svg.selectAll(&quot;circle&quot;)
-#   .data(data)
-#   .enter()
-#   .append(&quot;circle&quot;)
-#   .style(&quot;opacity&quot;, &#39;0.7&#39;)
-#   .attr(&quot;cx&quot;, function(d){
-#     return(150 - Math.random() *jitterWidth)})
-#   .attr(&quot;cy&quot;, function(d) {
-#     return yScale(d.mean_liveness);
-#   })
-#   .attr(&quot;r&quot;, function(d) {
-#     return d.mean_liveness*10;
-# })
-#   .attr(&quot;fill&quot;, function(d){
-#     if(d.live_marker2 == &quot;live&quot;){
-#       return &quot;#CCE5FF&quot;;
-#     } else{
-#       return &quot;#000099&quot;;
-#     }
-#   });
-#  
-# 
-#     
-# 
-# 
-# d3.select(&quot;#selectButton&quot;)
-# .on(&quot;change&quot;, function(){
-#   
-#    var selectedOption = d3.select(this).property(&quot;value&quot;);
-#    
-#   svg.selectAll(&quot;circle&quot;)
-#   .data(data)
-#   .transition()
-#   .duration(800)
-#   .filter(function(d){
-#     return d.artist_name == selectedOption;
-#   })
-#   .attr(&quot;cx&quot;, 250)
-#   .attr(&quot;cy&quot;, function(d) {
-#     return d.mean_liveness * 450;
-#   })
-#   .attr(&quot;r&quot;, function(d) {
-#     return d.mean_liveness*20;
-# })
-#   .attr(&quot;fill&quot;, function(d){
-#     if(d.live_marker2 == &quot;live&quot;){
-#       return &quot;#CCE5FF&quot;;
-#     } else{
-#       return &quot;#000099&quot;;
-#     }
-#   });
-#   });  
-# 
-# d3.select(&quot;#clickingtag&quot;)
-#   .on(&quot;click&quot;, function(){
-# 
-# svg.selectAll(&quot;circle&quot;)
-#   .data(data)
-#   .filter(function(d){
-#     return d.artist_name == &quot;Nirvana&quot;;
-#   })
-#   .attr(&quot;cx&quot;, 150)
-#   .attr(&quot;cy&quot;, function(d) {
-#     return d.mean_liveness * 450;
-#   })
-#   .attr(&quot;r&quot;, function(d) {
-#     return d.mean_liveness*7;
-# })
-#   .attr(&quot;fill&quot;, function(d){
-#     if(d.live_marker2 == &quot;live&quot;){
-#       return &quot;blue&quot;;
-#     } else{
-#       return &quot;black&quot;;
-#     }
-#   });
-#   });  
-#   
-#   
-# svg.append(&quot;g&quot;)
-#   .attr(&quot;class&quot;, &quot;axis&quot;)
-#   .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
-#   .call(yAxis);
-# 
-# ```
-# 
-# 
-# &lt;h3 id = &quot;updates and motions2&quot;&gt; Studio and Live Applause &lt;/h3&gt;
-# 
-# &lt;body id = &quot;updates and motions&quot;&gt;
-# 
-# &lt;div class = &quot;container updates&quot;&gt;
-#  &lt;div class = &quot;row updates&quot;&gt;
-#  &lt;div id = &quot;chart-area-updates2&quot;&gt;&lt;/div&gt;
-#   &lt;/div&gt;
-#  &lt;select id=&quot;selectButton&quot;&gt;&lt;/select&gt;
-# &lt;/div&gt;
-#  &lt;p id = &quot;clickingtag&quot;&gt; Choose an artist &lt;/p&gt;
-#  &lt;svg id = &quot;1&quot;&gt;&lt;/svg&gt;
-# &lt;/div&gt;
-# 
-# 
-# ```{r setupupdate00}
-# knitr::opts_chunk$set(
-#   echo = TRUE,
-#   message = FALSE,
-#   warning = FALSE
-# )
-# d3.csv(&quot;data/small_website.csv&quot;), (function(data){
-#    console.log(data);
-# });
-# 
-# 
-# 
-# var w = 400;
-# var h = 400;
-# var barPadding = 1;
-# var padding = 20;
-# 
-# var svg = d3.select(&quot;#chart-area-updates2&quot;).append(&quot;svg&quot;)
-#    .attr(&quot;width&quot;, w)
-#    .attr(&quot;height&quot;, h);
-# var jitterWidth = 100;
-# 
-# var allGroup = d3.map(data, function(d){
-#   return(d.artist_name)}).keys();
-#   
-# var yScale = d3.scaleLinear()
-#   .domain([0, 1])
-#   .range([300,1]);
-#   
-# var yAxis = d3.axisLeft()
-#   .scale(yScale)
-#   .ticks(5);
-#   
-# 
-# d3.select(&quot;#selectButton&quot;)
-#   .selectAll(&#39;myOptions&#39;)
-#   .data(allGroup)
-#   .enter()
-#   .append(&#39;option&#39;)
-#   .text(function(d) { return d; })
-#   .attr(&quot;value&quot;, function(d) {return d;});
-#     
-# 
-# 
-# svg.selectAll(&quot;circle&quot;)
-#   .data(data)
-#   .enter()
-#   .append(&quot;circle&quot;)
-#   .style(&quot;opacity&quot;, &#39;0.7&#39;)
-#   .attr(&quot;cx&quot;, function(d){
-#     return(150 - Math.random() *jitterWidth)})
-#   .attr(&quot;cy&quot;, function(d) {
-#     return yScale(d.mean_liveness);
-#   })
-#   .attr(&quot;r&quot;, function(d) {
-#     return d.mean_liveness*10;
-# })
-#   .attr(&quot;fill&quot;, function(d){
-#     if(d.live_marker2 == &quot;live&quot;){
-#       return &quot;#CCE5FF&quot;;
-#     } else{
-#       return &quot;#000099&quot;;
-#     }
-#   });
-#  
-# 
-#     
-# 
-# 
-# d3.select(&quot;#selectButton&quot;)
-# .on(&quot;change&quot;, function(){
-#   
-#    var selectedOption = d3.select(this).property(&quot;value&quot;);
-#    
-#   svg.selectAll(&quot;circle&quot;)
-#   .data(data)
-#   .transition()
-#   .duration(800)
-#   .filter(function(d){
-#     return d.artist_name == selectedOption;
-#   })
-#   .attr(&quot;cx&quot;, 250)
-#   .attr(&quot;cy&quot;, function(d) {
-#     return d.mean_liveness * 450;
-#   })
-#   .attr(&quot;r&quot;, function(d) {
-#     return d.mean_liveness*20;
-# })
-#   .attr(&quot;fill&quot;, function(d){
-#     if(d.live_marker2 == &quot;live&quot;){
-#       return &quot;#CCE5FF&quot;;
-#     } else{
-#       return &quot;#000099&quot;;
-#     }
-#   });
-#   });  
-# 
-# d3.select(&quot;#clickingtag&quot;)
-#   .on(&quot;click&quot;, function(){
-# 
-# svg.selectAll(&quot;circle&quot;)
-#   .data(data)
-#   .filter(function(d){
-#     return d.artist_name == &quot;Nirvana&quot;;
-#   })
-#   .attr(&quot;cx&quot;, 150)
-#   .attr(&quot;cy&quot;, function(d) {
-#     return d.mean_liveness * 450;
-#   })
-#   .attr(&quot;r&quot;, function(d) {
-#     return d.mean_liveness*7;
-# })
-#   .attr(&quot;fill&quot;, function(d){
-#     if(d.live_marker2 == &quot;live&quot;){
-#       return &quot;blue&quot;;
-#     } else{
-#       return &quot;black&quot;;
-#     }
-#   });
-#   });  
-#   
-#   
-# svg.append(&quot;g&quot;)
-#   .attr(&quot;class&quot;, &quot;axis&quot;)
-#   .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
-#   .call(yAxis);</code></pre>
 </style>
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
@@ -1190,6 +603,9 @@ o &lt;- plot( sm(b, 1) )
 </div>
 <div id="htmlwidget-77fcf5050d84d6e532de" style="width:672px;height:480px;" class="r2d3 html-widget"></div>
 <script type="application/json" data-for="htmlwidget-77fcf5050d84d6e532de">{"x":{"data":{"X":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],"X1":[59,60,493,494,730,731,813,814,1014,1015,1185,1186,1334,1335,1428,1429,1464,1465],"artist_name":["Aretha Franklin","Aretha Franklin","Frank Zappa","Frank Zappa","Johnny Cash","Johnny Cash","Led Zeppelin","Led Zeppelin","Nirvana","Nirvana","Rush","Rush","The Band","The Band","The Who","The Who","U2","U2"],"live_marker2":["live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio","live","studio"],"mean_energy":[0.524777551020408,0.470408959537572,0.677544444444444,0.563851487179487,0.550876878612717,0.39795328358209,0.672979591836735,0.684203389830508,0.882493975903614,0.77092700729927,0.890840909090909,0.804180448065173,0.77283,0.59446,0.820507727272727,0.699531899038462,0.792666666666667,0.643131739130435],"mean_liveness":[0.551234693877551,0.218260404624277,0.442023361823362,0.377518666666667,0.685739884393064,0.187911492537313,0.677938775510204,0.195216949152542,0.613506024096386,0.203276642335766,0.867143181818182,0.281092260692464,0.732376,0.205328,0.631025,0.251427884615385,0.9414,0.187512173913043],"mean_dance":[0.406775510204082,0.518606936416185,0.436760683760684,0.458955333333333,0.514421965317919,0.595697014925373,0.330285714285714,0.409118644067797,0.319313253012048,0.433138686131387,0.278950757575758,0.45491649694501,0.49324,0.58014,0.399904545454545,0.498599519230769,0.3306,0.468295652173913],"mean_acoust":[0.666857142857143,0.549159075144509,0.360131518518519,0.387351366682051,0.606140462427746,0.71518721641791,0.150758878367347,0.200366928813559,0.0634865775903614,0.171156117591241,0.0483112909469697,0.0792579115682281,0.3046325,0.344648,0.197924595454545,0.295911980769231,0.1152968,0.159579617826087],"mean_speech":[0.110616326530612,0.0608595375722543,0.111066951566952,0.157942974358974,0.203253757225434,0.0946618656716418,0.0836428571428571,0.0643491525423729,0.0886192771084337,0.0699036496350365,0.0733685606060606,0.0666366598778004,0.07242,0.042153,0.0993595454545455,0.0491793269230769,0.05822,0.0452939130434783],"mean_instruments":[0.000844519387755102,0.00581205968208093,0.244231406752137,0.182873727564103,0.0127008956647399,0.0310878458656716,0.186510861020408,0.13484391779661,0.317203468795181,0.195764463868613,0.184913170037879,0.0876788863747454,0.055537139,0.0432361503,0.0616890637727273,0.0827790668509615,0.00878664733333333,0.142594043782609],"mean_valence":[0.45494693877551,0.533043930635838,0.531788034188034,0.507418051282051,0.666751445086705,0.605495597014925,0.453116326530612,0.505033898305085,0.29004578313253,0.436841605839416,0.335808712121212,0.487934623217923,0.60526,0.65155,0.389509545454545,0.520326442307692,0.436466666666667,0.433654347826087]},"type":"data.frame","container":"svg","options":null,"script":"var d3Script = function(d3, r2d3, data, svg, width, height, options, theme, console) {\nthis.d3 = d3;\n\nsvg = d3.select(svg.node());\n/* R2D3 Source File:  website_js.js */\n\n// r2d3: https://rstudio.github.io/r2d3\n//\n\nd3.csv(\"data/small_website.csv\"), (function(data){\n   console.log(data);\n});\n\n\n\nvar w = 400;\nvar h = 350;\nvar barPadding = 1;\nvar padding = 45;\n\nvar svg = d3.select(\"#chart-area-updates2\").append(\"svg\")\n   .attr(\"width\", w)\n   .attr(\"height\", h);\nvar jitterWidth = 100;\n\nvar allGroup = d3.map(data, function(d){\n  return(d.artist_name)}).keys();\n  \nvar yScale = d3.scaleLinear()\n  .domain([0, 1])\n  .range([300,1]);\n  \nvar yAxis = d3.axisLeft()\n  .scale(yScale)\n  .ticks(10);\n  \n\nd3.select(\"#selectButton\")\n  .selectAll('myOptions')\n  .data(allGroup)\n  .enter()\n  .append('option')\n  .text(function(d) { return d; })\n  .attr(\"value\", function(d) {return d;});\n    \n\n\nsvg.selectAll(\"circle\")\n  .data(data)\n  .enter()\n  .append(\"circle\")\n  .style(\"opacity\", '0.7')\n  .attr(\"cx\", function(d){\n    return(150 - Math.random() *jitterWidth)})\n  .attr(\"cy\", function(d) {\n    return yScale(d.mean_liveness);\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*10;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"#CCE5FF\";\n    } else{\n      return \"#000099\";\n    }\n  });\n \n\n    \n\n\nd3.select(\"#selectButton\")\n.on(\"change\", function(){\n  \n   var selectedOption = d3.select(this).property(\"value\");\n   \n  svg.selectAll(\"circle\")\n  .data(data)\n  .transition()\n  .duration(800)\n  .filter(function(d){\n    return d.artist_name == selectedOption;\n  })\n  .attr(\"cx\", 250)\n  .attr(\"cy\", function(d) {\n    return d.mean_liveness * 450;\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*20;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"#CCE5FF\";\n    } else{\n      return \"#000099\";\n    }\n  });\n  });  \n\nd3.select(\"#clickingtag\")\n  .on(\"click\", function(){\n\nsvg.selectAll(\"circle\")\n  .data(data)\n  .filter(function(d){\n    return d.artist_name == \"Nirvana\";\n  })\n  .attr(\"cx\", 150)\n  .attr(\"cy\", function(d) {\n    return d.mean_liveness * 450;\n  })\n  .attr(\"r\", function(d) {\n    return d.mean_liveness*7;\n})\n  .attr(\"fill\", function(d){\n    if(d.live_marker2 == \"live\"){\n      return \"blue\";\n    } else{\n      return \"black\";\n    }\n  });\n  });  \n  \n  \nsvg.append(\"g\")\n  .attr(\"class\", \"axis\")\n  .attr(\"transform\", \"translate(\" + padding + \",0)\")\n  .call(yAxis);\n};","style":null,"version":4,"theme":{"default":{"background":"#FFFFFF","foreground":"#000000"},"runtime":null},"useShadow":true},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<hr />
 </div>
 
 
@@ -1227,11 +643,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("hide" === "show");
-});
-</script>
 
 <script>
 $(document).ready(function ()  {
@@ -1243,7 +654,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2,h3,h4",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
