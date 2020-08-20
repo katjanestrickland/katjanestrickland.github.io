@@ -27,20 +27,31 @@ output:
 <div class="row">
 <div class="col-sm-6">
 
-#### [Growth Mindset Intervention](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+#### Overview
 
 Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields for a large cohort (~3,000 students).
 
-##### Technical
+#### Technical
+
 Data cleaning: tidyverse </br>
 Text Analysis: tidytext
 
-
 </div>
 <div class="col-sm-6">
-```{r, out.width=600, echo=F}
+```{r, out.width=200, echo=F}
 knitr::include_graphics("images/onramps.png")
 ```
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-6">
+
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
 </div>
 </div>
 
@@ -53,7 +64,7 @@ knitr::include_graphics("images/onramps.png")
 <div class="row">
 <div class="col-sm-6">
 
-#### [Khan Chat](https://katjanewilson.github.io/PhillyTeacherRetention-Causal/)
+#### Overview
 
 Overview
 
@@ -64,12 +75,22 @@ WebScraping: BeautifulSoup </br>
 
 </div>
 <div class="col-sm-6">
-```{r, out.width=600, echo=F}
+```{r, out.width=200, echo=F}
 # knitr::include_graphics("images/onramps.png")
 ```
 </div>
 </div>
 
+<div class="row">
+<div class="col-sm-6">
+
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>
 
 ---
 
@@ -80,7 +101,7 @@ WebScraping: BeautifulSoup </br>
 <div class="row">
 <div class="col-sm-6">
 
-#### [Philadelphia](https://katjanewilson.github.io/PhillyTeacherRetention-Causal/)
+#### Overview
 
 In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. This problem is especially prevalent in observational studies which use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement by trimming mis-represented groups. </br> *data private on github
 ##### Technical
@@ -90,13 +111,25 @@ Causal Inference: R (MatchIt)
 
 </div>
 <div class="col-sm-6">
-```{r, out.width=800, echo=F}
+```{r, out.width=200, echo=F}
 knitr::include_graphics("images/philly.jpg")
 ```
 </div>
 </div>
 
+<div class="row">
+<div class="col-sm-6">
+
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+
 ---
+
 
 ## COVID-19 Open Research
 
@@ -105,7 +138,7 @@ knitr::include_graphics("images/philly.jpg")
 <div class="row">
 <div class="col-sm-6">
 
-#### [COVID](https://katjanewilson.github.io/CORD-Random-Forest/)
+#### Overview
 
 Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. This random forest algorithm takes asymmetric sampling into account when predicting death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</br> *course project for <a href = "https://apps.wharton.upenn.edu/syllabi/2020A/STAT474401/" target = "_blank"> Stat 974</a>
 
@@ -175,11 +208,22 @@ kable(dataframe, escape = FALSE, caption = "Algorithm's forecasting accuracy imp
 
 
 ```
+</div>
+</div>
 
+<div class="row">
+<div class="col-sm-6">
+
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
 </div>
 </div>
 
 ---
+
 
 ## Los Angeles Census Tracts
 
@@ -188,7 +232,7 @@ kable(dataframe, escape = FALSE, caption = "Algorithm's forecasting accuracy imp
 <div class="row">
 <div class="col-sm-6">
 
-#### [LA](https://katjanewilson.github.io/LosAngelesCensusTracts/)
+#### Overview
 
 A hard to swallow assumption in the linear model framework is that a particular feature will change at the same rate across all values for a given variable. General Additive Models (GAM) give analysts the opportunity to identify nonlinear changes between covariates and the dependent variable. These nonparametric models can suffer from poor interpretability, however, and strong assumptions will have to be made regarding the data generation process. In a project using census data in the city of Los Angeles, GAM models identify outlier trends in homeless individuals, yet they also reveal limitations of the loess smoother at upper boundaries of data.</br> *course project for <a href = "https://apps.wharton.upenn.edu/syllabi/2020A/STAT474401/" target = "_blank"> Stat 974</a>
 #### Technical
@@ -378,6 +422,17 @@ o + l_fitLine(colour = "#FAD7A0") + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) 
 </div>
 </div>
 
+<div class="row">
+<div class="col-sm-6">
+
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+
 ---
 
 ## Spotify Web API
@@ -387,9 +442,10 @@ o + l_fitLine(colour = "#FAD7A0") + l_rug(mapping = aes(x=x, y=y), alpha = 0.9) 
 <div class="row">
 <div class="col-sm-6">
 
-#### [Spotify](https://github.com/katjanewilson/SpotifyAPI-D3JS)
+#### Overview
 
   Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist's studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, a user can evaluate distances between points and visualize the "ceiling effect" of comparison data.
+  
 #### Technical
 Web scraping: Python (BeautifulSoup) </br>
 Data Cleaning: tidyverse </br>
@@ -693,13 +749,21 @@ r2d3(data = read.csv("data/small_website.csv"), d3_version = 4, script = "websit
 
 ```
 
-
 </div>
 </div>
 
-----
+<div class="row">
+<div class="col-sm-6">
 
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
 
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+
+---
 
 
 

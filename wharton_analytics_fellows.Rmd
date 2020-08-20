@@ -24,11 +24,11 @@ output:
 <div class="row">
 <div class="col-sm-6">
 
-#### [MLB](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+#### Overview
 
 Looking for any edge above the competitor, professional sports teams have turned to psychometric and biometric data, in addition to traditional on-field metrics, to analyze player performance. We worked with a Major League Baseball team to analyze how players' psychological data, collected by scouting reports, influence projected WAR.
 
-##### Technical
+#### Technical
 Data cleaning: tidyverse </br>
 Text Mining: textmining, tidytext </br>
 Topic Modeling: latent dirichlet allocation (LDA) </br>
@@ -40,9 +40,20 @@ Among the psychological constructs mined from text data, Neuroticism and Opennes
 
 </div>
 <div class="col-sm-6">
-```{r vertical, out.width=800, echo=F}
+```{r vertical, out.width=200, echo=F}
 knitr::include_graphics("images/baseball.png")
 ```
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-6">
+
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
 </div>
 </div>
 
@@ -55,11 +66,11 @@ knitr::include_graphics("images/baseball.png")
 <div class="row">
 <div class="col-sm-6">
 
-#### [YouTube](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+#### Overview
 
 Trending videos on YouTube do not simply increase viewership, they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to find similar features among trending videos. Using <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos, we explore trends to guide the marketing team.
 
-##### Technical
+#### Technical
 Data cleaning: tidyverse </br>
 Clustering: kmeans
 
@@ -68,11 +79,21 @@ Our algorithm identified three clusters of categories by views and comments: con
 
 </div>
 <div class="col-sm-6">
-```{r rsl, out.width=800, echo=F}
+```{r rsl, out.width=200, echo=F}
 knitr::include_graphics("images/image2.jpg")
 ```
 </div>
 </div>
 
-----
+<div class="row">
+<div class="col-sm-6">
 
+##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+
+  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+
+---
