@@ -75,4 +75,3 @@ knitr::include_graphics("images/image2.jpg")
 </div>
 
 ----
-
