@@ -59,9 +59,9 @@ Statistics, Causal Inference, Machine Learning, Data Mining, Data Visualization,
 |:--------|-------:|
 Graduate Instructor - (UT Austin)
 
-Programming Instructor - Swift/Xcode ( <a href="https://www.helloworldstudio.org/home" target = "_blank">Khan Lab School </a> ) </br>
+Programming Instructor - Swift/Xcode (<a href="https://www.helloworldstudio.org/home" target = "_blank">Khan Lab School</a>) </br>
 
-Programming Instructor - R ( <a href="https://wharton-moneyball.github.io/index.html" target = "_blank">Wharton Moneyball Academy </a> )
+Programming Instructor - R (<a href="https://wharton-moneyball.github.io/index.html" target = "_blank">Wharton Moneyball Academy</a>)
 
 Teacher (Americorps New York City Teaching Fellows, KIPP)
 

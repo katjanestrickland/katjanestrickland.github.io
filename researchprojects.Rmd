@@ -16,7 +16,7 @@ output:
 ---
 
 
-<p> Samples of past and in progress projects. </p>
+<p> Samples of past and current projects. </p>
 
 
 ---
