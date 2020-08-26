@@ -37,7 +37,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 My work focuses on the methodological considerations of 
 advanced statistics and analytics, particular those related to the use of quantitative methods in applied settings. For instance, how do the results of an analysis on a nonrandom sample generalize to a larger
-population of interest? Where can sampling and stratification approaches improve inference estimation? How can applications of causal inference improve machine learning methods? 
+population of interest? Where can sampling and stratification approaches improve inference estimation? How might applications of causal inference improve machine learning methods? 
 
 Prior to pursuing graduate studies, I taught elementary school in the Bronx with the <a href="https://nycteachingfellows.org/" target = "_blank">New York City Teaching Fellows</a> and <a href="https://www.kipp.org/kipp-foundation/" target = "_blank">KIPP</a> public charter school network. The four years I spent in the classroom inform much of the applied work in education that I pursue with my doctoral advisor, <a href="https://www.gse.upenn.edu/academics/faculty-directory/chan" target = "_blank">Wendy Chan</a>.
 
