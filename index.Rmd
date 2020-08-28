@@ -31,6 +31,6 @@ This site is a working portfolio. Sample projects are featured in the tabs above
 
 kjanewil at upenn.edu
 
-##### GitHub Repo for this site
+##### GitHub
 
   <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
