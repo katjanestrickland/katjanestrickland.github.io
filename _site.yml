@@ -10,8 +10,6 @@ navbar:
       href: wharton_analytics_fellows.html
     - text: "code"
       href: R.html
-    - text: "other"
-      href: other.html
     - text: ""
       icon: fa-github
       href: "https://github.com/katjanewilson"
