@@ -673,34 +673,97 @@ X = df[[&#39;sepal width (cm)&#39;, &#39;sepal length (cm)&#39;]].values</code><
 <p>r3d3 package with json data</p>
 <pre class="r watch-out"><code>r2d3(data = jsonlite::read_json(&quot;data/my_weather_data.json&quot;),d3_version = 4, script = &quot;interaction.js&quot;)</code></pre>
 </div>
-<div id="interactives" class="section level3">
-<h3>interactives</h3>
-<pre class="js watch-out"><code> binGroups.select(&quot;rect&quot;)
-      .on(&quot;mouseenter&quot;, onMouseEnter)
-      .on(&quot;mouseleave&quot;, onMouseLeave);
+<div id="static-bar" class="section level3">
+<h3>static bar</h3>
+<pre class="js watch-out"><code>var svgWidth = 500, svgHeight = 500, barPadding = 10;
+var barWidth = (svgWidth / 9);
 
-  var tooltip = d3.select(&quot;#tooltip&quot;);
-  function onMouseEnter(datum) {
-    tooltip.select(&quot;#count&quot;)
-        .text(yAccessor(datum));
+var svg = d3.select(&#39;svg&#39;)
+    .attr(&quot;width&quot;, svgWidth)
+    .attr(&quot;height&quot;, svgHeight);
+    
+var yScale = d3.scaleLinear()
+    .domain([0, d3.max(data)])
+    .range([0, svgHeight]);
+    
+var xScale = d3.scaleLinear()
+   .domain([0, 100])
+   .range([0,width]);
+        
+var barChart = svg.selectAll(&quot;rect&quot;)
+    .data(data)
+    .enter()
+    .append(&quot;rect&quot;)
+    .attr(&quot;y&quot;, function(d) {
+      return  svgHeight - d.liveness*900;
+    })
+    .attr(&quot;height&quot;, function(d) {
+      return d.liveness*900;
+    })
+    .attr(&quot;width&quot;, barWidth - barPadding)
+    .attr(&quot;transform&quot;, function (d, i) {
+        var translate = [barWidth * i, 0]; 
+        return &quot;translate(&quot;+ translate +&quot;)&quot;;
+    });
+</code></pre>
+</div>
+<div id="dynamic" class="section level3">
+<h3>dynamic</h3>
+<pre class="js watch-out"><code>  
+svg.selectAll(&quot;rect&quot;)
+   .data(data)
+   .enter()
+   .append(&quot;rect&quot;)
+   .attr(&quot;x&quot;, function(d,i){
+     return i * (w/data.length);
+   })
+   .attr(&quot;y&quot;, function(d) {
+     return h-(d.liveness*200);
+   })
+   .attr(&quot;width&quot;, w / data.length - barPadding)
+   .attr(&quot;height&quot;, function(d) {
+     return d.liveness * 200;
+   })
+   .attr(&quot;fill&quot;, &quot;teal&quot;)
+   .on(&quot;mouseover&quot;, function(d){
+     d3.select(this)
+     .attr(&quot;fill&quot;, &quot;orange&quot;);
+    })
+   .on(&quot;mouseout&quot;, function(d){
+     d3.select(this)
+     .transition()
+     .duration(750)
+     .attr(&quot;fill&quot;, &quot;teal&quot;);
+    })
+  .on(&quot;mouseover&quot;, function(d){
+    var xPosition = parseFloat(d3.select(this).attr(&quot;x&quot;)) + xScale.bandwidth() / 2;
+    var yPosition = parseFloat(d3.select(this).attr(&quot;y&quot;)) + 14;
+  d3.select(&quot;#tooltip&quot;)
+    .style(&quot;eft&quot;, xPosition + &quot;px&quot;)
+    .style(&quot;top&quot;, yPosition + &quot;px&quot;)
+    .select(&quot;#value&quot;)
+    .text(d.tempo);
+  d3.select(&quot;#tooltip&quot;).classed(&quot;hidden&quot;, false);
+});
 
-  var x = xScale(datum.x0)
-      + (xScale(datum.x1) - xScale(datum.x0)) / 2
-      + dimensions.margin.left;
-  var y = yScale(yAccessor(datum))
-      + dimensions.margin.top;
-
-    tooltip.style(&quot;transform&quot;, `translate(`
-      + `calc( -50% + ${x}px),`
-      + `calc(-100% + ${y}px)`
-      + `)`);
-
-    tooltip.style(&quot;opacity&quot;, 1);
-  }
-
-  function onMouseLeave() {
-    tooltip.style(&quot;opacity&quot;, 0);
-  }</code></pre>
+svg.selectAll(&quot;text&quot;)
+  .data(data)
+  .enter()
+  .append(&quot;text&quot;)
+  .text(function(d) {
+    return d.track_name;
+})
+  .attr(&quot;x&quot;, function(d,i) {
+    return i * (w/data.length);
+  })
+  .attr(&quot;y&quot;, function(d) {
+    return h-(d.liveness*200) +15;
+  })
+  .attr(&quot;font-family&quot;, &quot;sans-serif&quot;)
+  .attr(&quot;font-size&quot;, &quot;11px&quot;)
+  .attr(&quot;fill&quot;, &quot;white&quot;)
+  .attr(&quot;text-anchor&quot;, &quot;middle&quot;);
+  </code></pre>
 </div>
 </div>
 <div id="external-css" class="section level2">

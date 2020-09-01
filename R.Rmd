@@ -359,38 +359,100 @@ r2d3(data = jsonlite::read_json("data/my_weather_data.json"),d3_version = 4, scr
 
 ```
 
- 
-### interactives
-
-
+### static bar
 
 ```{js echo=TRUE, eval = FALSE}
- binGroups.select("rect")
-      .on("mouseenter", onMouseEnter)
-      .on("mouseleave", onMouseLeave);
+var svgWidth = 500, svgHeight = 500, barPadding = 10;
+var barWidth = (svgWidth / 9);
 
-  var tooltip = d3.select("#tooltip");
-  function onMouseEnter(datum) {
-    tooltip.select("#count")
-        .text(yAccessor(datum));
+var svg = d3.select('svg')
+    .attr("width", svgWidth)
+    .attr("height", svgHeight);
+    
+var yScale = d3.scaleLinear()
+    .domain([0, d3.max(data)])
+    .range([0, svgHeight]);
+    
+var xScale = d3.scaleLinear()
+   .domain([0, 100])
+   .range([0,width]);
+        
+var barChart = svg.selectAll("rect")
+    .data(data)
+    .enter()
+    .append("rect")
+    .attr("y", function(d) {
+      return  svgHeight - d.liveness*900;
+    })
+    .attr("height", function(d) {
+      return d.liveness*900;
+    })
+    .attr("width", barWidth - barPadding)
+    .attr("transform", function (d, i) {
+        var translate = [barWidth * i, 0]; 
+        return "translate("+ translate +")";
+    });
 
-  var x = xScale(datum.x0)
-      + (xScale(datum.x1) - xScale(datum.x0)) / 2
-      + dimensions.margin.left;
-  var y = yScale(yAccessor(datum))
-      + dimensions.margin.top;
+```
+ 
+### dynamic
 
-    tooltip.style("transform", `translate(`
-      + `calc( -50% + ${x}px),`
-      + `calc(-100% + ${y}px)`
-      + `)`);
+```{js echo=TRUE, eval = FALSE}
+  
+svg.selectAll("rect")
+   .data(data)
+   .enter()
+   .append("rect")
+   .attr("x", function(d,i){
+     return i * (w/data.length);
+   })
+   .attr("y", function(d) {
+     return h-(d.liveness*200);
+   })
+   .attr("width", w / data.length - barPadding)
+   .attr("height", function(d) {
+     return d.liveness * 200;
+   })
+   .attr("fill", "teal")
+   .on("mouseover", function(d){
+     d3.select(this)
+     .attr("fill", "orange");
+    })
+   .on("mouseout", function(d){
+     d3.select(this)
+     .transition()
+     .duration(750)
+     .attr("fill", "teal");
+    })
+  .on("mouseover", function(d){
+    var xPosition = parseFloat(d3.select(this).attr("x")) + xScale.bandwidth() / 2;
+    var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
+  d3.select("#tooltip")
+    .style("eft", xPosition + "px")
+    .style("top", yPosition + "px")
+    .select("#value")
+    .text(d.tempo);
+  d3.select("#tooltip").classed("hidden", false);
+});
 
-    tooltip.style("opacity", 1);
-  }
-
-  function onMouseLeave() {
-    tooltip.style("opacity", 0);
-  }
+svg.selectAll("text")
+  .data(data)
+  .enter()
+  .append("text")
+  .text(function(d) {
+    return d.track_name;
+})
+  .attr("x", function(d,i) {
+    return i * (w/data.length);
+  })
+  .attr("y", function(d) {
+    return h-(d.liveness*200) +15;
+  })
+  .attr("font-family", "sans-serif")
+  .attr("font-size", "11px")
+  .attr("fill", "white")
+  .attr("text-anchor", "middle");
+  
 ```
 
 ## external css
