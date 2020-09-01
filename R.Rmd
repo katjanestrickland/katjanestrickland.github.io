@@ -12,11 +12,19 @@ output:
     toc_depth: '3'
 ---
 
----
+```{css, echo=FALSE}
+.watch-out {
+  background-color: #F4ECF9;
+  border: 1px solid #93889B;
+}
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval=F)
+knitr::opts_chunk$set(class.source = "watch-out")
 ```
+
+
 <div class="row">
 <div class="col-sm-6">
 elephants' graveyard of frequently used (and subsequently forgotten) code
@@ -27,6 +35,7 @@ Using the faraway package in R: <a href = "https://cran.r-project.org/web/packag
 
 ```{r}
 #install.packages("faraway")
+library(tidyverse)
 library(faraway)
 data(seatpos)
 head(seatpos)
@@ -334,3 +343,106 @@ print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_p
 X = df[['sepal width (cm)', 'sepal length (cm)']].values
 
 ```
+
+
+
+## javascript D3.js
+
+### r2d3 connection
+
+r3d3 package with json data
+
+
+``` {r echo=TRUE, eval = FALSE}
+
+r2d3(data = jsonlite::read_json("data/my_weather_data.json"),d3_version = 4, script = "interaction.js")
+
+```
+
+ 
+### interactives
+
+
+
+```{js echo=TRUE, eval = FALSE}
+ binGroups.select("rect")
+      .on("mouseenter", onMouseEnter)
+      .on("mouseleave", onMouseLeave);
+
+  var tooltip = d3.select("#tooltip");
+  function onMouseEnter(datum) {
+    tooltip.select("#count")
+        .text(yAccessor(datum));
+
+  var x = xScale(datum.x0)
+      + (xScale(datum.x1) - xScale(datum.x0)) / 2
+      + dimensions.margin.left;
+  var y = yScale(yAccessor(datum))
+      + dimensions.margin.top;
+
+    tooltip.style("transform", `translate(`
+      + `calc( -50% + ${x}px),`
+      + `calc(-100% + ${y}px)`
+      + `)`);
+
+    tooltip.style("opacity", 1);
+  }
+
+  function onMouseLeave() {
+    tooltip.style("opacity", 0);
+  }
+```
+
+## external css
+
+### css script
+
+link with css: "style.css"
+
+
+```{css echo=TRUE, eval = FALSE}
+
+.body {
+    display: flex;
+    justify-content: center;
+    padding: 5em 2em;
+    font-family: sans-serif;
+}
+
+.tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -12px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+}
+```
+
+ 
+##  html
+
+```{html echo=TRUE, eval = FALSE}
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./styles.css"></link>
+        <title>Chart Title</title>
+    </head>
+    <body>
+        <div id="wrapper" class="wrapper">
+             <div class="tooltip-date">
+                    <span id="date"></span>
+      </div>
+   </div>
+</body>
+</html>
+
+```
+
+ 
+
