@@ -14,8 +14,8 @@ output:
 
 ```{css, echo=FALSE}
 .watch-out {
-  background-color: #F4ECF9;
-  border: 1px solid #93889B;
+  background-color: #FDF9FF;
+  border: 2px solid #D2ADE9;
 }
 ```
 
