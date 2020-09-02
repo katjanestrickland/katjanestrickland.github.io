@@ -15,7 +15,6 @@ output:
 ```{css, echo=FALSE}
 .watch-out {
   background-color: #FDF9FF;
-  border: 2px solid #D2ADE9;
 }
 ```
 
