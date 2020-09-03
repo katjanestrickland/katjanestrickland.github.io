@@ -12,6 +12,8 @@ output:
     toc_depth: '3'
 ---
 
+---
+
 ```{css, echo=FALSE}
 .watch-out {
   background-color: #FDF9FF;
@@ -26,7 +28,7 @@ knitr::opts_chunk$set(class.source = "watch-out")
 
 <div class="row">
 <div class="col-sm-6">
-elephants' graveyard of frequently used (and subsequently forgotten) code
+elephants' graveyard of frequently used (and forgotten) code
 
 ## tidyverse
 

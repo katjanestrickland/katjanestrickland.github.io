@@ -9,8 +9,6 @@ output:
     toc_depth: 4
 ---
 
-## Analytics Fellows
-
 ---
 
 
