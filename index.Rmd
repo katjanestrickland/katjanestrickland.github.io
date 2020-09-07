@@ -1,6 +1,15 @@
 ---
-title: "Website"
-output: html_document
+title: ""
+output: 
+  html_document:
+    collapsed: false
+    number_sections: false
+    toc_depth: 3
+    code_folding: hide
+    css: front.css
+
+
+---
 ---
 
 ```{r setup, include=FALSE}
