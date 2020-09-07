@@ -11,7 +11,7 @@
 
 
 
-<title>wharton_analytics_fellows.utf8</title>
+<title>Books and OERs</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,7 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -249,9 +248,6 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
 
 
 
@@ -324,74 +320,49 @@ $(document).ready(function () {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-</ul>
-</div>
 
 
-
+<h1 class="title toc-ignore">Books and OERs</h1>
 
 </div>
 
 
-<hr />
-<p>
-<a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate </br> and undergraduate students across schools at Penn to consult with </br>companies on the development and integration of predictive analytics</br> solutions. Below are sample projects where I served as a Technical Lead.
-</p>
-<hr />
-<div id="psychometrics-of-sabermetrics" class="section level2">
-<h2>Psychometrics of Sabermetrics</h2>
+<p>These books and various OERs (open-educational resources) were made using RMarkdown and compiled in Bookdown. They are all free, open-source, and licensed on creative commons.</p>
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview">Overview</h4>
-<p>Looking for any edge above the competitor, professional sports teams have turned to psychometric and biometric data, in addition to traditional on-field metrics, to analyze player performance. We worked with a Major League Baseball team to analyze how players’ psychological data, collected by scouting reports, influence projected WAR.</p>
-<h4 id="technical">Technical</h4>
-<p>Data cleaning: tidyverse </br> Text Mining: textmining, tidytext </br> Topic Modeling: latent dirichlet allocation (LDA) </br> Clustering: hierarchical clustering (hclust)</p>
+<h4 id="answering-questions-with-data-introductory-statistics-for-psychology-students">Answering Questions with Data: Introductory Statistics for Psychology Students</h4>
+<p><strong>Authors</strong>: Matthew Crump; Chapters 2 and 4 adapted from Navarro, D.; Videos: Jeffrey Suzuki</p>
+<p><strong>Description</strong>: This is a free introductory statistics textbook for undergraduates in Psychology. It is being developed as an Open Educational Resource @ Brooklyn College. It is pitched at the concepts behind statistics, and often uses simulation in R to convey foundational ideas. The writing style is sometimes a bit unconventional, and informal. It is for students who don’t want to like statistics.</p>
+<p>Written in Rmarkdown, and compiled with the bookdown package. The source code is located in this github repository <a href="https://github.com/CrumpLab/statistics">https://github.com/CrumpLab/statistics</a></p>
+<p><strong>Citation:</strong> Crump, M. J. C., Navarro, D., &amp; Suzuki, J. (2019, June 5). Answering Questions with Data (Textbook): Introductory Statistics for Psychology Students. <a href="https://doi.org/10.17605/OSF.IO/JZE52" class="uri">https://doi.org/10.17605/OSF.IO/JZE52</a></p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/baseball.png" width="200" /></p>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<h5 id="project-page"><a href="https://katjanewilson.github.io/WhartonAnalytics-MLB/">project page</a></h5>
-<p><a href="https://github.com/katjanewilson/WhartonAnalytics-MLB" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
+<div class="altmetric-embed" data-badge-popover="right" data-badge-type="donut" data-doi="10.17605/OSF.IO/JZE52" data-hide-no-mentions="true">
 
 </div>
+<p><a href="https://crumplab.github.io/statistics/"> <img src="images/baseball.png" width="200" /> </a></p>
 </div>
-<hr />
 </div>
-<div id="youtube-content-trends" class="section level2">
-<h2>YouTube Content Trends</h2>
 <hr />
 <div class="row">
 <div class="col-sm-6">
-<h4 id="overview-1">Overview</h4>
-<p>Trending videos on YouTube do more than increase member viewership; they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to find similar features among trending videos. Using <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos, we explore trends to guide the marketing and product team.</p>
-<h4 id="technical-1">Technical</h4>
-<p>Data cleaning: tidyverse </br> Clustering: kmeans</p>
+<h4 id="answering-questions-with-data-the-lab-manual">Answering Questions with Data: The Lab Manual</h4>
+<p>Lab activities using R, Excel, SPSS, and JAMOVI</p>
+<p><strong>Authors</strong>: Matthew Crump (R); Stephen Volz (Excel); Alla Chavarga (SPSS); Anjali Krishnan (JAMOVI)</p>
+<p><strong>Description</strong>: This is the companion lab manual to our free stats book. It contains lab activities for learning how to conduct statistical tests in R, Excel, SPSS, and JAMOVI. We use open data, often from psychology papers, and show step-by-step how to solve data-analysis problems in each software package.</p>
+<p>Some of the labs are adapated from <a href="https://sites.trinity.edu/osl">Open Stats Lab</a>, another great resource.</p>
+<p><strong>Source code</strong>: Written in Rmarkdown, and compiled with the bookdown package. The source code is located in this github repository <a href="https://github.com/CrumpLab/statisticsLab">https://github.com/CrumpLab/statisticsLab</a>.</p>
+<p><strong>Citation</strong>: Crump, M. J. C., Krishnan, A., Volz, S., &amp; Chavarga, A. (2019, June 5). Answering Questions with Data: The Lab Manual for R, Excel, SPSS and Jamovi. <a href="https://doi.org/10.17605/OSF.IO/M2NPJ" class="uri">https://doi.org/10.17605/OSF.IO/M2NPJ</a></p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/image2.jpg" width="200" /></p>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-6">
-<p><a href="https://github.com/katjanewilson/WhartonAnalytics-YouTube" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
+<div class="altmetric-embed" data-badge-popover="right" data-badge-type="donut" data-doi="10.17605/OSF.IO/M2NPJ" data-hide-no-mentions="true">
 
 </div>
+<p><a href="https://crumplab.github.io/statisticsLab/"> <img src="images/baseball.png" width="200" /> </a></p>
+</div>
 </div>
 <hr />
-</div>
 
 
 
@@ -426,11 +397,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("hide" === "show");
-});
-</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

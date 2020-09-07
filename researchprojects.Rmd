@@ -1,18 +1,15 @@
 ---
-title: ''
-output:
+title: ""
+output: 
   html_document:
-    toc: yes
-    toc_float: yes
-    collapsed: no
-    number_sections: no
-    toc_depth: 4
-  pdf_document:
-    toc: yes
-    toc_depth: '4'
+    collapsed: false
+    number_sections: false
+    toc_depth: 3
+    code_folding: hide
+    css: front.css
+
+
 ---
-
-
 ---
 
 
