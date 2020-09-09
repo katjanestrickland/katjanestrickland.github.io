@@ -14,48 +14,10 @@ output:
 
 ---
 
-```{css, echo=FALSE}
-.watch-out {
-  background-color: #F4F6F6 ;
-}
 
-p {
-  font-family: 'Roboto';
-  font-weight: 200;
-  /*text-indent: 20px; */
-  line-height: 1.6;
-}
-
-h1 {
-    font-family: 'Archivo';
-    font-weight: 700;
-    font-size: 40px;
-    text-align: left;
-    margin: 40px;
-    margin-left: 0px;
-}
-
-.section h1 {
-padding-top: 56px;
-margin-top: -30px !important;
-color: #49c5b6;
-}
-
-h2 {
-  font-family: 'Archivo';
-  font-size: 20px;
-}
-h3 {
-  font-family: 'Archivo';
-  font-size: 20px;
-}
-  
-  
-```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE, eval=F)
-knitr::opts_chunk$set(class.source = "watch-out")
 ```
 
 

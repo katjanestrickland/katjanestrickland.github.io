@@ -362,9 +362,6 @@ div.tocify {
   <a href="R.html">code</a>
 </li>
 <li>
-  <a href="other.html">other</a>
-</li>
-<li>
   <a href="https://github.com/katjanewilson">
     <span class="fa fa-github"></span>
      
@@ -402,51 +399,13 @@ div.tocify {
 
 
 <hr />
-<style type="text/css">
-.watch-out {
-  background-color: #F4F6F6 ;
-}
-
-p {
-  font-family: 'Roboto';
-  font-weight: 200;
-  /*text-indent: 20px; */
-  line-height: 1.6;
-}
-
-h1 {
-    font-family: 'Archivo';
-    font-weight: 700;
-    font-size: 40px;
-    text-align: left;
-    margin: 40px;
-    margin-left: 0px;
-}
-
-.section h1 {
-padding-top: 56px;
-margin-top: -30px !important;
-color: #49c5b6;
-}
-
-h2 {
-  font-family: 'Archivo';
-  font-size: 20px;
-}
-h3 {
-  font-family: 'Archivo';
-  font-size: 20px;
-}
-  
-  
-</style>
 <div class="row">
 <div class="col-sm-6">
 <p>elephants’ graveyard of frequently used (and forgotten) code</p>
 <div id="tidyverse" class="section level2">
 <h2>tidyverse</h2>
 <p>Using the faraway package in R: <a href = "https://cran.r-project.org/web/packages/faraway/faraway.pdf" target = "_blank"> Documentation </a></p>
-<pre class="r watch-out"><code>#install.packages(&quot;faraway&quot;)
+<pre class="r"><code>#install.packages(&quot;faraway&quot;)
 library(tidyverse)
 library(faraway)
 data(seatpos)
@@ -454,7 +413,7 @@ head(seatpos)</code></pre>
 <div id="dplyr-functions" class="section level3">
 <h3>dplyr functions</h3>
 <p>filter, select, mutate, group by, summarise</p>
-<pre class="r watch-out"><code>seatpos %&gt;%
+<pre class="r"><code>seatpos %&gt;%
   filter(Age &lt; 60 &amp; Weight &lt; 200) %&gt;%
   select(Age, Weight) %&gt;%
   mutate(decades = case_when(Age &lt;=30 ~ &quot;twenties&quot;,
@@ -467,7 +426,7 @@ head(seatpos)</code></pre>
 <div id="gather" class="section level3">
 <h3>gather</h3>
 <p>gather columns into rows</p>
-<pre class="r watch-out"><code>data(&quot;mtcars&quot;)
+<pre class="r"><code>data(&quot;mtcars&quot;)
 head(mtcars)
 mtcars &lt;- rownames_to_column(mtcars, &quot;Model&quot;) %&gt;%
   select(mpg, cyl, Model) %&gt;%
@@ -478,7 +437,7 @@ gather(mtcars, &quot;attribute&quot;, &quot;this&quot;, 1:2)</code></pre>
 <div id="spread" class="section level3">
 <h3>spread</h3>
 <p>spreads rows into columns</p>
-<pre class="r watch-out"><code>data(mtcars)
+<pre class="r"><code>data(mtcars)
 mtcars &lt;- rownames_to_column(mtcars, &quot;Model&quot;) %&gt;%
   select(mpg, cyl, Model)
 
@@ -490,7 +449,7 @@ spread(mtcars, key = &#39;cyl&#39;, value = &#39;mpg&#39;)</code></pre>
 <p>linear models</p>
 <div id="anova" class="section level3">
 <h3>anova</h3>
-<pre class="r watch-out"><code>### one way anova
+<pre class="r"><code>### one way anova
 library(faraway)
 data(coagulation)
 head(coagulation)
@@ -508,7 +467,7 @@ plot(tk_coag)</code></pre>
 </div>
 <div id="linear-regression" class="section level3">
 <h3>linear regression</h3>
-<pre class="r watch-out"><code># multiple regression
+<pre class="r"><code># multiple regression
 library(faraway)
 data(savings)
 head(savings)
@@ -534,7 +493,7 @@ fstat2 &lt;- (deviance(m2)-deviance(m1))/(deviance(m1)/df.residual(m1))
 </div>
 <div id="interactions" class="section level3">
 <h3>interactions</h3>
-<pre class="r watch-out"><code>library(faraway)
+<pre class="r"><code>library(faraway)
 data(teengamb)
 
 # income and sex on outcome
@@ -544,7 +503,7 @@ m2 &lt;- lm(gamble ~ income + sex + income*sex,teengamb)</code></pre>
 </div>
 <div id="correlation" class="section level3">
 <h3>correlation</h3>
-<pre class="r watch-out"><code>library(faraway)
+<pre class="r"><code>library(faraway)
 data(stat500)
 
 m1 &lt;- lm(final ~ midterm,stat500)
@@ -562,7 +521,7 @@ cor(stat500$final,stat500$midterm)</code></pre>
 <h2>functions and loops</h2>
 <div id="sample-for-loop" class="section level3">
 <h3>sample for loop</h3>
-<pre class="r watch-out"><code>data(GSSvocab)
+<pre class="r"><code>data(GSSvocab)
 EGE&lt;-rep(0,500)
 for (i in 1:500)
 {
@@ -582,7 +541,7 @@ quantile(EGE,probs=c(.025,.975))</code></pre>
 </div>
 <div id="sample-function" class="section level3">
 <h3>sample function</h3>
-<pre class="r watch-out"><code>clean_live_frame_function &lt;- function(livedata, albumname)  {
+<pre class="r"><code>clean_live_frame_function &lt;- function(livedata, albumname)  {
   artist_live_edits &lt;- livedata %&gt;%
     mutate(livemarker = ifelse(livedata$album_name == albumname, 1, 0))
   artist_live_edits2 &lt;- artist_live_edits %&gt;%
@@ -606,7 +565,7 @@ quantile(EGE,probs=c(.025,.975))</code></pre>
 <h2>numpy</h2>
 <div id="reticulate" class="section level3">
 <h3>reticulate</h3>
-<pre class="r watch-out"><code>#install.packages(&quot;reticulate&quot;)
+<pre class="r"><code>#install.packages(&quot;reticulate&quot;)
 library(reticulate)
 use_python(&quot;/usr/bin/python&quot;)
 #best way to install pandas may be to use this py_install function when in reticulate mode
@@ -616,7 +575,7 @@ py_install(&quot;matplotlib&quot;, pip = TRUE)</code></pre>
 </div>
 <div id="arrays" class="section level3">
 <h3>arrays</h3>
-<pre class="python watch-out"><code>#basic array
+<pre class="python"><code>#basic array
 array_1d = np.array([10, 11, 12, 13])
 print (array_1d)
 #array from a list
@@ -634,7 +593,7 @@ print(&#39;element at index1:&#39;, array_1d[0])</code></pre>
 <h2>pandas</h2>
 <div id="basic" class="section level3">
 <h3>basic</h3>
-<pre class="python watch-out"><code>#summarize mean values
+<pre class="python"><code>#summarize mean values
 df.groupby([&#39;sepal width (cm)&#39;]).mean()
 
 #duplicates
@@ -654,7 +613,7 @@ df2.dropna(axis =1)</code></pre>
 </div>
 <div id="more" class="section level3">
 <h3>more</h3>
-<pre class="python watch-out"><code>#describe all values
+<pre class="python"><code>#describe all values
 df2.describe()
 
 #count row totals
@@ -674,7 +633,7 @@ df2[(df2[&#39;sepal length (cm)&#39;] == 6.3) | (df2[&#39;sepal length (cm)&#39;
 <h2>scikit-learn</h2>
 <div id="traintest" class="section level3">
 <h3>train/test</h3>
-<pre class="python watch-out"><code>#training and testing
+<pre class="python"><code>#training and testing
 X = df[&#39;sepal length (cm)&#39;].values.reshape(-1,1)
 y = df[&#39;sepal width (cm)&#39;].values.reshape(-1,1)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
@@ -687,7 +646,7 @@ print(regressor.coef_)</code></pre>
 </div>
 <div id="evaluation" class="section level3">
 <h3>evaluation</h3>
-<pre class="python watch-out"><code>#testing
+<pre class="python"><code>#testing
 y_pred = regressor.predict(X_test)
 df = pd.DataFrame({&#39;Actual&#39;: y_test.flatten(), &#39;Predicted&#39;: y_pred.flatten()})
 df
@@ -707,11 +666,11 @@ X = df[[&#39;sepal width (cm)&#39;, &#39;sepal length (cm)&#39;]].values</code><
 <div id="r2d3-connection" class="section level3">
 <h3>r2d3 connection</h3>
 <p>r3d3 package with json data</p>
-<pre class="r watch-out"><code>r2d3(data = jsonlite::read_json(&quot;data/my_weather_data.json&quot;),d3_version = 4, script = &quot;interaction.js&quot;)</code></pre>
+<pre class="r"><code>r2d3(data = jsonlite::read_json(&quot;data/my_weather_data.json&quot;),d3_version = 4, script = &quot;interaction.js&quot;)</code></pre>
 </div>
 <div id="static-bar" class="section level3">
 <h3>static bar</h3>
-<pre class="js watch-out"><code>var svgWidth = 500, svgHeight = 500, barPadding = 10;
+<pre class="js"><code>var svgWidth = 500, svgHeight = 500, barPadding = 10;
 var barWidth = (svgWidth / 9);
 
 var svg = d3.select(&#39;svg&#39;)
@@ -745,7 +704,7 @@ var barChart = svg.selectAll(&quot;rect&quot;)
 </div>
 <div id="dynamic" class="section level3">
 <h3>dynamic</h3>
-<pre class="js watch-out"><code>  
+<pre class="js"><code>  
 svg.selectAll(&quot;rect&quot;)
    .data(data)
    .enter()
@@ -807,7 +766,7 @@ svg.selectAll(&quot;text&quot;)
 <div id="css-script" class="section level3">
 <h3>css script</h3>
 <p>link with css: “style.css”</p>
-<pre class="css watch-out"><code>
+<pre class="css"><code>
 .body {
     display: flex;
     justify-content: center;
@@ -832,7 +791,7 @@ svg.selectAll(&quot;text&quot;)
 </div>
 <div id="html" class="section level2">
 <h2>html</h2>
-<pre class="html watch-out"><code>&lt;html lang=&quot;en&quot;&gt;
+<pre class="html"><code>&lt;html lang=&quot;en&quot;&gt;
     &lt;head&gt;
         &lt;link rel=&quot;stylesheet&quot; href=&quot;./styles.css&quot;&gt;&lt;/link&gt;
         &lt;title&gt;Chart Title&lt;/title&gt;
