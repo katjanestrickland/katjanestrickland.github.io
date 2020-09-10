@@ -15,18 +15,18 @@ output:
 <p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate </br> and undergraduate students across schools at Penn to consult with </br>companies on the development and integration  of predictive analytics</br> solutions. Below are sample projects where I served as a Technical Lead. </p>
 ---
 
-## MLB
-
-----
+#### MLB
 
 <div class="row">
 <div class="col-sm-6">
 
-#### Overview
+|Overview |  |
+|:--------|-------:|
 
 Looking for any edge above the competitor, professional sports teams have turned to psychometric and biometric data, in addition to traditional on-field metrics, to analyze player performance. We worked with a Major League Baseball team to analyze how players' psychological data, collected by scouting reports, influence projected WAR.
 
-#### Technical
+|Technical |  |
+|:--------|-------:|
 Data cleaning: tidyverse </br>
 Text Mining: textmining, tidytext </br>
 Topic Modeling: latent dirichlet allocation (LDA) </br>
@@ -53,18 +53,19 @@ knitr::include_graphics("images/baseball.png")
 
 ---
 
-## YouTube
+#### YouTube
 
-----
 
 <div class="row">
 <div class="col-sm-6">
 
-#### Overview
+|Overview |  |
+|:--------|-------:|
 
 Trending videos on YouTube do more than increase member viewership; they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to find similar features among trending videos. Using <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos, we explore trends to guide the marketing and product teams.
 
-#### Technical
+|Technical |  |
+|:--------|-------:|
 Data cleaning: tidyverse </br>
 Clustering: kmeans
 

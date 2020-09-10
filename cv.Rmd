@@ -32,9 +32,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 | Education | |
 |:--------|-------:|
-|PhD Student*- Quantitative Methods (University of Pennsylvania)|
-|Masters Degree* - Quantitative Methods (University of Texas at Austin) |
-|Bachelors Degree - Business (University of Notre Dame) |
+PhD Student- Quantitative Methods (University of Pennsylvania) </br>
+Masters Degree - Quantitative Methods (University of Texas at Austin) </br>
+Bachelors Degree - Business (University of Notre Dame) 
 
 
 *full funding for tuition and living expenses

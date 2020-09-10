@@ -18,18 +18,20 @@ output:
 
 ---
 
-## Philadelphia Public Schools
+#### Philadelphia Public Schools
 
-----
+
 
 <div class="row">
 <div class="col-sm-6">
 
-#### Overview
+|Overview |  |
+|:--------|-------:|
 
 In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github
 
-#### Technical
+|Technical |  |
+|:--------|-------:|
 Data cleaning: tidyverse </br>
 Causal Inference: R (MatchIt)
 
@@ -37,7 +39,7 @@ Causal Inference: R (MatchIt)
 </div>
 <div class="col-sm-6">
 ```{r, out.width=200, echo=F}
-knitr::include_graphics("images/philly.jpg")
+knitr::include_graphics("images/philly.png")
 ```
 </div>
 </div>
@@ -56,18 +58,19 @@ knitr::include_graphics("images/philly.jpg")
 ---
 
 
-## COVID-19 Open Research
+#### COVID-19 Open Research
 
-----
 
 <div class="row">
 <div class="col-sm-6">
 
-#### Overview
+|Overview |  |
+|:--------|-------:|
 
 Central to the debate of ethical algorithm design is a consideration of mis-classification costs for supervised learning methods. By building in asymmetric costs through sampling, machine learning engineers can take heed of policy makers' desired cost-ratios. This random forest algorithm takes asymmetric sampling into account when predicting death rates of coronavirus patients in South Korea using the <a href = "https://www.kaggle.com/allen-institute-for-ai/CORD-19-research-challenge/" target = "_blank"> Kaggle </a>COVID-19 Open Research Dataset.</br>
 
-#### Technical
+|Technical |  |
+|:--------|-------:|
 
 Data cleaning: tidyverse </br>
 Random Forest: R (randomforest)
@@ -93,18 +96,19 @@ knitr::include_graphics("images/covid.png")
 
 ---
 
-## Spotify Web API
+#### Spotify Web API
 
-----
 
 <div class="row">
 <div class="col-sm-6">
 
-#### Overview
+|Overview|  |
+|:--------|-------:|
 
   Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist's studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, a user can evaluate distances between points and visualize the "ceiling effect" of comparison data.
   
-#### Technical
+|Technical |  |
+|:--------|-------:|
 Web scraping: Python (BeautifulSoup) </br>
 Data Cleaning: tidyverse </br>
 Data visualization: D3.js
@@ -126,18 +130,19 @@ knitr::include_graphics("images/spotify.png")
 ---
 
 
-## Growth Mindset Intervention
+#### Growth Mindset Intervention
 
-----
 
 <div class="row">
 <div class="col-sm-6">
 
-#### Overview
+|Overview |  |
+|:--------|-------:|
 
 Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields, for a large cohort (~3,000) of pre-calculus students.
 
-#### Technical
+|Technical |  |
+|:--------|-------:|
 
 Data cleaning: tidyverse </br>
 Text Analysis: tidytext
