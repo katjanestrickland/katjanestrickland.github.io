@@ -49,6 +49,22 @@ p {
   line-height: 1.6;
 }
 
+p2 {
+  font-family: 'Roboto';
+  font-weight: 200;
+  font-size: 15px;
+  /*text-indent: 20px; */
+  line-height: 1.6;
+}
+
+p3 {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  /*text-indent: 20px; */
+  line-height: 1.6;
+}
+
 
 
 #logo {

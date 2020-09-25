@@ -20,7 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -249,9 +248,6 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
-<style type="text/css">
-.code-folding-btn { margin-bottom: 4px; }
-</style>
 
 
 
@@ -321,14 +317,6 @@ $(document).ready(function () {
 
 <div class="fluid-row" id="header">
 
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
-</ul>
-</div>
-
 
 
 
@@ -354,7 +342,7 @@ Samples of past and current projects
 <tbody>
 </tbody>
 </table>
-<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In a project with the <a href = "https://www.opendataphilly.org/" target = "_blank"> Philadelphia School District</a>, we arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github</p>
+<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In partnernship with the Yale National Initiative, we evaluate trends in teacher retention across the Philadelphia School District, and arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github</p>
 <table>
 <thead>
 <tr class="header">
@@ -368,12 +356,13 @@ Samples of past and current projects
 <p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/philly.png" width="200" /></p>
+
 </div>
 </div>
 <div class="row">
 <div class="col-sm-6">
-<h5 id="project-page"><a href="https://katjanewilson.github.io/PhillyTeacherRetention-Causal/">project page</a></h5>
+<p3> <a href="https://katjanewilson.github.io/PhillyTeacherRetention-Causal/">project page</a>
+</p>
 <p><a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 </div>
 <div class="col-sm-6">
@@ -410,12 +399,13 @@ Samples of past and current projects
 <p>Data cleaning: tidyverse </br> Random Forest: R (randomforest)</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/covid.png" width="150" /></p>
+
 </div>
 </div>
 <div class="row">
 <div class="col-sm-6">
-<h5 id="project-page-1"><a href="https://katjanewilson.github.io/CORD-Random-Forest/">project page</a></h5>
+<p3> <a href="https://katjanewilson.github.io/CORD-Random-Forest/">project page</a>
+</p>
 <p><a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 </div>
 <div class="col-sm-6">
@@ -438,7 +428,7 @@ Samples of past and current projects
 <tbody>
 </tbody>
 </table>
-<p>Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing changing applause levels among an artist’s studio and live recordings. With this jitter plot, built using the JavaScript library D3.js, a user can evaluate distances between points and visualize the “ceiling effect” of comparison data.</p>
+<p>Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing the differences of live and studio recordings across 10,000 artists’ discographies.</p>
 <table>
 <thead>
 <tr class="header">
@@ -452,7 +442,7 @@ Samples of past and current projects
 <p>Web scraping: Python (BeautifulSoup) </br> Data Cleaning: tidyverse </br> Data visualization: D3.js</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/spotify.png" width="150" /></p>
+
 </div>
 </div>
 <div class="row">
@@ -476,7 +466,7 @@ Samples of past and current projects
 <tbody>
 </tbody>
 </table>
-<p>Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We evaluate how changes in growth mindset influence sense of belonging, course completion, and inclination to pursue STEM fields, for a large cohort (~3,000) of pre-calculus students.</p>
+<p>Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We model course completion rates for over 3,000 pre-calculus students and use natural language processing to build a survey tool that better predicts levels of growth mindset among pre-college students.</p>
 <table>
 <thead>
 <tr class="header">
@@ -487,10 +477,10 @@ Samples of past and current projects
 <tbody>
 </tbody>
 </table>
-<p>Data cleaning: tidyverse </br> Text Analysis: tidytext</p>
+<p>Text Analysis: AFINN sentiment analysis </br> Linear Mixed-Effects Models: lme4</p>
 </div>
 <div class="col-sm-6">
-<p><img src="images/onramps.png" width="200" /></p>
+
 </div>
 </div>
 <div class="row">
@@ -536,11 +526,6 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("hide" === "show");
-});
-</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

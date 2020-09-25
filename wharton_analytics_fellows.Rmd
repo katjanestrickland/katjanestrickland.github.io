@@ -27,7 +27,6 @@ Looking for any edge above the competitor, professional sports teams have turned
 
 |Technical |  |
 |:--------|-------:|
-Data cleaning: tidyverse </br>
 Text Mining: textmining, tidytext </br>
 Topic Modeling: latent dirichlet allocation (LDA) </br>
 Clustering: hierarchical clustering (hclust)
@@ -35,7 +34,7 @@ Clustering: hierarchical clustering (hclust)
 </div>
 <div class="col-sm-6">
 ```{r vertical, out.width=200, echo=F}
-knitr::include_graphics("images/baseball.png")
+# knitr::include_graphics("images/baseball.png")
 ```
 </div>
 </div>
@@ -43,7 +42,7 @@ knitr::include_graphics("images/baseball.png")
 <div class="row">
 <div class="col-sm-6">
 
-##### [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/)
+<p3> [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/) </p>
 
   <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
@@ -62,7 +61,7 @@ knitr::include_graphics("images/baseball.png")
 |Overview |  |
 |:--------|-------:|
 
-Trending videos on YouTube do more than increase member viewership; they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to find similar features among trending videos. Using <a href = "https://www.kaggle.com/datasnaek/youtube-new/" target = "_blank"> a large dataset </a> of YouTube videos, we explore trends to guide the marketing and product teams.
+Trending videos on YouTube do more than increase member viewership; they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to identify similar features among trending videos. We explore trends to guide the marketing and product teams.
 
 |Technical |  |
 |:--------|-------:|
@@ -72,7 +71,7 @@ Clustering: kmeans
 </div>
 <div class="col-sm-6">
 ```{r rsl, out.width=200, echo=F}
-knitr::include_graphics("images/image2.jpg")
+# knitr::include_graphics("images/image2.jpg")
 ```
 </div>
 </div>

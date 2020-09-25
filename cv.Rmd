@@ -10,7 +10,6 @@ output:
 
 
 ---
----
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -33,11 +32,11 @@ knitr::opts_chunk$set(echo = TRUE)
 | Education | |
 |:--------|-------:|
 PhD Student- Quantitative Methods (University of Pennsylvania) </br>
+<p2> *full funding through Dean's Fellowship </br> </p>
 Masters Degree - Quantitative Methods (University of Texas at Austin) </br>
 Bachelors Degree - Business (University of Notre Dame) 
 
 
-*full funding for tuition and living expenses
 
 
 
@@ -62,7 +61,7 @@ Version Control: Git/GitHub
 |Methodological |  |
 |:--------|-------:|
 
-Statistics, Causal Inference, Machine Learning, Data Mining, Data Visualization, Psychometrics
+Causal Inference, Machine Learning, Multilevel Modeling, Factor Analysis, Psychometrics, Data Mining, Data Visualization
 
 | Teaching |  |
 |:--------|-------:|
