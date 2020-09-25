@@ -1,4 +1,7 @@
 name: "Kat Wilson"
+output:
+ html_document:
+  css: front.css
 navbar:
   title: "Kat Wilson"
   left:

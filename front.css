@@ -70,3 +70,13 @@ p3 {
 #logo {
   margin-top: -50px !important;
 }
+
+
+
+/*----------------NAVBAR ---------------*/
+.navbar-default {
+    background-color: "#141c25f2";
+    font-weight: 400;
+    font-family: 'Archivo';
+}
+
