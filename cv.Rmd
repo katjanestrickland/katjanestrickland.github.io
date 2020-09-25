@@ -5,7 +5,6 @@ output:
     collapsed: false
     number_sections: false
     toc_depth: 3
-    code_folding: hide
     css: front.css
 
 
@@ -31,7 +30,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 | Education | |
 |:--------|-------:|
-PhD Student- Quantitative Methods (University of Pennsylvania) </br>
+
+<p>PhD Student- Quantitative Methods (University of Pennsylvania) </br>
 <p2> *full funding through Dean's Fellowship </br> </p>
 Masters Degree - Quantitative Methods (University of Texas at Austin) </br>
 Bachelors Degree - Business (University of Notre Dame) 

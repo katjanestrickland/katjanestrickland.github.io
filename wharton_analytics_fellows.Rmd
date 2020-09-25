@@ -5,7 +5,6 @@ output:
     collapsed: false
     number_sections: false
     toc_depth: 3
-    code_folding: hide
     css: front.css
 
 
