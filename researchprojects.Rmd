@@ -47,7 +47,6 @@ Causal Inference: R (MatchIt)
 <div class="row">
 <div class="col-sm-6">
 
-<p3> [project page](https://katjanewilson.github.io/PhillyTeacherRetention-Causal/) </p>
 
   <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
@@ -87,7 +86,6 @@ Random Forest: R (randomforest)
 <div class="row">
 <div class="col-sm-6">
 
-<p3>  [project page](https://katjanewilson.github.io/CORD-Random-Forest/) </p>
   <a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
 <div class="col-sm-6">

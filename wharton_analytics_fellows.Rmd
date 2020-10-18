@@ -41,42 +41,8 @@ Clustering: hierarchical clustering (hclust)
 <div class="row">
 <div class="col-sm-6">
 
-<p3> [project page](https://katjanewilson.github.io/WhartonAnalytics-MLB/) </p>
 
   <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-</div>
-<div class="col-sm-6">
-</div>
-</div>
-
----
-
-#### YouTube
-
-
-<div class="row">
-<div class="col-sm-6">
-
-|Overview |  |
-|:--------|-------:|
-
-Trending videos on YouTube do more than increase member viewership; they also inspire new content and engagement from creators. With such a large and diverse dataset of videos, product teams rely on unsupervised learning methods to identify similar features among trending videos. We explore trends to guide the marketing and product teams.
-
-|Technical |  |
-|:--------|-------:|
-Data cleaning: tidyverse </br>
-Clustering: kmeans
-
-</div>
-<div class="col-sm-6">
-```{r rsl, out.width=200, echo=F}
-# knitr::include_graphics("images/image2.jpg")
-```
-</div>
-</div>
-
-<div class="row">
-<div class="col-sm-6">
 </div>
 <div class="col-sm-6">
 </div>
