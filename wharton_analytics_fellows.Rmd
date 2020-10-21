@@ -41,6 +41,7 @@ Clustering: hierarchical clustering (hclust)
 <div class="row">
 <div class="col-sm-6">
 
+<a href = "https://katjanewilson.github.io/WhartonAnalytics-MLB/" target = "_blank"> project page </a>
 
   <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
