@@ -18,6 +18,44 @@ output:
 
 ---
 
+#### Small Samples Generalization
+
+
+
+<div class="row">
+<div class="col-sm-6">
+
+|Overview |  |
+|:--------|-------:|
+
+A reservation for researchers working in a small sample framework (where the sample is <10% of the population) is how findings might generalize to a larger target population of interest. We simulate a small sample study, and evaluate how adjustment and matching methods affect generalization statisics and estimates of the ATE. The methods assessed include stratification, IPTW (Inverse Probability Treatment Weighting), and nonparametric methods like BART (Bayesian Additive Regression Trees), as used here to estimate propensity scores.
+
+|Technical |  |
+|:--------|-------:|
+BART: BayesTree, BART </br>
+Matching: R (PSWeight)
+
+
+</div>
+<div class="col-sm-6">
+```{r, out.width=200, echo=F}
+# knitr::include_graphics("images/philly.png")
+```
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-6">
+
+
+  <a href="https://github.com/katjanewilson/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+
+---
+
 #### Philadelphia Public Schools
 
 
@@ -28,7 +66,7 @@ output:
 |Overview |  |
 |:--------|-------:|
 
-In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In partnernship with the Yale National Initiative, we evaluate trends in teacher retention across the Philadelphia School District, and arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github
+In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships among variables. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In partnernship with the Yale National Initiative, we evaluate trends in teacher retention across the Philadelphia School District, and arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github
 
 |Technical |  |
 |:--------|-------:|

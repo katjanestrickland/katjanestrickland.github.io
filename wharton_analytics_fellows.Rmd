@@ -14,6 +14,41 @@ output:
 <p><a href = "https://wca.wharton.upenn.edu/students/analytics-fellows/" target = "_blank"> Wharton Analytics Fellows </a>is a fellowship program that unites graduate </br> and undergraduate students across schools at Penn to consult with </br>companies on the development and integration  of predictive analytics</br> solutions. Below are sample projects where I served as a Technical Lead. </p>
 ---
 
+
+#### Evite
+
+<div class="row">
+<div class="col-sm-6">
+
+|Overview |  |
+|:--------|-------:|
+
+As a result of the Covid-19 economic and social shutdown in March of 2020, Evite's event business changed. Using Evite's historical event data, and publicly available Covid-19 related data (cases/deaths and city reopening phases), we predict the number of events in particular locations.
+
+|Technical |  |
+|:--------|-------:|
+ARIMA Modeling: R (forecast) </br>
+
+</div>
+<div class="col-sm-6">
+```{r vertical2, out.width=200, echo=F}
+# knitr::include_graphics("images/baseball.png")
+```
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-6">
+
+
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+
+---
+
+
 #### MLB
 
 <div class="row">
