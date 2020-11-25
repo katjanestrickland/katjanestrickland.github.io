@@ -73,9 +73,4 @@ Programming Instructor - R (<a href="https://wharton-moneyball.github.io/index.h
 
 Teacher (Americorps New York City Teaching Fellows, KIPP)
 
-|Related Coursework |  |
-|:--------|-------:|
-
-Big Data Analytics - <a href="https://sites.google.com/seas.upenn.edu/cis545" target = "_blank">courselink </a> </br>
-Data Mining - <a href="https://www.upenn.edu/learninganalytics/ryanbaker/EDM2020/course-schedule-CoreMethods-2020-v1.html" target = "_blank">courselink </a>
 
