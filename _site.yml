@@ -5,12 +5,12 @@ output:
 navbar:
   title: "Kat Wilson"
   left:
-    - text: "CV"
-      href: cv.html
     - text: "Research Projects"
       href: researchprojects.html
     - text: "Wharton Analytics Fellows"
       href: wharton_analytics_fellows.html
+    - text: "CV"
+      href: cv.html
     - text: "code"
       href: R.html
     - text: ""
