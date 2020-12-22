@@ -33,7 +33,7 @@ Researchers working in a small sample framework (where the sample size is <10% o
 |Technical |  |
 |:--------|-------:|
 BART: Bayesian Additive Regression Trees, BART </br>
-Matching: R (PSWeight)
+Matching: R (MatchIt, PSWeight)
 
 
 </div>
@@ -47,6 +47,43 @@ Matching: R (PSWeight)
 <div class="row">
 <div class="col-sm-6">
 
+
+  <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+</div>
+<div class="col-sm-6">
+</div>
+</div>
+
+---
+
+
+#### Matched Comparison of NYC Public Schools
+
+<div class="row">
+<div class="col-sm-6">
+
+|Overview |  |
+|:--------|-------:|
+
+NYC public schools vary randomly on whether or not they have the option of a self-contained classroom for students with special needs. Matching schools on various demographic variables, I explore the effect of the self-contained class option on Attendance Rates. Employing propensity score weighting through IPTW, I create a weighted population in which the covariate distribution is balanced between treatment groups, and then later use principal stratification to explore heterogeneity in treatment effect.
+
+|Technical |  |
+|:--------|-------:|
+Matching: R (MatchIt, IPTW)
+
+
+</div>
+<div class="col-sm-6">
+```{r, out.width=200, echo=F}
+# knitr::include_graphics("images/philly.png")
+```
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-6">
+
+<a href = "https://github.com/katjanewilson/NYC_open_data" target = "_blank"> project page </a>
 
   <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
@@ -111,7 +148,8 @@ Central to the debate of ethical algorithm design is a consideration of mis-clas
 |:--------|-------:|
 
 Data cleaning: tidyverse </br>
-Random Forest: R (randomforest)
+Random Forest: R (randomforest) </br>
+Interactive Confusion Tables: kableExtra
 
 
 </div>
