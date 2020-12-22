@@ -32,7 +32,7 @@ Researchers working in a small sample framework (where the sample size is <10% o
 
 |Technical |  |
 |:--------|-------:|
-BART: BayesTree, BART </br>
+BART: Bayesian Additive Regression Trees, BART </br>
 Matching: R (PSWeight)
 
 
