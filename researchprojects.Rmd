@@ -83,7 +83,7 @@ Matching: R (MatchIt, IPTW)
 <div class="row">
 <div class="col-sm-6">
 
-<a href = "https://github.com/katjanewilson/NYC_open_data" target = "_blank"> project page </a>
+<a href = "https://katjanewilson.github.io/NYC_open_data/index" target = "_blank"> project page </a>
 
   <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 </div>
