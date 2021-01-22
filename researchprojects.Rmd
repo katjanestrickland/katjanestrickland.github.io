@@ -27,7 +27,7 @@ output:
 <div class="row">
 <div class="col-sm-6">
 
-|Overview |  |
+|Overview|  |
 |:--------|-------:|
 
 Researchers working in a small sample framework (where the sample size is <10% of the population) have justifiable concerns about generalizability, or how findings translate to a larger target population of interest. Under a Monte Carlo simulation framework, we evaluate how covariance adjustment and matching methods affect bias in estimates of the ATE (Average Treatment Effect). The adjustment methods assessed include stratification, IPTW (Inverse Probability Treatment Weighting), and Bayesian Additive Regression Trees (used here as a non parametric approach to estimating propensity scores).
@@ -70,7 +70,7 @@ Matching: R (MatchIt, IPTW)
 <div class="col-sm-6">
 
 <a href="https://katjanewilson.github.io/NYC_open_data/index/">
-```{r, out.width=400, out.height=250, echo=F}
+```{r, out.width=300, out.height=300, echo=F}
 knitr::include_graphics("images/prop.png")
 ```
 </a>
@@ -106,7 +106,7 @@ Interactive Confusion Tables: kableExtra
 <div class="col-sm-6">
 
 <a href="https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/">
-```{r, out.width=500, out.height=250, echo=F}
+```{r, out.width=300, out.height=300, echo=F}
 knitr::include_graphics("images/rfimage.png")
 ```
 </a>
@@ -141,7 +141,7 @@ Causal Inference: R (MatchIt)
 <div class="col-sm-6">
 
 <a href="https://github.com/katjanewilson/Yale-National-Initiative">
-```{r, out.width=500, out.height=250, echo=F}
+```{r, out.width=300, out.height=300, echo=F}
 knitr::include_graphics("images/qq.png")
 ```
 </a>
@@ -169,14 +169,11 @@ Web scraping: Python (BeautifulSoup) </br>
 Data Cleaning: tidyverse </br>
 Data visualization: D3.js
 
-  <a href="https://github.com/katjanewilson/https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-
-
 </div>
 <div class="col-sm-6">
 
-<a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7>
-```{r, out.width=400, out.height=400, echo=F}
+<a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7">
+```{r, out.width=300, out.height=300, echo=F}
 knitr::include_graphics("images/rhcp.png")
 ```
 </a>

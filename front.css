@@ -5,23 +5,19 @@ h1 {
     font-size: 40px;
     text-align: left;
     margin: 40px;
-    margin-left: 0px;
-}
-
-.section h1 {
-padding-top: 56px;
-margin-top: -30px !important;
-color: #49c5b6;
+    color: #989494;
 }
 
 h2 {
   font-family: 'Archivo';
   font-size: 20px;
+   color: #989494;
 }
 
 h3 {
   font-family: 'Archivo';
   font-size: 18px;
+   color: #989494;
 }
   
 
@@ -30,11 +26,13 @@ h4 {
   font-family: 'Archivo';
   font-weight: 400;
   font-size: 20px;
+   color: #989494;
 }
 
 .section h4 {
   padding-top: 0px !important;
   margin-top:  0px !important;
+   color: black;
 }
 
 p {
@@ -43,6 +41,7 @@ p {
   font-size: 15px;
   /*text-indent: 20px; */
   line-height: 1.6;
+   color: #989494;
 }
 
 p2 {
@@ -51,6 +50,7 @@ p2 {
   font-size: 15px;
   /*text-indent: 20px; */
   line-height: 1.6;
+  c color: black;
 }
 
 p3 {
@@ -59,6 +59,7 @@ p3 {
   font-size: 16px;
   /*text-indent: 20px; */
   line-height: 1.6;
+   color: black;
 }
 
 
@@ -71,8 +72,17 @@ p3 {
 
 /*----------------NAVBAR ---------------*/
 .navbar-default {
-    background-color: "#141c25f2";
+    background-color: "#732821";
     font-weight: 400;
     font-family: 'Archivo';
 }
 
+img {
+  border-radius: 90%;
+  border: 4px;
+  border-color: #D69797;
+}
+
+body {
+  background-color: #FCF4F4;
+}

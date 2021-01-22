@@ -37,6 +37,7 @@ ARIMA Modeling: R (forecast) </br>
 </div>
 <div class="col-sm-6">
 
+
 ```{r, out.width=400, out.height=250, echo=F}
 knitr::include_graphics("images/evite.png")
 ```
