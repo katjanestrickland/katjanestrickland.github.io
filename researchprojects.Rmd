@@ -63,14 +63,14 @@ NYC public schools vary randomly on whether or not they have the option of a sel
 |:--------|-------:|
 Matching: R (MatchIt, IPTW)
 
-  <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://katjanewilson.github.io/NYC_open_data/index/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 
 
 </div>
 <div class="col-sm-6">
 
-<a href="https://katjanewilson.github.io/NYC_open_data/index/">
-```{r, out.width=300, out.height=300, echo=F}
+<a href="https://katjanewilson.github.io/NYC_open_data/index/" target = "_blank">
+```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/prop.png")
 ```
 </a>
@@ -105,8 +105,8 @@ Interactive Confusion Tables: kableExtra
 </div>
 <div class="col-sm-6">
 
-<a href="https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/">
-```{r, out.width=300, out.height=300, echo=F}
+<a href="https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank">
+```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/rfimage.png")
 ```
 </a>
@@ -140,8 +140,8 @@ Causal Inference: R (MatchIt)
 </div>
 <div class="col-sm-6">
 
-<a href="https://github.com/katjanewilson/Yale-National-Initiative">
-```{r, out.width=300, out.height=300, echo=F}
+<a href="https://katjanewilson.github.io/Yale-National-Initiative/"  target = "_blank">
+```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/qq.png")
 ```
 </a>
@@ -172,8 +172,8 @@ Data visualization: D3.js
 </div>
 <div class="col-sm-6">
 
-<a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7">
-```{r, out.width=300, out.height=300, echo=F}
+<a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank">
+```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/rhcp.png")
 ```
 </a>
@@ -205,7 +205,7 @@ Linear Mixed-Effects Models: lme4
 </div>
 <div class="col-sm-6">
 
-```{r, out.width=400, out.height=250, echo=F}
+```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/eng.png")
 ```
 </a>
