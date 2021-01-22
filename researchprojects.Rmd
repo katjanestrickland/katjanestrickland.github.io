@@ -201,14 +201,5 @@ Text Analysis: AFINN sentiment analysis </br>
 Linear Mixed-Effects Models: lme4
 
 
-
-</div>
-<div class="col-sm-6">
-
-```{r, out.width=300, out.height=200, echo=F}
-knitr::include_graphics("images/eng.png")
-```
-</a>
-
 </div>
 </div>

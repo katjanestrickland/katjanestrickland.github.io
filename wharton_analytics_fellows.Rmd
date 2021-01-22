@@ -38,7 +38,7 @@ ARIMA Modeling: R (forecast) </br>
 <div class="col-sm-6">
 
 
-```{r, out.width=400, out.height=250, echo=F}
+```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/evite.png")
 ```
 </a>
@@ -72,7 +72,7 @@ Clustering: hierarchical clustering (hclust)
 <div class="col-sm-6">
 
 <a href="https://katjanewilson.github.io/WhartonAnalytics-MLB/" target = "_blank">>
-```{r, out.width=400, out.height=250, echo=F}
+```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/baseball.png")
 ```
 </a>
