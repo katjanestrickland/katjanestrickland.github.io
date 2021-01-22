@@ -1,13 +1,15 @@
 ---
-title: ""
-output: 
+title: ''
+output:
   html_document:
-    collapsed: false
-    number_sections: false
+    toc: no
+    collapsed: no
+    number_sections: no
     toc_depth: 3
     css: front.css
-
-
+  pdf_document:
+    toc: no
+    toc_depth: '3'
 ---
 ---
 
@@ -29,20 +31,17 @@ As a result of the Covid-19 economic and social shutdown in March of 2020, Evite
 |:--------|-------:|
 ARIMA Modeling: R (forecast) </br>
 
+  <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+
 </div>
 <div class="col-sm-6">
-```{r vertical2, out.width=200, echo=F}
-# knitr::include_graphics("images/baseball.png")
+
+```{r, out.width=400, out.height=250, echo=F}
+knitr::include_graphics("images/evite.png")
 ```
-</div>
-</div>
+</a>
 
-<div class="row">
-<div class="col-sm-6">
-
-
-</div>
-<div class="col-sm-6">
 </div>
 </div>
 
@@ -65,23 +64,17 @@ Text Mining: textmining, tidytext </br>
 Topic Modeling: latent dirichlet allocation (LDA) </br>
 Clustering: hierarchical clustering (hclust)
 
+  <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+
 </div>
 <div class="col-sm-6">
-```{r vertical, out.width=200, echo=F}
-# knitr::include_graphics("images/baseball.png")
+
+<a href="https://katjanewilson.github.io/WhartonAnalytics-MLB//">
+```{r, out.width=400, out.height=250, echo=F}
+knitr::include_graphics("images/baseball.png")
 ```
-</div>
-</div>
+</a>
 
-<div class="row">
-<div class="col-sm-6">
-
-<a href = "https://katjanewilson.github.io/WhartonAnalytics-MLB/" target = "_blank"> project page </a>
-
-  <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-</div>
-<div class="col-sm-6">
 </div>
 </div>
-
----

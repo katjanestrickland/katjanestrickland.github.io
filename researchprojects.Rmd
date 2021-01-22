@@ -69,7 +69,7 @@ Matching: R (MatchIt, IPTW)
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc73800/">
+<a href="https://katjanewilson.github.io/NYC_open_data/index/">
 ```{r, out.width=400, out.height=250, echo=F}
 knitr::include_graphics("images/prop.png")
 ```
@@ -105,7 +105,7 @@ Interactive Confusion Tables: kableExtra
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc73800/">
+<a href="https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/">
 ```{r, out.width=500, out.height=250, echo=F}
 knitr::include_graphics("images/rfimage.png")
 ```
@@ -140,7 +140,7 @@ Causal Inference: R (MatchIt)
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc73800/">
+<a href="https://github.com/katjanewilson/Yale-National-Initiative">
 ```{r, out.width=500, out.height=250, echo=F}
 knitr::include_graphics("images/qq.png")
 ```
@@ -175,7 +175,7 @@ Data visualization: D3.js
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc73800/">
+<a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7>
 ```{r, out.width=400, out.height=400, echo=F}
 knitr::include_graphics("images/rhcp.png")
 ```
@@ -203,13 +203,11 @@ Dual Enrollment programs offer high school students the opportunity to explore c
 Text Analysis: AFINN sentiment analysis </br>
 Linear Mixed-Effects Models: lme4
 
-  <a href="https://github.com/katjanewilson/https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 
 
 </div>
 <div class="col-sm-6">
 
-<a href="https://crumplab.github.io/psyc73800/">
 ```{r, out.width=400, out.height=250, echo=F}
 knitr::include_graphics("images/eng.png")
 ```
