@@ -69,7 +69,7 @@ Matching: R (MatchIt, IPTW)
 </div>
 <div class="col-sm-6">
 
-<a href="https://katjanewilson.github.io/NYC_open_data/index/" target = "_blank">
+<a href="https://katjanewilson.github.io/NYC_open_data/" target = "_blank">
 ```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/prop.png")
 ```
