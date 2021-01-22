@@ -1,13 +1,15 @@
 ---
-title: ""
-output: 
+title: ''
+output:
   html_document:
-    collapsed: false
-    number_sections: false
+    toc: no
+    collapsed: no
+    number_sections: no
     toc_depth: 3
     css: front.css
-
-
+  pdf_document:
+    toc: no
+    toc_depth: '3'
 ---
 
 ---
@@ -35,32 +37,22 @@ Researchers working in a small sample framework (where the sample size is <10% o
 BART: Bayesian Additive Regression Trees, BART </br>
 Matching: R (MatchIt, PSWeight)
 
+  <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 
 </div>
 <div class="col-sm-6">
-```{r, out.width=200, echo=F}
-# knitr::include_graphics("images/philly.png")
-```
+
 </div>
 </div>
+
+-----
 
 <div class="row">
 <div class="col-sm-6">
-
-
-  <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-</div>
-<div class="col-sm-6">
-</div>
-</div>
-
----
 
 
 #### Matched Comparison of NYC Public Schools
 
-<div class="row">
-<div class="col-sm-6">
 
 |Overview |  |
 |:--------|-------:|
@@ -71,62 +63,18 @@ NYC public schools vary randomly on whether or not they have the option of a sel
 |:--------|-------:|
 Matching: R (MatchIt, IPTW)
 
-
-</div>
-<div class="col-sm-6">
-```{r, out.width=200, echo=F}
-# knitr::include_graphics("images/philly.png")
-```
-</div>
-</div>
-
-<div class="row">
-<div class="col-sm-6">
-
-<a href = "https://katjanewilson.github.io/NYC_open_data/index" target = "_blank"> project page </a>
-
   <a href="https://github.com/katjanewilson/BARTsimulation" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-</div>
-<div class="col-sm-6">
-</div>
-</div>
-
----
-
-#### Philadelphia Public Schools
-
-
-
-<div class="row">
-<div class="col-sm-6">
-
-|Overview |  |
-|:--------|-------:|
-
-In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships among variables. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In partnernship with the Yale National Initiative, we evaluate trends in teacher retention across the Philadelphia School District, and arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github
-
-|Technical |  |
-|:--------|-------:|
-Data cleaning: tidyverse </br>
-Causal Inference: R (MatchIt)
 
 
 </div>
 <div class="col-sm-6">
-```{r, out.width=200, echo=F}
-# knitr::include_graphics("images/philly.png")
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r, out.width=400, out.height=250, echo=F}
+knitr::include_graphics("images/prop.png")
 ```
-</div>
-</div>
+</a>
 
-<div class="row">
-<div class="col-sm-6">
-
-<a href = "https://katjanewilson.github.io/Yale-National-Initiative/" target = "_blank"> project page </a>
-
-  <a href="https://github.com/katjanewilson/PhillyTeacherRetention-Causal" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-</div>
-<div class="col-sm-6">
 </div>
 </div>
 
@@ -151,25 +99,56 @@ Data cleaning: tidyverse </br>
 Random Forest: R (randomforest) </br>
 Interactive Confusion Tables: kableExtra
 
+  <a href="https://github.com/katjanewilson/https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+
 
 </div>
 <div class="col-sm-6">
-```{r, out.width=150, echo=F}
-# knitr::include_graphics("images/covid.png")
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r, out.width=500, out.height=250, echo=F}
+knitr::include_graphics("images/rfimage.png")
 ```
+</a>
+
 </div>
 </div>
+
+---
+
+#### Philadelphia Public Schools
+
+
 
 <div class="row">
 <div class="col-sm-6">
 
-<a href = "https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank"> project page </a>
+|Overview |  |
+|:--------|-------:|
 
-  <a href="https://github.com/katjanewilson/CORD-Random-Forest" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships among variables. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In partnernship with the Yale National Initiative, we evaluate trends in teacher retention across the Philadelphia School District, and arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github
+
+|Technical |  |
+|:--------|-------:|
+Data cleaning: tidyverse </br>
+Causal Inference: R (MatchIt)
+
+
+  <a href="https://github.com/katjanewilson/Yale-National-Initiative" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+
 </div>
 <div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r, out.width=500, out.height=250, echo=F}
+knitr::include_graphics("images/qq.png")
+```
+</a>
+
 </div>
 </div>
+
 
 ---
 
@@ -190,20 +169,20 @@ Web scraping: Python (BeautifulSoup) </br>
 Data Cleaning: tidyverse </br>
 Data visualization: D3.js
 
+  <a href="https://github.com/katjanewilson/https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+
 </div>
 <div class="col-sm-6">
-```{r, out.width=150, echo=F}
-# knitr::include_graphics("images/spotify.png")
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r, out.width=400, out.height=400, echo=F}
+knitr::include_graphics("images/rhcp.png")
 ```
-</div>
-</div>
-
-<div class="row">
-<div class="col-sm-6">
+</a>
 
 </div>
 </div>
-
 ---
 
 
@@ -224,19 +203,17 @@ Dual Enrollment programs offer high school students the opportunity to explore c
 Text Analysis: AFINN sentiment analysis </br>
 Linear Mixed-Effects Models: lme4
 
+  <a href="https://github.com/katjanewilson/https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+
 </div>
 <div class="col-sm-6">
-```{r, out.width=200, echo=F}
-# knitr::include_graphics("images/onramps.png")
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r, out.width=400, out.height=250, echo=F}
+knitr::include_graphics("images/eng.png")
 ```
-</div>
-</div>
+</a>
 
-<div class="row">
-<div class="col-sm-6">
-
-
-</div>
-<div class="col-sm-6">
 </div>
 </div>

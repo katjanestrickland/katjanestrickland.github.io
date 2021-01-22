@@ -1,0 +1,116 @@
+---
+title: "Courses"
+output: 
+  html_document:
+    toc: false
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 3
+    css: front.css
+---
+
+List of current and previous courses taught at Brooklyn College of CUNY and the Graduate Center of CUNY. 
+
+## Fall 2020
+
+---
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Psyc 73800 - Cognitive Psychology
+
+Graduate Center of CUNY
+
+Bi-weekly modules taught by different faculty. The [course website](https://crumplab.github.io/psyc73800/) contains syllabus and readings.
+
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc73800/">
+```{r cogsci2020, out.width=200, echo=F}
+knitr::include_graphics("images/baseball.png")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Psyc 7709G - Statistical Methods Practicum I
+
+Brooklyn College of CUNY
+
+The [course website](https://crumplab.github.io/psyc7709Lab/) contains syllabus and readings.
+
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc7709Lab/">
+```{r statsLab, out.width=150, echo=F}
+knitr::include_graphics("images/baseball.png")
+```
+</a>
+
+</div>
+</div>
+
+
+-----
+
+## Previous courses
+
+Some of these courses have open materials, older courses may not.
+
+
+----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Psyc 7709: Using R for reproducible research
+
+This is a special topics course for the Experimental Psychology Master's program. The course website is <https://crumplab.github.io/psyc7709_2019/>
+
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc7709_2019/">
+```{r rcourse, out.width=150, echo=F}
+knitr::include_graphics("images/baseball.png")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
+
+#### Psyc 3400: Statistical Methods in Psychological Research
+
+All materials are totally free and open, including the [course Website](https://crumplab.github.io/psyc3400/),  [textbook](https://crumplab.github.io/statistics/), and [lab manual](https://crumplab.github.io/statisticsLab/).
+
+</div>
+<div class="col-sm-6">
+
+<a href="https://crumplab.github.io/psyc3400/">
+```{r statsTextbook, out.width=150, echo=F}
+knitr::include_graphics("images/covid.png")
+```
+</a>
+
+</div>
+</div>
+
+-----
+
+<div class="row">
+<div class="col-sm-6">
