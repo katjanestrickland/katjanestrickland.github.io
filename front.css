@@ -5,19 +5,19 @@ h1 {
     font-size: 40px;
     text-align: left;
     margin: 40px;
-    color: #989494;
+    color: #5A5959;
 }
 
 h2 {
   font-family: 'Archivo';
   font-size: 20px;
-   color: #989494;
+   color: #5A5959;
 }
 
 h3 {
   font-family: 'Archivo';
   font-size: 18px;
-   color: #989494;
+   color: #5A5959;
 }
   
 
@@ -26,7 +26,7 @@ h4 {
   font-family: 'Archivo';
   font-weight: 400;
   font-size: 20px;
-   color: #989494;
+  color: #5A5959;
 }
 
 .section h4 {
@@ -41,7 +41,7 @@ p {
   font-size: 15px;
   /*text-indent: 20px; */
   line-height: 1.6;
-   color: #989494;
+   color: #5A5959;
 }
 
 p2 {
@@ -84,5 +84,5 @@ img {
 }
 
 body {
-  background-color: #FCF4F4;
+  background-color: #FDF6F6;
 }

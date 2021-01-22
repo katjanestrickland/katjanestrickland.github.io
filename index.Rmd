@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = TRUE)
 |About |  |
 |:--------|-------:|
 
-Hi! I'm Kat. I am a PhD student in Quantitative Methods at the University of Pennsylvania, focusing on the use of applied statistics, machine learning, and data science, for policy research and business analytics. When I'm not coding or working on research, you can find me playing guitar, running, or reading.
+Hi. I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania. 
 
 This site is a working portfolio. Check out some sample projects at the tabs above, and see GitHub for code and analyses.
 
