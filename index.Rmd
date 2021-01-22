@@ -27,14 +27,12 @@ knitr::opts_chunk$set(echo = TRUE)
 </style>
 
 <div class="row" style="padding-top: 50px;">
-<div class="col-sm-6">
+<div class="col-sm-5">
 
 |About |  |
 |:--------|-------:|
 
-Hi. I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania. 
-
-This site is a working portfolio. Check out some sample projects at the tabs above, and see GitHub for code and analyses.
+Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania.
 
 |Contact |  |
 |:--------|-------:|
