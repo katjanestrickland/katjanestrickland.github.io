@@ -32,7 +32,7 @@ knitr::opts_chunk$set(echo = TRUE)
 |About |  |
 |:--------|-------:|
 
-Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania.
+Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania. This site is a working portfolio. Check out some sample projects at the tabs above.
 
 |Contact |  |
 |:--------|-------:|

@@ -78,9 +78,11 @@ p3 {
 }
 
 img {
-  border-radius: 90%;
-  border: 4px;
-  border-color: #D69797;
+  border-radius: 25px;
+  background: #732821;
+  padding: 5px;
+  width: 200px;
+  height: 150px;
 }
 
 body {
