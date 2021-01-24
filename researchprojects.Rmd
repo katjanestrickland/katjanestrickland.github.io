@@ -107,7 +107,7 @@ Interactive Confusion Tables: kableExtra
 
 <a href="https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank">
 ```{r, out.width=300, out.height=200, echo=F}
-knitr::include_graphics("images/rfimage.png")
+knitr::include_graphics("images/rf1.png")
 ```
 </a>
 
@@ -174,7 +174,7 @@ Data visualization: D3.js
 
 <a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank">
 ```{r, out.width=300, out.height=200, echo=F}
-knitr::include_graphics("images/rhcp.png")
+knitr::include_graphics("images/image.png")
 ```
 </a>
 
