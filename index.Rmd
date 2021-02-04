@@ -33,7 +33,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania.
 
-This summer, I'll be joining <a href = "https://www.gbkcollective.com/team" target = "_blank"> GBK Collective </a> as a summer associate in Analytics. When I'm not at my computer, you can find me <a href = "https://searchpartyaustin.bandcamp.com/" target = "_blank"> on the stage</a>.
+I'm looking forward to joining <a href = "https://www.gbkcollective.com/team" target = "_blank"> GBK Collective </a> as a summer associate in Analytics this summer. When I'm not at my computer, you can find me playing guitar.
 
 This site is a working portfolio. Check out some sample projects at the tabs above.
 
