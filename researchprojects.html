@@ -13,6 +13,7 @@
 
 <title>researchprojects.utf8</title>
 
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,6 +25,15 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -69,6 +79,7 @@ h6 {
   text-align: left;
 }
 </style>
+
 
 <link rel="stylesheet" href="front.css" type="text/css" />
 
@@ -288,21 +299,21 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://github.com/katjanewilson">
-    <span class="fa fa-github"></span>
+    <span class="fas fa-github"></span>
      
     
   </a>
 </li>
 <li>
   <a href="https://towardsdatascience.com/@katjanewilson">
-    <span class="fa fa-medium"></span>
+    <span class="fas fa-medium"></span>
      
     
   </a>
 </li>
 <li>
   <a href="https://www.linkedin.com/in/kat-wilson-920256139/">
-    <span class="fa fa-linkedin"></span>
+    <span class="fas fa-linkedin"></span>
      
     
   </a>
@@ -361,9 +372,10 @@ Samples of past and current projects
 </div>
 </div>
 <hr />
+</div>
 <div class="row">
-<div class="col-sm-6">
-<h4 id="matched-comparison-of-nyc-public-schools">Matched Comparison of NYC Public Schools</h4>
+<div id="matched-comparison-of-nyc-public-schools" class="section level4 col-sm-6">
+<h4>Matched Comparison of NYC Public Schools</h4>
 <table>
 <thead>
 <tr class="header">
@@ -390,6 +402,38 @@ Samples of past and current projects
 </div>
 <div class="col-sm-6">
 <p><a href="https://katjanewilson.github.io/NYC_open_data/" target = "_blank"> <img src="images/prop.png" width="300" height="200" /> </a></p>
+</div>
+</div>
+<hr />
+<div id="spotify-web-api" class="section level4">
+<h4>Spotify Web API</h4>
+<div class="row">
+<div class="col-sm-6">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Overview</th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing the differences of live and studio recordings across 10,000 artists’ discographies.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Technical</th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>Web scraping: Python (BeautifulSoup) </br> Data Cleaning: tidyverse </br> Data visualization: D3.js</p>
+</div>
+<div class="col-sm-6">
+<p><a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank"> <img src="images/image.png" width="300" height="200" /> </a></p>
 </div>
 </div>
 <hr />
@@ -428,102 +472,6 @@ Samples of past and current projects
 </div>
 <hr />
 </div>
-<div id="philadelphia-public-schools" class="section level4">
-<h4>Philadelphia Public Schools</h4>
-<div class="row">
-<div class="col-sm-6">
-<table>
-<thead>
-<tr class="header">
-<th align="left">Overview</th>
-<th align="right"></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<p>In experiments where randomization is not feasible, propensity score matching helps to control for confounded relationships among variables. Analysts working in this causal framework often run into a particular issue: sample size affects their ability to arrive at evenly matched samples. The problem is especially prevalent in observational studies that use administrative data. In partnernship with the Yale National Initiative, we evaluate trends in teacher retention across the Philadelphia School District, and arrive at better percent balance improvement in our causal model by trimming mis-represented groups. </br> *data private on github</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Technical</th>
-<th align="right"></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<p>Data cleaning: tidyverse </br> Causal Inference: R (MatchIt)</p>
-<p><a href="https://github.com/katjanewilson/Yale-National-Initiative" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a></p>
-</div>
-<div class="col-sm-6">
-<p><a href="https://katjanewilson.github.io/Yale-National-Initiative/"  target = "_blank"> <img src="images/qq.png" width="300" height="200" /> </a></p>
-</div>
-</div>
-<hr />
-</div>
-<div id="spotify-web-api" class="section level4">
-<h4>Spotify Web API</h4>
-<div class="row">
-<div class="col-sm-6">
-<table>
-<thead>
-<tr class="header">
-<th align="left">Overview</th>
-<th align="right"></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<p>Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing the differences of live and studio recordings across 10,000 artists’ discographies.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Technical</th>
-<th align="right"></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<p>Web scraping: Python (BeautifulSoup) </br> Data Cleaning: tidyverse </br> Data visualization: D3.js</p>
-</div>
-<div class="col-sm-6">
-<p><a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank"> <img src="images/image.png" width="300" height="200" /> </a></p>
-</div>
-</div>
-<hr />
-</div>
-<div id="growth-mindset-intervention" class="section level4">
-<h4>Growth Mindset Intervention</h4>
-<div class="row">
-<div class="col-sm-6">
-<table>
-<thead>
-<tr class="header">
-<th align="left">Overview</th>
-<th align="right"></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<p>Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We model course completion rates for over 3,000 pre-calculus students and use natural language processing to build a survey tool that better predicts levels of growth mindset among pre-college students.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Technical</th>
-<th align="right"></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-<p>Text Analysis: AFINN sentiment analysis </br> Linear Mixed-Effects Models: lme4</p>
-</div>
-</div>
-</div>
 
 
 
@@ -534,7 +482,7 @@ Samples of past and current projects
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
