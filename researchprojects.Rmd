@@ -47,12 +47,43 @@ Matching: R (MatchIt, PSWeight)
 
 -----
 
+
+
+#### Spotify Web API
+
+
 <div class="row">
 <div class="col-sm-6">
+
+|Overview|  |
+|:--------|-------:|
+
+Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project, made in conjunction with data journalists at <a href = "https://pudding.cool/" target = "_blank"> The Pudding</a>, visualizes the differences of live and studio recordings across 10,000 artists' discographies. Other work explores a single artist's data, such as <a href = "https://towardsdatascience.com/its-just-a-minor-thing-keeping-up-with-the-red-hot-chili-peppers-217ba4449746" target = "_blank"> tempo tracking </a> the Red Hot Chili Peppers, or <a href = "https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank"> sentiment analysis </a> of songs by the Smiths. 
+  
+|Technical |  |
+|:--------|-------:|
+Web scraping: Python (BeautifulSoup) </br>
+Data Cleaning: tidyverse </br>
+Data visualization: D3.js
+
+</div>
+<div class="col-sm-6">
+
+<a href="https://pudding.cool/" target = "_blank">
+```{r, out.width=300, out.height=200, echo=F}
+knitr::include_graphics("images/juke.png")
+```
+</a>
+
+</div>
+</div>
+---
 
 
 #### Matched Comparison of NYC Public Schools
 
+<div class="row">
+<div class="col-sm-6">
 
 |Overview |  |
 |:--------|-------:|
@@ -78,38 +109,6 @@ knitr::include_graphics("images/prop.png")
 </div>
 </div>
 
----
-
-
-
-#### Spotify Web API
-
-
-<div class="row">
-<div class="col-sm-6">
-
-|Overview|  |
-|:--------|-------:|
-
-  Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project involves visualizing the differences of live and studio recordings across 10,000 artists' discographies.
-  
-|Technical |  |
-|:--------|-------:|
-Web scraping: Python (BeautifulSoup) </br>
-Data Cleaning: tidyverse </br>
-Data visualization: D3.js
-
-</div>
-<div class="col-sm-6">
-
-<a href="https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank">
-```{r, out.width=300, out.height=200, echo=F}
-knitr::include_graphics("images/image.png")
-```
-</a>
-
-</div>
-</div>
 ---
 
 
