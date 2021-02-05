@@ -3,12 +3,13 @@ title: ''
 output:
   html_document:
     toc: no
+    toc_float: yes
     collapsed: no
     number_sections: no
     toc_depth: 3
     css: front.css
   pdf_document:
-    toc: no
+    toc: yes
     toc_depth: '3'
 ---
 
