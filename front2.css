@@ -1,0 +1,90 @@
+
+h1 {
+    font-family: 'Archivo';
+    font-weight: 700;
+    font-size: 40px;
+    text-align: left;
+    margin: 40px;
+    color: #5A5959;
+}
+
+h2 {
+  font-family: 'Archivo';
+  font-size: 20px;
+   color: #5A5959;
+}
+
+h3 {
+  font-family: 'Archivo';
+  font-size: 18px;
+   color: #5A5959;
+}
+  
+
+
+h4 {
+  font-family: 'Archivo';
+  font-weight: 400;
+  font-size: 20px;
+  color: #5A5959;
+}
+
+.section h4 {
+  padding-top: 0px !important;
+  margin-top:  0px !important;
+   color: black;
+}
+
+p {
+  font-family: 'Roboto';
+  font-weight: 200;
+  font-size: 15px;
+  /*text-indent: 20px; */
+  line-height: 1.6;
+   color: #5A5959;
+}
+
+p2 {
+  font-family: 'Roboto';
+  font-weight: 200;
+  font-size: 15px;
+  /*text-indent: 20px; */
+  line-height: 1.6;
+  c color: black;
+}
+
+p3 {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  /*text-indent: 20px; */
+  line-height: 1.6;
+   color: black;
+}
+
+
+
+#logo {
+  margin-top: -50px !important;
+}
+
+
+
+/*----------------NAVBAR ---------------*/
+.navbar-default {
+    background-color: "#732821";
+    font-weight: 400;
+    font-family: 'Archivo';
+}
+
+img {
+  border-radius: 25px;
+  background: #732821;
+  padding: 2px;
+  width: 300px;
+  height: 300px;
+}
+
+body {
+  background-color: white;
+}
