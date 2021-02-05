@@ -31,10 +31,17 @@ This site is a working portfolio. Check out some sample projects at the tabs abo
 
 kjanewil at upenn.edu
 
-|GitHub |  |
-|:--------|-------:|
+
 
   <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  
+
+  <a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+  
+  
+  
+  <a href="https://towardsdatascience.com/@katjanewilson/" target = "_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
+  
   
   
 </div>
