@@ -17,11 +17,11 @@ output:
 <div class="row">
 <div class="col-sm-4">
 
-|Overview|  |
+|About|  |
 |:--------|-------:|
 
 
-Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania. This summer, I'll be joining <a href = "https://www.gbkcollective.com/team" target = "_blank"> GBK Collective </a> as an associate in Analytics, and when I'm not at my computer, you can find me <a href = "https://www.youtube.com/watch?v=8ptHIdVHFNs" target = "_blank"> behind a drum kit</a>.
+Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania. I'll be joining <a href = "https://www.gbkcollective.com/team" target = "_blank"> GBK Collective </a> as a summer associate in Analytics, and when I'm not at my computer, you can find me <a href = "https://www.youtube.com/watch?v=8ptHIdVHFNs" target = "_blank"> behind a drum kit</a>.
 
 This site is a working portfolio. Check out some sample projects at the tabs above, and see GitHub for code.
 
