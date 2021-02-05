@@ -33,17 +33,14 @@ kjanewil at upenn.edu
 
 
 
-  <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github"    aria-hidden="true"></i> </a>
   
-
   <a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-  
-  
   
   <a href="https://towardsdatascience.com/@katjanewilson/" target = "_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
   
-  
-  
+
+
 </div>
 <div class="col-sm-6">
 
@@ -53,7 +50,5 @@ knitr::include_graphics("images/kat2.png")
 ```
 </a>
 
-</div>
-</div>
 
 
