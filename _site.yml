@@ -13,13 +13,13 @@ navbar:
     - text: "code"
       href: R.html
     - text: ""
-      icon: fa-github
+      icon: fab fa-github
       href: "https://github.com/katjanewilson"
     - text: ""
-      icon: fa-medium
+      icon: fab fa-medium
       href: "https://towardsdatascience.com/@katjanewilson"
     - text: ""
-      icon: fa-linkedin
+      icon: fab fa-linkedin
       href: "https://www.linkedin.com/in/kat-wilson-920256139/"
 output_dir: "."
 
