@@ -21,7 +21,7 @@ output:
 |:--------|-------:|
 
 
-Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania, and an incoming summer associate in Analytics at <a href = "https://www.gbkcollective.com/team" target = "_blank"> GBK Collective</a>. When I'm not writing about statistics, I'm writing about music, or better yet, <a href = "https://www.youtube.com/watch?v=8ptHIdVHFNs" target = "_blank"> making it</a>.
+Hi! I'm Kat. I'm a PhD student studying Quantitative Methods at the University of Pennsylvania, and an incoming summer associate in Analytics at <a href = "https://www.gbkcollective.com/team" target = "_blank"> GBK Collective</a>. When I'm not writing about statistics, I'm probably writing about music, or better yet, <a href = "https://www.youtube.com/watch?v=8ptHIdVHFNs" target = "_blank"> making it</a>.
 
 This site is a working portfolio. Check out some sample projects at the tabs above, and see GitHub for code.
 
