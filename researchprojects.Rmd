@@ -21,7 +21,7 @@ output:
 
 ---
 
-#### Small Samples Generalization
+#### Simulation of Statistical Bias in Generalization Studies
 
 
 
@@ -81,7 +81,7 @@ knitr::include_graphics("images/juke.png")
 ---
 
 
-#### Matched Comparison of NYC Public Schools
+#### Absenteeism in NYC Public Schools
 
 <div class="row">
 <div class="col-sm-6">
@@ -114,7 +114,7 @@ knitr::include_graphics("images/prop.png")
 
 
 
-#### COVID-19 Open Research
+#### Random Forest Hospitalization Prediction
 
 
 <div class="row">
@@ -150,7 +150,7 @@ knitr::include_graphics("images/rf1.png")
 ---
 
 
-#### Philadelphia Public Schools
+#### Causality in Teacher Retention
 
 
 
@@ -176,7 +176,7 @@ Data cleaning: tidyverse </br>
 </div>     
         
         
-#### Growth Mindset Intervention
+#### Randomizing Growth Mindset Interventions
         
         
 <div class="row">
