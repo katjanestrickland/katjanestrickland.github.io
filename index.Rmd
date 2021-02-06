@@ -42,7 +42,7 @@ kjanewil at upenn.edu
 
 
 </div>
-<div class="col-sm-6">
+<div class="col-sm-8">
 
 <a href="https://pudding.cool/" target = "_blank">
 ```{r, echo=F, fig.dim = c(1,1)}
