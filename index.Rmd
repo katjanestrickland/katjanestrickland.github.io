@@ -11,11 +11,11 @@ output:
 ---
 
 
-<div class="row" style="padding-top: 100px;">
+<div class="row" style="padding-top: 60px;">
 <div class="row" style="padding-left: 40px;">
 
 <div class="row">
-<div class="col-sm-4">
+<div class="col-sm-5">
 
 |About|  |
 |:--------|-------:|
@@ -40,9 +40,6 @@ kjanewil at upenn.edu
   
 </section>
 
-
-</div>
-<div class="col-sm-8">
 
 <a href="https://pudding.cool/" target = "_blank">
 ```{r, echo=F, fig.dim = c(1,1)}
