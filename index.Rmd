@@ -40,8 +40,6 @@ kjanewil at upenn.edu
   
 </section>
 
-
-<a href="https://pudding.cool/" target = "_blank">
 ```{r, echo=F, fig.dim = c(1,1)}
 knitr::include_graphics("images/kat2.png")
 ```
