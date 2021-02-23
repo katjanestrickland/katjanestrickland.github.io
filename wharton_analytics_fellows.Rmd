@@ -31,8 +31,6 @@ As a result of the Covid-19 economic and social shutdown in March of 2020, Evite
 |:--------|-------:|
 ARIMA Modeling: R (forecast) </br>
 
-  <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-
 
 </div>
 <div class="col-sm-6">
@@ -65,13 +63,10 @@ Text Mining: textmining, tidytext </br>
 Topic Modeling: latent dirichlet allocation (LDA) </br>
 Clustering: hierarchical clustering (hclust)
 
-  <a href="https://github.com/katjanewilson/WhartonAnalytics-MLB/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-
 
 </div>
 <div class="col-sm-6">
 
-<a href="https://katjanewilson.github.io/WhartonAnalytics-MLB/" target = "_blank">>
 ```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/baseball.png")
 ```
