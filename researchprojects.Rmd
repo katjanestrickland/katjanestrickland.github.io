@@ -59,7 +59,7 @@ Matching: R (MatchIt, PSWeight)
 |Overview|  |
 |:--------|-------:|
 
-Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project, made in conjunction with data journalists at <a href = "https://pudding.cool/" target = "_blank"> The Pudding</a>, visualizes the differences of live and studio recordings across 10,000 artists' discographies. Other work explores a single artist's data, such as <a href = "https://towardsdatascience.com/its-just-a-minor-thing-keeping-up-with-the-red-hot-chili-peppers-217ba4449746" target = "_blank"> tempo tracking </a> the Red Hot Chili Peppers, or <a href = "https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank"> sentiment analysis </a> of songs by the Smiths. 
+Data from the <a href = "https://developer.spotify.com/documentation/web-api/" target = "_blank"> Spotify API </a> are fodder for a few data journalism projects currently in the works. One project, made with data journalists at <a href = "https://pudding.cool/" target = "_blank"> The Pudding</a>, visualizes the differences of live and studio recordings across 10,000 artists' discographies. Other work explores a single artist's data, such as <a href = "https://towardsdatascience.com/its-just-a-minor-thing-keeping-up-with-the-red-hot-chili-peppers-217ba4449746" target = "_blank"> tempo tracking </a> the Red Hot Chili Peppers, or <a href = "https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank"> sentiment analysis </a> of songs by the Smiths. 
   
 |Technical |  |
 |:--------|-------:|
@@ -70,7 +70,7 @@ Data visualization: D3.js
 </div>
 <div class="col-sm-6">
 
-<a href="https://pudding.cool/" target = "_blank">
+<a href="https://pudding.cool/2021/02/jukebox/" target = "_blank">
 ```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/juke.png")
 ```
@@ -138,7 +138,6 @@ Interactive Confusion Tables: kableExtra
 </div>
 <div class="col-sm-6">
 
-<a href="https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank">
 ```{r, out.width=300, out.height=200, echo=F}
 knitr::include_graphics("images/rf1.png")
 ```
