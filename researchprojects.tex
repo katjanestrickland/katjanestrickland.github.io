@@ -4,8 +4,8 @@
 %
 \documentclass[
 ]{article}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -40,7 +40,17 @@
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
-\usepackage{graphicx,grffile}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -57,6 +67,9 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 
 \author{}
 \date{\vspace{-2.5em}}
@@ -64,138 +77,163 @@
 \begin{document}
 
 {
-\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{3}
 \tableofcontents
 }
-\hypertarget{projects}{%
-\subsection{Projects}\label{projects}}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Samples of past and current projects
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-Here are in process projects.
+\hypertarget{bayesian-beats}{%
+\paragraph{Bayesian Beats}\label{bayesian-beats}}
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Overview & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
+
+Researchers working in a small sample framework (where the sample size
+is \textless10\% of the population) have justifiable concerns about
+generalizability, or how findings translate to a larger target
+population of interest. Under a Monte Carlo simulation framework, we
+evaluate how covariance adjustment and matching methods affect bias in
+estimates of the ATE (Average Treatment Effect). The adjustment methods
+assessed include stratification, IPTW (Inverse Probability Treatment
+Weighting), and Bayesian Additive Regression Trees (used here as a non
+parametric approach to estimating propensity scores).
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Technical & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
+
+BART: Bayesian Additive Regression Trees, BART Matching: R (MatchIt,
+PSWeight)
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{growth-mindset-intervention}{%
-\subsection{Growth Mindset
-Intervention}\label{growth-mindset-intervention}}
+\hypertarget{simulation-of-statistical-bias-in-generalization-studies}{%
+\paragraph{Simulation of Statistical Bias in Generalization
+Studies}\label{simulation-of-statistical-bias-in-generalization-studies}}
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Overview & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
+
+Researchers working in a small sample framework (where the sample size
+is \textless10\% of the population) have justifiable concerns about
+generalizability, or how findings translate to a larger target
+population of interest. Under a Monte Carlo simulation framework, we
+evaluate how covariance adjustment and matching methods affect bias in
+estimates of the ATE (Average Treatment Effect). The adjustment methods
+assessed include stratification, IPTW (Inverse Probability Treatment
+Weighting), and Bayesian Additive Regression Trees (used here as a non
+parametric approach to estimating propensity scores).
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Technical & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
+
+BART: Bayesian Additive Regression Trees, BART Matching: R (MatchIt,
+PSWeight)
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\begin{row}
+\hypertarget{spotify-web-api}{%
+\paragraph{Spotify Web API}\label{spotify-web-api}}
 
-\begin{col-sm-6}
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Overview & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
 
-\hypertarget{growth-mindset-intervention-1}{%
-\paragraph{\texorpdfstring{\href{https://katjanewilson.github.io/WhartonAnalytics-MLB/}{Growth
-Mindset
-Intervention}}{Growth Mindset Intervention}}\label{growth-mindset-intervention-1}}
+Data from the Spotify API are fodder for a few data journalism projects
+currently in the works. One project, made with data journalists at The
+Pudding, visualizes the differences of live and studio recordings across
+10,000 artists' discographies. Other work explores a single artist's
+data, such as tempo tracking the Red Hot Chili Peppers, or sentiment
+analysis of songs by the Smiths.
 
-Dual Enrollment programs offer high school students the opportunity to
-explore college curricula and earn college credit before graduation.
-With a large number of students participating in these programs each
-year in the state of Texas, researchers have the comfort of a large
-sample size and the opportunity to ethically randomize interventions. We
-evaluate how changes in growth mindset influence sense of belonging,
-course completion, and inclination to pursue STEM fields for a large
-cohort (\textasciitilde3,000 students).
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Technical & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
 
-\hypertarget{technical}{%
-\subparagraph{Technical}\label{technical}}
+Web scraping: Python (BeautifulSoup) Data Cleaning: tidyverse Data
+visualization: D3.js
 
-Data cleaning: tidyverse Text Analysis: tidytext
-
-\end{col-sm-6}
-
-\begin{col-sm-6}
-
-\includegraphics[width=800px]{images/onramps}
-
-\end{col-sm-6}
-
-\end{row}
+\includegraphics[width=300px,height=200]{images/juke}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{khan-academy-chat}{%
-\subsection{Khan Academy Chat}\label{khan-academy-chat}}
+\hypertarget{absenteeism-in-nyc-public-schools}{%
+\paragraph{Absenteeism in NYC Public
+Schools}\label{absenteeism-in-nyc-public-schools}}
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Overview & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
+
+NYC public schools vary randomly on whether or not they have the option
+of a self-contained classroom for students with special needs. Matching
+schools on various demographic variables, I explore the effect of the
+self-contained class option on Attendance Rates. Employing propensity
+score weighting through IPTW, I create a weighted population in which
+the covariate distribution is balanced between treatment groups, and
+later use principal stratification to explore heterogeneity in treatment
+effect.
+
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Technical & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
+
+Matching: R (MatchIt, IPTW)
+
+\includegraphics[width=300px,height=200]{images/prop}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\begin{row}
+\hypertarget{random-forest-hospitalization-prediction}{%
+\paragraph{Random Forest Hospitalization
+Prediction}\label{random-forest-hospitalization-prediction}}
 
-\begin{col-sm-6}
-
-\hypertarget{khan-chat}{%
-\paragraph{\texorpdfstring{\href{https://katjanewilson.github.io/WhartonAnalytics-MLB/}{Khan
-Chat}}{Khan Chat}}\label{khan-chat}}
-
-Overview
-
-\hypertarget{technical-1}{%
-\paragraph{Technical}\label{technical-1}}
-
-WebScraping: BeautifulSoup
-\href{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}{link}
-
-\end{col-sm-6}
-
-\begin{col-sm-6}
-
-\includegraphics[width=800px]{images/onramps}
-
-\end{col-sm-6}
-
-\end{row}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{philadelphia-public-schools}{%
-\subsection{Philadelphia Public
-Schools}\label{philadelphia-public-schools}}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{row}
-
-\begin{col-sm-6}
-
-\hypertarget{philadelphia}{%
-\paragraph{\texorpdfstring{\href{https://katjanewilson.github.io/WhartonAnalytics-MLB/}{Philadelphia}}{Philadelphia}}\label{philadelphia}}
-
-In experiments where randomization is not feasible, propensity score
-matching helps to control for confounded relationships. Analysts working
-in this causal framework often run into a particular issue: sample size
-affects their ability to arrive at evenly matched samples. This problem
-is especially prevalent in observational studies which use
-administrative data. In a project with the Philadelphia School District,
-we arrive at better percent balance improvement by trimming
-mis-represented groups. *data private on github \#\#\#\#\# Technical
-Data cleaning: tidyverse Causal Inference: R (MatchIt)
-
-\end{col-sm-6}
-
-\begin{col-sm-6}
-
-\includegraphics[width=800px]{images/philly}
-
-\end{col-sm-6}
-
-\end{row}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{covid-19-open-research}{%
-\subsection{COVID-19 Open Research}\label{covid-19-open-research}}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{row}
-
-\begin{col-sm-6}
-
-\hypertarget{covid}{%
-\paragraph{\texorpdfstring{\href{https://katjanewilson.github.io/WhartonAnalytics-MLB/}{COVID}}{COVID}}\label{covid}}
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Overview & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
 
 Central to the debate of ethical algorithm design is a consideration of
 mis-classification costs for supervised learning methods. By building in
@@ -203,92 +241,54 @@ asymmetric costs through sampling, machine learning engineers can take
 heed of policy makers' desired cost-ratios. This random forest algorithm
 takes asymmetric sampling into account when predicting death rates of
 coronavirus patients in South Korea using the Kaggle COVID-19 Open
-Research Dataset. *course project for Stat 974
+Research Dataset.
 
-\hypertarget{technical-2}{%
-\paragraph{Technical}\label{technical-2}}
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Technical & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
 
-Data cleaning: tidyverse Random Forest: R (randomforest)
+Data cleaning: tidyverse Random Forest: R (randomforest) Interactive
+Confusion Tables: kableExtra
 
-\end{col-sm-6}
-
-\begin{col-sm-6}
-
-\includegraphics[width=800px]{images/image2}
-
-\end{col-sm-6}
-
-\end{row}
+\includegraphics[width=300px,height=200]{images/rf1}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{los-angeles-census-tracts}{%
-\subsection{Los Angeles Census Tracts}\label{los-angeles-census-tracts}}
+\hypertarget{causality-in-teacher-retention}{%
+\paragraph{Causality in Teacher
+Retention}\label{causality-in-teacher-retention}}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Overview & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
 
-\begin{row}
+In experiments where randomization is not feasible, propensity score
+matching helps to control for confounded relationships among variables.
+Analysts working in this causal framework often run into a particular
+issue: sample size affects their ability to arrive at evenly matched
+samples. The problem is especially prevalent in observational studies
+that use administrative data. In partnernship with the Yale National
+Initiative, we evaluate trends in teacher retention across the
+Philadelphia School District, and arrive at better percent balance
+improvement in our causal model by trimming mis-represented groups.
+*data private on github
 
-\begin{col-sm-6}
+\begin{longtable}[]{@{}lr@{}}
+\toprule
+Technical & \\
+\midrule
+\endhead
+\bottomrule
+\end{longtable}
 
-\hypertarget{la}{%
-\paragraph{\texorpdfstring{\href{https://katjanewilson.github.io/WhartonAnalytics-MLB/}{LA}}{LA}}\label{la}}
-
-A hard to swallow assumption in the linear model framework is that a
-particular feature will change at the same rate across all values for a
-given variable. General Additive Models (GAM) give analysts the
-opportunity to identify nonlinear changes between covariates and the
-dependent variable. These nonparametric models can suffer from poor
-interpretability, however, and strong assumptions will have to be made
-regarding the data generation process. In a project using census data in
-the city of Los Angeles, GAM models identify outlier trends in homeless
-individuals, yet they also reveal limitations of the loess smoother at
-upper boundaries of data. *course project for Stat 974 \#\#\#\#
-Technical Data cleaning: tidyverse General Additive Models: mgc, mgcViz
-and gam
-
-\end{col-sm-6}
-
-\begin{col-sm-6}
-
-\includegraphics[width=800px]{images/image2}
-
-\end{col-sm-6}
-
-\end{row}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\hypertarget{spotify-web-api}{%
-\subsection{Spotify Web API}\label{spotify-web-api}}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{row}
-
-\begin{col-sm-6}
-
-\hypertarget{spot}{%
-\paragraph{\texorpdfstring{\href{https://katjanewilson.github.io/WhartonAnalytics-MLB/}{Spot}}{Spot}}\label{spot}}
-
-Data from the Spotify API are fodder for a few data journalism projects
-currently in the works. One project involves visualizing changing
-applause levels among an artist's studio and live recordings. With this
-jitter plot, built using the JavaScript library D3.js, a user can
-evaluate distances between points and visualize the ``ceiling effect''
-of comparison data. \#\#\#\# Technical Web scraping: Python
-(BeautifulSoup) Data Cleaning: tidyverse Data visualization: D3.js
-
-\end{col-sm-6}
-
-\begin{col-sm-6}
-
-\includegraphics[width=800px]{images/image2}
-
-\end{col-sm-6}
-
-\end{row}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+Data cleaning: tidyverse Causal Inference: R (MatchIt)
 
 \end{document}

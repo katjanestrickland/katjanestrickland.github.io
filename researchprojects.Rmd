@@ -21,6 +21,37 @@ output:
 
 ---
 
+
+#### Bayesian Beats
+
+
+
+<div class="row">
+<div class="col-sm-6">
+
+|Overview|  |
+|:--------|-------:|
+
+Bob Dylan doesn't often grace the pages of the Wall Street Journal, but last year, the iconic folk singer made financial headlines when he sold the entirety of his music catalog for 300 million dollars. Songs, like other forms of art, are a potentially valuable yet hard to appraise investment, valuable because of the potential to build more popularity from modern streaming services, and all the more uncertain because of the inherent ambiguity in predicting how creative leaps will be adored or ignored by music fans. Data from streaming platforms offers some hope in modeling future cash flows from new releases, and this modeling begins with prediction of new songs' popularity on streaming platforms. In this analysis, I approach the question from a Bayesian perspective. The prediction centers around how a song written in one of the 12 keys will perform in popularity count on Spotify, the largest worldwide streaming platform. Bayesian methods are particularly suited to model uncertainty in this predication, and perform well by incorporating prior information built into the vast dataset of songs. An analysis of this type might satisfy the creative types- what makes music 'experimental?'- yet also satisfy a financial itch- is a new song in a different key going to sell?
+
+|Technical |  |
+|:--------|-------:|
+Bayesian Modeling, Gibbs Sampler, Hierarchical Bayes </br>
+
+
+  <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+
+</div>
+<div class="col-sm-6">
+
+</div>
+</div>
+
+-----
+
+
+
+
 #### Simulation of Statistical Bias in Generalization Studies
 
 
@@ -175,23 +206,3 @@ Data cleaning: tidyverse </br>
 </div>     
         
         
-#### Randomizing Growth Mindset Interventions
-        
-        
-<div class="row">
-<div class="col-sm-6">
-        
-|Overview |  |
-|:--------|-------:|
-        
-Dual Enrollment programs offer high school students the opportunity to explore college curricula and earn college credit before graduation. With a large number of students participating in these programs each year in the state of Texas, researchers have the comfort of a large sample size and the opportunity to ethically randomize interventions. We model course completion rates for over 3,000 pre-calculus students and use natural language processing to build a survey tool that better predicts levels of growth mindset among pre-college students.
-      
-|Technical |  |
-|:--------|-------:|
-
-Text Analysis: AFINN sentiment analysis </br>
-Linear Mixed-Effects Models: lme4
-      
-      
-</div>
-</div>
