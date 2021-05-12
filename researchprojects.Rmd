@@ -44,6 +44,14 @@ Bayesian Modeling, Gibbs Sampler, Hierarchical Bayes </br>
 </div>
 <div class="col-sm-6">
 
+
+<a href="https://pudding.cool/2021/02/jukebox/" target = "_blank">
+```{r, echo=F}
+knitr::include_graphics("animal.png")
+```
+</a>
+
+
 </div>
 </div>
 
@@ -166,13 +174,6 @@ Interactive Confusion Tables: kableExtra
   <a href="https://github.com/katjanewilson/https://katjanewilson.github.io/Kaggle-Open-Research-Challenge-Random-Forest/" target = "_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
 
 
-</div>
-<div class="col-sm-6">
-
-```{r, out.width=300, out.height=200, echo=F}
-knitr::include_graphics("images/rf1.png")
-```
-</a>
 
 </div>
 </div>
