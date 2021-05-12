@@ -45,7 +45,7 @@ Bayesian Modeling, Gibbs Sampler, Hierarchical Bayes </br>
 <div class="col-sm-6">
 
 
-<a href="https://pudding.cool/2021/02/jukebox/" target = "_blank">
+<a href="https://github.com/katjanewilson/BayesBeats/blob/main/README.md" target = "_blank">
 ```{r, echo=F}
 knitr::include_graphics("animal.png")
 ```
