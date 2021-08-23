@@ -1,0 +1,28 @@
+### archive
+
+## archive site.yml
+
+name: "Kat Wilson"
+output:
+ html_document:
+navbar:
+  title: "Kat Wilson"
+  left:
+    - text: "Research Projects"
+      href: researchprojects.html
+    - text: "Wharton Analytics Fellows"
+      href: wharton_analytics_fellows.html
+    - text: "CV"
+      href: cv.html
+    - text: "code"
+      href: R.html
+    - text: ""
+      icon: fab fa-github
+      href: "https://github.com/katjanewilson"
+    - text: ""
+      icon: fab fa-medium
+      href: "https://towardsdatascience.com/@katjanewilson"
+    - text: ""
+      icon: fab fa-linkedin
+      href: "https://www.linkedin.com/in/kat-wilson-920256139/"
+output_dir: "."
