@@ -35,7 +35,7 @@ kjanewil at upenn.edu
 
 Causal Inference / 
 Generalization /
-Meta Analysis
+Meta-Analysis
 
 
 
