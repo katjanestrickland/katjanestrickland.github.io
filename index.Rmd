@@ -1,13 +1,13 @@
 ---
 title: ''
 output:
-  pdf_document:
-    toc_depth: '3'
   html_document:
     collapsed: no
     number_sections: no
     toc_depth: 3
     css: front2.css
+  pdf_document:
+    toc_depth: '3'
 ---
 
 
@@ -15,21 +15,37 @@ output:
 <div class="row" style="padding-left: 40px;">
 
 <div class="row">
-<div class="col-sm-4">
+<div class="col-sm-8">
 
 |About|  |
 |:--------|-------:|
 
+Ph.D. student in Quantitative Methods at UPenn /
+M.A. student in Statistics at The Wharton School
 
-Hi. I'm Kat. I'm a PhD at the University of Pennsylvania studying Quantitative Methods, and an incoming Summer Associate in Analytics at <a href = "https://www.gbkcollective.com/team" target = "_blank"> GBK Collective</a>. When I'm not analyzing data, I'm probably writing about music, or better yet, making it.
-
-This site is a working portfolio. Check out some sample projects at the tabs above, and see GitHub for code.
 
 
 |Contact |  |
 |:--------|-------:|
 
 kjanewil at upenn.edu
+
+|Academic Research Areas|  |
+|:--------|-------:|
+
+Causal Inference / 
+Generalization /
+Meta Analysis
+
+
+
+|Music Writing|  |
+|:--------|-------:|
+
+<a href = "https://pudding.cool/2021/02/jukebox/" target = "_blank"> Live Music Analyst </a> 
+  / <a href = "https://towardsdatascience.com/its-just-a-minor-thing-keeping-up-with-the-red-hot-chili-peppers-217ba4449746" target = "_blank"> Tempo Tracking </a>  / <a href = "https://www.rollingstone.com/pro/features/music-d-minor-saddest-key-1210591/" target = "_blank"> Heartbreak Key </a>/ <a href = "https://towardsdatascience.com/heaven-knows-im-miserable-now-limitations-of-sentiment-analysis-with-a-very-sentimental-band-215c6d898ba7" target = "_blank"> Smiths Sentiment </a> 
+
+
 
 
 
