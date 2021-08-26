@@ -34,8 +34,8 @@ kjanewil at upenn.edu
 |:--------|-------:|
 
 Causal Inference / 
-Generalization /
-Meta-Analysis
+Generalizability /
+Psychometrics
 
 
 
