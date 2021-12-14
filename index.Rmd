@@ -15,7 +15,7 @@ output:
 <div class="row" style="padding-left: 40px;">
 
 <div class="row">
-<div class="col-sm-8">
+<div class="col-sm-10">
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
@@ -25,8 +25,8 @@ output:
 |About|  |
 |:--------|-------:|
 
-Ph.D. student in Quantitative Methods at UPenn /
-M.A. student in Statistics at The Wharton School
+Ph.D. Candidate in Quantitative Methods at UPenn /
+M.A. Student in Statistics at The Wharton School
 
 
 |Contact |  |
