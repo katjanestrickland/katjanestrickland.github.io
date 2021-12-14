@@ -16,6 +16,11 @@ output:
 
 <div class="row">
 <div class="col-sm-8">
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
 
 |About|  |
 |:--------|-------:|
@@ -24,11 +29,11 @@ Ph.D. student in Quantitative Methods at UPenn /
 M.A. student in Statistics at The Wharton School
 
 
-
 |Contact |  |
 |:--------|-------:|
 
 kjanewil at upenn.edu
+
 
 |Academic Research Areas|  |
 |:--------|-------:|
@@ -37,13 +42,18 @@ Causal Inference /
 Generalizability /
 Psychometrics
 
-
-
-
-  <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github"    aria-hidden="true"></i> </a> <a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a> <a href="https://towardsdatascience.com/@katjanewilson/" target = "_blank"><i class="fa fa-medium" aria-hidden="true"></i></a>
+  <a href="https://github.com/katjanewilson" target = "_blank"><i class="fa fa-github"></i> </a> <a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank">
+  
   
 
-  
+  <a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank"><i class="fa fa-linkedin"></i> </a> <a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank">
+
+
+
+
+  <a href="https://medium.com/@katjanewilson" target = "_blank"><i class="fa fa-medium"></i> </a> <a href="https://www.linkedin.com/in/kat-wilson-920256139/" target = "_blank">
+
+
 
 
 
