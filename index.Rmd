@@ -25,8 +25,8 @@ output:
 |About|  |
 |:--------|-------:|
 
-Ph.D. Candidate in Quantitative Methods at UPenn /
-M.A. Student in Statistics at The Wharton School
+Ph.D. Quantitative Methods at UPenn /
+M.A. Statistics The Wharton School
 
 
 |Contact |  |
