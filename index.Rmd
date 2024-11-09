@@ -25,7 +25,7 @@ output:
 |About|  |
 |:--------|-------:|
 
-Ph.D. Quantitative Methods at UPenn new /
+Ph.D. Quantitative Methods at UPenn new new /
 M.A. Statistics The Wharton School
 
 
