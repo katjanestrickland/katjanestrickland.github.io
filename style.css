@@ -127,7 +127,7 @@ main {
     width: 220px;
     height: 220px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 50%;
     border: 3px solid var(--color-border);
 }
 
@@ -135,7 +135,7 @@ main {
     width: 220px;
     height: 220px;
     background: #e0ddd8;
-    border-radius: 12px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
