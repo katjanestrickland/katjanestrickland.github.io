@@ -153,6 +153,35 @@ main {
     color: var(--color-text);
 }
 
+/* ===== Profile Icon Links ===== */
+.profile-icons {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.profile-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.profile-icons a:hover {
+    background: var(--color-accent-hover);
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* ===== Old text profile links (kept for compatibility) ===== */
 .profile-links {
     margin-top: 0.75rem;
     display: flex;
