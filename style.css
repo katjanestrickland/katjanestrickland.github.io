@@ -111,6 +111,10 @@ main {
     width: 100%;
 }
 
+main.about-main {
+    max-width: 1120px;
+}
+
 /* ===== About Page Layout ===== */
 .about-layout {
     display: grid;
